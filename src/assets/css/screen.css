@@ -1,3 +1,41 @@
-h1 {
 
+/*-----------------*/
+/*--Overal Styling-*/
+/*-----------------*/
+
+h1, nav {
+    text-align: center;
+}
+
+
+/*-----------------*/
+/*------Title------*/
+/*-----------------*/
+
+h1{
+     font-family: sans-serif;
+     font-size: 5rem;
+     margin-top: 250px;
+}
+
+
+
+/*-----------------*/
+/*-----Buttons-----*/
+/*-----------------*/
+
+nav{
+     margin-top: 25px;
+}
+
+li {
+    padding: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 2rem;
+    border: 1px black solid;
+    padding: 5px;
 }
