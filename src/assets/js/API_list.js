@@ -13,7 +13,7 @@ function addGame() {   // Add a new game in your lobby
 }
 
 function addPlayer(gameId, playerName) { //add player to your lobby, player name needs to be lowercase
-    return fetchFromServer(`${config.root}games/${gameId}/players`, 'POST', {playerName: `${playerName}`}).then(function (response) {
+    return fetchFromServerWithReturnErrorAndJson(`${config.root}games/${gameId}/players`, 'POST', {playerName: `${playerName}`}).then(function (response) {
         return response;
     })
 }
