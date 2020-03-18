@@ -1,0 +1,107 @@
+/*------------------------*/
+/*    GENERAL ELEMENTS    */
+/*------------------------*/
+
+body {
+    font-family: Orbitron, sans-serif;
+    height: 100vh;
+}
+
+h1{
+    font-size: 5rem;
+}
+
+
+/*---------------------*/
+/* CONTAINING ELEMENTS */
+/*---------------------*/
+
+
+
+/*------------------------*/
+/* PAGE SPECIFIC ELEMENTS */
+/*------------------------*/
+
+header {
+padding: 15px;
+
+}
+header h2 {
+    display: block;
+    text-align: center;
+}
+header a {
+
+}
+
+
+.button  {
+    text-decoration: none;
+    color: black;
+    font-size: 2rem;
+    border: 1px black solid;
+    padding: 5px;
+}
+
+aside {
+    border: 1px black solid;
+    padding: 5px;
+}
+
+main {
+    text-align: center;
+    flex-basis: 85%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50%;
+
+
+}
+
+aside {
+    padding: 10px 10px 10px 15px ;
+    font-size: 1.5rem;
+    flex-basis: 15%;
+    margin-right: 15px;
+    height: 50%;
+}
+
+aside dt{
+    float: left;
+}
+aside dd{
+    float: right;
+}
+
+
+div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: center;
+    height: 80%;
+}
+
+footer{
+    margin: auto;
+    width: 50%;
+}
+
+footer ul {
+    list-style-type: none;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+
+}
+
+footer li{
+    padding: 10px;
+}
+
+#inviteURL {
+    border: 1px black solid;
+    padding: 5px;
+}
