@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded',init);
 
 function init(){
     fillLobbyList();
-
+    document.querySelector('main>a').addEventListener('click',fillLobbyList);
 }
 
 function fillLobbyList() {
