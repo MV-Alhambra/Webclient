@@ -1,0 +1,76 @@
+/*------------------------*/
+/* PAGE SPECIFIC ELEMENTS */
+/*------------------------*/
+
+header {
+    font-family: Orbitron, serif;
+    font-size: 44px;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-bottom: 1%;
+}
+
+main {
+    padding: 0 7vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    font-family: Neuton, serif;
+    font-size: 22px;
+}
+
+main a {
+    padding: 1% 2%;
+    border: black 1px solid;
+    text-decoration: none;
+    color: black;
+    transition: background-color 1s, color 1s;
+    display: inline-block;
+    white-space: nowrap;
+    margin-left: 10px;
+}
+
+main a:not([href]){
+    font-size: 40px;
+    line-height: 40px;
+    padding:  0 1%;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+main a:not([href]):active{
+    background: black;
+    color: white;
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+
+}
+main a[href]:hover {
+    color: white;
+    background: black;
+}
+
+main ul {
+    margin-top: 2%;
+    border: black 1px solid;
+    height: 61vh;
+    width: 81vw;
+    display: block;
+    padding: 2vh 2vw;
+    overflow: auto;
+}
+
+main ul li {
+    display: flex;
+    border: black 1px solid;
+    width: 80vw;
+    justify-content: space-between;
+    margin-top: 5px;
+    padding: 5px;
+    align-items: center;
+}
+
+main ul li a {
+    text-decoration: none;
+}

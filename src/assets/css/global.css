@@ -1,0 +1,14 @@
+/*Put in this file all css that would be used across different pages like a common button.*/
+
+/*------------------------*/
+/*    GENERAL ELEMENTS    */
+/*------------------------*/
+
+@import url("reset.css");  /*this file imports the css into this so that you have to manually each time import reset.css too, BUT you have to have this file as first css linked else ur reset will override your custom css*/
+
+@import url('https://fonts.googleapis.com/css?family=Neuton:700|Orbitron:900&display=swap'); /*Imports the fonts*/
+
+body{ /* override this in your custom css if you want your page to be scrollable but i checked the wireframes and it seems like no page has to be scrollable*/
+    height: 100vh;
+    width: 100vw;
+}
