@@ -21,6 +21,29 @@ a
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
+form
+{
+    margin-top: 8rem;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+li
+{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+li label
+{
+    margin-right: 2rem;
+}
+li input
+{
+    alignment: right;
+}
 
 
 /*---------------------*/
