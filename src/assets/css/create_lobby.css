@@ -40,10 +40,6 @@ li label
 {
     margin-right: 2rem;
 }
-li input
-{
-    alignment: right;
-}
 button
 {
     background-color: white;
@@ -52,7 +48,6 @@ button
     padding: 15px;
     color: black;
     border: 3px black solid;
-    alignment: center;
     margin-top: 2rem;
     margin-right: auto;
     margin-left: auto;
