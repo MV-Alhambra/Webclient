@@ -9,24 +9,20 @@
 </head>
 <body>
 <main class="flex-container">
-    <a href="#" id="othergame" title="Join another game">Join another game</a>
+    <section id="othergame">
+        <a href="#" title="Join another game">Join another game</a>
+    </section>
     <section id="gameinfo">
         <header>Custom game name</header>
         <form method="post" action="#">
-            <label for = "userid">Your username:</label>
-            <input type="text" id="userid" required>
-            <input type="submit" id="join" value="Join game">
+            <ul>
+                <li><label for = "userid">Your username:</label>
+                    <input type="text" id="userid" required></li>
+                <li><input type="submit" id="join" value="Join game"></li>
+            </ul>
+
+
         </form>
-    </section>
-    <section id="playerlist">
-        <ul>
-            <li>Player 1</li>
-            <li>Player 2</li>
-            <li>Player 3</li>
-            <li>Player 4</li>
-            <li>Player 5</li>
-            <li>Player 6</li>
-        </ul>
     </section>
 </main>
 </body>
