@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Neuton:700|Orbitron:900&display=swap');
+
+header {
+    font-family: Orbitron, serif;
+    font-size: 44px;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-bottom: 1%;
+}
+
+main {
+    padding: 0 7vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    font-family: Neuton, serif;
+    font-size: 22px;
+}
+
+main a {
+    padding: 1% 2%;
+    border: black 1px solid;
+    text-decoration: none;
+    color: black;
+    transition: background-color 1s, color 1s;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+main a:hover {
+    color: white;
+    background: black;
+}
+
+main ul {
+    margin-top: 2%;
+    border: black 1px solid;
+    height: 61vh;
+    width: 81vw;
+    display: block;
+    padding: 2vh 2vw;
+    overflow: auto;
+}
+
+main ul li {
+    display: flex;
+    border: black 1px solid;
+    width: 78vw;
+    justify-content: space-between;
+    margin-top: 5px;
+    padding: 5px;
+    align-items: center;
+}
+
+main ul li a {
+    text-decoration: none;
+}
