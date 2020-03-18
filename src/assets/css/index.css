@@ -1,0 +1,43 @@
+/*------------------------*/
+/*    GENERAL ELEMENTS    */
+/*------------------------*/
+
+h1, nav {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+
+h1{
+    font-size: 5rem;
+    margin-top: 250px;
+}
+
+
+
+li {
+    padding: 20px;
+}
+
+
+
+/*---------------------*/
+/* CONTAINING ELEMENTS */
+/*---------------------*/
+
+nav{
+     margin-top: 25px;
+}
+
+/*------------------------*/
+/* PAGE SPECIFIC ELEMENTS */
+/*------------------------*/
+
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 2rem;
+    border: 1px black solid;
+    padding: 5px;
+}
