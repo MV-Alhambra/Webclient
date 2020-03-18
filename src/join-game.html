@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Mitch Rollez">
-    <link rel="stylesheet" type="text/css" href="assets/css/global.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/css/single_page_css/join-gamelobby.css"/>
-    <title>Custom game name</title>
+	<meta charset="UTF-8">
+	<meta content="Mitch Rollez" name="author">
+	<link href="assets/css/global.css" rel="stylesheet" type="text/css"/>
+	<link href="assets/css/single_page_css/join-game.css" rel="stylesheet" type="text/css"/>
+	<title>Custom game name</title>
 </head>
 <body>
-<main class="flex-container">
-    <section id="othergame">
-        <a href="list_games.html" title="Join another game">Join another game</a>
-    </section>
-    <section id="gameinfo">
-        <header>Custom game name</header>
-        <form method="post" action="#">
-            <ul>
-                <li><label for = "userid">Your username:</label>
-                    <input type="text" id="userid" required></li>
-                <li><input type="submit" id="join" value="Join game"></li>
-            </ul>
-
-
-        </form>
-    </section>
-</main>
+	<main class="flex-container">
+		<section id="othergame">
+			<a href="list_games.html" title="Join another game">Join another game</a>
+		</section>
+		<section id="gameinfo">
+			<header>Custom game name</header>
+			<form action="#" method="post">
+				<ul>
+					<li><label for="userid">Your username:</label>
+						<input id="userid" required type="text"></li>
+					<li><input id="join" type="submit" value="Join game"></li>
+				</ul>
+			</form>
+			<p class="error">Houston we have a problem</p>
+		</section>
+	</main>
 </body>
 </html>

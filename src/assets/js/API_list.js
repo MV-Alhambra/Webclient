@@ -11,3 +11,9 @@ function addGame() {   // Add a new game in your lobby
         return response; // The reply here is the game ID, keep it secret, keep it safe!
     });
 }
+
+function addPlayer(gameId, playerName) { //add player to your lobby, player name needs to be lowercase
+    return fetchFromServer(`${config.root}games/${gameId}/players`, 'POST', {playerName: `${playerName}`}).then(function (response) {
+        return response;
+    })
+}
