@@ -34,7 +34,7 @@ main.flex-container{
     margin-top: 3em;
 }
 
-#gameinfo header{
+#gameinfo h1{
     font-size: 3em;
     font-weight: bold;
 }

@@ -1,10 +1,10 @@
 "use strict";
 
 function fetchFromServer(url, httpVerb, requestBody){
-    let options= {};
-    options.method = httpVerb;
-
-    options.headers = {};
+    let options= {
+        method: httpVerb,
+        headers:  {}
+    };
     options.headers["Content-Type"] = "application/json";
 
     // Don't forget to add data to the body when needed
