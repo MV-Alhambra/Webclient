@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Alhambra</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/global.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/single_page_css/create_game.css">
+	<meta charset="UTF-8">
+	<title>Alhambra</title>
+	<link href="assets/css/global.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/single_page_css/create_game.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
-<a href="list_games.html">Join a game</a>
-<h1>Create a game</h1>
-
-<form method="post">
-    <ul>
-        <li>
-    <label for="Game_Name">Game name:</label>
-    <input type="text" id="Game_Name" name="Game_Name" placeholder="WONT WORK YET">
-        </li>
-        <li>
-    <label for="Number_of_players">Number of players:</label>
-    <input type="number" id="Number_of_players" name="Number_of_players" min="2" max="6" value="4">
-        </li>
-        <li>
-    <label for="Player_Name">Your playername:</label>
-    <input type="text" id="Player_Name" name="Player_Name" required>
-        </li>
-    </ul>
-    <button type="submit" id="send" name="send">Create Game</button>
-
-</form>
-    <p class="error">Houston we have a problem</p>
+	<a href="list_games.html">Join a game</a>
+	<h1>Create a game</h1>
+	<form method="post">
+		<ul>
+			<li>
+				<label for="Game_Name">Game name:</label>
+				<input id="Game_Name" name="Game_Name" placeholder="WONT WORK YET" type="text">
+			</li>
+			<li>
+				<label for="Number_of_players">Number of players:</label>
+				<input id="Number_of_players" max="6" min="2" name="Number_of_players" type="number" value="4">
+			</li>
+			<li>
+				<label for="Player_Name">Your playername:</label>
+				<input id="Player_Name" name="Player_Name" required type="text">
+			</li>
+		</ul>
+		<button id="send" name="send" type="submit">Create Game</button>
+	</form>
+	<p class="error">Houston we have a problem</p>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/communication.js"></script>
+    <script src="assets/js/API_list.js"></script>
+    <script src="assets/js/single_page_js/create_game.js"></script>
 </body>
+
 </html>

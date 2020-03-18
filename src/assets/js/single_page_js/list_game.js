@@ -12,7 +12,7 @@ function fillLobbyList() {
     list.innerHTML='';
     returnGames().then(function (result) {
         result.forEach( lobby => {
-            list.innerHTML +=  `<li><p>${lobby.id}</p> <em>${lobby.playerCount}/6 players</em> <a href="join-game.html">Join game</a></li>`;
+            list.innerHTML +=  `<li><p>${lobby.id}</p> <em>${lobby.playerCount}/6 players</em> <a href="join_game.html">Join game</a></li>`;
         });
     });
 }
