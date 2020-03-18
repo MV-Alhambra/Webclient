@@ -10,6 +10,14 @@ h1
 {
     text-align: center;
 }
+a
+{
+    font-weight: bold;
+    padding: 15px;
+    text-decoration: none;
+    color: black;
+    border: 3px black solid;
+}
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
