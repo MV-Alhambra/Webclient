@@ -1,0 +1,27 @@
+/*------------------------*/
+/*    GENERAL ELEMENTS    */
+/*------------------------*/
+
+
+li{
+    padding: 5px;
+}
+
+/*---------------------*/
+/* CONTAINING ELEMENTS */
+/*---------------------*/
+
+aside{
+    width: 10%;
+    border: solid 1px black;
+}
+
+ul{
+    text-align: center;
+}
+
+/*------------------------*/
+/* PAGE SPECIFIC ELEMENTS */
+/*------------------------*/
+
+
