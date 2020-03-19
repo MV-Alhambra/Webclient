@@ -41,6 +41,6 @@ function addLocalPlayer(e, name) {
         localStorage.setItem('playerToken', playerToken);
         localStorage.setItem('gameName', gameName);
         localStorage.setItem('playerName', playerName);
-        window.location.replace('./temp.html');
+        window.location.replace('./game_lobby.html');
     }).catch(err => document.querySelector('.error').innerHTML = 'That player name is not allowed!')
 }

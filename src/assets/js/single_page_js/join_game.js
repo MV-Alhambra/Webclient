@@ -30,6 +30,6 @@ function joinGame(e) {
     }).then(jsonToken => {
         localStorage.setItem('playerToken', jsonToken);
         localStorage.setItem('playerName', NAME);
-        window.location.replace('./temp.html');
-    }).catch(err => document.querySelector('.error').innerHTML = 'That player name is not allowed!')
+        window.location.replace('./game_lobby.html');
+    }).catch(err => document.querySelector('.error').innerHTML = 'That player name is already used!')
 }
