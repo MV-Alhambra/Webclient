@@ -27,3 +27,27 @@ ul li{
     line-height: 1.2em;
 }
 
+/*------------------------*/
+/* PAGE SPECIFIC ELEMENTS */
+/*------------------------*/
+
+
+a#index{
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    display: block;
+    margin-right: 1em;
+    margin-left: 58em;
+    margin-top: 1em;
+    border: 2px black solid;
+    border-radius: 25px;
+    padding: 0.2em 1.3em 0.2em 0.2em;
+}
+
+a#index:hover{
+    color: white;
+    background-color: black;
+}
+
