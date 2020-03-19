@@ -15,6 +15,18 @@ li{
 /* CONTAINING ELEMENTS */
 /*---------------------*/
 
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 45%;
+    background-color: #FFF;
+    border: 5px solid black;
+    padding: 20px;
+}
+
+
 #bank{
     border: solid 1px black;
     width: 35%;
@@ -76,3 +88,14 @@ ul{
     background-color: yellow;
 }
 /*---bank_end---*/
+
+/*---leave_button---*/
+
+.hidden{
+    display: none;
+}
+
+
+
+
+
