@@ -46,37 +46,45 @@ header a {
 aside {
     border: 1px black solid;
     padding: 5px;
+    margin-top: 10%;
 }
 
 main {
     text-align: center;
     flex-basis: 85%;
-    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 50%;
+    margin-top: 10%;
+}
 
-
+main h1, main h2 {
+    margin: 20px
 }
 
 aside {
     padding: 10px 10px 10px 15px ;
     font-size: 1.5rem;
-    flex-basis: 15%;
-    margin-right: 15px;
-    height: 50%;
-}
+    flex-basis: 20%;
+    margin-right: 40px;
+    height: min-content;
 
+}
+aside dt, aside dd {
+    margin-bottom: 15px;
+}
 aside dt{
     float: left;
 }
 aside dd{
     float: right;
 }
+aside h2{
+    margin-bottom: 15px;
+}
 
-
-div {
+#main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -86,17 +94,18 @@ div {
 
 footer{
     margin: auto;
-    width: 50%;
+    width: 45%;
+    text-align: center;
+    font-size: 1.5em;
 }
 
 footer ul {
     list-style-type: none;
-    align-items: center;
     display: flex;
     flex-direction: row;
+    align-items: center;
 
 }
-
 footer li{
     padding: 10px;
 }
@@ -104,4 +113,14 @@ footer li{
 #inviteURL {
     border: 1px black solid;
     padding: 5px;
+
+}
+
+#ready {
+    width: 150px;
+    margin: auto;
+}
+
+#copy:hover {
+    text-decoration: underline;
 }
