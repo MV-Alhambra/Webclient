@@ -36,7 +36,6 @@ function addLocalPlayer(e, name) {
             throw Error;
         }
     }).then(jsonToken => {
-        console.log(jsonToken);
         playerToken = jsonToken;
         localStorage.setItem('gameId', gameId);
         localStorage.setItem('playerToken', playerToken);
