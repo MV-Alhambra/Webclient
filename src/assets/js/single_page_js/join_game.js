@@ -28,8 +28,7 @@ function joinGame(e) {
             throw Error;
         }
     }).then(jsonToken => {
-        playerToken = jsonToken;
-        localStorage.setItem('playerToken', playerToken);
+        localStorage.setItem('playerToken', jsonToken);
         localStorage.setItem('playerName', NAME);
         window.location.replace('./temp.html');
     }).catch(err => document.querySelector('.error').innerHTML = 'That player name is not allowed!')
