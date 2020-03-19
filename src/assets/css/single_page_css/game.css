@@ -6,58 +6,129 @@
     font-family: sans-serif; /* because serif is ugly */
 }
 
-li{
-    padding: 5px;
-}
-
 /*---------------------*/
 /* CONTAINING ELEMENTS */
 /*---------------------*/
-
-#popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    width: 35%;
-    background-color: #FFF;
-    border: 5px solid black;
-    padding: 20px;
-    text-align: center;
-}
-
-
-#bank{
-    border: solid 1px black;
-    width: 35%;
-}
-
-
-#containerBank{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-header{
-    margin-top: 20px;
-    margin-bottom: 30px;
-}
-
-
-aside{
-    width: 10%;
-    border: solid 1px black;
-}
-
-ul{
-    text-align: center;
-}
 
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
 
+/*---grid---*/
+
+body{
+    box-sizing: border-box;
+}
+
+header{
+    height: 10vh;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+main{
+    height: 82vh;
+    padding: 4vh;
+    border: black solid 1px;
+    display: grid;
+    grid-template-columns:  repeat(12,1fr)  ;
+    grid-template-rows:  repeat(12,1fr) ;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+}
+#bank{
+    border: gold solid 2px;
+    grid-area: 1 / 1 / 4 /5;
+}
+
+#market{
+    border: brown solid 2px;
+    grid-area: 4 / 1 / 9 /5;
+}
+
+#money{
+    border: green solid 2px;
+    grid-area: 9 / 1 / 13 /5;
+}
+
+#map{
+    border: gray solid 2px;
+    grid-area: 1 / 5 / 10 /11;
+}
+
+#scoreboard{
+    border: pink solid 2px;
+    grid-area: 1 / 11 / 10 /13;
+}
+
+#reserve{
+    border: red solid 2px;
+    grid-area: 10 / 5 / 13 /10;
+}
+
+#button_card{
+    border: blue solid 2px;
+    grid-area: 10 / 10 / 13 /13;
+}
+
+/*---end_grid---*/
+
+
+
+
+
+
+
+/*--scoreboard--*/
+
+
+ul{
+    text-align: center;
+}
+
+
+li{
+    padding: 5px;
+}
+
+/*--end_scoreboard--*/
+
+/*---bank---*/
+
+#containerBank{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 70%;
+}
+
+
+#bank h1{
+    box-sizing: border-box;
+    text-align: center;
+    padding: 5px;
+    font-size: 2rem;
+    height: 30%;
+}
+
+#containerBank p{
+    border: solid 1px black;
+    width: 25%;
+    text-align: center;
+    color: black;
+    margin: 5px;
+
+    font-size: 3rem;
+    font-family: 'Lobster', cursive;
+}
+
+#blue{
+    background-color: royalblue;
+}
+
+#green{
+    background-color: green;
+}
 
 #orange{
     background-color: orange;
@@ -69,7 +140,6 @@ ul{
 /*---bank_end---*/
 
 /*---leave_button---*/
-
 .hidden{
     display: none;
 }
@@ -104,6 +174,19 @@ header a{
     background-color: limegreen;
     margin-right: 20%;
 }
+
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 35%;
+    background-color: #FFF;
+    border: 5px solid black;
+    padding: 20px;
+    text-align: center;
+}
+
 
 /*---end_leave_button---*/
 

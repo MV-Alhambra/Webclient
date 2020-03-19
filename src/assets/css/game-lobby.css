@@ -1,0 +1,127 @@
+/*------------------------*/
+/*    GENERAL ELEMENTS    */
+/*------------------------*/
+
+body {
+    font-family: Orbitron, sans-serif;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+header {
+    padding: 15px;
+
+}
+
+header h2 {
+    text-align: center;
+}
+
+aside {
+    border: 1px black solid;
+    margin-top: 10%;
+    padding: 10px 10px 10px 15px;
+    font-size: 1.5rem;
+    flex-basis: 17%;
+    margin-right: 40px;
+    height: min-content;
+}
+
+main {
+    text-align: center;
+    flex-basis: 83%;
+    height: 50%;
+    margin-top: 10%;
+}
+
+main h1, main h2 {
+    margin: 20px
+}
+
+
+/*---------------------*/
+/* CONTAINING ELEMENTS */
+/*---------------------*/
+
+
+/*------------------------*/
+/* PAGE SPECIFIC ELEMENTS */
+/*------------------------*/
+
+.button {
+    text-decoration: none;
+    color: black;
+    font-size: 2rem;
+    border: 1px black solid;
+    padding: 5px;
+}
+
+.button:hover {
+    color: white;
+    background: black;
+}
+
+
+aside dt, aside dd {
+    margin-bottom: 15px;
+}
+
+aside dt {
+    float: left;
+}
+
+aside dd {
+    float: right;
+}
+
+aside h2 {
+    margin-bottom: 15px;
+}
+
+#content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: center;
+    height: 80%;
+
+}
+
+footer {
+    margin: auto;
+    width: 45%;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+footer ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+footer li {
+    padding: 10px;
+    margin-right: 10px;
+}
+
+#inviteURL {
+    border: 1px black solid;
+    padding: 5px;
+
+}
+
+#ready {
+    width: 150px;
+    margin: auto;
+}
+
+#copy:hover {
+    text-decoration: underline;
+}
+
