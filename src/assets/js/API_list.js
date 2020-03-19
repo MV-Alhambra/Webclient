@@ -18,3 +18,9 @@ function returnPlayers() {
     });
 }
 
+function addPlayer(gameId, playerName) { //add player to your lobby, player name needs to be lowercase
+    return fetchFromServerWithReturnErrorAndJson(`${config.root}games/${gameId}/players`, 'POST', {playerName: `${playerName}`}).then(function (response) {
+        return response;
+    })
+}
+
