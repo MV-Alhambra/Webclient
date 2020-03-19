@@ -13,6 +13,18 @@ li{
 /* CONTAINING ELEMENTS */
 /*---------------------*/
 
+#bank{
+    border: solid 1px black;
+    width: 35%;
+}
+
+
+#containerBank{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 aside{
     width: 10%;
     border: solid 1px black;
@@ -25,4 +37,5 @@ ul{
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
+
 
