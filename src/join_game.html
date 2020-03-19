@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<meta charset="UTF-8">
+	<meta content="Mitch Rollez" name="author">
+	<link href="assets/css/global.css" rel="stylesheet" type="text/css"/>
+	<link href="assets/css/single_page_css/join_game.css" rel="stylesheet" type="text/css"/>
+	<title>Custom game name</title>
+</head>
+<body>
+	<main class="flex-container">
+		<div id="othergame">
+			<a  href="list_games.html" title="Join another game">Join another game</a>
+		</div>
+		<section id="gameinfo">
+			<h1>Custom game name</h1>
+			<form method="post">
+				<ul>
+					<li><label for="userid">Your username:</label>
+						<input id="userid" required type="text"></li>
+					<li><input id="join" type="submit" value="Join game"></li>
+				</ul>
+			</form>
+			<p class="error"></p>
+		</section>
+	</main>
+	<script src="assets/js/config.js"></script>
+	<script src="assets/js/communication.js"></script>
+	<script src="assets/js/API_list.js"></script>
+	<script src="assets/js/single_page_js/join_game.js"></script>
+</body>
+</html>
