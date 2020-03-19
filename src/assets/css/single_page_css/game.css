@@ -2,6 +2,9 @@
 /*    GENERAL ELEMENTS    */
 /*------------------------*/
 
+*{
+    font-family: sans-serif; /* because serif is ugly */
+}
 
 li{
     padding: 5px;
@@ -10,6 +13,37 @@ li{
 /*---------------------*/
 /* CONTAINING ELEMENTS */
 /*---------------------*/
+
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 35%;
+    background-color: #FFF;
+    border: 5px solid black;
+    padding: 20px;
+    text-align: center;
+}
+
+
+#bank{
+    border: solid 1px black;
+    width: 35%;
+}
+
+
+#containerBank{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+header{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
 
 aside{
     width: 10%;
@@ -23,5 +57,55 @@ ul{
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
+
+
+#orange{
+    background-color: orange;
+}
+
+#yellow{
+    background-color: yellow;
+}
+/*---bank_end---*/
+
+/*---leave_button---*/
+
+.hidden{
+    display: none;
+}
+
+header a{
+    text-decoration: none;
+}
+
+.leavePopup{
+    border: 3px solid black;
+    padding: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+#popup h1{
+    margin-bottom: 30px;
+}
+
+#popup a{
+    font-weight: bold;
+    padding: 15px 30px;
+    color: #FFFFFF;
+    border: 1px solid black;
+}
+
+.No{
+    background-color: red;
+}
+
+.Yes{
+    background-color: limegreen;
+    margin-right: 20%;
+}
+
+/*---end_leave_button---*/
+
 
 

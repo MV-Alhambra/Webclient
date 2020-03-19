@@ -7,17 +7,42 @@
 	<link href="assets/css/single_page_css/game.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-	<aside>
-		<ul>
-			<li>Player 1 : 50Points</li>
-			<li>Player 2 : 29Points</li>
-			<li>Player 3 : 12Points</li>
-			<li>Player 4 : 23Points</li>
-		</ul>
-	</aside>
-	<script src="assets/js/communication.js"></script>
-	<script src="assets/js/API_list.js"></script>
-	<script src="assets/js/config.js"></script>
-	<script src="assets/js/single_page_js/game.js"></script>
+<header>
+    <a href="#" class="leavePopup">Leave game</a>
+    <section id="popup" class="hidden">
+        <h1>Are u sure you want to leave?</h1>
+        <a href="index.html" class="Yes">Yes</a>
+        <a href="#" id="returnToGame" class="No">No</a>
+    </section>
+</header>
+
+<main>
+
+<aside>
+    <ul>
+        <li>Player 1 : 50Points</li>
+        <li>Player 2 : 29Points</li>
+        <li>Player 3 : 12Points</li>
+        <li>Player 4 : 23Points</li>
+    </ul>
+</aside>
+
+<section id="bank">
+    <h1>Bank</h1>
+    <div id="containerBank">
+        <p id="blue">5</p>
+        <p id="green">7</p>
+        <p id="orange">2</p>
+        <p id="yellow">1</p>
+    </div>
+</section>
+</main>
+
+<script src="assets/js/communication.js"></script>
+<script src="assets/js/API_list.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/scoreboard.js"></script>
+<script src="assets/js/single_page_js/leave_game.js"></script>
+
 </body>
 </html>
