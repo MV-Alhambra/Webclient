@@ -38,4 +38,37 @@ ul{
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
 
+/*---bank---*/
 
+#bank h1{
+    text-align: center;
+    padding: 5px;
+    font-size: 2rem;
+}
+
+#containerBank p{
+    border: solid 1px black;
+    width: 25%;
+    text-align: center;
+    color: black;
+    margin: 5px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+#blue{
+    background-color: royalblue;
+}
+
+#green{
+    background-color: green;
+}
+
+#orange{
+    background-color: orange;
+}
+
+#yellow{
+    background-color: yellow;
+}
+/*---bank_end---*/
