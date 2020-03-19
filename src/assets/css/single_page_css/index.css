@@ -51,7 +51,7 @@ a#rules{
     margin-top: 1em;
     border: 2px black solid;
     border-radius: 25px;
-    padding: 0.2em 1.3em 0.2em 0.2em;
+    padding: 0.2em 1em 0.2em 0.5em;
 }
 
 a#rules:hover{
