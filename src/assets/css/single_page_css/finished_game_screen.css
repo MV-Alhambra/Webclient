@@ -1,0 +1,24 @@
+/*------------------------*/
+/*    GENERAL ELEMENTS    */
+/*------------------------*/
+body
+{
+    margin-top: 3rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    font-family: sans-serif;
+}
+h1
+{
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 5rem;
+}
+
+/*------------------------*/
+/* PAGE SPECIFIC ELEMENTS */
+/*------------------------*/
+
+/*---------------------*/
+/* CONTAINING ELEMENTS */
+/*---------------------*/
