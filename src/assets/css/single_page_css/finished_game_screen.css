@@ -18,6 +18,19 @@ h1
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
+div
+{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20rem;
+}
+section
+{
+    padding: 5px;
+    border: 3px black solid;
+    text-align: center;
+    width: 13%;
+}
 
 /*---------------------*/
 /* CONTAINING ELEMENTS */
