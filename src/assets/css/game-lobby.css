@@ -7,44 +7,18 @@ body {
     height: 100vh;
 }
 
-h1{
+h1 {
     font-size: 5rem;
 }
 
-
-/*---------------------*/
-/* CONTAINING ELEMENTS */
-/*---------------------*/
-
-
-
-/*------------------------*/
-/* PAGE SPECIFIC ELEMENTS */
-/*------------------------*/
-
 header {
-padding: 15px;
+    padding: 15px;
 
 }
+
 header h2 {
     display: block;
     text-align: center;
-}
-header a {
-
-}
-
-
-.button  {
-    text-decoration: none;
-    color: black;
-    font-size: 2rem;
-    border: 1px black solid;
-    padding: 5px;
-}
-
-.button:hover {
-    text-decoration: underline;
 }
 
 aside {
@@ -67,24 +41,51 @@ main h1, main h2 {
     margin: 20px
 }
 
+
+/*---------------------*/
+/* CONTAINING ELEMENTS */
+/*---------------------*/
+
+
+/*------------------------*/
+/* PAGE SPECIFIC ELEMENTS */
+/*------------------------*/
+
+.button {
+    text-decoration: none;
+    color: black;
+    font-size: 2rem;
+    border: 1px black solid;
+    padding: 5px;
+}
+
+.button:hover {
+    color: white;
+    background: black;
+}
+
 aside {
-    padding: 10px 10px 10px 15px ;
+    padding: 10px 10px 10px 15px;
     font-size: 1.5rem;
     flex-basis: 20%;
     margin-right: 40px;
     height: min-content;
 
 }
+
 aside dt, aside dd {
     margin-bottom: 15px;
 }
-aside dt{
+
+aside dt {
     float: left;
 }
-aside dd{
+
+aside dd {
     float: right;
 }
-aside h2{
+
+aside h2 {
     margin-bottom: 15px;
 }
 
@@ -96,7 +97,7 @@ aside h2{
     height: 80%;
 }
 
-footer{
+footer {
     margin: auto;
     width: 45%;
     text-align: center;
@@ -110,7 +111,8 @@ footer ul {
     align-items: center;
 
 }
-footer li{
+
+footer li {
     padding: 10px;
     margin-right: 10px;
 }
