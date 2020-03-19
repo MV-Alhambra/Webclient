@@ -20,25 +20,27 @@ function createGame(e) {
     if (!gameId) {
         addGame().then(id => {
             gameId = id;
-            addLocalPlayer(e, name)
+            addLocalPlayer(e, playerName)
         })
     } else {
-        addLocalPlayer(e, name)
+        addLocalPlayer(e, playerName)
     }
 }
 
 function addLocalPlayer(e, name) {
     addPlayer(gameId, name.toLowerCase()).then(response => {
         if (response.ok) {
-            playerToken = response.json;
-            localStorage.setItem('gameId', gameId);
-            localStorage.setItem('playerToken', playerToken);
-            localStorage.setItem('gameName', gameName);
-            localStorage.setItem('playerName', playerName);
-            window.location.replace('./temp.html');
+            return response.json();
         } else {
             document.querySelector('.error').innerHTML = 'That player name is not allowed!';
         }
-    });
-
+    }).then(jsonToken => {
+        console.log(jsonToken);
+        playerToken = jsonToken;
+        localStorage.setItem('gameId', gameId);
+        localStorage.setItem('playerToken', playerToken);
+        localStorage.setItem('gameName', gameName);
+        localStorage.setItem('playerName', playerName);
+        window.location.replace('./temp.html');
+    })
 }
