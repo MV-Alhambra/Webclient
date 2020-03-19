@@ -14,10 +14,13 @@ header{
 }
 h1{
     margin-top: 1.2em;
+    display: inline-block;
 }
+
 p{
     margin-top: 0.7em;
     text-decoration: underline;
+
 }
 ul{
     margin-top: 2em;
@@ -48,6 +51,13 @@ a#index{
 
 a#index:hover{
     color: white;
-    background-color: black;
+    background-color: red;
+}
+
+a#buildingrulesbutton, a#twoplayersrulesbutton{
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.6em;
+    color: black;
 }
 
