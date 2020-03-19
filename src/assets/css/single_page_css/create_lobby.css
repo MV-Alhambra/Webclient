@@ -1,0 +1,61 @@
+/*------------------------*/
+/*    GENERAL ELEMENTS    */
+/*------------------------*/
+body
+{
+    margin: 3rem;
+    font-family: sans-serif;
+}
+h1
+{
+    text-align: center;
+}
+a
+{
+    font-weight: bold;
+    padding: 15px;
+    text-decoration: none;
+    color: black;
+    border: 3px black solid;
+}
+/*------------------------*/
+/* PAGE SPECIFIC ELEMENTS */
+/*------------------------*/
+form
+{
+    margin-top: 8rem;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+li
+{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+li label
+{
+    margin-right: 2rem;
+}
+button
+{
+    background-color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 15px;
+    color: black;
+    border: 3px black solid;
+    margin-top: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/*---------------------*/
+/* CONTAINING ELEMENTS */
+/*---------------------*/
+
+
+

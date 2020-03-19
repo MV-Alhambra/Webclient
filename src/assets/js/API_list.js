@@ -17,3 +17,4 @@ function returnPlayers() {
         console.log(response);
     });
 }
+

@@ -1,0 +1,63 @@
+/*------------------------*/
+/*    GENERAL ELEMENTS    */
+/*------------------------*/
+a{
+    margin: 2em;
+    padding: 1em;
+    text-decoration: none;
+    font-size: 1.1em;
+    color: black;
+    border: 2px solid black;
+    display: inline-block;
+    text-align: center;
+    line-height: 1.8;
+    flex-grow: 1;
+}
+/*---------------------*/
+/* CONTAINING ELEMENTS */
+/*---------------------*/
+
+
+/*------------------------*/
+/* PAGE SPECIFIC ELEMENTS */
+/*------------------------*/
+main.flex-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-right: 12em;
+}
+
+#gameinfo{
+    text-align: center;
+    flex-grow: 8;
+    margin-top: 3em;
+}
+
+#gameinfo header{
+    font-size: 3em;
+    font-weight: bold;
+}
+
+#gameinfo form{
+    margin-top: 15em;
+}
+
+#gameinfo form label{
+    font-size: 2em;
+}
+
+#gameinfo form input#userid{
+    font-size: 1.8em;
+    margin-left: 1em;
+    border: 2px black solid;
+}
+
+#gameinfo form input#join{
+    margin-top: 2em;
+    font-size: 1.8em;
+    margin-left: 1em;
+    border: 2px black solid;
+    background-color: transparent;
+    padding: 0.4em;
+}
