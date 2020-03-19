@@ -47,11 +47,14 @@ a#rules{
     color: black;
     display: block;
     margin-right: 1em;
-    margin-left: 58em;
+    float: right;
     margin-top: 1em;
     border: 2px black solid;
     border-radius: 25px;
-    padding: 0.2em 1em 0.2em 0.5em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.2em 0.5em 0.2em 0.5em;
 }
 
 a#rules:hover{
