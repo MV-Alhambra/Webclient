@@ -3,14 +3,65 @@
 /*------------------------*/
 
 
-li{
-    padding: 5px;
-}
-
 /*---------------------*/
 /* CONTAINING ELEMENTS */
 /*---------------------*/
 
+
+/*------------------------*/
+/* PAGE SPECIFIC ELEMENTS */
+/*------------------------*/
+
+header{
+    height: 10vh;
+}
+main{
+    height: 81vh;
+    padding: 4vh;
+    border: black solid 1px;
+    display: grid;
+    grid-template-columns:  repeat(12,1fr)  ;
+    grid-template-rows:  repeat(12,1fr) ;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+}
+#bank{
+    border: gold solid 2px;
+    grid-area: 1 / 1 / 4 /5;
+}
+
+#market{
+    border: brown solid 2px;
+    grid-area: 4 / 1 / 9 /5;
+}
+
+#money{
+    border: green solid 2px;
+    grid-area: 9 / 1 / 13 /5;
+}
+
+#map{
+    border: gray solid 2px;
+    grid-area: 1 / 5 / 10 /11;
+}
+
+#scoreboard{
+    border: pink solid 2px;
+    grid-area: 1 / 11 / 10 /13;
+}
+
+#reserve{
+    border: red solid 2px;
+    grid-area: 10 / 5 / 13 /10;
+}
+
+#button_card{
+    border: blue solid 2px;
+    grid-area: 10 / 10 / 13 /13;
+}
+
+
+/* css maxim
 aside{
     width: 10%;
     border: solid 1px black;
@@ -20,8 +71,9 @@ ul{
     text-align: center;
 }
 
-/*------------------------*/
-/* PAGE SPECIFIC ELEMENTS */
-/*------------------------*/
 
+li{
+    padding: 5px;
+}
+*/
 
