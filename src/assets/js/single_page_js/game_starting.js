@@ -3,14 +3,13 @@
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
-
+    let counter = 5;
+    let interval = setInterval(function() {
+        counter--;
+        document.querySelector("#timer").innerHTML = `${counter.toString()}`;
+        if (counter === 0) {
+            // Display a login box
+            clearInterval(interval);
+        }
+    }, 1000);
 }
-
-let timeLeft = 5;
-let timer = setInterval(function(){
-    if(timeLefteft <= 0){
-        clearInterval(downloadTimer);
-    }
-    document.getElementById("progress").value = 10 - timeLeft;
-    timeLeft -= 1;
-}, 1000);
