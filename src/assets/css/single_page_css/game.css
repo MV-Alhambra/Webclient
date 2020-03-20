@@ -78,6 +78,10 @@ main{
 #button_card{
     border: blue solid 2px;
     grid-area: 5 / 11 / 9 /13;
+    /*---turn_options---*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 /*---end_grid---*/
@@ -246,12 +250,6 @@ header a{
 /*---end_leave_button---*/
 
 /*---turn_options---*/
-#button_card
-{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
 #button_card a
 {
     font-size: 1rem;
