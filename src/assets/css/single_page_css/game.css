@@ -125,7 +125,6 @@ li{
     text-align: center;
     color: black;
     margin: 5px;
-
     font-size: 3rem;
     font-family: 'Lobster', cursive;
 }
@@ -193,6 +192,17 @@ img:nth-child(2n+1){
 
 /*---end_market---*/
 
+/*---money---*/
+#money h1{
+    height: 20%;
+}
+
+#moneyPlayer{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/*---end_money---*/
 
 /*---leave_button---*/
 .hidden{
