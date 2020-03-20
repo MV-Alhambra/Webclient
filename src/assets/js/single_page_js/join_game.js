@@ -19,9 +19,9 @@ function checkLS() {
 function joinGame(e) {
     e.preventDefault();
 
-    const name = document.querySelector('#userid').value;
+    const name = document.querySelector('#userid').value.toLowerCase();
 
-    addPlayer(gameId, name.toLowerCase()).then(response => {
+    addPlayer(gameId, name).then(response => {
         if (response.ok) {
             return response.json();
         } else {

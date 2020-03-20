@@ -13,7 +13,7 @@ function addGame() {   // Add a new game in your lobby
 }
 
 function returnPlayers() {
-     fetchFromServer(`${config.root}games/group${config.groupnumber}-000`,  'GET' ).then(function (response) {
+    fetchFromServer(`${config.root}games/group${config.groupnumber}-000`, 'GET').then(function (response) {
         console.log(response);
     });
 }
@@ -25,12 +25,22 @@ function addPlayer(gameId, playerName) { //add player to your lobby, player name
 }
 
 function getGame(gameId, token) { // Get the state of a game
-    return fetchWithToken(`${config.root}games/${gameId}`,'GET',token).then( response => response);
+    return fetchWithToken(`${config.root}games/${gameId}`, 'GET', token).then(response => response);
+}
+
+async function leaveGame(gameId, token, playerName) {
+    return  fetchWithToken(`${config.root}games/${gameId}/players/${playerName}`, "DELETE", token);
 }
 
 async function getPlayerCount(gameId, token) {
-    return getGame(gameId,token).then(response=> {
-       return response.playerCount;
+    return getGame(gameId, token).then(response => {
+        return response.playerCount;
+    });
+}
+
+async function getGameStarted(gameId, token) {
+    return getGame(gameId, token).then(response => {
+        return response.started;
     });
 }
 

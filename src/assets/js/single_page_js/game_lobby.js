@@ -2,9 +2,14 @@
 
 document.addEventListener('DOMContentLoaded', init);
 
+const gameId = localStorage.getItem('gameId');
+const token = localStorage.getItem('playerToken');
+const playerName = localStorage.getItem('playerName');
+
 function init() {
+    document.querySelector('header a').addEventListener('click', leaveGamePlayer);
     document.querySelector('#copy').addEventListener('click', copy);
-    setPlayersJoined();
+    polling();
 }
 
 function copy() {
@@ -27,10 +32,25 @@ function selectText(text) {
     }
 }
 
+function leaveGamePlayer(e) {
+    e.preventDefault();
+    leaveGame(gameId, token, playerName).then(response => response ? window.location.replace('./index.html') : null);
+}
+
+async function polling() {
+    setPlayersJoined();
+
+    if (await getGameStarted(gameId, token)) {
+        alert('gamestarted');
+    } else {
+        setTimeout(() => polling(), 200);
+    }
+}
+
 function setPlayersJoined() {
-    getPlayerCount(localStorage.getItem('gameId'), localStorage.getItem('playerToken')).then(resp => {
-       const header = document.querySelector('h1');
-       header.innerText = header.innerText.replace(header.innerText.charAt(0),resp);
+    getPlayerCount(gameId, token).then(resp => {
+        const header = document.querySelector('h1');
+        header.innerText = header.innerText.replace(header.innerText.charAt(0), resp);
     });
 }
 

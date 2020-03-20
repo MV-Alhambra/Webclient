@@ -14,7 +14,7 @@ function init() {
 function createGame(e) {
     e.preventDefault();
 
-    playerName = document.querySelector('#Player_Name').value;
+    playerName = document.querySelector('#Player_Name').value.toLowerCase();
     gameName = document.querySelector('#Game_Name').value;
 
     if (!gameId) {
@@ -28,7 +28,7 @@ function createGame(e) {
 }
 
 function addLocalPlayer(e, name) {
-    addPlayer(gameId, name.toLowerCase()).then(response => {
+    addPlayer(gameId, name).then(response => {
         if (response.ok) {
             return response.json();
         } else {
