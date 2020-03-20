@@ -63,6 +63,10 @@ main{
 #map{
     border: gray solid 2px;
     grid-area: 1 / 5 / 9 /11;
+    display: grid;
+    grid-template-columns:  repeat(7, 101.5px);
+    grid-template-rows: repeat(5,101.5px);
+
 }
 
 #scoreboard{
