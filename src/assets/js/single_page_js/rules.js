@@ -7,13 +7,14 @@ function init() {
     document.querySelector('#twoplayersrulesbutton').addEventListener('click', toggle2playerrules);
 }
 
-function togglebuildingrules() {
+function togglebuildingrules(){
     const selected = document.querySelector('#buildingrulesbutton');
     const rules = document.querySelector('#buildingrules');
-    if (selected.innerHTML === "▼") {
+    if(selected.innerHTML === "▼"){
         selected.innerHTML = "►";
         rules.innerHTML = ``;
-    } else {
+    }
+    else{
         selected.innerHTML = "▼";
         rules.innerHTML = `<ul>
         <li>All building tiles must be <strong>the same way round</strong> as your starting tile (i.e. all roofs must point upwards).</li>
@@ -27,13 +28,14 @@ function togglebuildingrules() {
 
 }
 
-function toggle2playerrules() {
+function toggle2playerrules(){
     const selected = document.querySelector('#twoplayersrulesbutton');
     const rules = document.querySelector('#twoplayersrules');
-    if (selected.innerHTML === "▼") {
+    if(selected.innerHTML === "▼"){
         selected.innerHTML = "►";
         rules.innerHTML = ``;
-    } else {
+    }
+    else{
         selected.innerHTML = "▼";
         rules.innerHTML = `<p>The normal Alhambra rules apply with the following changes:</p>
     <ul>
