@@ -1,13 +1,11 @@
 /*------------------------*/
 /*    GENERAL ELEMENTS    */
 /*------------------------*/
-
-*{
+* {
     font-family: sans-serif; /* because serif is ugly */
 }
 
-
-h1{
+h1 {
     box-sizing: border-box;
     text-align: center;
     padding: 5px;
@@ -18,100 +16,93 @@ h1{
 /*---------------------*/
 /* CONTAINING ELEMENTS */
 /*---------------------*/
-
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
-
 /*---grid---*/
-
-body{
+body {
     box-sizing: border-box;
 }
 
-header{
+header {
     height: 10vh;
-    margin-top: 20px;
-    margin-bottom: 30px;
 }
 
-main{
-    height: 82vh;
+main {
+    height: calc(82vh - 2px); /* prevents scrollbar from appearing*/
     padding: 4vh;
     border: black solid 1px;
     display: grid;
-    grid-template-columns:  repeat(12,1fr)  ;
-    grid-template-rows:  repeat(12,1fr) ;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
     grid-row-gap: 20px;
     grid-column-gap: 20px;
 }
-#bank{
+
+#bank {
     border: gold solid 2px;
     grid-area: 1 / 1 / 6 /5;
 }
 
-#market{
+#market {
     border: brown solid 2px;
     grid-area: 6 / 1 / 13 /5;
 }
 
-#money{
+#money {
     border: green solid 2px;
     grid-area: 9 / 5 / 13 / 9;
 }
 
-#map{
+#map {
     border: gray solid 2px;
     grid-area: 1 / 5 / 9 /11;
 }
 
-#scoreboard{
+#scoreboard {
     border: pink solid 2px;
     grid-area: 1 / 11 / 5 /13;
 }
 
-#reserve{
+#reserve {
     border: red solid 2px;
     grid-area: 9 / 9 / 13 /13;
 }
 
-#button_card{
+#button_card {
     border: blue solid 2px;
     grid-area: 5 / 11 / 9 /13;
 }
 
 /*---end_grid---*/
-
-
-
-
-
-
-
 /*--scoreboard--*/
 
-
-ul{
-    text-align: center;
+dl {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 1.2rem;
 }
 
-
-li{
-    padding: 5px;
+dd{
+    text-align: right;
 }
 
 /*--end_scoreboard--*/
-
 /*---bank---*/
-
-#containerBank{
+#containerBank {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     height: 70%;
 }
 
-#bank h2{
+#bank h2 {
     box-sizing: border-box;
     text-align: center;
     padding: 5px;
@@ -119,91 +110,89 @@ li{
     height: 30%;
 }
 
-#containerBank p{
+#containerBank p {
     border: solid 1px black;
     width: 25%;
     text-align: center;
     color: black;
     margin: 5px;
-
     font-size: 3rem;
     font-family: 'Lobster', cursive;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
 }
 
-#blueMoney{
+#blueMoney {
     background-color: royalblue;
 }
 
-#greenMoney{
+#greenMoney {
     background-color: green;
 }
 
-#orangeMoney{
+#orangeMoney {
     background-color: orange;
 }
 
-#yellowMoney{
+#yellowMoney {
     background-color: yellow;
 }
+
 /*---bank_end---*/
-
 /*---market---*/
-
-#marketGrid{
+#marketGrid {
     box-sizing: border-box;
     padding-left: 2vh;
     padding-right: 2vh;
     width: 100%;
     height: 30vh;
     display: grid;
-    grid-template-columns:  repeat(4,1fr)  ;
-    grid-template-rows:  repeat(4,1fr) ;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     grid-row-gap: 10px;
     grid-column-gap: 10px;
 }
 
-#market footer{
+#market footer {
     display: flex;
     justify-content: space-evenly;
 }
 
-#market footer h3{
+#market footer h3 {
     font-size: 0.9rem;
     text-align: center;
 }
 
-#market footer p{
+#market footer p {
     margin-top: 10px;
     font-size: 1.1rem;
     font-weight: bold;
     text-align: center;
 }
 
-img{
+img {
     width: 100%;
 }
 
-img:nth-child(2n+1){
+img:nth-child(2n+1) {
     padding-top: 5px;
-    margin-left: 10px ;
+    margin-left: 10px;
 }
 
-
-
-
 /*---end_market---*/
-
-
 /*---leave_button---*/
-.hidden{
+.hidden {
     display: none;
 }
 
-header a{
+header a {
+    margin: 20px;
     text-decoration: none;
+    display: inline-block;
 }
 
-.leavePopup{
+.leavePopup {
     border: 3px solid black;
     padding: 5px;
     color: black;
@@ -214,18 +203,18 @@ header a{
     margin-bottom: 30px;
 }
 
-#popup a{
+#popup a {
     font-weight: bold;
     padding: 15px 30px;
     color: #FFFFFF;
     border: 1px solid black;
 }
 
-.No{
+.No {
     background-color: red;
 }
 
-.Yes{
+.Yes {
     background-color: limegreen;
     margin-right: 20%;
 }
@@ -241,7 +230,6 @@ header a{
     padding: 20px;
     text-align: center;
 }
-
 
 /*---end_leave_button---*/
 
