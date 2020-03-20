@@ -13,7 +13,7 @@ h1, h5 {
     height: 15%;
 }
 
-ul{
+ul {
     text-align: center;
 }
 
@@ -85,8 +85,8 @@ main {
     padding: 4%;
     align-items: normal;
     text-align: center;
-
 }
+
 #button_card a {
     font-size: 1rem;
     font-weight: bold;
@@ -96,12 +96,10 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 100%;
 }
 
-
-
 /*---end_turn_options---*/
-
 /*---end_grid---*/
 /*--scoreboard--*/
 dl {
