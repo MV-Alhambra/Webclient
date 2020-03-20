@@ -38,3 +38,15 @@ function fetchFromServerWithReturnErrorAndJson(url, httpVerb, requestBody) {
             return response;
         })
 }
+
+function fetchWithToken(url, httpVerb, token) {
+    return fetch(url, {
+            method: httpVerb,
+            headers: {
+                'Content-type': "application/json",
+                'Authorization': 'Bearer ' + token,
+            }
+        }
+    ).then(response => response.json()
+    ).then(response => response)
+}
