@@ -85,13 +85,19 @@ main{
     align-items: center;
     display: none;
 }
-
 .pointsystemcontent{
     width: 500px;
     height: 300px;
     background-color: white;
     border-radius: 4px;
-
+    position: relative;
+}
+.close{
+    position: absolute;
+    top: 0.1em;
+    right: 0.3em;
+    font-size: 1.8em;
+    transform: rotate(45deg);
 }
 /*--end_pointsystem--*/
 
