@@ -12,7 +12,7 @@ h1{
     text-align: center;
     padding: 5px;
     font-size: 2rem;
-    height: 20%;
+    height: 15%;
 }
 
 /*---------------------*/
@@ -153,6 +153,7 @@ li{
     grid-row-gap: 10px;
     grid-column-gap: 10px;
 }
+
 
 img{
     width: 100%;
