@@ -9,9 +9,11 @@ body
 h1
 {
     text-align: center;
+    font-size: 4rem;
 }
 a
 {
+    font-size: 1.5rem;
     font-weight: bold;
     padding: 15px;
     text-decoration: none;
@@ -32,23 +34,31 @@ form
 }
 li
 {
-    margin-top: 2rem;
+    margin-top: 4rem;
     display: flex;
     justify-content: space-between;
 }
 li label
 {
     margin-right: 2rem;
+    font-size: 2rem;
+}
+input
+{
+    padding: 10px;
+    border: 2px black solid;
+    font-size: 1.3rem;
 }
 button
 {
+    font-size: 2rem;
     background-color: white;
     font-weight: bold;
     text-decoration: none;
     padding: 15px;
     color: black;
     border: 3px black solid;
-    margin-top: 2rem;
+    margin-top: 4rem;
     margin-right: auto;
     margin-left: auto;
 }

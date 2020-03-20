@@ -64,17 +64,13 @@ main h1, main h2 {
     background: black;
 }
 
+aside dl{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 
 aside dt, aside dd {
     margin-bottom: 15px;
-}
-
-aside dt {
-    float: left;
-}
-
-aside dd {
-    float: right;
 }
 
 aside h2 {

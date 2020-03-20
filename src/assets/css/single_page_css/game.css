@@ -111,6 +111,14 @@ li{
     height: 70%;
 }
 
+#bank h2{
+    box-sizing: border-box;
+    text-align: center;
+    padding: 5px;
+    font-size: 2rem;
+    height: 30%;
+}
+
 #containerBank p{
     border: solid 1px black;
     width: 25%;
@@ -202,7 +210,7 @@ header a{
     font-weight: bold;
 }
 
-#popup h1{
+#popup h2{
     margin-bottom: 30px;
 }
 

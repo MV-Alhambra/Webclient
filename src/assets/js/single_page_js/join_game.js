@@ -5,7 +5,7 @@ let gameId;
 
 function init() {
     checkLS();
-    document.querySelector('form').addEventListener('submit', joinGame)
+    document.querySelector('form').addEventListener('submit', joinGame);
 }
 
 function checkLS() {
@@ -19,9 +19,9 @@ function checkLS() {
 function joinGame(e) {
     e.preventDefault();
 
-    const NAME = document.querySelector('#userid').value;
+    const name = document.querySelector('#userid').value.toLowerCase();
 
-    addPlayer(gameId, NAME.toLowerCase()).then(response => {
+    addPlayer(gameId, name).then(response => {
         if (response.ok) {
             return response.json();
         } else {
@@ -29,7 +29,7 @@ function joinGame(e) {
         }
     }).then(jsonToken => {
         localStorage.setItem('playerToken', jsonToken);
-        localStorage.setItem('playerName', NAME);
-        window.location.replace('./temp.html');
-    }).catch(err => document.querySelector('.error').innerHTML = 'That player name is not allowed!')
+        localStorage.setItem('playerName', name);
+        window.location.replace('./game_lobby.html');
+    }).catch(()=> document.querySelector('.error').innerHTML = 'That player name is already used!');
 }
