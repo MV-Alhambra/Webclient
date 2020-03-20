@@ -7,41 +7,58 @@
 	<link href="assets/css/single_page_css/game.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<header>
-	<a href="#" class="leavePopup">Leave game</a>
-	<section id="popup" class="hidden">
-		<h2>Are u sure you want to leave?</h2>
-		<a href="index.html" class="Yes">Yes</a>
-		<a href="#" id="returnToGame" class="No">No</a>
-	</section>
-</header>
+	<header>
+		<a class="leavePopup" href="#">Leave game</a>
+		<section class="hidden" id="popup">
+			<h1>Are u sure you want to leave?</h1>
+			<a class="Yes" href="#">Yes</a>
+			<a class="No" href="#" id="returnToGame">No</a>
+		</section>
+	</header>
 	<main>
 		<div id="bank">
-			<h2>Bank</h2>
+			<h1>Bank</h1>
 			<div id="containerBank">
-				<p id="blue">5</p>
-				<p id="green">7</p>
-				<p id="orange">2</p>
-				<p id="yellow">1</p>
+				<p id="blueMoney">5</p>
+				<p id="greenMoney">7</p>
+				<p id="orangeMoney">2</p>
+				<p id="yellowMoney">1</p>
 			</div>
 		</div>
-		<div id="market"></div>
+		<div id="market">
+			<h1>Market</h1>
+			<div id="marketGrid">
+				<img alt="Blue coin" src="assets/media/blue.png">
+				<img alt="Building pavilion" src="images/pavilion.jpg">
+				<img alt="Green coin" src="assets/media/green.png">
+				<img alt="Building arcade" src="images/arcades.jpg">
+				<img alt="Yellow coin" src="assets/media/yellow.png">
+				<img alt="Building chambers" src="images/chambers.jpg">
+				<img alt="Orange coin" src="assets/media/orange.png">
+				<img alt="Building garden" src="images/garden.jpg">
+			</div>
+			<footer>
+				<section>
+					<h3>Remaining <br>buildings</h3>
+					<p id="Remaining"> # </p>
+				</section>
+				<section>
+					<h3>buildings since <br>last scoreboard</h3>
+					<p id="sinceScoreboard"> # </p>
+				</section>
+			</footer>
+		</div>
 		<div id="money"></div>
-		<div id="scoreboard"><aside>
-			<ul>
-				<li>Player 1 : 50Points</li>
-				<li>Player 2 : 29Points</li>
-				<li>Player 3 : 12Points</li>
-				<li>Player 4 : 23Points</li>
-			</ul>
-            <a href="#" class="popuppointsystem" id="pspopup">Point System</a>
-
-
-		</aside></div>
+		<div id="scoreboard">
+			<dl>
+			</dl>
+			<a href="#" class="popuppointsystem" id="pspopup">Point System</a>
+		</div>
 		<div id="map"></div>
 		<div id="reserve"></div>
 		<div id="button_card"></div>
 	</main>
+
 <div class="pointsystem">
     <div class="pointsystemcontent">
         <div class="close">+</div>
@@ -98,7 +115,6 @@
 <script src="assets/js/config.js"></script>
 <script src="assets/js/single_page_js/leave_game.js"></script>
 <script src="assets/js/single_page_js/game.js"></script>
-
 
 </body>
 </html>
