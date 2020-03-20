@@ -261,4 +261,24 @@ header a{
     color: black;
     border: 2px black solid;
 }
+#button_card a:nth-child(1),#button_card a:nth-child(2)
+{
+    margin-top: 2rem;
+}
+#button_card a:nth-child(3),#button_card a:nth-child(4)
+{
+    margin-top: 7rem;
+    margin-bottom: 2rem;
+}
+#button_card a:nth-child(3)
+{
+    margin-left: 0.25rem;
+    margin-right: 1rem;
+}
+#button_card a:nth-child(4)
+{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 0.25rem;
+}
 /*---end_turn_options---*/
