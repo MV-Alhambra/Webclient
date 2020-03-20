@@ -202,6 +202,42 @@ img:nth-child(2n+1){
     justify-content: space-evenly;
 }
 
+#money ul{
+    padding: 5px;
+}
+
+#money h4{
+    text-align: center;
+
+}
+
+#money section{
+    width: 50%;
+}
+
+#money ul li{
+    float: left;
+    border-radius: 100%;
+    margin: 2px;
+    height: 15px;
+    width: 15px;
+}
+
+#blueMoneyPlayer li{
+    background-color: royalblue;
+}
+
+#greenMoneyPlayer li{
+    background-color: green;
+}
+
+#yellowMoneyPlayer li{
+    background-color: yellow;
+}
+
+#orangeMoneyPlayer li{
+    background-color: orange;
+}
 /*---end_money---*/
 
 /*---leave_button---*/
