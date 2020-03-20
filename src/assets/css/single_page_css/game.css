@@ -117,6 +117,49 @@ a#pspopup:hover{
     transform: rotate(45deg);
     cursor: pointer;
 }
+
+.grid-points {
+    margin-top: 1em;
+    display: grid;
+    grid-template-columns: 12em 3em 6em 8em;
+    grid-column-start: 2;
+    text-align: center;
+}
+.grid-player{
+    height: 10%;
+}
+.grid-player ul li{
+    display: inline;
+    padding-right: 0.5em;
+}
+.grid-header{
+    margin-top: -6em;
+}
+
+.grid-header ul{
+    margin-left: 3em;
+    margin-right: 1em;
+    border: 2px solid black;
+    text-align: left;
+}
+.grid-header ul li{
+    display: inline;
+    padding-right: 1.5em;
+}
+.grid-header ul li:nth-child(odd){
+    display: inline;
+    padding-right: 0.9em;
+    font-weight: bold;
+}
+
+.grid-point{
+    margin-top: -6em;
+}
+.grid-point ul li{
+    display: inline;
+    border: 1px solid black;
+    padding: 0.5em;
+}
 /*--end_pointsystem--*/
 
 
