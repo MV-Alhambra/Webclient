@@ -401,9 +401,10 @@ a#pspopup:hover{
 .grid-point.tow ul li, .grid-header.tow ul{
     background-image: radial-gradient(lightpink, mediumpurple 90%);
 }
-ul{
+ul {
     text-align: center;
     margin-bottom: 7em;
+}
 /*--end_pointsystem--*/
 
 
