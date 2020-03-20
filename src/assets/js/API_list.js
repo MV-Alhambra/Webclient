@@ -13,14 +13,53 @@ function addGame() {   // Add a new game in your lobby
 }
 
 function returnPlayers() {
-     fetchFromServer(`${config.root}games/group${config.groupnumber}-000`,  'GET' ).then(function (response) {
+    fetchFromServer(`${config.root}games/group${config.groupnumber}-000`, 'GET').then(function (response) {
         console.log(response);
     });
 }
 
 function addPlayer(gameId, playerName) { //add player to your lobby, player name needs to be lowercase
-    return fetchFromServerWithReturnErrorAndJson(`${config.root}games/${gameId}/players`, 'POST', {playerName: `${playerName}`}).then(function (response) {
+    return fetchFromServerWithReturnErrorAndJson(`${config.root}games/${gameId}/players`, 'POST', {playerName: playerName}).then(function (response) {
         return response;
-    })
+    });
 }
+
+function getGame(gameId, token) { // Get the state of a game
+    return fetchWithToken(`${config.root}games/${gameId}`, 'GET', token).then(response => response);
+}
+
+function getGameProperty(gameId, token, property) {
+    return getGame(gameId, token).then(response => {
+        return response[property];
+    });
+}
+
+function setPlayerReady(gameId, token, playerName) {
+   return  fetchWithToken(`${config.root}games/${gameId}/players/${playerName}/ready`, "PUT", token);
+}
+
+function setPlayerUnready(gameId, token, playerName) {
+    return fetchWithToken(`${config.root}games/${gameId}/players/${playerName}/ready`, "DELETE", token);
+}
+
+async function leaveGame(gameId, token, playerName) {
+    return fetchWithToken(`${config.root}games/${gameId}/players/${playerName}`, "DELETE", token);
+}
+
+async function getPlayerCount(gameId, token) {
+    return getGameProperty(gameId, token, 'playerCount');
+}
+
+async function getPlayerReady(gameId, token) {
+    return getGameProperty(gameId, token, 'readyCount');
+}
+
+async function getGameStarted(gameId, token) {
+    return getGameProperty(gameId, token, 'started');
+}
+
+async function getGamePlayers(gameId, token) {
+    return getGameProperty(gameId, token, 'players');
+}
+
 

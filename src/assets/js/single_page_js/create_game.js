@@ -8,28 +8,27 @@ let gameName;
 let playerName;
 
 function init() {
-    document.querySelector('form').addEventListener('submit', createGame)
+    document.querySelector('form').addEventListener('submit', createGame);
 }
 
 function createGame(e) {
     e.preventDefault();
 
-    playerName = document.querySelector('#Player_Name').value;
+    playerName = document.querySelector('#Player_Name').value.toLowerCase();
     gameName = document.querySelector('#Game_Name').value;
 
     if (!gameId) {
         addGame().then(id => {
             gameId = id;
-            gameId = 'group21-000';
-            addLocalPlayer(e, playerName)
-        })
+            addLocalPlayer(e, playerName);
+        });
     } else {
-        addLocalPlayer(e, playerName)
+        addLocalPlayer(e, playerName);
     }
 }
 
 function addLocalPlayer(e, name) {
-    addPlayer(gameId, name.toLowerCase()).then(response => {
+    addPlayer(gameId, name).then(response => {
         if (response.ok) {
             return response.json();
         } else {
@@ -41,6 +40,6 @@ function addLocalPlayer(e, name) {
         localStorage.setItem('playerToken', playerToken);
         localStorage.setItem('gameName', gameName);
         localStorage.setItem('playerName', playerName);
-        window.location.replace('./temp.html');
-    }).catch(err => document.querySelector('.error').innerHTML = 'That player name is not allowed!')
+        window.location.replace('./game_lobby.html');
+    }).catch(() => document.querySelector('.error').innerHTML = 'That player name is not allowed!');
 }

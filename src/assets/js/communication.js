@@ -1,15 +1,16 @@
 "use strict";
 
+const happyValidator ="application/json";
+
 function fetchFromServer(url, httpVerb, requestBody) {
-    let options = {
+    const options = {
         method: httpVerb,
-        headers: {}
+        headers: {
+            'Content-Type': happyValidator
+        },
+        body: JSON.stringify(requestBody)
+
     };
-    options.headers["Content-Type"] = "application/json";
-
-    // Don't forget to add data to the body when needed
-    options.body = JSON.stringify(requestBody);
-
     return fetch(url, options)
         .then((response) => {
             if (!response.ok) {
@@ -19,22 +20,34 @@ function fetchFromServer(url, httpVerb, requestBody) {
             return response.json();
         })
         .then((jsonresponseyouarelookingfor) => {
-            return jsonresponseyouarelookingfor
-        })
+            return jsonresponseyouarelookingfor;
+        });
 }
 
 function fetchFromServerWithReturnErrorAndJson(url, httpVerb, requestBody) {
-    let options = {
+    const options = {
         method: httpVerb,
-        headers: {}
+        headers: {
+            'Content-Type': happyValidator
+        },
+        body: JSON.stringify(requestBody)
     };
-    options.headers["Content-Type"] = "application/json";
-
-    // Don't forget to add data to the body when needed
-    options.body = JSON.stringify(requestBody);
 
     return fetch(url, options)
         .then((response) => {
             return response;
-        })
+        });
+}
+
+function fetchWithToken(url, httpVerb, token, requestBody) {
+    return fetch(url, {
+            method: httpVerb,
+            headers: {
+                'Content-type': happyValidator,
+                'Authorization': 'Bearer ' + token,
+            },
+            body: JSON.stringify(requestBody)
+        }
+    ).then(response => response.json()
+    ).then(response => response);
 }

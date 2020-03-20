@@ -103,7 +103,7 @@ li{
 }
 
 
-#bank h1{
+#bank h2{
     box-sizing: border-box;
     text-align: center;
     padding: 5px;
@@ -155,7 +155,7 @@ header a{
     font-weight: bold;
 }
 
-#popup h1{
+#popup h2{
     margin-bottom: 30px;
 }
 
