@@ -28,20 +28,26 @@ function getGame(gameId, token) { // Get the state of a game
     return fetchWithToken(`${config.root}games/${gameId}`, 'GET', token).then(response => response);
 }
 
+function getGameProperty(gameId, token, property) {
+    return getGame(gameId, token).then(response => {
+        return response[property];
+    });
+}
+
 async function leaveGame(gameId, token, playerName) {
-    return  fetchWithToken(`${config.root}games/${gameId}/players/${playerName}`, "DELETE", token);
+    return fetchWithToken(`${config.root}games/${gameId}/players/${playerName}`, "DELETE", token);
 }
 
 async function getPlayerCount(gameId, token) {
-    return getGame(gameId, token).then(response => {
-        return response.playerCount;
-    });
+    return getGameProperty(gameId, token, 'playerCount');
 }
 
 async function getGameStarted(gameId, token) {
-    return getGame(gameId, token).then(response => {
-        return response.started;
-    });
+    return getGameProperty(gameId, token, 'started');
+}
+
+async function getGamePlayers(gameId, token) {
+    return getGameProperty(gameId, token, 'players');
 }
 
 

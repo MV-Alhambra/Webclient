@@ -5,11 +5,20 @@ document.addEventListener('DOMContentLoaded', init);
 const gameId = localStorage.getItem('gameId');
 const token = localStorage.getItem('playerToken');
 const playerName = localStorage.getItem('playerName');
+const scoreboard = document.querySelector('aside dl');
 
 function init() {
+    checkLS();
     document.querySelector('header a').addEventListener('click', leaveGamePlayer);
     document.querySelector('#copy').addEventListener('click', copy);
+    setScoreboard();
     polling();
+}
+
+function checkLS() {
+    if (!localStorage.getItem('playerToken')) {
+        window.location.replace('./index.html');
+    }
 }
 
 function copy() {
@@ -39,11 +48,12 @@ function leaveGamePlayer(e) {
 
 async function polling() {
     setPlayersJoined();
+    setScoreboard();
 
     if (await getGameStarted(gameId, token)) {
-        alert('gamestarted');
+        window.location.replace('./game.html');
     } else {
-        setTimeout(() => polling(), 200);
+        setTimeout(() => polling(), 1000);
     }
 }
 
@@ -52,5 +62,17 @@ function setPlayersJoined() {
         const header = document.querySelector('h1');
         header.innerText = header.innerText.replace(header.innerText.charAt(0), resp);
     });
+}
+
+function setScoreboard() {
+
+    getGamePlayers(gameId, token).then(players => {
+        let listScoreboard ='';
+        players.forEach(player => {
+            listScoreboard+= `<dt>${player}</dt><dd>status</dd>`;
+        });
+        scoreboard.innerHTML = listScoreboard;
+    });
+
 }
 
