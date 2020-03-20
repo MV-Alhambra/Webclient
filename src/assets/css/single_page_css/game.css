@@ -73,7 +73,27 @@ main{
 
 /*---end_grid---*/
 
+/*--pointsystem--*/
+.pointsystem{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
 
+.pointsystemcontent{
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    border-radius: 4px;
+
+}
+/*--end_pointsystem--*/
 
 
 
@@ -92,6 +112,8 @@ li{
 }
 
 /*--end_scoreboard--*/
+
+
 
 /*---bank---*/
 
