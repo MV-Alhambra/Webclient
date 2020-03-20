@@ -72,6 +72,10 @@ main {
 #button_card {
     border: blue solid 2px;
     grid-area: 5 / 11 / 9 /13;
+    /*---turn_options---*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 /*---end_grid---*/
@@ -235,6 +239,7 @@ header a {
 
 /*---end_leave_button---*/
 
+
 /*---pointsystem---*/
 aside{
    padding-bottom: 3.8em;
@@ -352,6 +357,34 @@ ul{
 /*--end_pointsystem--*/
 
 
-
-
-
+/*---turn_options---*/
+#button_card a
+{
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 7px;
+    text-decoration: none;
+    color: black;
+    border: 2px black solid;
+}
+#button_card a:nth-child(1),#button_card a:nth-child(2)
+{
+    margin-top: 2rem;
+}
+#button_card a:nth-child(3),#button_card a:nth-child(4)
+{
+    margin-top: 7rem;
+    margin-bottom: 2rem;
+}
+#button_card a:nth-child(3)
+{
+    margin-left: 0.25rem;
+    margin-right: 1rem;
+}
+#button_card a:nth-child(4)
+{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 0.25rem;
+}
+/*---end_turn_options---*/
