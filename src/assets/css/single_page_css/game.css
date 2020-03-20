@@ -171,10 +171,13 @@ li{
     text-align: center;
 }
 
-
-
 img{
     width: 100%;
+}
+
+img:nth-child(2n+1){
+    padding-top: 5px;
+    margin-left: 10px ;
 }
 
 
