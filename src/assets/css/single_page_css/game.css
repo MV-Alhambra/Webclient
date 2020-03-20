@@ -245,5 +245,11 @@ header a{
 
 /*---end_leave_button---*/
 
-
-
+/*---turn_options---*/
+#button_card
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+/*---end_turn_options---*/
