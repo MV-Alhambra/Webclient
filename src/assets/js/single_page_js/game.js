@@ -27,6 +27,7 @@ function showpointsystem(){
     document.querySelector('.pointsystem').style.display = 'flex';
 }
 
-function closepointsystem(){
+function closepointsystem() {
     document.querySelector('.pointsystem').style.display = 'none';
+}
 
