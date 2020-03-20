@@ -252,4 +252,13 @@ header a{
     flex-wrap: wrap;
     justify-content: space-around;
 }
+#button_card a
+{
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 7px;
+    text-decoration: none;
+    color: black;
+    border: 2px black solid;
+}
 /*---end_turn_options---*/
