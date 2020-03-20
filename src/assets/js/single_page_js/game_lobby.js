@@ -87,13 +87,13 @@ function changePlayerStatus(e) {
     if (e.target.innerText === 'ready') {
         setPlayerReady(gameId, token, playerName).then(response => {
             if (response) {
-                e.target.innerText = 'unready'
+                e.target.innerText = 'unready';
             }
         });
     } else {
         setPlayerUnready(gameId, token, playerName).then(response => {
             if (response) {
-                e.target.innerText = 'ready'
+                e.target.innerText = 'ready';
             }
         });
     }
