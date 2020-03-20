@@ -21,7 +21,7 @@ function returnPlayers() {
 function addPlayer(gameId, playerName) { //add player to your lobby, player name needs to be lowercase
     return fetchFromServerWithReturnErrorAndJson(`${config.root}games/${gameId}/players`, 'POST', {playerName: playerName}).then(function (response) {
         return response;
-    })
+    });
 }
 
 function getGame(gameId, token) { // Get the state of a game
@@ -31,7 +31,7 @@ function getGame(gameId, token) { // Get the state of a game
 async function getPlayerCount(gameId, token) {
     return getGame(gameId,token).then(response=> {
        return response.playerCount;
-    })
+    });
 }
 
 

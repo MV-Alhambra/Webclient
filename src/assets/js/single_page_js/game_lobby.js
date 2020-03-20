@@ -8,20 +8,19 @@ function init() {
 }
 
 function copy() {
-    let copyText = document.querySelector("#inviteURL");
+    const copyText = document.querySelector("#inviteURL");
     selectText(copyText);
     document.execCommand("copy");
 }
 
 function selectText(text) {
-
     if (document.body.createTextRange) { // ms
-        let range = document.body.createTextRange();
+        const range = document.body.createTextRange();
         range.moveToElementText(text);
         range.select();
     } else if (window.getSelection) { // moz, opera, webkit
-        let selection = window.getSelection();
-        let range = document.createRange();
+        const selection = window.getSelection();
+        const range = document.createRange();
         range.selectNodeContents(text);
         selection.removeAllRanges();
         selection.addRange(range);
@@ -30,8 +29,8 @@ function selectText(text) {
 
 function setPlayersJoined() {
     getPlayerCount(localStorage.getItem('gameId'), localStorage.getItem('playerToken')).then(resp => {
-       const HEADER = document.querySelector('h1');
-       HEADER.innerText = HEADER.innerText.replace(HEADER.innerText.charAt(0),resp);
-    })
+       const header = document.querySelector('h1');
+       header.innerText = header.innerText.replace(header.innerText.charAt(0),resp);
+    });
 }
 

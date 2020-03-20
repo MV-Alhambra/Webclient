@@ -7,14 +7,13 @@ function init() {
     document.querySelector('#twoplayersrulesbutton').addEventListener('click', toggle2playerrules);
 }
 
-function togglebuildingrules(){
-    let selected = document.querySelector('#buildingrulesbutton');
-    let rules = document.querySelector('#buildingrules');
-    if(selected.innerHTML === "▼"){
+function togglebuildingrules() {
+    const selected = document.querySelector('#buildingrulesbutton');
+    const rules = document.querySelector('#buildingrules');
+    if (selected.innerHTML === "▼") {
         selected.innerHTML = "►";
-        rules.innerHTML = ``
-    }
-    else{
+        rules.innerHTML = ``;
+    } else {
         selected.innerHTML = "▼";
         rules.innerHTML = `<ul>
         <li>All building tiles must be <strong>the same way round</strong> as your starting tile (i.e. all roofs must point upwards).</li>
@@ -23,19 +22,18 @@ function togglebuildingrules(){
          from the starting tile without crossing a wall and without going off the tiles.</li>
         <li>Each new tile must be joined to your Alhambra by <strong>at least one side</strong> (i.e. it cannot be joined just at a corner).</li>
         <li>You must not leave <strong>any "spaces"</strong> (i.e. an empty area surrounded on all sides by building tiles).</li>
-        </ul>`
+        </ul>`;
     }
 
 }
 
-function toggle2playerrules(){
-    let selected = document.querySelector('#twoplayersrulesbutton');
-    let rules = document.querySelector('#twoplayersrules');
-    if(selected.innerHTML === "▼"){
+function toggle2playerrules() {
+    const selected = document.querySelector('#twoplayersrulesbutton');
+    const rules = document.querySelector('#twoplayersrules');
+    if (selected.innerHTML === "▼") {
         selected.innerHTML = "►";
-        rules.innerHTML = ``
-    }
-    else{
+        rules.innerHTML = ``;
+    } else {
         selected.innerHTML = "▼";
         rules.innerHTML = `<p>The normal Alhambra rules apply with the following changes:</p>
     <ul>
@@ -52,6 +50,6 @@ function toggle2playerrules(){
          This time he is not necessarily given 6 but is instead given a <strong>third of the tiles remaining in the bag (rounded down)</strong>.</li>
         <li>Only one rule is different for the two players: whenever they buy a building tile they can not
          only add it to their Alhambra or place it on their reserve board; they can also give the building tile to Dirk.</li>
-    </ul>`
+    </ul>`;
     }
 }
