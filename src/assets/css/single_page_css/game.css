@@ -158,7 +158,31 @@ a#pspopup:hover{
 .grid-point ul li{
     display: inline;
     border: 1px solid black;
+    margin-left: 0.1em;
     padding: 0.5em;
+}
+
+.grid-point.pav ul li, .grid-header.pav ul{
+    background-image: radial-gradient(powderblue, lightskyblue 90%);
+}
+
+.grid-point.ser ul li, .grid-header.ser ul{
+    background-image: radial-gradient(floralwhite, darkorange 90%);
+}
+
+.grid-point.arc ul li, .grid-header.arc ul{
+    background-image: radial-gradient(sandybrown, saddlebrown 90%);
+}
+
+.grid-point.cha ul li, .grid-header.cha ul{
+    background-image: radial-gradient(whitesmoke, ghostwhite 90%);
+}
+
+.grid-point.gar ul li, .grid-header.gar ul{
+    background-image: radial-gradient(darkseagreen, darkgreen 90%);
+}
+.grid-point.tow ul li, .grid-header.tow ul{
+    background-image: radial-gradient(lightpink, mediumpurple 90%);
 }
 /*--end_pointsystem--*/
 
