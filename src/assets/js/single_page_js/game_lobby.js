@@ -6,12 +6,14 @@ const gameId = localStorage.getItem('gameId');
 const token = localStorage.getItem('playerToken');
 const playerName = localStorage.getItem('playerName');
 const scoreboard = document.querySelector('aside dl');
+const header = document.querySelector('h1');
+const tempReady = document.querySelector('main>h2');
 
 function init() {
     checkLS();
     document.querySelector('header a').addEventListener('click', leaveGamePlayer);
     document.querySelector('#copy').addEventListener('click', copy);
-    setScoreboard();
+    document.querySelector('main a').addEventListener('click', changePlayerStatus);
     polling();
 }
 
@@ -49,6 +51,7 @@ function leaveGamePlayer(e) {
 async function polling() {
     setPlayersJoined();
     setScoreboard();
+    setPlayersReady();
 
     if (await getGameStarted(gameId, token)) {
         window.location.replace('./game.html');
@@ -59,20 +62,40 @@ async function polling() {
 
 function setPlayersJoined() {
     getPlayerCount(gameId, token).then(resp => {
-        const header = document.querySelector('h1');
         header.innerText = header.innerText.replace(header.innerText.charAt(0), resp);
     });
 }
 
-function setScoreboard() {
+function setPlayersReady() {
+    getPlayerReady(gameId, token).then(resp => {
+       tempReady.innerText = tempReady.innerText.replace(tempReady.innerText.charAt(0), resp);
+    });
+}
 
+function setScoreboard() {
     getGamePlayers(gameId, token).then(players => {
-        let listScoreboard ='';
+        let listScoreboard = '';
         players.forEach(player => {
-            listScoreboard+= `<dt>${player}</dt><dd>status</dd>`;
+            listScoreboard += `<dt>${player}</dt><dd>status</dd>`;
         });
         scoreboard.innerHTML = listScoreboard;
     });
+}
 
+function changePlayerStatus(e) {
+    e.preventDefault();
+    if (e.target.innerText === 'ready') {
+        setPlayerReady(gameId, token, playerName).then(response => {
+            if (response) {
+                e.target.innerText = 'unready'
+            }
+        });
+    } else {
+        setPlayerUnready(gameId, token, playerName).then(response => {
+            if (response) {
+                e.target.innerText = 'ready'
+            }
+        });
+    }
 }
 

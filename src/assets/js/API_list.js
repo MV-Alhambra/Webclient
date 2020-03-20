@@ -34,12 +34,24 @@ function getGameProperty(gameId, token, property) {
     });
 }
 
+function setPlayerReady(gameId, token, playerName) {
+   return  fetchWithToken(`${config.root}games/${gameId}/players/${playerName}/ready`, "PUT", token);
+}
+
+function setPlayerUnready(gameId, token, playerName) {
+    return fetchWithToken(`${config.root}games/${gameId}/players/${playerName}/ready`, "DELETE", token);
+}
+
 async function leaveGame(gameId, token, playerName) {
     return fetchWithToken(`${config.root}games/${gameId}/players/${playerName}`, "DELETE", token);
 }
 
 async function getPlayerCount(gameId, token) {
     return getGameProperty(gameId, token, 'playerCount');
+}
+
+async function getPlayerReady(gameId, token) {
+    return getGameProperty(gameId, token, 'readyCount');
 }
 
 async function getGameStarted(gameId, token) {
