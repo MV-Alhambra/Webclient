@@ -38,37 +38,37 @@ main{
 }
 #bank{
     border: gold solid 2px;
-    grid-area: 1 / 1 / 4 /5;
+    grid-area: 1 / 1 / 6 /5;
 }
 
 #market{
     border: brown solid 2px;
-    grid-area: 4 / 1 / 9 /5;
+    grid-area: 6 / 1 / 13 /5;
 }
 
 #money{
     border: green solid 2px;
-    grid-area: 9 / 1 / 13 /5;
+    grid-area: 9 / 5 / 13 / 9;
 }
 
 #map{
     border: gray solid 2px;
-    grid-area: 1 / 5 / 10 /11;
+    grid-area: 1 / 5 / 9 /11;
 }
 
 #scoreboard{
     border: pink solid 2px;
-    grid-area: 1 / 11 / 10 /13;
+    grid-area: 1 / 11 / 5 /13;
 }
 
 #reserve{
     border: red solid 2px;
-    grid-area: 10 / 5 / 13 /10;
+    grid-area: 9 / 9 / 13 /13;
 }
 
 #button_card{
     border: blue solid 2px;
-    grid-area: 10 / 10 / 13 /13;
+    grid-area: 5 / 11 / 9 /13;
 }
 
 /*---end_grid---*/
