@@ -83,6 +83,13 @@ a#pspopup{
     text-decoration: none;
     color: black;
     font-weight: bold;
+    border: 2px solid black;
+    padding: 0.5em;
+    border-radius: 100%;
+}
+
+a#pspopup:hover{
+    background-color: floralwhite;
 }
 .pointsystem{
     width: 100%;
