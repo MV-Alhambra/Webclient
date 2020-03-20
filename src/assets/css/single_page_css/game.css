@@ -79,6 +79,7 @@ main {
 }
 
 /*---end_grid---*/
+
 /*--scoreboard--*/
 
 dl {
@@ -98,6 +99,7 @@ dd{
 }
 
 /*--end_scoreboard--*/
+
 /*---bank---*/
 #containerBank {
     display: flex;
@@ -236,6 +238,124 @@ header a {
 }
 
 /*---end_leave_button---*/
+
+
+/*---pointsystem---*/
+aside{
+   padding-bottom: 3.8em;
+    text-align: center;
+}
+a#pspopup{
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    border: 2px solid black;
+    padding: 0.5em;
+    border-radius: 100%;
+}
+
+a#pspopup:hover{
+    background-color: floralwhite;
+}
+.pointsystem{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.pointsystemcontent{
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    border-radius: 4px;
+    position: relative;
+}
+.close{
+    position: absolute;
+    top: 0.1em;
+    right: 0.3em;
+    font-size: 1.8em;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+.grid-points {
+    margin-top: 1em;
+    display: grid;
+    grid-template-columns: 12em 3em 6em 8em;
+    grid-column-start: 2;
+    text-align: center;
+}
+.grid-player{
+    height: 10%;
+}
+.grid-player ul li{
+    display: inline;
+    padding-right: 0.5em;
+}
+.grid-header{
+    margin-top: -6em;
+}
+
+.grid-header ul{
+    margin-left: 3em;
+    margin-right: 1em;
+    border: 2px solid black;
+    text-align: left;
+}
+.grid-header ul li{
+    display: inline;
+    padding-right: 1.5em;
+}
+.grid-header ul li:nth-child(odd){
+    display: inline;
+    padding-right: 0.9em;
+    font-weight: bold;
+}
+
+.grid-point{
+    margin-top: -6em;
+}
+.grid-point ul li{
+    display: inline;
+    border: 1px solid black;
+    margin-left: 0.1em;
+    padding: 0.5em;
+}
+
+.grid-point.pav ul li, .grid-header.pav ul{
+    background-image: radial-gradient(powderblue, lightskyblue 90%);
+}
+
+.grid-point.ser ul li, .grid-header.ser ul{
+    background-image: radial-gradient(floralwhite, darkorange 90%);
+}
+
+.grid-point.arc ul li, .grid-header.arc ul{
+    background-image: radial-gradient(sandybrown, saddlebrown 90%);
+}
+
+.grid-point.cha ul li, .grid-header.cha ul{
+    background-image: radial-gradient(whitesmoke, ghostwhite 90%);
+}
+
+.grid-point.gar ul li, .grid-header.gar ul{
+    background-image: radial-gradient(darkseagreen, darkgreen 90%);
+}
+.grid-point.tow ul li, .grid-header.tow ul{
+    background-image: radial-gradient(lightpink, mediumpurple 90%);
+}
+ul{
+    text-align: center;
+    margin-bottom: 7em;
+/*--end_pointsystem--*/
+
 
 /*---turn_options---*/
 #button_card a
