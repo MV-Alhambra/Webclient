@@ -6,6 +6,15 @@
     font-family: sans-serif; /* because serif is ugly */
 }
 
+
+h1{
+    box-sizing: border-box;
+    text-align: center;
+    padding: 5px;
+    font-size: 2rem;
+    height: 30%;
+}
+
 /*---------------------*/
 /* CONTAINING ELEMENTS */
 /*---------------------*/
@@ -102,15 +111,6 @@ li{
     height: 70%;
 }
 
-
-#bank h1{
-    box-sizing: border-box;
-    text-align: center;
-    padding: 5px;
-    font-size: 2rem;
-    height: 30%;
-}
-
 #containerBank p{
     border: solid 1px black;
     width: 25%;
@@ -122,22 +122,30 @@ li{
     font-family: 'Lobster', cursive;
 }
 
-#blue{
+#blueMoney{
     background-color: royalblue;
 }
 
-#green{
+#greenMoney{
     background-color: green;
 }
 
-#orange{
+#orangeMoney{
     background-color: orange;
 }
 
-#yellow{
+#yellowMoney{
     background-color: yellow;
 }
 /*---bank_end---*/
+
+/*---market---*/
+
+
+
+
+/*---end_market---*/
+
 
 /*---leave_button---*/
 .hidden{
