@@ -13,9 +13,9 @@ function init() {
     setScoreboard();
     setTitle();
     setBank();
+    setCoins();
     document.querySelector('#pspopup').addEventListener('click', showpointsystem);
     document.querySelector('.close').addEventListener('click', closepointsystem);
-
 }
 
 function setScoreboard() {
@@ -26,7 +26,6 @@ function setScoreboard() {
         });
         scoreboard.innerHTML = listScoreboard;
     });
-
 }
 
 function setBank() {
@@ -46,6 +45,20 @@ function setTitle() {
         } else {
             title.innerHTML = `It's the turn of ${currentPlayer}.`;
         }
+    });
+}
+
+function setCoins() {
+    getGamePlayers(gameId,token).then(players =>{
+       players.forEach(player=>{
+           if (player.name === playerName){
+               document.querySelectorAll('#moneyPlayer ul').forEach(list =>list.innerHTML='');
+                player.coins.forEach(coin =>{
+                   const coinHolder = document.querySelector(`#${coin.currency}MoneyPlayer ul`);
+                   coinHolder.innerHTML+=`<li>${coin.amount}</li>`;
+                });
+           }
+       });
     });
 }
 
