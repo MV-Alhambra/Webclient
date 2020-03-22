@@ -12,12 +12,6 @@ function addGame() {   // Add a new game in your lobby
     });
 }
 
-function returnPlayers() {
-    fetchFromServer(`${config.root}games/group${config.groupnumber}-000`, 'GET').then(function (response) {
-        console.log(response);
-    });
-}
-
 function addPlayer(gameId, playerName) { //add player to your lobby, player name needs to be lowercase
     return fetchFromServerWithReturnErrorAndJson(`${config.root}games/${gameId}/players`, 'POST', {playerName: playerName}).then(function (response) {
         return response;
@@ -62,4 +56,7 @@ async function getGamePlayers(gameId, token) {
     return getGameProperty(gameId, token, 'players');
 }
 
+async function getGameCurrentPlayer(gameId, token) {
+    return  getGameProperty(gameId, token, 'currentPlayer');
+}
 

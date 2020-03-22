@@ -28,10 +28,16 @@ body {
     box-sizing: border-box;
 }
 
+/*---start header---*/
 header {
     height: 10vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 5fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
 }
 
+/*--- end header---*/
 main {
     height: calc(82vh - 2px); /* prevents scrollbar from appearing*/
     padding: 4vh;
@@ -365,6 +371,7 @@ a#pspopup:hover {
     grid-template-columns: 12em 3em 6em 8em;
     text-align: center;
 }
+
 /*
 .grid-player {
 }
