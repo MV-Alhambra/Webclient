@@ -365,10 +365,10 @@ a#pspopup:hover {
     grid-template-columns: 12em 3em 6em 8em;
     text-align: center;
 }
-
+/*
 .grid-player {
 }
-
+*/
 .grid-player ul li {
     display: inline;
     padding-right: 0.5em;
