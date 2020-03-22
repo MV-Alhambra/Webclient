@@ -10,19 +10,20 @@
 	<header>
 		<a class="leavePopup" href="#">Leave game</a>
 		<section class="hidden" id="popup">
-			<h1>Are u sure you want to leave?</h1>
+			<h5>Are u sure you want to leave?</h5>
 			<a class="Yes" href="#">Yes</a>
 			<a class="No" href="#" id="returnToGame">No</a>
 		</section>
+		<a class="popuppointsystem" href="#" id="pspopup">Point System</a>
 	</header>
 	<main>
 		<div id="bank">
 			<h1>Bank</h1>
 			<div id="containerBank">
-				<p id="blueMoney">5</p>
-				<p id="greenMoney">7</p>
-				<p id="orangeMoney">2</p>
-				<p id="yellowMoney">1</p>
+				<p class="blue">5</p>
+				<p class="green">7</p>
+				<p class="orange">2</p>
+				<p class="yellow">1</p>
 			</div>
 		</div>
 		<div id="market">
@@ -49,118 +50,113 @@
 			</footer>
 		</div>
 		<div id="money">
-        <h1>Your coins</h1>
-        <div id="moneyPlayer">
-            <section id="blueMoneyPlayer">
-                <h4>Blue</h4>
-                <ul>
-                    <li>4</li>
-                    <li>2</li>
-                    <li>2</li>
-                    <li>8</li>
-                    <li>6</li>
-                </ul>
-            </section>
-            <section id="greenMoneyPlayer">
-                <h4>Green</h4>
-                <ul>
-                    <li>2</li>
-                </ul>
-            </section>
-            <section id="yellowMoneyPlayer">
-                <h4>Yellow</h4>
-                <ul>
-                    <li>7</li>
-                    <li>2</li>
-                    <li>2</li>
-                    <li>8</li>
-                    <li>6</li>
-                </ul>
-            </section>
-            <section id="orangeMoneyPlayer">
-                <h4>Orange</h4>
-                <ul>
-                    <li>2</li>
-                    <li>2</li>
-                    <li>2</li>
-                    <li>8</li>
-                    <li>6</li>
-                </ul>
-            </section>
-        </div>
-    </div>
+			<h1>Your coins</h1>
+			<div id="moneyPlayer">
+				<section id="blueMoneyPlayer">
+					<h4>Blue</h4>
+					<ul>
+						<li>4</li>
+						<li>2</li>
+						<li>2</li>
+						<li>8</li>
+						<li>6</li>
+					</ul>
+				</section>
+				<section id="greenMoneyPlayer">
+					<h4>Green</h4>
+					<ul>
+						<li>2</li>
+					</ul>
+				</section>
+				<section id="yellowMoneyPlayer">
+					<h4>Yellow</h4>
+					<ul>
+						<li>7</li>
+						<li>2</li>
+						<li>2</li>
+						<li>8</li>
+						<li>6</li>
+					</ul>
+				</section>
+				<section id="orangeMoneyPlayer">
+					<h4>Orange</h4>
+					<ul>
+						<li>2</li>
+						<li>2</li>
+						<li>2</li>
+						<li>8</li>
+						<li>6</li>
+					</ul>
+				</section>
+			</div>
+		</div>
 		<div id="scoreboard">
 			<dl>
 			</dl>
-			<a href="#" class="popuppointsystem" id="pspopup">Point System</a>
+
 		</div>
-		<div id="map"></div>
+		<div id="map">
+			<img src="images/fountain.jpg" alt="Fountain" id="fountain"/>
+		</div>
 		<div id="reserve"></div>
 		<div id="button_card">
-		    <a href="#" id="buy_building">Buy building</a>
-            <a href="#" id="Redesign_town">Redesign town</a>
-            <a href="#" id="Take_money">Take money</a>
-            <a href="#" id="End_turn">End turn</a>
+			<a href="#" id="buy_building">Buy building</a>
+			<a href="#" id="redesign_town">Redesign town</a>
+			<a href="#" id="take_money">Take money</a>
+			<a href="#" id="end_turn">End turn</a>
 		</div>
+		<div class="pointsystem"><!-- Dont Rearrange this code or it will break, have'nt found out why -->
+			<div class="pointsystemcontent">
+				<div class="close">+</div>
+				<div class="grid-points">
 
+					<div class="grid-round"></div>
+					<div class="grid-round">A</div>
+					<div class="grid-round">B</div>
+					<div class="grid-round">C</div>
 
+					<div class="grid-player"></div>
+					<div class="grid-player">1</div>
+					<div class="grid-player"><ul><li>1</li><li>2</li></ul></div>
+					<div class="grid-player"><ul><li>1</li><li>2</li><li>3</li></ul></div>
 
-    <div class="pointsystem">
-        <div class="pointsystemcontent">
-            <div class="close">+</div>
-            <div class="grid-points">
+					<div class="grid-header pav"><ul><li>7x</li><li>Pavilions</li></ul></div>
+					<div class="grid-point pav"><ul><li>1</li></ul></div>
+					<div class="grid-point pav"><ul><li>8</li><li>1</li></ul></div>
+					<div class="grid-point pav"><ul><li>16</li><li>8</li><li>1</li></ul></div>
 
-                <div class="grid-round"></div>
-                <div class="grid-round">A</div>
-                <div class="grid-round">B</div>
-                <div class="grid-round">C</div>
+					<div class="grid-header ser"><ul><li>7x</li><li>Seraglio</li></ul></div>
+					<div class="grid-point ser"><ul><li>2</li></ul></div>
+					<div class="grid-point ser"><ul><li>9</li><li>2</li></ul></div>
+					<div class="grid-point ser"><ul><li>17</li><li>9</li><li>2</li></ul></div>
 
-                <div class="grid-player"></div>
-                <div class="grid-player">1</div>
-                <div class="grid-player"><ul><li>1</li><li>2</li></ul></div>
-                <div class="grid-player"><ul><li>1</li><li>2</li><li>3</li></ul></div>
+					<div class="grid-header arc"><ul><li>9x</li><li>Arcades</li></ul></div>
+					<div class="grid-point arc"><ul><li>3</li></ul></div>
+					<div class="grid-point arc"><ul><li class="twodigit">10</li><li>3</li></ul></div>
+					<div class="grid-point arc"><ul><li>18</li><li class="twodigit">10</li><li>3</li></ul></div>
 
-                <div class="grid-header pav"><ul><li>7x</li><li>Pavilions</li></ul></div>
-                <div class="grid-point pav"><ul><li>1</li></ul></div>
-                <div class="grid-point pav"><ul><li>8</li><li>1</li></ul></div>
-                <div class="grid-point pav"><ul><li>16</li><li>8</li><li>1</li></ul></div>
-            
-                <div class="grid-header ser"><ul><li>7x</li><li>Seraglio</li></ul></div>
-                <div class="grid-point ser"><ul><li>2</li></ul></div>
-                <div class="grid-point ser"><ul><li>9</li><li>2</li></ul></div>
-                <div class="grid-point ser"><ul><li>17</li><li>9</li><li>2</li></ul></div>
+					<div class="grid-header cha"><ul><li>9x</li><li>Chambers</li></ul></div>
+					<div class="grid-point cha"><ul><li>4</li></ul></div>
+					<div class="grid-point cha"><ul><li>11</li><li>4</li></ul></div>
+					<div class="grid-point cha"><ul><li>19</li><li>11</li><li>4</li></ul></div>
 
-                <div class="grid-header arc"><ul><li>9x</li><li>Arcades</li></ul></div>
-                <div class="grid-point arc"><ul><li>3</li></ul></div>
-                <div class="grid-point arc"><ul><li class="twodigit">10</li><li>3</li></ul></div>
-                <div class="grid-point arc"><ul><li>18</li><li class="twodigit">10</li><li>3</li></ul></div>
+					<div class="grid-header gar"><ul><li>11x</li><li>Garden</li></ul></div>
+					<div class="grid-point gar"><ul><li>5</li></ul></div>
+					<div class="grid-point gar"><ul><li>12</li><li>5</li></ul></div>
+					<div class="grid-point gar"><ul><li>20</li><li>12</li><li>5</li></ul></div>
 
-                <div class="grid-header cha"><ul><li>9x</li><li>Chambers</li></ul></div>
-                <div class="grid-point cha"><ul><li>4</li></ul></div>
-                <div class="grid-point cha"><ul><li>11</li><li>4</li></ul></div>
-                <div class="grid-point cha"><ul><li>19</li><li>11</li><li>4</li></ul></div>
-
-                <div class="grid-header gar"><ul><li>11x</li><li>Garden</li></ul></div>
-                <div class="grid-point gar"><ul><li>5</li></ul></div>
-                <div class="grid-point gar"><ul><li>12</li><li>5</li></ul></div>
-                <div class="grid-point gar"><ul><li>20</li><li>12</li><li>5</li></ul></div>
-
-                <div class="grid-header tow"><ul><li>11x</li><li>Tower</li></ul></div>
-                <div class="grid-point tow"><ul><li>6</li></ul></div>
-                <div class="grid-point tow"><ul><li>13</li><li>6</li></ul></div>
-                <div class="grid-point tow"><ul><li>21</li><li>13</li><li>6</li></ul></div>
-            </div>
-        </div>
-    </div>
-</main>
-
-
-<script src="assets/js/communication.js"></script>
-<script src="assets/js/API_list.js"></script>
-<script src="assets/js/config.js"></script>
-<script src="assets/js/single_page_js/leave_game.js"></script>
-<script src="assets/js/single_page_js/game.js"></script>
-
-
+					<div class="grid-header tow"><ul><li>11x</li><li>Tower</li></ul></div>
+					<div class="grid-point tow"><ul><li>6</li></ul></div>
+					<div class="grid-point tow"><ul><li>13</li><li>6</li></ul></div>
+					<div class="grid-point tow"><ul><li>21</li><li>13</li><li>6</li></ul></div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<script src="assets/js/communication.js"></script>
+	<script src="assets/js/API_list.js"></script>
+	<script src="assets/js/config.js"></script>
+	<script src="assets/js/single_page_js/leave_game.js"></script>
+	<script src="assets/js/single_page_js/game.js"></script>
 </body>
 </html>

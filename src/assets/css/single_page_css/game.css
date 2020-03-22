@@ -5,12 +5,16 @@
     font-family: sans-serif; /* because serif is ugly */
 }
 
-h1 {
+h1, h5 {
     box-sizing: border-box;
     text-align: center;
     padding: 5px;
     font-size: 2rem;
     height: 15%;
+}
+
+ul {
+    text-align: center;
 }
 
 /*---------------------*/
@@ -54,11 +58,22 @@ main {
     grid-area: 9 / 5 / 13 / 9;
 }
 
+/* ---start map---*/
 #map {
     border: gray solid 2px;
     grid-area: 1 / 5 / 9 /11;
+    display: grid;
+    grid-template-columns: repeat(7, 101px);
+    grid-template-rows: repeat(5, 101px);
+    justify-content: center;
+    grid-template-areas: "r1c1 r1c2 r1c3 r1c4 r1c5 r1c6 r1c7" "r2c1 r2c2 r2c3 r2c4 r2c5 r2c6 r2c7" "r3c1 r3c2 r3c3 r3c4 r3c5 r3c6 r3c7" "r5c1 r5c2 r5c3 r5c4 r5c5 r5c6 r5c7" "r4c1 r4c2 r4c3 r4c4 r4c5 r4c6 r4c7";
 }
 
+#fountain {
+    grid-area: r3c4;
+}
+
+/* ---end map---*/
 #scoreboard {
     border: pink solid 2px;
     grid-area: 1 / 11 / 5 /13;
@@ -69,19 +84,35 @@ main {
     grid-area: 9 / 9 / 13 /13;
 }
 
+/*---turn_options---*/
 #button_card {
     border: blue solid 2px;
     grid-area: 5 / 11 / 9 /13;
-    /*---turn_options---*/
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10%;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 4%;
+    align-items: normal;
+    text-align: center;
 }
 
+#button_card a {
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    border: 2px black solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}
+
+/*---end_turn_options---*/
 /*---end_grid---*/
-
 /*--scoreboard--*/
-
 dl {
     width: 100%;
     height: 100%;
@@ -94,12 +125,11 @@ dl {
     font-size: 1.2rem;
 }
 
-dd{
+dd {
     text-align: right;
 }
 
 /*--end_scoreboard--*/
-
 /*---bank---*/
 #containerBank {
     display: flex;
@@ -129,19 +159,19 @@ dd{
     align-items: center; /* align vertical */
 }
 
-#blueMoney {
+.blue {
     background-color: royalblue;
 }
 
-#greenMoney {
+.green {
     background-color: green;
 }
 
-#orangeMoney {
+.orange {
     background-color: orange;
 }
 
-#yellowMoney {
+.yellow {
     background-color: yellow;
 }
 
@@ -187,31 +217,29 @@ img:nth-child(2n+1) {
 }
 
 /*---end_market---*/
-
 /*---money---*/
-#money h1{
+#money h1 {
     height: 20%;
 }
 
-#moneyPlayer{
+#moneyPlayer {
     display: flex;
     justify-content: space-evenly;
 }
 
-#money ul{
+#money ul {
     padding: 5px;
 }
 
-#money h4{
+#money h4 {
     text-align: center;
-
 }
 
-#money section{
+#money section {
     width: 50%;
 }
 
-#money ul li{
+#money ul li {
     float: left;
     border-radius: 100%;
     margin: 2px;
@@ -219,24 +247,23 @@ img:nth-child(2n+1) {
     width: 15px;
 }
 
-#blueMoneyPlayer li{
+#blueMoneyPlayer li {
     background-color: royalblue;
 }
 
-#greenMoneyPlayer li{
+#greenMoneyPlayer li {
     background-color: green;
 }
 
-#yellowMoneyPlayer li{
+#yellowMoneyPlayer li {
     background-color: yellow;
 }
 
-#orangeMoneyPlayer li{
+#orangeMoneyPlayer li {
     background-color: orange;
 }
+
 /*---end_money---*/
-
-
 /*---leave_button---*/
 .hidden {
     display: none;
@@ -255,7 +282,7 @@ header a {
     font-weight: bold;
 }
 
-#popup h1{
+#popup h5 {
     margin-bottom: 30px;
 }
 
@@ -288,14 +315,8 @@ header a {
 }
 
 /*---end_leave_button---*/
-
-
 /*---pointsystem---*/
-aside{
-   padding-bottom: 3.8em;
-    text-align: center;
-}
-a#pspopup{
+a#pspopup {
     text-align: center;
     text-decoration: none;
     color: black;
@@ -305,10 +326,11 @@ a#pspopup{
     border-radius: 100%;
 }
 
-a#pspopup:hover{
+a#pspopup:hover {
     background-color: floralwhite;
 }
-.pointsystem{
+
+.pointsystem {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
@@ -319,14 +341,16 @@ a#pspopup:hover{
     align-items: center;
     display: none;
 }
-.pointsystemcontent{
+
+.pointsystemcontent {
     width: 500px;
     height: 300px;
     background-color: white;
     border-radius: 4px;
     position: relative;
 }
-.close{
+
+.close {
     position: absolute;
     top: 0.1em;
     right: 0.3em;
@@ -339,103 +363,78 @@ a#pspopup:hover{
     margin-top: 1em;
     display: grid;
     grid-template-columns: 12em 3em 6em 8em;
-    grid-column-start: 2;
     text-align: center;
 }
-.grid-player{
-    height: 10%;
+
+.grid-player {
 }
-.grid-player ul li{
+
+.grid-player ul li {
     display: inline;
     padding-right: 0.5em;
 }
-.grid-header{
+
+.grid-header {
     margin-top: -6em;
 }
 
-.grid-header ul{
+.grid-header ul {
     margin-left: 3em;
     margin-right: 1em;
     border: 2px solid black;
     text-align: left;
 }
-.grid-header ul li{
+
+.grid-header ul li {
     display: inline;
     padding-right: 1.5em;
 }
-.grid-header ul li:nth-child(odd){
+
+.grid-header ul li:nth-child(odd) {
     display: inline;
     padding-right: 0.9em;
     font-weight: bold;
 }
 
-.grid-point{
+.grid-point {
     margin-top: -6em;
 }
-.grid-point ul li{
+
+.grid-point ul li {
     display: inline;
     border: 1px solid black;
     margin-left: 0.1em;
     padding: 0.5em;
 }
 
-.grid-point.pav ul li, .grid-header.pav ul{
+.grid-point.pav ul li, .grid-header.pav ul {
     background-image: radial-gradient(powderblue, lightskyblue 90%);
 }
 
-.grid-point.ser ul li, .grid-header.ser ul{
+.grid-point.ser ul li, .grid-header.ser ul {
     background-image: radial-gradient(floralwhite, darkorange 90%);
 }
 
-.grid-point.arc ul li, .grid-header.arc ul{
+.grid-point.arc ul li, .grid-header.arc ul {
     background-image: radial-gradient(sandybrown, saddlebrown 90%);
 }
 
-.grid-point.cha ul li, .grid-header.cha ul{
+.grid-point.cha ul li, .grid-header.cha ul {
     background-image: radial-gradient(whitesmoke, ghostwhite 90%);
 }
 
-.grid-point.gar ul li, .grid-header.gar ul{
+.grid-point.gar ul li, .grid-header.gar ul {
     background-image: radial-gradient(darkseagreen, darkgreen 90%);
 }
-.grid-point.tow ul li, .grid-header.tow ul{
+
+.grid-point.tow ul li, .grid-header.tow ul {
     background-image: radial-gradient(lightpink, mediumpurple 90%);
 }
-ul {
+
+.pointsystem ul {
     text-align: center;
     margin-bottom: 7em;
 }
+
 /*--end_pointsystem--*/
 
-
-/*---turn_options---*/
-#button_card a
-{
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 7px;
-    text-decoration: none;
-    color: black;
-    border: 2px black solid;
-}
-#button_card a:nth-child(1),#button_card a:nth-child(2)
-{
-    margin-top: 2rem;
-}
-#button_card a:nth-child(3),#button_card a:nth-child(4)
-{
-    margin-top: 7rem;
-    margin-bottom: 2rem;
-}
-#button_card a:nth-child(3)
-{
-    margin-left: 0.25rem;
-    margin-right: 1rem;
-}
-#button_card a:nth-child(4)
-{
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-right: 0.25rem;
-}
-/*---end_turn_options---*/
