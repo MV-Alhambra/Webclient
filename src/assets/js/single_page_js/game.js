@@ -7,10 +7,12 @@ const token = localStorage.getItem('playerToken');
 const playerName = localStorage.getItem('playerName');
 const scoreboard = document.querySelector('#scoreboard dl');
 const title = document.querySelector('header h2');
+const bankHolder = document.querySelector('main div #containerBank');
 
 function init() {
     setScoreboard();
     setTitle();
+    setBank();
     document.querySelector('#pspopup').addEventListener('click', showpointsystem);
     document.querySelector('.close').addEventListener('click', closepointsystem);
 
@@ -27,9 +29,18 @@ function setScoreboard() {
 
 }
 
+function setBank() {
+    getGameProperty(gameId, token, 'bank').then(bank => {
+        let coins ='';
+        bank.forEach(coin => {
+            coins += `<p class="${coin.currency}">${coin.amount}</p>`;
+        });
+        bankHolder.innerHTML = coins;
+    });
+}
+
 function setTitle() {
     getGameCurrentPlayer(gameId, token).then(currentPlayer => {
-        console.log(currentPlayer);
         if (playerName === currentPlayer) {
             title.innerHTML = `It's your turn!`;
         } else {
