@@ -8,12 +8,14 @@ const playerName = localStorage.getItem('playerName');
 const scoreboard = document.querySelector('#scoreboard dl');
 const title = document.querySelector('header h2');
 const bankHolder = document.querySelector('main div #containerBank');
+const marketBuildings = document.querySelectorAll('#marketGrid p');
 
 function init() {
     setScoreboard();
     setTitle();
     setBank();
     setCoins();
+    setMarket();
     document.querySelector('#pspopup').addEventListener('click', showpointsystem);
     document.querySelector('.close').addEventListener('click', closepointsystem);
 }
@@ -30,7 +32,7 @@ function setScoreboard() {
 
 function setBank() {
     getGameProperty(gameId, token, 'bank').then(bank => {
-        let coins ='';
+        let coins = '';
         bank.forEach(coin => {
             coins += `<p class="${coin.currency}">${coin.amount}</p>`;
         });
@@ -49,16 +51,31 @@ function setTitle() {
 }
 
 function setCoins() {
-    getGamePlayers(gameId,token).then(players =>{
-       players.forEach(player=>{
-           if (player.name === playerName){
-               document.querySelectorAll('#moneyPlayer ul').forEach(list =>list.innerHTML='');
-                player.coins.forEach(coin =>{
-                   const coinHolder = document.querySelector(`#${coin.currency}MoneyPlayer ul`);
-                   coinHolder.innerHTML+=`<li>${coin.amount}</li>`;
+    getGamePlayers(gameId, token).then(players => {
+        players.forEach(player => {
+            if (player.name === playerName) {
+                document.querySelectorAll('#moneyPlayer ul').forEach(list => list.innerHTML = '');
+                player.coins.forEach(coin => {
+                    const coinHolder = document.querySelector(`#${coin.currency}MoneyPlayer ul`);
+                    coinHolder.innerHTML += `<li>${coin.amount}</li>`;
                 });
-           }
-       });
+            }
+        });
+    });
+}
+
+function setMarket() {
+    getGameProperty(gameId, token, 'market').then(markets => {
+        Object.keys(markets).forEach((market, index) => {
+            marketBuildings[index].innerHTML = markets[market].cost;
+            marketBuildings[index].style.backgroundImage = `url('./images/${markets[market].type}.jpg')`;
+            marketBuildings[index].className ='';
+            Object.keys(markets[market].walls).forEach(wall=>{
+               if (markets[market].walls[wall]){
+                   marketBuildings[index].classList.add(`${wall}Wall`);
+               }
+            });
+        });
     });
 }
 
