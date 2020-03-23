@@ -342,6 +342,7 @@ header a {
 }
 
 /*---end_leave_button---*/
+
 /*---pointsystem---*/
 a#pspopup {
     text-align: center;
@@ -386,83 +387,48 @@ a#pspopup:hover {
     cursor: pointer;
 }
 
-.grid-points {
-    margin-top: 1em;
-    display: grid;
-    grid-template-columns: 12em 3em 6em 8em;
-    text-align: center;
-}
-
-/*
-.grid-player {
-}
-*/
-.grid-player ul li {
+.grid-points div ul li{
     display: inline;
-    padding-right: 0.5em;
 }
-
-.grid-header {
-    margin-top: -6em;
+.grid-round ul{
+    text-align: right;
+    margin-right: 6em;
+    margin-top: 2em;
 }
-
-.grid-header ul {
-    margin-left: 3em;
-    margin-right: 1em;
-    border: 2px solid black;
-    text-align: left;
+.grid-round ul li{
+    text-align: right;
+    padding-left: 4em;
 }
-
-.grid-header ul li {
-    display: inline;
-    padding-right: 1.5em;
+.grid-content ul{
+    text-align: right;
+    margin-right: 4.8em;
+    margin-top: 0.7em;
 }
-
-.grid-header ul li:nth-child(odd) {
-    display: inline;
-    padding-right: 0.9em;
-    font-weight: bold;
+.grid-content ul li{
+    padding-left: 0.5em;
 }
-
-.grid-point {
-    margin-top: -6em;
+.grid-content ul li.first-of-roundC{
+    padding-left: 1.6em;
 }
-
-.grid-point ul li {
-    display: inline;
-    border: 1px solid black;
-    margin-left: 0.1em;
-    padding: 0.5em;
+.grid-content ul li.first-of-roundB{
+    padding-left: 3.5em;
 }
-
-.grid-point.pav ul li, .grid-header.pav ul {
-    background-image: radial-gradient(powderblue, lightskyblue 90%);
+.grid-content ul li.doubledigits{
+    padding-left: 0.1em;
 }
-
-.grid-point.ser ul li, .grid-header.ser ul {
-    background-image: radial-gradient(floralwhite, darkorange 90%);
+.grid-players ul{
+    text-align: right;
+    margin-right: 4.8em;
+    margin-top: 0.7em;
 }
-
-.grid-point.arc ul li, .grid-header.arc ul {
-    background-image: radial-gradient(sandybrown, saddlebrown 90%);
+.grid-players ul li{
+    padding-left: 0.5em;
 }
-
-.grid-point.cha ul li, .grid-header.cha ul {
-    background-image: radial-gradient(whitesmoke, ghostwhite 90%);
+.grid-players ul li.first-of-roundC{
+    padding-left: 2.1em;
 }
-
-.grid-point.gar ul li, .grid-header.gar ul {
-    background-image: radial-gradient(darkseagreen, darkgreen 90%);
+.grid-players ul li.first-of-roundB{
+    padding-left: 3.5em;
 }
-
-.grid-point.tow ul li, .grid-header.tow ul {
-    background-image: radial-gradient(lightpink, mediumpurple 90%);
-}
-
-.pointsystem ul {
-    text-align: center;
-    margin-bottom: 7em;
-}
-
 /*--end_pointsystem--*/
 
