@@ -2,6 +2,13 @@
 /*    GENERAL ELEMENTS    */
 /*------------------------*/
 
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash&display=swap');
+
+body{
+    background-image: url("../../../images/background.png");
+    background-size: cover;
+}
+
 h1, nav {
     text-align: center;
     font-family: sans-serif;
@@ -9,8 +16,13 @@ h1, nav {
 
 
 h1{
-    font-size: 5rem;
-    margin-top: 250px;
+    margin-top: 150px;
+    font-family: 'Berkshire Swash', cursive;
+}
+
+
+span{
+    font-size: 250px;
 }
 
 li {
@@ -18,13 +30,12 @@ li {
 }
 
 
-
 /*---------------------*/
 /* CONTAINING ELEMENTS */
 /*---------------------*/
 
 nav{
-     margin-top: 25px;
+    margin-top: 25px;
 }
 
 /*------------------------*/
@@ -33,23 +44,25 @@ nav{
 
 
 nav a {
+    color: white;
     text-decoration: none;
-    color: black;
     font-size: 2rem;
-    border: 1px black solid;
     padding: 5px;
+    font-family: 'Berkshire Swash', cursive;
 }
+
+
 
 a#rules{
     font-size: 2em;
     font-weight: bold;
     text-decoration: none;
-    color: black;
+    color: white;
     display: block;
     margin-right: 1em;
     float: right;
     margin-top: 1em;
-    border: 2px black solid;
+    border: 2px white solid;
     border-radius: 25px;
     position: absolute;
     top: 0;
@@ -57,7 +70,6 @@ a#rules{
     padding: 0.2em 0.5em 0.2em 0.5em;
 }
 
-a#rules:hover{
-    color: white;
-    background-color: black;
-}
+
+
+
