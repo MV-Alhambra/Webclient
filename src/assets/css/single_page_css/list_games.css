@@ -128,3 +128,26 @@ main ul li a {
     text-transform: uppercase;
     font-family: 'Questrial', sans-serif;
 }
+
+/*---scrolbar---*/
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: rgb(231, 197, 9);
+    box-shadow:  0 0 4px 5px rgb(255, 244, 9) inset;
+    padding: 5px;
+    opacity: 0.11;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    box-shadow:  0 0 4px 5px rgb(240, 240, 240) inset;
+    border-radius: 20px;
+}
+
