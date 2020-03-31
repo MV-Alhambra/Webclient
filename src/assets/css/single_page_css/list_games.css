@@ -2,6 +2,12 @@
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
 
+
+body{
+    background-image: url("../../../images/background.png");
+    background-size: cover;
+}
+
 header {
     font-family: Orbitron, serif;
     font-size: 44px;
