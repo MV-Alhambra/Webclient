@@ -8,12 +8,27 @@ body{
     background-size: cover;
 }
 
+
 header {
-    font-family: Orbitron, serif;
-    font-size: 44px;
-    padding-top: 5%;
-    padding-left: 5%;
-    padding-bottom: 1%;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Berkshire Swash', cursive;
+    color: white;
+    padding: 30px 10vw;
+}
+
+
+nav{
+    display: flex;
+    margin-top: 60px;
+}
+
+nav a{
+    font-size: 2rem;
+}
+
+header h2{
+    font-size: 100px;
 }
 
 main {
@@ -36,7 +51,7 @@ main a {
     margin-left: 10px;
 }
 
-main a:not([href]){
+header a:not([href]){
     font-size: 40px;
     line-height: 40px;
     padding:  0 1%;
@@ -44,15 +59,15 @@ main a:not([href]){
     transition: transform 0.3s;
 }
 
-main a:not([href]):active{
+header a:not([href]):active{
     background: black;
     color: white;
     -webkit-transform:rotate(180deg);
     -moz-transform:rotate(180deg);
     -o-transform:rotate(180deg);
-
 }
-main a[href]:hover {
+
+header a[href]:hover {
     color: white;
     background: black;
 }
