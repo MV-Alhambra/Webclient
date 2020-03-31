@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Questrial&display=swap');
+
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
@@ -31,26 +33,6 @@ header h2{
     font-size: 100px;
 }
 
-main {
-    padding: 0 7vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    font-family: Neuton, serif;
-    font-size: 22px;
-}
-
-main a {
-    padding: 1% 2%;
-    border: black 1px solid;
-    text-decoration: none;
-    color: black;
-    transition: background-color 1s, color 1s;
-    display: inline-block;
-    white-space: nowrap;
-    margin-left: 10px;
-}
-
 header a:not([href]){
     font-size: 40px;
     line-height: 40px;
@@ -70,11 +52,38 @@ header a:not([href]):active{
 header a[href]:hover {
     color: white;
     background: black;
+
 }
+
+main {
+    padding: 0 7vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    font-family: Neuton, serif;
+    font-size: 22px;
+}
+
+main a {
+    padding: 1% 2%;
+    border: white 1px solid;
+    text-decoration: none;
+    color: white;
+    transition: background-color 1s, color 1s;
+    display: inline-block;
+    white-space: nowrap;
+    margin-left: 10px;
+    border-radius: 2px;
+}
+
+main a:hover{
+    box-shadow:  0 0 5px 3px white inset;
+}
+
 
 main ul {
     margin-top: 2%;
-    border: black 1px solid;
+    background-color: rgba(42, 42, 42, 0.5);
     height: 61vh;
     width: 81vw;
     display: block;
@@ -83,15 +92,26 @@ main ul {
 }
 
 main ul li {
+    color: white;
+    font-family: 'Questrial', sans-serif;
+    background-color: rgb(231, 197, 9);
+    z-index: 76;
     display: flex;
-    border: black 1px solid;
+    box-shadow:  0 0 4px 5px rgb(255, 244, 9) inset;
     width: 80vw;
     justify-content: space-between;
-    margin-top: 5px;
+    margin-top: 15px;
     padding: 5px;
     align-items: center;
 }
 
+.shadow{
+    box-shadow:  0 0 10px rgba(255, 244, 9, 0.6);
+}
+
 main ul li a {
     text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Questrial', sans-serif;
 }
