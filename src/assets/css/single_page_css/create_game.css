@@ -10,7 +10,7 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 5.5rem;
+    font-size: 6.5rem;
     letter-spacing: 3px;
     color: white;
     font-weight: lighter;
@@ -52,29 +52,52 @@ li label {
     letter-spacing: 2px;
 }
 
+input[type="text"], input[type="number"]{
+    padding: 10px;
+    font-size: 1.3rem;
+}
+
 input[type="text"]{
     width: 30%;
 }
 
-input {
 
-    padding: 10px;
-    border: 2px black solid;
-    font-size: 1.3rem;
-}
-
-button {
-    font-size: 2rem;
-    background-color: white;
+input[type="submit"] {
+    font-family: 'Questrial', sans-serif;
+    text-transform: uppercase;
     font-weight: bold;
+    font-size: 3rem;
+    letter-spacing: 3px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0 );
     text-decoration: none;
-    padding: 15px;
-    color: black;
-    border: 3px black solid;
-    margin-top: 4rem;
+    margin-top: 50px;
     margin-right: auto;
     margin-left: auto;
+    border: none;
 }
+
+input[type="submit"]:hover{
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+/*end glow elements*/
+
+/*animatie glow effect*/
+
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509;
+    }
+    to {
+        text-shadow: 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509, 0 0 7px #e7c509, 0 0 8px #e7c509, 0 0 10px #e7c509;
+    }
+}
+
+/*end animatie glow effect*/
+
+
+
 
 /*---------------------*/
 /* CONTAINING ELEMENTS */
