@@ -53,17 +53,14 @@ main.flex-container{
 
 #gameinfo form{
     margin-top: 15em;
+    color: white;
+    font-family: 'Questrial', sans-serif;
 }
 
 #gameinfo form label{
     font-size: 2em;
 }
 
-#gameinfo form input#userid{
-    font-size: 1.8em;
-    margin-left: 1em;
-    border: 2px black solid;
-}
 
 #gameinfo form input#join{
     margin-top: 2em;
@@ -72,4 +69,38 @@ main.flex-container{
     border: 2px black solid;
     background-color: transparent;
     padding: 0.4em;
+}
+
+#gameinfo li{
+    display: flex;
+    justify-content: center;
+
+}
+
+input[type="text"]{
+    color: white;
+    padding: 10px;
+    font-size: 1.3rem;
+    background-color: rgba(42, 42, 42, 0.5);
+    font-family: 'Questrial', sans-serif;
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+    /* field heeft automatisch border, dit verwijderd die border*/
+}
+
+.shadow{
+    box-shadow:  0 0 10px rgba(255, 244, 9, 0.6);
+    margin-left: 65px;
+    width: 40%;
+
+}
+
+
+input[type="text"]:focus{
+    background-color: rgb(231, 197, 9);
+    box-shadow:  0 0 4px 5px rgb(255, 244, 9) inset;
+    box-sizing: border-box;
+    border: white;
+    color: black;
 }
