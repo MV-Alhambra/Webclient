@@ -9,6 +9,7 @@ const scoreboard = document.querySelector('#scoreboard dl');
 const title = document.querySelector('header h2');
 const bankHolder = document.querySelector('main div #containerBank');
 const marketBuildings = document.querySelectorAll('#marketGrid p');
+const mapWrapper = document.querySelector("#map div");
 
 function init() {
     setScoreboard();
@@ -16,6 +17,8 @@ function init() {
     setBank();
     setCoins();
     setMarket();
+    updateMapSize();
+    window.addEventListener('resize', updateMapSize);
     document.querySelector('#pspopup').addEventListener('click', showpointsystem);
     document.querySelector('.close').addEventListener('click', closepointsystem);
 }
@@ -69,11 +72,11 @@ function setMarket() { // loads the market in
         Object.keys(markets).forEach((market, index) => {
             marketBuildings[index].innerHTML = markets[market].cost;
             marketBuildings[index].style.backgroundImage = `url('./images/${markets[market].type}.jpg')`;
-            marketBuildings[index].className ='';
-            Object.keys(markets[market].walls).forEach(wall=>{
-               if (markets[market].walls[wall]){
-                   marketBuildings[index].classList.add(`${wall}Wall`);
-               }
+            marketBuildings[index].className = '';
+            Object.keys(markets[market].walls).forEach(wall => {
+                if (markets[market].walls[wall]) {
+                    marketBuildings[index].classList.add(`${wall}Wall`);
+                }
             });
         });
     });
@@ -81,6 +84,11 @@ function setMarket() { // loads the market in
 
 function showpointsystem() {
     document.querySelector('.pointsystem').style.display = 'flex';
+}
+
+function updateMapSize() { // this function makes sure the highest length become equal to the small length so that the map always stays a square, so far only works when height is bigger than width
+    const height = mapWrapper.clientHeight;
+    mapWrapper.style.width = height + "px";
 }
 
 function closepointsystem() {
