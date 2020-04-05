@@ -1,16 +1,45 @@
 /*------------------------*/
 /*    GENERAL ELEMENTS    */
 /*------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash&display=swap');
+
 body{
     text-align: center;
-    font-family: sans-serif;
+    font-family: 'Berkshire Swash', cursive;
+    color: white;
+    background-image: url("../../../images/background.png");
+    background-size: cover;
 }
 
 header{
     font-size: 5rem;
     margin-top: 100px;
+    font-family: 'Berkshire Swash', cursive;
+}
 
-    font-weight: bold;
+.glow {
+    font-size: 100px;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 2s ease-in-out infinite alternate;
+    -moz-animation: glow 2s ease-in-out infinite alternate;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509;
+    }
+    to {
+        text-shadow: 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509, 0 0 7px #e7c509, 0 0 8px #e7c509, 0 0 10px #e7c509;
+    }
+}
+
+/*end animatie glow effect*/
+nav a:hover, a#index:hover{
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
 }
 h1{
     margin-top: 1.2em;
@@ -34,17 +63,16 @@ ul li{
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
 
-
 a#index{
     font-size: 2em;
     font-weight: bold;
     text-decoration: none;
-    color: black;
+    color: white;
     display: block;
     margin-right: 1em;
     margin-left: 58em;
     margin-top: 1em;
-    border: 2px black solid;
+    border: 2px white solid;
     border-radius: 25px;
     position: absolute;
     top: 0;
@@ -52,15 +80,14 @@ a#index{
     padding: 0.2em 0.3em 0.2em 0.2em;
 }
 
-a#index:hover{
-    color: white;
-    background-color: red;
-}
-
 a#buildingrulesbutton, a#twoplayersrulesbutton{
     display: inline-block;
     text-decoration: none;
     font-size: 1.6em;
-    color: black;
+    color: white;
+}
+
+strong{
+    font-weight: 600;
 }
 
