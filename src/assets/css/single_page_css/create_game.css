@@ -55,11 +55,35 @@ li label {
 input[type="text"], input[type="number"]{
     padding: 10px;
     font-size: 1.3rem;
+    background-color: rgba(42, 42, 42, 0.5);
+    font-family: 'Questrial', sans-serif;
+}
+
+.shadow{
+    width: 30%;
+}
+
+.shadowSmall, .shadow{
+    box-shadow:  0 0 10px rgba(255, 244, 9, 0.6);
+}
+
+input[type="number"]{
+
 }
 
 input[type="text"]{
-    width: 30%;
+    width: 100%;
+    box-sizing: border-box;
 }
+
+
+input[type="text"]:focus, input[type="number"]:focus{
+    background-color: rgb(231, 197, 9);
+    box-shadow:  0 0 4px 5px rgb(255, 244, 9) inset;
+    box-sizing: border-box;
+    border: white;
+}
+
 
 
 input[type="submit"] {

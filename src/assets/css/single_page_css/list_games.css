@@ -124,6 +124,7 @@ main ul li {
 
 .shadow{
     box-shadow:  0 0 10px rgba(255, 244, 9, 0.6);
+    box-sizing: border-box;
 }
 
 main ul li a {
