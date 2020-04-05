@@ -5,15 +5,18 @@ document.addEventListener('DOMContentLoaded', init);
 const gameId = localStorage.getItem('gameId');
 const token = localStorage.getItem('playerToken');
 const playerName = localStorage.getItem('playerName');
+
 const scoreboard = document.querySelector('aside dl');
 const header = document.querySelector('h1');
 const tempReady = document.querySelector('main>h2');
+const waiting = document.querySelectorAll("main h2")[1];
+const readyButton = document.querySelector('main a');
 
 function init() {
     checkLS();
     document.querySelector('header a').addEventListener('click', leaveGamePlayer);
     document.querySelector('#copy').addEventListener('click', copy);
-    document.querySelector('main a').addEventListener('click', changePlayerStatus);
+    readyButton.addEventListener('click', changePlayerStatus);
     polling();
 }
 
@@ -23,13 +26,13 @@ function checkLS() {
     }
 }
 
-function copy() {
+function copy() { // makes the copy button work
     const copyText = document.querySelector("#inviteURL");
     selectText(copyText);
     document.execCommand("copy");
 }
 
-function selectText(text) {
+function selectText(text) { //this selects the texts that needs to be copied
     if (document.body.createTextRange) { // ms
         const range = document.body.createTextRange();
         range.moveToElementText(text);
@@ -43,36 +46,37 @@ function selectText(text) {
     }
 }
 
-function leaveGamePlayer(e) {
+function leaveGamePlayer(e) { //leaves the game
     e.preventDefault();
     leaveGame(gameId, token, playerName).then(response => response ? window.location.replace('./index.html') : null);
 }
 
-async function polling() {
-    setPlayersJoined();
-    setScoreboard();
-    setPlayersReady();
-
-    if (await getGameStarted(gameId, token)) {
-        window.location.replace('./game.html');
+async function polling() { //updates everything each second
+    if (await getGameStarted(gameId, token)) { //checks if the game is started
+        waiting.classList.add("white");
+        readyButton.classList.add("hide");
+        timer();
     } else {
+        setScoreboard();
+        setPlayersJoined();
+        setPlayersReady();
         setTimeout(() => polling(), 1000);
     }
 }
 
-function setPlayersJoined() {
+function setPlayersJoined() { //set the amount of players joined
     getPlayerCount(gameId, token).then(resp => {
         header.innerText = header.innerText.replace(header.innerText.charAt(0), resp);
     });
 }
 
-function setPlayersReady() {
+function setPlayersReady() { // set the amount of players ready
     getPlayerReady(gameId, token).then(resp => {
-       tempReady.innerText = tempReady.innerText.replace(tempReady.innerText.charAt(0), resp);
+        tempReady.innerText = tempReady.innerText.replace(tempReady.innerText.charAt(0), resp);
     });
 }
 
-function setScoreboard() {
+function setScoreboard() { // loads the scoreboard
     getGamePlayers(gameId, token).then(players => {
         let listScoreboard = '';
         players.forEach(player => {
@@ -82,7 +86,7 @@ function setScoreboard() {
     });
 }
 
-function changePlayerStatus(e) {
+function changePlayerStatus(e) { //sets the player to ready/unready
     e.preventDefault();
     if (e.target.innerText === 'ready') {
         setPlayerReady(gameId, token, playerName).then(response => {
@@ -97,5 +101,17 @@ function changePlayerStatus(e) {
             }
         });
     }
+}
+
+function timer() { // timer for starting game
+    let counter = 5;
+    const interval = setInterval(function () {
+        header.innerHTML = `The game is starting in ${counter.toString()}s`;
+        if (counter === 0) { //stop interval
+            clearInterval(interval);
+            window.location.replace('./game.html');
+        }
+        counter--;
+    }, 1000);
 }
 

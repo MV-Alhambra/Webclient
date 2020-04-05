@@ -12,15 +12,17 @@ function fillLobbyList() {
     list.innerHTML = '';
     returnGames().then(result => {
         result.forEach(lobby => {
-            list.innerHTML += `<div class="shadow"><li><p>${lobby.id}</p> <em>${lobby.playerCount}/6 players</em> <a href="#" data-id='${lobby.id}'>Join game</a></li></div>`;
+            if (lobby.playerCount > 0 && lobby.playerCount < 6) {
+                  list.innerHTML += `<div class="shadow"><li><p>${lobby.id}</p> <em>${lobby.playerCount}/6 players</em> <a href="#" data-id='${lobby.id}'>Join game</a></li></div>`;
+            }
         });
-        document.querySelectorAll('main ul li a').forEach(a =>a.addEventListener('click',activateJoin));
+        document.querySelectorAll('main ul li a').forEach(a => a.addEventListener('click', activateJoin));
     });
 }
 
 function activateJoin(e) {
     e.preventDefault();
     const ID = e.target.getAttribute('data-id');
-    localStorage.setItem('gameId',ID);
+    localStorage.setItem('gameId', ID);
     window.location.replace('./join_game.html');
 }
