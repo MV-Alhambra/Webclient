@@ -20,7 +20,7 @@ function init() {
     document.querySelector('.close').addEventListener('click', closepointsystem);
 }
 
-function setScoreboard() {
+function setScoreboard() { // loads the scoreboard in
     getGamePlayers(gameId, token).then(players => {
         let listScoreboard = '';
         players.forEach(player => {
@@ -30,7 +30,7 @@ function setScoreboard() {
     });
 }
 
-function setBank() {
+function setBank() { // loads the bank in
     getGameProperty(gameId, token, 'bank').then(bank => {
         let coins = '';
         bank.forEach(coin => {
@@ -40,7 +40,7 @@ function setBank() {
     });
 }
 
-function setTitle() {
+function setTitle() { // loads the current persons turn in
     getGameCurrentPlayer(gameId, token).then(currentPlayer => {
         if (playerName === currentPlayer) {
             title.innerHTML = `It's your turn!`;
@@ -50,7 +50,7 @@ function setTitle() {
     });
 }
 
-function setCoins() {
+function setCoins() { // loads the coins in
     getGamePlayers(gameId, token).then(players => {
         players.forEach(player => {
             if (player.name === playerName) {
@@ -64,7 +64,7 @@ function setCoins() {
     });
 }
 
-function setMarket() {
+function setMarket() { // loads the market in
     getGameProperty(gameId, token, 'market').then(markets => {
         Object.keys(markets).forEach((market, index) => {
             marketBuildings[index].innerHTML = markets[market].cost;
