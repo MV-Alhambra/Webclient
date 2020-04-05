@@ -10,6 +10,7 @@ body {
     background-size: cover;
 }
 
+
 h1 {
     font-size: 5rem;
 }
@@ -22,6 +23,14 @@ header {
 header h2 {
     text-align: center;
 }
+
+header a {
+    color: white;
+    font-family: 'Berkshire Swash', cursive, sans-serif;
+    font-size: 1.5rem;
+    padding: 15px;
+}
+
 
 aside {
     border: 1px black solid;
