@@ -120,4 +120,9 @@ footer li {
 #copy:hover {
     text-decoration: underline;
 }
-
+.white{
+    color: white;
+}
+.hide{
+    display: none;
+}
