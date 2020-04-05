@@ -1,59 +1,69 @@
 /*------------------------*/
 /*    GENERAL ELEMENTS    */
 /*------------------------*/
-body
-{
+body {
     margin: 3rem;
     font-family: sans-serif;
     background-image: url("../../../images/background.png");
     background-size: cover;
 }
 
-h1
-{
+h1 {
     text-align: center;
-    font-size: 4rem;
+    font-size: 5.5rem;
+    letter-spacing: 3px;
+    color: white;
+    font-weight: lighter;
+    font-family: 'Berkshire Swash', cursive, sans-serif;
 }
-a
-{
+
+a {
     color: white;
     font-family: 'Berkshire Swash', cursive, sans-serif;
     font-size: 1.5rem;
-    font-weight: bold;
     padding: 15px;
-
 }
+
+
+
+
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
-form
-{
-    margin-top: 8rem;
-    align-content: center;
+form {
     display: flex;
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
+    color: white;
+    font-family: 'Questrial', sans-serif;
 }
-li
-{
+
+li {
     margin-top: 4rem;
     display: flex;
-    justify-content: space-between;
 }
-li label
-{
-    margin-right: 2rem;
+
+li label {
+    margin-right: 5%;
     font-size: 2rem;
+    text-align: right;
+    width: 40%;
+    letter-spacing: 2px;
 }
-input
-{
+
+input[type="text"]{
+    width: 30%;
+}
+
+input {
+
     padding: 10px;
     border: 2px black solid;
     font-size: 1.3rem;
 }
-button
-{
+
+button {
     font-size: 2rem;
     background-color: white;
     font-weight: bold;
