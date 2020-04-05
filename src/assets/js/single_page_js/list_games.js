@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     fillLobbyList();
-    document.querySelector('main>a').addEventListener('click', fillLobbyList);
+    document.querySelector('a').addEventListener('click', fillLobbyList);
 }
 
 function fillLobbyList() {
@@ -13,7 +13,7 @@ function fillLobbyList() {
     returnGames().then(result => {
         result.forEach(lobby => {
             if (lobby.playerCount > 0 && lobby.playerCount < 6) {
-                list.innerHTML += `<li><p>${lobby.id}</p> <em>${lobby.playerCount}/6 players</em> <a href="#" data-id='${lobby.id}'>Join game</a></li>`;
+                  list.innerHTML += `<div class="shadow"><li><p>${lobby.id}</p> <em>${lobby.playerCount}/6 players</em> <a href="#" data-id='${lobby.id}'>Join game</a></li></div>`;
             }
         });
         document.querySelectorAll('main ul li a').forEach(a => a.addEventListener('click', activateJoin));
