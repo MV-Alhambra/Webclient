@@ -13,6 +13,8 @@ body {
 
 h1 {
     font-size: 5rem;
+    color: white;
+    font-family: 'Berkshire Swash', cursive, sans-serif;
 }
 
 header {
@@ -20,9 +22,6 @@ header {
 
 }
 
-header h2 {
-    text-align: center;
-}
 
 header a {
     color: white;
@@ -49,8 +48,18 @@ main {
     margin-top: 10%;
 }
 
+main h1{
+    margin: 30px;
+}
+
+main h1 + h2{
+    margin-bottom: 45px;
+}
+
 main h1, main h2 {
-    margin: 20px
+    font-family: 'Berkshire Swash', cursive, sans-serif;
+    color: white;
+    letter-spacing: 2px;
 }
 
 
@@ -62,6 +71,10 @@ main h1, main h2 {
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
+
+a .button{
+    margin-top: 50px;
+}
 
 .button {
     text-decoration: none;
