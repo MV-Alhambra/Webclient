@@ -7,24 +7,26 @@
 	<link href="assets/css/single_page_css/create_game.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+	<header>
 	<a href="list_games.html">Join a game</a>
 	<h1>Create a game</h1>
+	</header>
 	<form method="post">
 		<ul>
 			<li>
-				<label for="Game_Name">Game name:</label>
-				<input id="Game_Name" name="Game_Name" required type="text">
+				<label for="Game_Name">Game name :</label>
+				<div class="shadow"> <input id="Game_Name" name="Game_Name" required type="text" autofocus> </div>
 			</li>
 			<li>
-				<label for="Number_of_players">Number of players:</label>
-				<input id="Number_of_players" max="6" min="2" name="Number_of_players" required type="number" value="4">
+				<label for="Number_of_players">Number of players :</label>
+				<div class="shadowSmall"> <input id="Number_of_players" max="6" min="2" name="Number_of_players" required type="number" value="4"></div>
 			</li>
 			<li>
-				<label for="Player_Name">Your player name:</label>
-				<input id="Player_Name" name="Player_Name" required type="text">
+				<label for="Player_Name">Your player name :</label>
+				<div class="shadow"><input id="Player_Name" name="Player_Name" required type="text"></div>
 			</li>
 		</ul>
-		<button id="send" name="send" type="submit">Create Game</button>
+		<input type="submit" id="send" name="send" value="Create Game">
 	</form>
 	<p class="error"></p>
 	<script src="assets/js/config.js"></script>
