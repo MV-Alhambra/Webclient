@@ -43,8 +43,12 @@ main.flex-container{
 }
 
 #gameinfo h1{
-    font-size: 3em;
-    font-weight: bold;
+    text-align: center;
+    font-size: 5.5rem;
+    letter-spacing: 3px;
+    color: white;
+    font-weight: lighter;
+    font-family: 'Berkshire Swash', cursive, sans-serif;
 }
 
 #gameinfo form{
