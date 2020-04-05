@@ -62,19 +62,38 @@ main.flex-container{
 }
 
 
-#gameinfo form input#join{
-    margin-top: 2em;
-    font-size: 1.8em;
-    margin-left: 1em;
-    border: 2px black solid;
-    background-color: transparent;
-    padding: 0.4em;
+
+input[type="submit"] {
+    font-family: 'Questrial', sans-serif;
+    text-shadow: black 1px 1px 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 3rem;
+    letter-spacing: 3px;
+    color: white;
+    background-color: rgb(231, 197, 9);
+    box-shadow:  0 0 4px 5px rgb(255, 244, 9) inset;
+    border: white 1px solid;
+    text-decoration: none;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 8px 15px;
 }
+
+input[type="submit"]:hover{
+    box-shadow:  0 0 5px 3px white inset;
+}
+
+
+.shadowButton{
+    box-shadow:  0 0 10px rgba(255, 244, 9, 0.6);
+}
+
 
 #gameinfo li{
     display: flex;
     justify-content: center;
-
+    margin-bottom: 50px;
 }
 
 input[type="text"]{
@@ -93,7 +112,6 @@ input[type="text"]{
     box-shadow:  0 0 10px rgba(255, 244, 9, 0.6);
     margin-left: 65px;
     width: 40%;
-
 }
 
 
