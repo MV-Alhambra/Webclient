@@ -18,7 +18,7 @@ function createGame(e) {
     playerName = document.querySelector('#Player_Name').value.toLowerCase();
     gameName = document.querySelector('#Game_Name').value;
 
-   if (!validate(playerName)) return; // prevents code from further executing if it doesnt validate
+    if (!validate(playerName)){ return;} // prevents code from further executing if it doesnt validate
 
     //the reason i do it like this else it would make a new lobby each time the name is incorrect
     if (!gameId) { // checks if game has already been made then makes the game and adds player
@@ -48,8 +48,8 @@ function addLocalPlayer(e, name) {
     }).catch(() => error.innerHTML = 'Something went wrong...');
 }
 
-function validate(playerName) {
-    if (!/^[0-9a-z]+$/.test(playerName)) { //using regex to check if the name is allowed
+function validate(name) {
+    if (!/^[0-9a-z]+$/.test(name)) { //using regex to check if the name is allowed
        error.innerHTML = "The name can only contain numbers and letters from the alphabet, no spaces are allowed!";
        return false;
     }
