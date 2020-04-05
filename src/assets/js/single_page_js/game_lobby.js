@@ -11,6 +11,7 @@ const header = document.querySelector('h1');
 const tempReady = document.querySelector('main>h2');
 const waiting = document.querySelectorAll("main h2")[1];
 const readyButton = document.querySelector('main a');
+const waitingAnimation = document.querySelector('span');
 
 function init() {
     checkLS();
@@ -18,6 +19,7 @@ function init() {
     document.querySelector('#copy').addEventListener('click', copy);
     readyButton.addEventListener('click', changePlayerStatus);
     polling();
+    waitingTimer();
 }
 
 function checkLS() {
@@ -112,6 +114,21 @@ function timer() { // timer for starting game
             window.location.replace('./game.html');
         }
         counter--;
+    }, 1000);
+}
+
+
+function waitingTimer() {  //de animation for the dots
+    let i = 3;
+    setInterval(function () {
+        if (i > 0){
+            waitingAnimation.innerHTML += ".";
+            i--;
+        }
+        else {
+            waitingAnimation.innerHTML = "";
+            i = 3
+        }
     }, 1000);
 }
 
