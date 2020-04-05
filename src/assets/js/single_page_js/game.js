@@ -86,7 +86,7 @@ function showpointsystem() {
     document.querySelector('.pointsystem').style.display = 'flex';
 }
 
-function updateMapSize() { // this function makes sure the highest length become equal to the small length so that the map always stays a square, so far only works when height is bigger than width
+function updateMapSize() { //Makes the map square, so far only works when height is bigger than width
     const height = mapWrapper.clientHeight;
     mapWrapper.style.width = height + "px";
 }
