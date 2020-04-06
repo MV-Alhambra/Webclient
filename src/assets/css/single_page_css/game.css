@@ -109,6 +109,18 @@ main {
     background-image: url("../../../images/tower.jpg");
 }
 
+.building{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-family: Orbitron, cursive;
+    color: white;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 
 /* ---end map---*/
 #scoreboard {

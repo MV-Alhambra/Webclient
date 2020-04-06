@@ -85,7 +85,8 @@ function setMap() {
         mapWrapper.innerHTML = '';
         convertCityToMap(city).forEach(row => {
             row.forEach(cell => {
-                //mapWrapper.innerHTML +=
+                console.log(cell);
+                mapWrapper.innerHTML += createBuilding(cell);
             })
         })
     });
@@ -119,9 +120,15 @@ function createBuilding(building) {
     if (building === null) {
         return `<p></p>`;
     } else if (building.cost === 0) {
-        return `<p class="fountain"></p>`;
+        return `<p class="fountain building"></p>`;
     } else {
-        return `<p>${building.cost}</p>`;
+        let walls = '';
+        Object.keys(building.walls).forEach(wall => {
+            if (building.walls[wall]) {
+                walls += wall + "Wall ";
+            }
+        });
+        return `<p class="building ${building.type} ${walls}">${building.cost}</p>`;
     }
 
 
