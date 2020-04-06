@@ -79,13 +79,13 @@ function setMap() { // loads in the map
         convertCityToMap(city).forEach(row => {
             row.forEach(cell => {
                 mapWrapper.innerHTML += createBuilding(cell);
-            })
-        })
+            });
+        });
     });
 }
 
 function convertCityToMap(city) { //converts the city into the size of the map
-    const map = new Array(mapSize).fill(null).map(() => new Array(mapSize).fill(null)); //creates an empty 2 dimensional array
+    const map = [...Array(mapSize)].map(() => Array(mapSize)); //creates an empty 2 dimensional array
     const cityCenter = (city.length + 1) / 2;//3
     const mapCenter = (mapSize + 1) / 2;//2
     const diffCenter = Math.abs(cityCenter - mapCenter);
