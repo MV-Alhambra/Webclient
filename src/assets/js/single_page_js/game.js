@@ -8,7 +8,7 @@ const playerName = localStorage.getItem('playerName');
 const scoreboard = document.querySelector('#scoreboard dl');
 const title = document.querySelector('header h2');
 const bankHolder = document.querySelector('main div #containerBank');
-const marketBuildings = document.querySelectorAll('#marketGrid p');
+const marketBuildings = document.querySelectorAll('#marketGrid div');
 const mapWrapper = document.querySelector("#map div");
 let mapSize = 3;
 
@@ -68,31 +68,23 @@ function setCoins() { // loads the coins in
 function setMarket() { // loads the market in
     getGameProperty(gameId, token, 'market').then(markets => {
         Object.keys(markets).forEach((market, index) => { //object.keys turns an objects its keys into an array with index holding the original order
-            marketBuildings[index].innerHTML = markets[market].cost;
-            marketBuildings[index].className = '';
-            marketBuildings[index].classList.add(markets[market].type);
-            Object.keys(markets[market].walls).forEach(wall => {
-                if (markets[market].walls[wall]) {
-                    marketBuildings[index].classList.add(`${wall}Wall`);
-                }
-            });
+            marketBuildings[index].innerHTML = createBuilding(markets[market]);
         });
     });
 }
 
-function setMap() {
+function setMap() { // loads in the map
     getGamePlayerProperty(gameId, token, playerName, "city").then(city => {
         mapWrapper.innerHTML = '';
         convertCityToMap(city).forEach(row => {
             row.forEach(cell => {
-                console.log(cell);
                 mapWrapper.innerHTML += createBuilding(cell);
             })
         })
     });
 }
 
-function convertCityToMap(city) { //converts the city, so if you get a bigger city than the map this will shrink or the opposite
+function convertCityToMap(city) { //converts the city into the size of the map
     const map = new Array(mapSize).fill(null).map(() => new Array(mapSize).fill(null)); //creates an empty 2 dimensional array
     const cityCenter = (city.length + 1) / 2;//3
     const mapCenter = (mapSize + 1) / 2;//2
@@ -116,7 +108,7 @@ function convertCityToMap(city) { //converts the city, so if you get a bigger ci
     return map;
 }
 
-function createBuilding(building) {
+function createBuilding(building) { //receives an building object and turns it into html for a building
     if (building === null) {
         return `<p></p>`;
     } else if (building.cost === 0) {
@@ -130,8 +122,6 @@ function createBuilding(building) {
         });
         return `<p class="building ${building.type} ${walls}">${building.cost}</p>`;
     }
-
-
 }
 
 function showpointsystem() {
