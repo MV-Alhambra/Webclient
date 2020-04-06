@@ -132,7 +132,12 @@ main {
     display: inline-block;
     padding: 5px;
 }
-
+#map aside p:hover{
+    color: red;
+}
+#map aside p.inactive{
+    display: none;
+}
 
 /* ---end map---*/
 #scoreboard {
