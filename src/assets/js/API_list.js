@@ -34,23 +34,28 @@ function getGameProperty(gameId, token, property) {
     });
 }
 
-async function getPlayerCount(gameId, token) {
+function getPlayerCount(gameId, token) {
     return getGameProperty(gameId, token, 'playerCount');
 }
 
-async function getPlayerReady(gameId, token) {
+function getPlayerReady(gameId, token) {
     return getGameProperty(gameId, token, 'readyCount');
 }
 
-async function getGameStarted(gameId, token) {
+function getGameStarted(gameId, token) {
     return getGameProperty(gameId, token, 'started');
 }
 
-async function getGamePlayers(gameId, token) {
+function getGamePlayers(gameId, token) {
     return getGameProperty(gameId, token, 'players');
 }
 
-async function getGameCurrentPlayer(gameId, token) {
+function getGameCurrentPlayer(gameId, token) {
     return getGameProperty(gameId, token, 'currentPlayer');
 }
 
+function getGamePlayer(gameId, token, playerName) { //returns the specific player object which has that name as value
+    return getGamePlayers(gameId, token).then(players => {
+        return players.find(player => player.name === playerName);
+    });
+}
