@@ -10,6 +10,7 @@ const title = document.querySelector('header h2');
 const bankHolder = document.querySelector('main div #containerBank');
 const marketBuildings = document.querySelectorAll('#marketGrid p');
 const mapWrapper = document.querySelector("#map div");
+let mapSize = 3;
 
 function init() {
     setScoreboard();
@@ -80,9 +81,36 @@ function setMarket() { // loads the market in
 }
 
 function setMap() {
-    getGamePlayer(gameId, token, playerName).then(player => {
-        console.log(player);
-    })
+    getGamePlayerProperty(gameId, token, playerName, "city").then(city => {
+        console.log(convertCityToMap(city));
+    });
+}
+
+function convertCityToMap(city) { //converts the city, so if you get a bigger city than the map this will shrink or the opposite
+    const map = new Array(mapSize).fill(null).map(() => new Array(mapSize).fill(null));
+    console.log(city);
+    const cityCenter = (city.length + 1) / 2;//3
+    const mapCenter = (mapSize + 1) / 2;//2
+    const diffCenter = Math.abs(cityCenter - mapCenter);
+    if (cityCenter > mapCenter) {
+        for (let row = 0; row < mapSize; row++) {
+            for (let col = 0; col < mapSize; col++) {
+                map[row][col] = city[row + diffCenter][col + diffCenter];
+            }
+        }
+    } else if (cityCenter < mapCenter) {
+        const citySize = city.length;
+        for (let row = 0; row < citySize; row++) {
+            for (let col = 0; col < citySize; col++) {
+                map[row + diffCenter][col + diffCenter] = city[row][col];
+            }
+        }
+
+    } else {
+        return city;
+    }
+    return map;
+
 }
 
 function showpointsystem() {

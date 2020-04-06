@@ -59,3 +59,7 @@ function getGamePlayer(gameId, token, playerName) { //returns the specific playe
         return players.find(player => player.name === playerName);
     });
 }
+
+function getGamePlayerProperty(gameId, token, playerName,property) {
+    return getGamePlayer(gameId, token, playerName).then(player => player[property]);
+}
