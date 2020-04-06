@@ -86,10 +86,29 @@ main {
     grid-template-rows: repeat(9, 1fr);
 }
 
+.fountain{
+    background-image: url("../../../images/fountain.jpg");
+}
 
-/*#fountain {
-    grid-area: r3c3;
-}*/
+.arcades{
+    background-image: url("../../../images/arcades.jpg");
+}
+.chambers{
+    background-image: url("../../../images/chambers.jpg");
+}
+.garden{
+    background-image: url("../../../images/garden.jpg");
+}
+.pavilion{
+    background-image: url("../../../images/pavilion.jpg");
+}
+.seraglio{
+    background-image: url("../../../images/seraglio.jpg");
+}
+.tower{
+    background-image: url("../../../images/tower.jpg");
+}
+
 
 /* ---end map---*/
 #scoreboard {

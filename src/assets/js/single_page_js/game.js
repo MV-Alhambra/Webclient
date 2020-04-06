@@ -69,8 +69,8 @@ function setMarket() { // loads the market in
     getGameProperty(gameId, token, 'market').then(markets => {
         Object.keys(markets).forEach((market, index) => { //object.keys turns an objects its keys into an array with index holding the original order
             marketBuildings[index].innerHTML = markets[market].cost;
-            marketBuildings[index].style.backgroundImage = `url('./images/${markets[market].type}.jpg')`;
             marketBuildings[index].className = '';
+            marketBuildings[index].classList.add(markets[market].type);
             Object.keys(markets[market].walls).forEach(wall => {
                 if (markets[market].walls[wall]) {
                     marketBuildings[index].classList.add(`${wall}Wall`);
@@ -82,13 +82,17 @@ function setMarket() { // loads the market in
 
 function setMap() {
     getGamePlayerProperty(gameId, token, playerName, "city").then(city => {
-        console.log(convertCityToMap(city));
+        mapWrapper.innerHTML = '';
+        convertCityToMap(city).forEach(row => {
+            row.forEach(cell => {
+                //mapWrapper.innerHTML +=
+            })
+        })
     });
 }
 
 function convertCityToMap(city) { //converts the city, so if you get a bigger city than the map this will shrink or the opposite
-    const map = new Array(mapSize).fill(null).map(() => new Array(mapSize).fill(null));
-    console.log(city);
+    const map = new Array(mapSize).fill(null).map(() => new Array(mapSize).fill(null)); //creates an empty 2 dimensional array
     const cityCenter = (city.length + 1) / 2;//3
     const mapCenter = (mapSize + 1) / 2;//2
     const diffCenter = Math.abs(cityCenter - mapCenter);
@@ -105,11 +109,21 @@ function convertCityToMap(city) { //converts the city, so if you get a bigger ci
                 map[row + diffCenter][col + diffCenter] = city[row][col];
             }
         }
-
     } else {
         return city;
     }
     return map;
+}
+
+function createBuilding(building) {
+    if (building === null) {
+        return `<p></p>`;
+    } else if (building.cost === 0) {
+        return `<p class="fountain"></p>`;
+    } else {
+        return `<p>${building.cost}</p>`;
+    }
+
 
 }
 
