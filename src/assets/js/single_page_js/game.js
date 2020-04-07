@@ -7,9 +7,10 @@ const token = localStorage.getItem('playerToken');
 const playerName = localStorage.getItem('playerName');
 const scoreboard = document.querySelector('#scoreboard dl');
 const title = document.querySelector('header h2');
-const bankHolder = document.querySelector('main div #containerBank');
+const bankWrapper = document.querySelector('main div #containerBank');
 const marketBuildings = document.querySelectorAll('#marketGrid div');
 const mapWrapper = document.querySelector("#map div");
+const reserveWrapper =document.querySelector("#reserve div");
 let mapSize = 5;
 
 function init() {
@@ -20,11 +21,12 @@ function init() {
     setMarket();
     updateMapSize();
     setMap();
+    setReserve();
     window.addEventListener('resize', updateMapSize);
     document.querySelector('#pspopup').addEventListener('click', showpointsystem);
     document.querySelector('.close').addEventListener('click', closepointsystem);
-    document.querySelector("#zoom_in").addEventListener('click',zoomIn);
-    document.querySelector("#zoom_out").addEventListener('click',zoomOut);
+    document.querySelector("#zoom_in").addEventListener('click', zoomIn);
+    document.querySelector("#zoom_out").addEventListener('click', zoomOut);
 }
 
 function setScoreboard() { // loads the scoreboard in
@@ -43,7 +45,7 @@ function setBank() { // loads the bank in
         bank.forEach(coin => {
             coins += `<p class="${coin.currency}">${coin.amount}</p>`;
         });
-        bankHolder.innerHTML = coins;
+        bankWrapper.innerHTML = coins;
     });
 }
 
@@ -77,7 +79,7 @@ function setMarket() { // loads the market in
 
 function setMap() { // loads in the map
     getGamePlayerProperty(gameId, token, playerName, "city").then(city => {
-        mapWrapper.className ='map'+mapSize;//set the size of the map
+        mapWrapper.className = 'map' + mapSize;//set the size of the map
         mapWrapper.innerHTML = '';
         convertCityToMap(city).forEach(row => {
             row.forEach(cell => {
@@ -108,7 +110,6 @@ function convertCityToMap(city) { //converts the city into the size of the map
     } else {
         return city;
     }
-    console.log(map);
     return map;
 }
 
@@ -129,12 +130,12 @@ function createBuilding(building) { //receives an building object and turns it i
 }
 
 function zoomIn(e) {
-    if (mapSize !==3){
-        if (mapSize ===9){
+    if (mapSize !== 3) {
+        if (mapSize === 9) {
             document.querySelector("#zoom_out").classList.remove("inactive");
         }
-        mapSize -=2;
-        if (mapSize ===3){
+        mapSize -= 2;
+        if (mapSize === 3) {
             e.target.classList.add("inactive");
         }
         setMap();
@@ -142,16 +143,26 @@ function zoomIn(e) {
 }
 
 function zoomOut(e) {
-    if (mapSize !==9){
-        if (mapSize ===3){
+    if (mapSize !== 9) {
+        if (mapSize === 3) {
             document.querySelector("#zoom_in").classList.remove("inactive");
         }
-        mapSize +=2;
-        if (mapSize ===9){
+        mapSize += 2;
+        if (mapSize === 9) {
             e.target.classList.add("inactive");
         }
         setMap();
     }
+}
+
+function setReserve() {
+    getGamePlayerProperty(gameId,token,playerName,"reserve").then(reserve=>{
+        let reserveBuildings ='';
+        reserve.forEach(building=>{
+            reserveBuildings += createBuilding(building);
+        });
+        reserveWrapper.innerHTML = reserveBuildings;
+    });
 }
 
 function showpointsystem() {
