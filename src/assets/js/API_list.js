@@ -60,6 +60,12 @@ function getGamePlayer(gameId, token, playerName) { //returns the specific playe
     });
 }
 
-function getGamePlayerProperty(gameId, token, playerName,property) {
+function getGamePlayerProperty(gameId, token, playerName, property) {
     return getGamePlayer(gameId, token, playerName).then(player => player[property]);
 }
+
+function takeCoins(gameId, token, playerName, coins) {
+    return fetchJSON(`${config.root}games/${gameId}/players/${playerName}/money`, "POST", token, coins);
+}
+
+
