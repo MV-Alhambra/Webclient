@@ -46,6 +46,7 @@ function setBank() { // loads the bank in
             coins += `<p class="${coin.currency}">${coin.amount}</p>`;
         });
         bankWrapper.innerHTML = coins;
+        document.querySelectorAll("#containerBank p").forEach(coin => coin.addEventListener("click",selectBankCoins));
     });
 }
 
