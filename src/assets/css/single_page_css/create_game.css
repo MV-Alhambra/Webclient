@@ -91,28 +91,37 @@ input[type="text"]:focus, input[type="number"]:focus{
 }
 
 
-
 input[type="submit"] {
     font-family: 'Questrial', sans-serif;
+    text-shadow: black 1px 1px 5px;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 3rem;
     letter-spacing: 3px;
     color: white;
-    background-color: rgba(42, 42, 42, 0.7);
+    background-color: rgb(231, 197, 9);
+    box-shadow:  0 0 4px 5px rgb(255, 244, 9) inset;
+    border: white 1px solid;
     text-decoration: none;
-    margin-top: 10px;
     margin-right: auto;
     margin-left: auto;
-    border: none;
-    padding: 5px 10px;
+    padding: 8px 15px;
+    width: 100%;
 }
 
 
 input[type="submit"]:hover{
-
     box-shadow:  0 0 5px 3px white inset;
 }
+
+
+.shadowButton{
+    box-shadow:  0 0 10px rgba(255, 244, 9, 0.6);
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 /*end glow elements*/
 
