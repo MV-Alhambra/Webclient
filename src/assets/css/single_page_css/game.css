@@ -127,6 +127,7 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    /*border: 10px solid white;*/ /*#todo: make borders look like in rules and when no borders look normal? */
 }
 
 #map aside {

@@ -65,16 +65,6 @@ function setTurn() { // loads the current persons turn in
     });
 }
 
-function setCoins() { // loads the coins in
-    getGamePlayer(gameId, token, playerName).then(player => {
-        document.querySelectorAll('#moneyPlayer ul').forEach(list => list.innerHTML = '');
-        player.coins.forEach(coin => {
-            const coinHolder = document.querySelector(`#${coin.currency}MoneyPlayer ul`);
-            coinHolder.innerHTML += `<li>${coin.amount}</li>`;
-        });
-    });
-}
-
 function setMarket() { // loads the market in
     getGameProperty(gameId, token, 'market').then(markets => {
         Object.keys(markets).forEach((market, index) => { //object.keys turns an objects its keys into an array with index holding the original order
