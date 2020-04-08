@@ -58,20 +58,96 @@ main {
 #map {
     border: gray solid 2px;
     grid-area: 1 / 5 / 9 /11;
-
 }
-#map div{
+
+#map div {
     height: 100%;
     display: grid;
     margin: 0 auto;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-template-areas: "r1c1 r1c2 r1c3 r1c4 r1c5 r1c6 r1c7" "r2c1 r2c2 r2c3 r2c4 r2c5 r2c6 r2c7" "r3c1 r3c2 r3c3 r3c4 r3c5 r3c6 r3c7" "r5c1 r5c2 r5c3 r5c4 r5c5 r5c6 r5c7" "r4c1 r4c2 r4c3 r4c4 r4c5 r4c6 r4c7";
+    /*  grid-template-areas: "r1c1 r1c2 r1c3 r1c4 r1c5 r1c6 r1c7" "r2c1 r2c2 r2c3 r2c4 r2c5 r2c6 r2c7" "r3c1 r3c2 r3c3 r3c4 r3c5 r3c6 r3c7" "r5c1 r5c2 r5c3 r5c4 r5c5 r5c6 r5c7" "r4c1 r4c2 r4c3 r4c4 r4c5 r4c6 r4c7";
+   */
 }
 
-/*#fountain {
-    grid-area: r3c3;
-}*/
+#map .map3 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+#map .map5 {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+
+#map .map7 {
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+}
+
+#map .map9 {
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+}
+
+.fountain {
+    background-image: url("../../../images/fountain.jpg");
+}
+
+.arcades {
+    background-image: url("../../../images/arcades.jpg");
+}
+
+.chambers {
+    background-image: url("../../../images/chambers.jpg");
+}
+
+.garden {
+    background-image: url("../../../images/garden.jpg");
+}
+
+.pavilion {
+    background-image: url("../../../images/pavilion.jpg");
+}
+
+.seraglio {
+    background-image: url("../../../images/seraglio.jpg");
+}
+
+.tower {
+    background-image: url("../../../images/tower.jpg");
+}
+
+.building {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-family: Orbitron, cursive;
+    color: white;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#map aside {
+    float: right;
+    padding: 10px;
+}
+
+#map aside p {
+    font-family: Lobster, cursive;
+    font-size: 35px;
+    display: inline-block;
+    padding: 5px;
+}
+
+#map aside p:hover {
+    color: red;
+}
+
+#map aside p.inactive {
+    display: none;
+}
 
 /* ---end map---*/
 #scoreboard {
@@ -79,11 +155,28 @@ main {
     grid-area: 1 / 11 / 5 /13;
 }
 
+/*---start_reserve---*/
 #reserve {
     border: red solid 2px;
     grid-area: 9 / 9 / 13 /13;
+    padding: 10px;
 }
 
+#reserve div {
+    margin-top: 10px;
+    overflow-x: auto;
+    display: grid;
+    grid-gap: 10px;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    box-sizing: border-box;
+    height: 75%;
+    white-space: nowrap;
+    width: 100%;
+    grid-auto-columns: minmax(160px, 1fr);
+}
+
+/*---end_reserve---*/
 /*---turn_options---*/
 #button_card {
     border: blue solid 2px;
@@ -198,16 +291,7 @@ dd {
 }
 
 #marketGrid p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    font-family: Orbitron, cursive;
-    color: white;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 1);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    height: 90%;
 }
 
 #market footer {
@@ -346,7 +430,6 @@ header a {
 }
 
 /*---end_leave_button---*/
-
 /*---pointsystem---*/
 a#pspopup {
     text-align: center;
@@ -391,48 +474,60 @@ a#pspopup:hover {
     cursor: pointer;
 }
 
-.grid-points div ul li{
+.grid-points div ul li {
     display: inline;
 }
-.grid-round ul{
+
+.grid-round ul {
     text-align: right;
     margin-right: 6em;
     margin-top: 2em;
 }
-.grid-round ul li{
+
+.grid-round ul li {
     text-align: right;
     padding-left: 4em;
 }
-.grid-content ul{
+
+.grid-content ul {
     text-align: right;
     margin-right: 4.8em;
     margin-top: 0.7em;
 }
-.grid-content ul li{
+
+.grid-content ul li {
     padding-left: 0.5em;
 }
-.grid-content ul li.first-of-roundC{
+
+.grid-content ul li.first-of-roundC {
     padding-left: 1.6em;
 }
-.grid-content ul li.first-of-roundB{
+
+.grid-content ul li.first-of-roundB {
     padding-left: 3.5em;
 }
-.grid-content ul li.doubledigits{
+
+.grid-content ul li.doubledigits {
     padding-left: 0.1em;
 }
-.grid-players ul{
+
+.grid-players ul {
     text-align: right;
     margin-right: 4.8em;
     margin-top: 0.7em;
 }
-.grid-players ul li{
+
+.grid-players ul li {
     padding-left: 0.5em;
 }
-.grid-players ul li.first-of-roundC{
+
+.grid-players ul li.first-of-roundC {
     padding-left: 2.1em;
 }
-.grid-players ul li.first-of-roundB{
+
+.grid-players ul li.first-of-roundB {
     padding-left: 3.5em;
 }
+
 /*--end_pointsystem--*/
 

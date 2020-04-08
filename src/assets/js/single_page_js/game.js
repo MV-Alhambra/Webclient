@@ -7,9 +7,11 @@ const token = localStorage.getItem('playerToken');
 const playerName = localStorage.getItem('playerName');
 const scoreboard = document.querySelector('#scoreboard dl');
 const title = document.querySelector('header h2');
-const bankHolder = document.querySelector('main div #containerBank');
-const marketBuildings = document.querySelectorAll('#marketGrid p');
+const bankWrapper = document.querySelector('main div #containerBank');
+const marketBuildings = document.querySelectorAll('#marketGrid div');
 const mapWrapper = document.querySelector("#map div");
+const reserveWrapper =document.querySelector("#reserve div");
+let mapSize = 5;
 
 function init() {
     setScoreboard();
@@ -18,9 +20,13 @@ function init() {
     setCoins();
     setMarket();
     updateMapSize();
+    setMap();
+    setReserve();
     window.addEventListener('resize', updateMapSize);
     document.querySelector('#pspopup').addEventListener('click', showpointsystem);
     document.querySelector('.close').addEventListener('click', closepointsystem);
+    document.querySelector("#zoom_in").addEventListener('click', zoomIn);
+    document.querySelector("#zoom_out").addEventListener('click', zoomOut);
 }
 
 function setScoreboard() { // loads the scoreboard in
@@ -39,7 +45,7 @@ function setBank() { // loads the bank in
         bank.forEach(coin => {
             coins += `<p class="${coin.currency}">${coin.amount}</p>`;
         });
-        bankHolder.innerHTML = coins;
+        bankWrapper.innerHTML = coins;
     });
 }
 
@@ -54,31 +60,108 @@ function setTitle() { // loads the current persons turn in
 }
 
 function setCoins() { // loads the coins in
-    getGamePlayers(gameId, token).then(players => {
-        players.forEach(player => {
-            if (player.name === playerName) {
-                document.querySelectorAll('#moneyPlayer ul').forEach(list => list.innerHTML = '');
-                player.coins.forEach(coin => {
-                    const coinHolder = document.querySelector(`#${coin.currency}MoneyPlayer ul`);
-                    coinHolder.innerHTML += `<li>${coin.amount}</li>`;
-                });
-            }
+    getGamePlayer(gameId, token, playerName).then(player => {
+        document.querySelectorAll('#moneyPlayer ul').forEach(list => list.innerHTML = '');
+        player.coins.forEach(coin => {
+            const coinHolder = document.querySelector(`#${coin.currency}MoneyPlayer ul`);
+            coinHolder.innerHTML += `<li>${coin.amount}</li>`;
         });
     });
 }
 
 function setMarket() { // loads the market in
     getGameProperty(gameId, token, 'market').then(markets => {
-        Object.keys(markets).forEach((market, index) => {
-            marketBuildings[index].innerHTML = markets[market].cost;
-            marketBuildings[index].style.backgroundImage = `url('./images/${markets[market].type}.jpg')`;
-            marketBuildings[index].className = '';
-            Object.keys(markets[market].walls).forEach(wall => {
-                if (markets[market].walls[wall]) {
-                    marketBuildings[index].classList.add(`${wall}Wall`);
-                }
+        Object.keys(markets).forEach((market, index) => { //object.keys turns an objects its keys into an array with index holding the original order
+            marketBuildings[index].innerHTML = createBuilding(markets[market]);
+        });
+    });
+}
+
+function setMap() { // loads in the map
+    getGamePlayerProperty(gameId, token, playerName, "city").then(city => {
+        mapWrapper.className = 'map' + mapSize;//set the size of the map
+        mapWrapper.innerHTML = '';
+        convertCityToMap(city).forEach(row => {
+            row.forEach(cell => {
+                mapWrapper.innerHTML += createBuilding(cell);
             });
         });
+    });
+}
+
+function convertCityToMap(city) { //converts the city into the size of the map
+    const map = [...Array(mapSize)].map(() => Array(mapSize).fill(null)); //creates an empty 2 dimensional array
+    const cityCenter = (city.length + 1) / 2;//3
+    const mapCenter = (mapSize + 1) / 2;//2
+    const diffCenter = Math.abs(cityCenter - mapCenter);
+    if (cityCenter > mapCenter) {
+        for (let row = 0; row < mapSize; row++) {
+            for (let col = 0; col < mapSize; col++) {
+                map[row][col] = city[row + diffCenter][col + diffCenter];
+            }
+        }
+    } else if (cityCenter < mapCenter) {
+        const citySize = city.length;
+        for (let row = 0; row < citySize; row++) {
+            for (let col = 0; col < citySize; col++) {
+                map[row + diffCenter][col + diffCenter] = city[row][col];
+            }
+        }
+    } else {
+        return city;
+    }
+    return map;
+}
+
+function createBuilding(building) { //receives an building object and turns it into html for a building
+    if (building === null) {
+        return `<p></p>`;
+    } else if (building.cost === 0) {
+        return `<p class="fountain building"></p>`;
+    } else {
+        let walls = '';
+        Object.keys(building.walls).forEach(wall => {
+            if (building.walls[wall]) {
+                walls += wall + "Wall ";
+            }
+        });
+        return `<p class="building ${building.type} ${walls}">${building.cost}</p>`;
+    }
+}
+
+function zoomIn(e) {
+    if (mapSize !== 3) {
+        if (mapSize === 9) {
+            document.querySelector("#zoom_out").classList.remove("inactive");
+        }
+        mapSize -= 2;
+        if (mapSize === 3) {
+            e.target.classList.add("inactive");
+        }
+        setMap();
+    }
+}
+
+function zoomOut(e) {
+    if (mapSize !== 9) {
+        if (mapSize === 3) {
+            document.querySelector("#zoom_in").classList.remove("inactive");
+        }
+        mapSize += 2;
+        if (mapSize === 9) {
+            e.target.classList.add("inactive");
+        }
+        setMap();
+    }
+}
+
+function setReserve() {
+    getGamePlayerProperty(gameId,token,playerName,"reserve").then(reserve=>{
+        let reserveBuildings ='';
+        reserve.forEach(building=>{
+            reserveBuildings += createBuilding(building);
+        });
+        reserveWrapper.innerHTML = reserveBuildings;
     });
 }
 
@@ -86,7 +169,7 @@ function showpointsystem() {
     document.querySelector('.pointsystem').style.display = 'flex';
 }
 
-function updateMapSize() { // this function makes sure the highest length become equal to the small length so that the map always stays a square, so far only works when height is bigger than width
+function updateMapSize() { //Makes the map square, so far only works when height is bigger than width
     const height = mapWrapper.clientHeight;
     mapWrapper.style.width = height + "px";
 }
