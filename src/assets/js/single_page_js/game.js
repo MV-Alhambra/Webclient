@@ -7,15 +7,15 @@ const token = localStorage.getItem('playerToken');
 const playerName = localStorage.getItem('playerName');
 const scoreboard = document.querySelector('#scoreboard dl');
 const title = document.querySelector('header h2');
-const bankWrapper = document.querySelector('main div #containerBank');
+const bankWrapper = document.querySelector('#containerBank');
 const marketBuildings = document.querySelectorAll('#marketGrid div');
 const mapWrapper = document.querySelector("#map div");
-const reserveWrapper =document.querySelector("#reserve div");
+const reserveWrapper = document.querySelector("#reserve div");
 let mapSize = 5;
 
 function init() {
     setScoreboard();
-    setTitle();
+    setTurn();
     setBank();
     setCoins();
     setMarket();
@@ -27,6 +27,7 @@ function init() {
     document.querySelector('.close').addEventListener('click', closepointsystem);
     document.querySelector("#zoom_in").addEventListener('click', zoomIn);
     document.querySelector("#zoom_out").addEventListener('click', zoomOut);
+    document.querySelector("#take_money").addEventListener("click", grabCoins)
 }
 
 function setScoreboard() { // loads the scoreboard in
@@ -46,11 +47,15 @@ function setBank() { // loads the bank in
             coins += `<p class="${coin.currency}">${coin.amount}</p>`;
         });
         bankWrapper.innerHTML = coins;
-        document.querySelectorAll("#containerBank p").forEach(coin => coin.addEventListener("click",selectBankCoins));
+        getGameCurrentPlayer(gameId, token).then(currentPlayer => {
+            if (currentPlayer === playerName) {
+                document.querySelectorAll("#containerBank p").forEach(coin => coin.addEventListener("click", selectBankCoins));
+            }
+        });
     });
 }
 
-function setTitle() { // loads the current persons turn in
+function setTurn() { // loads the current persons turn in
     getGameCurrentPlayer(gameId, token).then(currentPlayer => {
         if (playerName === currentPlayer) {
             title.innerHTML = `It's your turn!`;
@@ -157,9 +162,9 @@ function zoomOut(e) {
 }
 
 function setReserve() {
-    getGamePlayerProperty(gameId,token,playerName,"reserve").then(reserve=>{
-        let reserveBuildings ='';
-        reserve.forEach(building=>{
+    getGamePlayerProperty(gameId, token, playerName, "reserve").then(reserve => {
+        let reserveBuildings = '';
+        reserve.forEach(building => {
             reserveBuildings += createBuilding(building);
         });
         reserveWrapper.innerHTML = reserveBuildings;
