@@ -8,7 +8,11 @@ function setCoins() { // loads the coins in
             const coinHolder = document.querySelector(`#${coin.currency}MoneyPlayer ul`);
             coinHolder.innerHTML += `<li>${coin.amount}</li>`;
         });
-        document.querySelectorAll("#moneyPlayer li").forEach(coin => coin.addEventListener("click", selectCoin));
+        getGameCurrentPlayer(gameId, token).then(currentPlayer => {
+            if (currentPlayer === playerName) {
+                document.querySelectorAll("#moneyPlayer li").forEach(coin => coin.addEventListener("click", selectCoin));
+            }
+        });
     });
 }
 
