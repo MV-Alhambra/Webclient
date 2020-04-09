@@ -80,4 +80,8 @@ function getBuildingTypes() {
     return fetchJSON(`${config.root}buildings/types`, "GET");
 }
 
+function getCurrencies() {
+    return fetchJSON(`${config.root}currencies`, "GET");
+}
+
 

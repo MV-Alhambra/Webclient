@@ -1,7 +1,6 @@
 "use strict";
 
 let selectedMarketBuilding;
-let types = [];
 
 function setMarket() { // loads the market in
     getGameProperty(gameId, token, 'market').then(markets => {
@@ -27,7 +26,6 @@ function selectBuilding(e) {
         e.target.classList.add("selectMarketBuilding");
         selectedMarketBuilding = convertBuildingToObject(e.target);
     }
-    console.log(selectedMarketBuilding);
 }
 
 function convertBuildingToObject(building) {
@@ -41,7 +39,7 @@ function convertBuildingToObject(building) {
             south: classList.contains("southWall"),
             west: classList.contains("eastWall")
         }
-    }
+    };
 }
 
 function getType(classList) {

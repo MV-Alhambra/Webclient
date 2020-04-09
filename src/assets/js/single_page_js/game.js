@@ -12,9 +12,12 @@ const marketBuildings = document.querySelectorAll('#marketGrid div');
 const mapWrapper = document.querySelector("#map div");
 const reserveWrapper = document.querySelector("#reserve div");
 let mapSize = 5;
+let colors = [];
+let types = [];
 
 function init() {
-    getBuildingTypes().then(typeList => types = typeList);
+    getBuildingTypes().then(typeList => types = typeList);// #to-do:make code pause until this is done
+    getCurrencies().then(currencies=> colors = currencies);// #to-do:make code pause until this is done, else if ppl are faster to select something than this loads we get errors
     setScoreboard();
     setTurn();
     setBank();

@@ -2,6 +2,7 @@
 
 let bankCoins = [];
 
+
 function setBank() { // loads the bank in
     getGameProperty(gameId, token, 'bank').then(bank => {
         let coins = '';
@@ -18,10 +19,8 @@ function setBank() { // loads the bank in
 }
 
 function convertCoinToObject(e) { //turns the html of a coin into an object we can use
-    const coin = e.target.classList;
-    const filteredCurrency = coin.contains("yellow") ? "yellow" : coin.contains("orange") ? "orange" : coin.contains("blue") ? "blue" : "green";
     return {
-        currency: filteredCurrency,
+        currency: getColor(e.target.classList),
         amount: parseInt(e.target.innerHTML)
     };
 }
@@ -39,6 +38,10 @@ function selectBankCoins(e) { //selector logic for the coins
         classList.add("selectBankCoin");
         bankCoins.push(convertCoinToObject(e));
     }
+}
+
+function getColor(classList) {
+    return colors.find(color => classList.contains(color));
 }
 
 function totalBankCoins() { //gives total amount of value of coins back
