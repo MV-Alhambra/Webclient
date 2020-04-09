@@ -127,6 +127,7 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    /*border: 10px solid white;*/ /*#todo: make borders look like in rules and when no borders look normal? */
 }
 
 #map aside {
@@ -168,12 +169,12 @@ main {
     display: grid;
     grid-gap: 10px;
     grid-auto-flow: column;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     box-sizing: border-box;
     height: 75%;
     white-space: nowrap;
     width: 100%;
-    grid-auto-columns: minmax(160px, 1fr);
+    grid-auto-columns: minmax(120px, 1fr);
 }
 
 /*---end_reserve---*/
@@ -244,6 +245,10 @@ dd {
     height: 30%;
 }
 
+#containerBank p.selectBankCoin{
+    border: blue dashed thick;
+}
+
 #containerBank p {
     border: solid 1px black;
     width: 25%;
@@ -279,11 +284,14 @@ dd {
     padding: 2vh;
     box-sizing: border-box;
 }
+#market h1{
+    height: 15%;
+}
 
 #marketGrid {
     box-sizing: border-box;
     width: 100%;
-    height: 30vh;
+    height: 70%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
@@ -295,6 +303,7 @@ dd {
 }
 
 #market footer {
+    height: 15%;
     display: flex;
     justify-content: space-evenly;
 }
