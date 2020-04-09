@@ -18,7 +18,7 @@ function setBank() { // loads the bank in
     });
 }
 
-function convertCoinToObject(e) { //turns the html of a coin into an object we can use
+function convertBankCoinToObject(e) { //turns the html of a coin into an object we can use
     return {
         currency: getColor(e.target.classList),
         amount: parseInt(e.target.innerHTML)
@@ -29,14 +29,14 @@ function selectBankCoins(e) { //selector logic for the coins
     const classList = e.target.classList;
     if (classList.contains("selectBankCoin")) { //unselect selected coin
         classList.remove("selectBankCoin");
-        bankCoins.splice(bankCoins.findIndex(coin => coin === convertCoinToObject(e)), 1);
+        bankCoins.splice(bankCoins.findIndex(coin => coin === convertBankCoinToObject(e)), 1);
     } else if (totalBankCoins() + parseInt(e.target.innerHTML) < 6 || bankCoins.length === 0) { //add more coins if total coins under 6
         classList.add("selectBankCoin");
-        bankCoins.push(convertCoinToObject(e));
+        bankCoins.push(convertBankCoinToObject(e));
     } else if (!classList.contains("selectBankCoin")) { //select new coin
         unSelectBankCoins();
         classList.add("selectBankCoin");
-        bankCoins.push(convertCoinToObject(e));
+        bankCoins.push(convertBankCoinToObject(e));
     }
 }
 
