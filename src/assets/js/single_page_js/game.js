@@ -11,7 +11,6 @@ const bankWrapper = document.querySelector('#containerBank');
 const marketBuildings = document.querySelectorAll('#marketGrid div');
 const mapWrapper = document.querySelector("#map div");
 const reserveWrapper = document.querySelector("#reserve div");
-let mapSize = 5;
 let colors = ["blue", "green", "orange", "yellow"];
 let types = ["pavilion", "seraglio", "arcades", "chambers", "garden", "tower"];
 
@@ -32,6 +31,8 @@ function init() {
     document.querySelector("#zoom_in").addEventListener('click', zoomIn);
     document.querySelector("#zoom_out").addEventListener('click', zoomOut);
     document.querySelector("#take_money").addEventListener("click", grabCoins);
+    document.querySelector('.leavePopup').addEventListener('click', confirmLeaving);
+    document.querySelector('#returnToGame').addEventListener('click', closePopup);
 }
 
 function setScoreboard() { // loads the scoreboard in
@@ -53,8 +54,6 @@ function setTurn() { // loads the current persons turn in
         }
     });
 }
-
-
 
 function setReserve() {
     getGamePlayerProperty(gameId, token, playerName, "reserve").then(reserve => {
@@ -78,4 +77,17 @@ function updateMapSize() { //Makes the map square, so far only works when height
 function closepointsystem() {
     document.querySelector('.pointsystem').style.display = 'none';
 }
+
+function confirmLeaving(e) {
+    e.preventDefault();
+    const popup = document.querySelector('.hidden');
+    popup.style.display = "inline";
+}
+
+function closePopup(e) {
+    e.preventDefault();
+    const popup = document.querySelector('.hidden');
+    popup.style.display = "none";
+}
+
 

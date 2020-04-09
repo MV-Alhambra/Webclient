@@ -1,5 +1,7 @@
 "use strict";
 
+let mapSize = 5;
+
 function setMap() { // loads in the map
     getGamePlayerProperty(gameId, token, playerName, "city").then(city => {
         mapWrapper.className = 'map' + mapSize;//set the size of the map
