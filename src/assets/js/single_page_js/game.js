@@ -14,6 +14,7 @@ const reserveWrapper = document.querySelector("#reserve div");
 let mapSize = 5;
 
 function init() {
+    getBuildingTypes().then(typeList => types = typeList);
     setScoreboard();
     setTurn();
     setBank();

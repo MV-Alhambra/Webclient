@@ -246,7 +246,7 @@ dd {
 }
 
 #containerBank p.selectBankCoin{
-    border: aqua dashed thick;
+    outline: blue dashed thick;
 }
 
 #containerBank p {
@@ -300,6 +300,10 @@ dd {
 
 #marketGrid p {
     height: 90%;
+}
+
+#marketGrid p.selectMarketBuilding{
+    outline: blue dashed thick;
 }
 
 #market footer {

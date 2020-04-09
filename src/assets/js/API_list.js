@@ -76,4 +76,8 @@ function placeBuilding(gameId, token, playerName, building,location) {
     return fetchJSON(`${config.root}games/${gameId}/players/${playerName}/city`, "POST", token, {building:building,location:location});
 }
 
+function getBuildingTypes() {
+    return fetchJSON(`${config.root}buildings/types`, "GET");
+}
+
 
