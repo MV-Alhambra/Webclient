@@ -47,11 +47,15 @@ function setScoreboard() { // loads the scoreboard in
 function setCoins() { // loads the coins in
     getGamePlayer(gameId, token, playerName).then(player => {
         document.querySelectorAll('#moneyPlayer ul').forEach(list => list.innerHTML = '');
-        player.coins.forEach(coin => {
+        player.coins.sort(compareCoins).forEach(coin => {
             const coinHolder = document.querySelector(`#${coin.currency}MoneyPlayer ul`);
             coinHolder.innerHTML += `<li>${coin.amount}</li>`;
         });
     });
+}
+
+function compareCoins(coin1, coin2) {
+   return coin1.amount - coin2.amount;
 }
 
 function setTurn() { // loads the current persons turn in

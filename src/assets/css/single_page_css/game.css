@@ -371,8 +371,11 @@ img {
     float: left;
     border-radius: 100%;
     margin: 2px;
-    height: 15px;
-    width: 15px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #blueMoneyPlayer li {
@@ -389,6 +392,10 @@ img {
 
 #orangeMoneyPlayer li {
     background-color: orange;
+}
+
+#money .selectCoin{
+    outline: black dashed medium;
 }
 
 /*---end_money---*/
