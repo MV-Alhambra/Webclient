@@ -2,12 +2,17 @@
 
 let bankCoins = [];
 
-function setCoins() { // loads the coins in
-    getGamePlayer(gameId, token, playerName).then(player => {
-        document.querySelectorAll('#moneyPlayer ul').forEach(list => list.innerHTML = '');
-        player.coins.forEach(coin => {
-            const coinHolder = document.querySelector(`#${coin.currency}MoneyPlayer ul`);
-            coinHolder.innerHTML += `<li>${coin.amount}</li>`;
+function setBank() { // loads the bank in
+    getGameProperty(gameId, token, 'bank').then(bank => {
+        let coins = '';
+        bank.forEach(coin => {
+            coins += `<p class="${coin.currency}">${coin.amount}</p>`;
+        });
+        bankWrapper.innerHTML = coins;
+        getGameCurrentPlayer(gameId, token).then(currentPlayer => {
+            if (currentPlayer === playerName) {
+                document.querySelectorAll("#containerBank p").forEach(coin => coin.addEventListener("click", selectBankCoins));
+            }
         });
     });
 }
