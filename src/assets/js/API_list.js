@@ -68,4 +68,8 @@ function takeCoins(gameId, token, playerName, coins) {
     return fetchJSON(`${config.root}games/${gameId}/players/${playerName}/money`, "POST", token, coins);
 }
 
+function buyBuilding(gameId, token, playerName, currency,coins) {
+    return fetchJSON(`${config.root}games/${gameId}/players/${playerName}/buildings-in-hand`, "POST", token, {currency:currency,coins:coins});
+}
+
 
