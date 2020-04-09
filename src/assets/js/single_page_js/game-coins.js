@@ -17,6 +17,7 @@ function compareCoins(coin1, coin2) {
 }
 
 function selectCoin(e) {
+    unSelectBankCoins();
     const classList = e.target.classList;
     const coin = convertCoinToObject(e.target);
     if (classList.contains("selectCoin")) {
@@ -30,7 +31,6 @@ function selectCoin(e) {
         classList.add("selectCoin");
         coins.push(coin);
     }
-    console.log(coins);
 }
 
 function unSelectCoins() { //deselect all coins

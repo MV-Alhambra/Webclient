@@ -16,13 +16,12 @@ function setMarket() { // loads the market in
 }
 
 function selectBuilding(e) {
+    unSelectBankCoins();
     if (e.target.classList.contains("selectMarketBuilding")) {
         e.target.classList.remove("selectMarketBuilding");
         selectedMarketBuilding = null;
     } else {
-        if (document.querySelector(".selectMarketBuilding")) {
-            document.querySelector(".selectMarketBuilding").classList.remove("selectMarketBuilding");
-        }
+        unSelectMarketBuilding();
         e.target.classList.add("selectMarketBuilding");
         selectedMarketBuilding = convertBuildingToObject(e.target);
     }
@@ -44,4 +43,8 @@ function convertBuildingToObject(building) {
 
 function getType(classList) {
     return types.find(type => classList.contains(type));
+}
+
+function unSelectMarketBuilding() {
+    document.querySelectorAll('.selectMarketBuilding').forEach(building => building.classList.remove("selectMarketBuilding"));
 }

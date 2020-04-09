@@ -26,6 +26,8 @@ function convertBankCoinToObject(e) { //turns the html of a coin into an object 
 }
 
 function selectBankCoins(e) { //selector logic for the coins
+    unSelectCoins();
+    unSelectMarketBuilding();
     const classList = e.target.classList;
     if (classList.contains("selectBankCoin")) { //unselect selected coin
         classList.remove("selectBankCoin");
