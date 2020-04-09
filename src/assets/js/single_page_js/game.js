@@ -27,7 +27,7 @@ function init() {
     document.querySelector('.close').addEventListener('click', closepointsystem);
     document.querySelector("#zoom_in").addEventListener('click', zoomIn);
     document.querySelector("#zoom_out").addEventListener('click', zoomOut);
-    document.querySelector("#take_money").addEventListener("click", grabCoins)
+    document.querySelector("#take_money").addEventListener("click", grabCoins);
 }
 
 function setScoreboard() { // loads the scoreboard in

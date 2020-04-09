@@ -22,16 +22,16 @@ function convertCoinToObject(e) { //turns the html of a coin into an object we c
 }
 
 function selectBankCoins(e) { //selector logic for the coins
-    const coin = e.target.classList;
-    if (coin.contains("selectBankCoin")) { //unselect selected coin
-        coin.remove("selectBankCoin");
+    const classList = e.target.classList;
+    if (classList.contains("selectBankCoin")) { //unselect selected coin
+        classList.remove("selectBankCoin");
         bankCoins.splice(bankCoins.findIndex(coin => coin === convertCoinToObject(e)), 1);
     } else if (totalBankCoins() + parseInt(e.target.innerHTML) < 6 || bankCoins.length === 0) { //add more coins if total coins under 6
-        coin.add("selectBankCoin");
+        classList.add("selectBankCoin");
         bankCoins.push(convertCoinToObject(e));
-    } else if (!coin.contains("selectBankCoin")) { //select new coin
+    } else if (!classList.contains("selectBankCoin")) { //select new coin
         unSelectBankCoins();
-        coin.add("selectBankCoin");
+        classList.add("selectBankCoin");
         bankCoins.push(convertCoinToObject(e));
     }
 }
