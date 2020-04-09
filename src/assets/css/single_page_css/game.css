@@ -127,6 +127,7 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    user-select: none;
     /*border: 10px solid white;*/ /*#todo: make borders look like in rules and when no borders look normal? */
 }
 
@@ -258,6 +259,7 @@ dd {
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
 }
 
 .blue {
@@ -376,6 +378,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    user-select: none;
 }
 
 #blueMoneyPlayer li {
