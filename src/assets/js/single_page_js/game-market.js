@@ -30,7 +30,7 @@ function convertToMarket(building) {
     return {
         currency: building.parentElement.getAttribute("data-currency"),
         building: convertBuildingToObject(building)
-    }
+    };
 }
 
 
@@ -58,29 +58,22 @@ function unSelectMarketBuilding() {
 }
 
 function grabBuilding() {
-    console.log(0);
     getGameCurrentPlayer(gameId, token).then(player => {
         if (player === playerName) {
-            if (coins.length !== 0) {
-                if (selectedMarket !== null) {
-                    if (selectedMarket.currency === coins[0].currency) {
-                        if (selectedMarket.building.cost<= totalCoins()) {
-                            buyBuilding(gameId, token, playerName, selectedMarket.currency, coins).then(()=>{
-                                setCoins();
-                                setMarket();
-                            });
-                        } else {//give error not enough coins are selected
-                            console.log(4);
-                        }
-                    } else {//give error for wrong currency
 
-                        console.log(3);
-                    }
-                } else { //give error that no building is selected
-                    console.log(2);
-                }
-            } else { //give error with no coins selected
+            if (coins.length === 0) { //give error with no coins selected
                 console.log(1);
+            } else if (selectedMarket === null) { //give error that no market is selected
+                console.log(2);
+            } else if (selectedMarket.currency !== coins[0].currency) { //give error for wrong currency
+                console.log(3);
+            } else if (selectedMarket.building.cost > totalCoins()) { //give error not enough coins are selected
+                console.log(4);
+            } else {
+                buyBuilding(gameId, token, playerName, selectedMarket.currency, coins).then(() => {
+                    setCoins();
+                    setMarket();
+                });
             }
         }
     });
