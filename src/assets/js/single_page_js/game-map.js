@@ -86,7 +86,7 @@ function zoomOut(e) {
 function showPossibleLocations(building) {
     getCityLocations(gameId, playerName, building.walls).then(locations => {
         locations.forEach(location => {
-            const index = convertToIndex(location);
+            const index = convertToIndex(convertDynamicToStatic(location));
             if (index >= 0 && index <= mapSize * mapSize) { //only show what tiles are visible
                 const tile = document.querySelectorAll("#map div p")[index];
                 tile.classList.add("blink");
@@ -98,16 +98,15 @@ function showPossibleLocations(building) {
     });
 }
 
-function convertToIndex(location) {
-    location = convertDynamicToStatic(location);
-    return (location.row * mapSize) + location.col;
+function convertToIndex(staticLocation) {
+    return (staticLocation.row * mapSize) + staticLocation.col;
 }
 
 function convertDynamicToStatic(location) {
     return {
         row: location.row + (mapSize - 1) / 2,
         col: location.col + (mapSize - 1) / 2
-    }
+    };
 }
 
 function placeBuildingOnMap(e, building) {
@@ -118,7 +117,7 @@ function placeBuildingOnMap(e, building) {
     });
 }
 
-function initLSMapsize() {
+function initLSMapSize() {
     if (!localStorage.getItem("mapsize")) {
         localStorage.setItem("mapsize", mapSize.toString());
     } else {

@@ -15,7 +15,7 @@ let colors = ["blue", "green", "orange", "yellow"];
 let types = ["pavilion", "seraglio", "arcades", "chambers", "garden", "tower"];
 
 function init() {
-    initLSMapsize();
+    initLSMapSize();
     getBuildingTypes().then(typeList => types = typeList);// not really needed anymore but why not
     getCurrencies().then(currencies => colors = currencies);// not really needed anymore but why not
     setScoreboard();
