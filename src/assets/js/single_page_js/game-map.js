@@ -85,7 +85,7 @@ function zoomOut(e) {
 
 function showPossibleLocations(building) {
     getCityLocations(gameId, playerName, building.walls).then(locations => {
-        locations.forEach((location, newIndex) => {
+        locations.forEach(location => {
             const index = convertToIndex(convertDynamicToStatic(location));
             const mapRadius = (mapSize - 1) / 2;
             if (Math.abs(location.col) <= mapRadius && Math.abs(location.row) <= mapRadius) { //only show what tiles are visible on the current map
@@ -94,7 +94,6 @@ function showPossibleLocations(building) {
                 tile.setAttribute("data-row", location.row);
                 tile.setAttribute("data-col", location.col);
                 tile.addEventListener("click", e => placeBuildingOnMap(e, building));
-                tile.innerHTML = newIndex;
             }
         });
     });
