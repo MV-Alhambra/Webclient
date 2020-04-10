@@ -69,18 +69,7 @@ function grabBuilding(e) {
             } else if (selectedMarket.building.cost > totalCoins()) { //give error not enough coins are selected
                 showError("Not enough coins are selected!", e);
             } else {
-                buyBuilding(gameId, token, playerName, selectedMarket.currency, coins).then(response => {
-                    if (response.ok) {
-                        setCoins();
-                        setMarket();
-                        setMap();
-                    } else {
-                        response.json().then(error => {
-                            console.clear();//removes the error from the console
-                            showError(error.cause, e); //shows the custom error from the server
-                        });
-                    }
-                });
+                buyBuilding(gameId, token, playerName, selectedMarket.currency, coins).then(response => responseHandler(response, e));
             }
         }
     });

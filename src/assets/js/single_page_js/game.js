@@ -68,9 +68,7 @@ function setReserve() {
 }
 
 function placeBuildingInReserve(e, building) {
-    placeBuilding(gameId, token, playerName, building, null).then(() => {
-       refresh();
-    });
+    placeBuilding(gameId, token, playerName, building, null).then(response => responseHandler(response, e));
 }
 
 function showpointsystem() {
@@ -105,6 +103,17 @@ function refresh() { //instant refresh no wait for polling
     setBank();
     setCoins();
     setMarket();
+}
+
+function responseHandler(response, event) {
+    if (response.ok) {
+        refresh();
+    } else {
+        response.json().then(error => {
+            console.clear();//removes the error from the console
+            showError(error.cause, event); //shows the custom error from the server
+        });
+    }
 }
 
 

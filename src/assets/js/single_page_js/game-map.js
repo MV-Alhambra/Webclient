@@ -112,9 +112,7 @@ function convertDynamicToStatic(location) {
 function placeBuildingOnMap(e, building) {
     const row = e.target.getAttribute("data-row");
     const col = e.target.getAttribute("data-col");
-    placeBuilding(gameId, token, playerName, building, {row: row, col: col}).then(() => {
-       refresh();
-    });
+    placeBuilding(gameId, token, playerName, building, {row: row, col: col}).then(response => responseHandler(response, e));
 }
 
 function initLSMapSize() {

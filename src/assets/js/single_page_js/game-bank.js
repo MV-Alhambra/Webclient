@@ -35,7 +35,7 @@ function selectBankCoins(e) { //selector logic for the coins
     } else if (totalBankCoins() + parseInt(e.target.innerHTML) < 6 || bankCoins.length === 0) { //add more coins if total coins under 6
         classList.add("selectBankCoin");
         bankCoins.push(convertBankCoinToObject(e));
-    } else{ //select new coin
+    } else { //select new coin
         unSelectBankCoins();
         classList.add("selectBankCoin");
         bankCoins.push(convertBankCoinToObject(e));
@@ -57,10 +57,8 @@ function unSelectBankCoins() { //deselect all coins
     document.querySelectorAll('#containerBank p').forEach(coin => coin.classList.remove("selectBankCoin"));
 }
 
-async function grabCoins() { //send selected coins to the server
+async function grabCoins(e) { //send selected coins to the server
     if (playerName === await getGameCurrentPlayer(gameId, token)) {
-        takeCoins(gameId, token, playerName, bankCoins).then(() => {
-         refresh();
-        });
+        takeCoins(gameId, token, playerName, bankCoins).then(response => responseHandler(response, e));
     }
 }
