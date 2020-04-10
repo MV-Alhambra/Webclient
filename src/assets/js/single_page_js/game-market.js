@@ -73,6 +73,7 @@ function grabBuilding(e) {
                     if (response.ok) {
                         setCoins();
                         setMarket();
+                        setMap();
                     } else {
                         response.json().then(error => {
                             console.clear();//removes the error from the console

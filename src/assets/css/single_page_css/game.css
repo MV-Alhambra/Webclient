@@ -165,8 +165,8 @@ main {
 }
 
 .blink {
-    animation: fade 1000ms infinite;
-    background: aqua; /*make it nice*/
+    animation: fade 3000ms infinite;
+    background: cornflowerblue; /*make it nice*/
 }
 
 /* ---end map---*/

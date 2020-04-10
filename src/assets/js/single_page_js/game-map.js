@@ -10,6 +10,7 @@ function setMap() { // loads in the map
             row.forEach(cell => {
                 mapWrapper.innerHTML += createBuilding(cell);
             });
+            showHand();//temp or is it?
         });
     });
 }
@@ -89,11 +90,11 @@ function showPossibleLocations(building) {
 }
 
 function convertToIndex(location) {
-    location = convertDynamicToStaticLocation(location);
+    location = convertDynamicToStatic(location);
     return (location.row * mapSize) + location.col ;
 }
 
-function convertDynamicToStaticLocation(location) {
+function convertDynamicToStatic(location) {
     return {
         row: location.row + (mapSize - 1) / 2,
         col: location.col + (mapSize - 1) / 2
