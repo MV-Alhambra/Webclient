@@ -35,7 +35,7 @@ function init() {
     document.querySelector('.leavePopup').addEventListener('click', confirmLeaving);
     document.querySelector('#returnToGame').addEventListener('click', closePopup);
 
-    //showHand();//temp
+    showHand();//temp
 }
 
 function setScoreboard() { // loads the scoreboard in

@@ -8,6 +8,7 @@ function showHand() {
             hand.innerHTML = createBuilding(buildings[0]);
             hand.classList.remove("hidden");
            handEvent = document.addEventListener("mousemove", moveHand);
+           showPossibleLocations(buildings[0]);
        }
     });
 }

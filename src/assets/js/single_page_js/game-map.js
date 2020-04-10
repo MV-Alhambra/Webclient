@@ -81,10 +81,21 @@ function zoomOut(e) {
 }
 
 function showPossibleLocations(building) {
-    getCityLocations(gameId,playerName,building.walls).then(locations=>{
-       locations.forEach(location=>{
-
-       });
+    getCityLocations(gameId, playerName, building.walls).then(locations => {
+        locations.forEach(location => {
+            console.log(location);
+            console.log("loc " +convertToIndex(location));
+            document.querySelectorAll("#map div p")[convertToIndex(location)].classList.add("blink");
+        });
     });
+}
+
+function convertToIndex(location) {
+    location = convertDynamicToStaticLocation(location);
+    return location.row* mapSize +location.row;
+}
+
+function convertDynamicToStaticLocation(location) {
+
 }
 
