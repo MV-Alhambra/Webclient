@@ -1,4 +1,5 @@
 "use strict";
+
 let coins = [];
 
 function setCoins() { // loads the coins in

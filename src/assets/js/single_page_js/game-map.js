@@ -61,6 +61,7 @@ function zoomIn(e) {
             document.querySelector("#zoom_out").classList.remove("inactive");
         }
         mapSize -= 2;
+        localStorage.setItem("mapsize",mapSize);
         if (mapSize === 3) {
             e.target.classList.add("inactive");
         }
@@ -74,6 +75,7 @@ function zoomOut(e) {
             document.querySelector("#zoom_in").classList.remove("inactive");
         }
         mapSize += 2;
+        localStorage.setItem("mapsize",mapSize);
         if (mapSize === 9) {
             e.target.classList.add("inactive");
         }
@@ -88,7 +90,7 @@ function showPossibleLocations(building) {
             tile.classList.add("blink");
             tile.setAttribute("data-row", location.row);
             tile.setAttribute("data-col", location.col);
-            tile.addEventListener("click", e => placeBuildingOnMap(e,building));
+            tile.addEventListener("click", e => placeBuildingOnMap(e, building));
         });
     });
 }
@@ -108,8 +110,16 @@ function convertDynamicToStatic(location) {
 function placeBuildingOnMap(e, building) {
     const row = e.target.getAttribute("data-row");
     const col = e.target.getAttribute("data-col");
-     placeBuilding(gameId,token,playerName,building,{row:row,col:col}).then(()=>{
+    placeBuilding(gameId, token, playerName, building, {row: row, col: col}).then(() => {
         setMap();
-     });
+    });
+}
+
+function initLSMapsize() {
+    if (!localStorage.getItem("mapsize")) {
+        localStorage.setItem("mapsize", mapSize.toString());
+    } else {
+        mapSize = parseInt(localStorage.getItem("mapsize"));
+    }
 }
 
