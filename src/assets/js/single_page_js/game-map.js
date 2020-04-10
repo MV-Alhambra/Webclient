@@ -113,7 +113,7 @@ function placeBuildingOnMap(e, building) {
     const row = e.target.getAttribute("data-row");
     const col = e.target.getAttribute("data-col");
     placeBuilding(gameId, token, playerName, building, {row: row, col: col}).then(() => {
-        setMap();
+       refresh();
     });
 }
 

@@ -60,9 +60,7 @@ function unSelectBankCoins() { //deselect all coins
 async function grabCoins() { //send selected coins to the server
     if (playerName === await getGameCurrentPlayer(gameId, token)) {
         takeCoins(gameId, token, playerName, bankCoins).then(() => {
-            setBank();
-            setCoins();
-            setTurn();
+         refresh();
         });
     }
 }

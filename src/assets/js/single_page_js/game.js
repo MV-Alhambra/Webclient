@@ -69,10 +69,7 @@ function setReserve() {
 
 function placeBuildingInReserve(e, building) {
     placeBuilding(gameId, token, playerName, building, null).then(() => {
-        setReserve();
-        setTurn();
-        setMap();
-        setMarket();
+       refresh();
     });
 }
 
@@ -99,6 +96,15 @@ function closePopup(e) {
     e.preventDefault();
     const popup = document.querySelector('.hidden');
     popup.style.display = "none";
+}
+
+function refresh() { //instant refresh no wait for polling
+    setTurn();
+    setReserve();
+    setMap();
+    setBank();
+    setCoins();
+    setMarket();
 }
 
 
