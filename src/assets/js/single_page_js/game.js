@@ -34,6 +34,8 @@ function init() {
     document.querySelector("#buy_building").addEventListener("click", grabBuilding);
     document.querySelector('.leavePopup').addEventListener('click', confirmLeaving);
     document.querySelector('#returnToGame').addEventListener('click', closePopup);
+
+    //showHand();//temp
 }
 
 function setScoreboard() { // loads the scoreboard in

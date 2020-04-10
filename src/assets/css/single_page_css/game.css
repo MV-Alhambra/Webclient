@@ -128,6 +128,7 @@ main {
     background-size: cover;
     background-position: center;
     user-select: none;
+    height: 100%;
     /*border: 10px solid white;*/ /*#todo: make borders look like in rules and when no borders look normal? */
 }
 
@@ -246,7 +247,7 @@ dd {
     height: 30%;
 }
 
-#containerBank p.selectBankCoin{
+#containerBank p.selectBankCoin {
     outline: blue dashed thick;
 }
 
@@ -286,7 +287,8 @@ dd {
     padding: 2vh;
     box-sizing: border-box;
 }
-#market h1{
+
+#market h1 {
     height: 15%;
 }
 
@@ -301,10 +303,10 @@ dd {
 }
 
 #marketGrid p {
-    height: 90%;
+    height: 90%; /* somehow if i dont do this the buildings gets malformed in the market but this is just arbitrary value*/
 }
 
-#marketGrid p.selectMarketBuilding{
+#marketGrid p.selectMarketBuilding {
     outline: blue dashed thick;
 }
 
@@ -397,7 +399,7 @@ img {
     background-color: orange;
 }
 
-#money .selectCoin{
+#money .selectCoin {
     outline: black dashed medium;
 }
 
@@ -553,8 +555,7 @@ a#pspopup:hover {
 }
 
 /*--end_pointsystem--*/
-
-#mouseError{
+#mouseError {
     padding: 2px;
     background: red;
     border: darkred solid medium;
@@ -565,4 +566,14 @@ a#pspopup:hover {
     transition: opacity 0.2s ease-in-out;
     left: 0;
     top: 0;
+}
+
+#hand {
+    position: absolute;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
 }

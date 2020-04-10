@@ -76,7 +76,7 @@ function grabBuilding(e) {
                     } else {
                         response.json().then(error => {
                             console.clear();//removes the error from the console
-                            showError(error.cause, e); //shows the custom error by the by the server
+                            showError(error.cause, e); //shows the custom error from the server
                         });
                     }
                 });
