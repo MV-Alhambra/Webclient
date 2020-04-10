@@ -31,6 +31,7 @@ function init() {
     document.querySelector("#zoom_in").addEventListener('click', zoomIn);
     document.querySelector("#zoom_out").addEventListener('click', zoomOut);
     document.querySelector("#take_money").addEventListener("click", grabCoins);
+    document.querySelector("#buy_building").addEventListener("click", grabBuilding);
     document.querySelector('.leavePopup').addEventListener('click', confirmLeaving);
     document.querySelector('#returnToGame').addEventListener('click', closePopup);
 }

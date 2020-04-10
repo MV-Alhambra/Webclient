@@ -35,7 +35,7 @@ function selectBankCoins(e) { //selector logic for the coins
     } else if (totalBankCoins() + parseInt(e.target.innerHTML) < 6 || bankCoins.length === 0) { //add more coins if total coins under 6
         classList.add("selectBankCoin");
         bankCoins.push(convertBankCoinToObject(e));
-    } else if (!classList.contains("selectBankCoin")) { //select new coin
+    } else{ //select new coin
         unSelectBankCoins();
         classList.add("selectBankCoin");
         bankCoins.push(convertBankCoinToObject(e));

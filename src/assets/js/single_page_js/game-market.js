@@ -1,6 +1,6 @@
 "use strict";
 
-let selectedMarketBuilding;
+let selectedMarket;
 
 function setMarket() { // loads the market in
     getGameProperty(gameId, token, 'market').then(markets => {
@@ -8,24 +8,31 @@ function setMarket() { // loads the market in
             marketBuildings[index].innerHTML = createBuilding(markets[market]);
             getGameCurrentPlayer(gameId, token).then(currentPlayer => {
                 if (currentPlayer === playerName) {
-                    document.querySelectorAll("#market p").forEach(building => building.addEventListener("click", selectBuilding));
+                    document.querySelectorAll("#market .building").forEach(building => building.addEventListener("click", selectMarket));
                 }
             });
         });
     });
 }
 
-function selectBuilding(e) {
+function selectMarket(e) {
     unSelectBankCoins();
     if (e.target.classList.contains("selectMarketBuilding")) {
-        e.target.classList.remove("selectMarketBuilding");
-        selectedMarketBuilding = null;
+        unSelectMarketBuilding();
     } else {
         unSelectMarketBuilding();
         e.target.classList.add("selectMarketBuilding");
-        selectedMarketBuilding = convertBuildingToObject(e.target);
+        selectedMarket = convertToMarket(e.target);
     }
 }
+
+function convertToMarket(building) {
+    return {
+        currency: building.parentElement.getAttribute("data-currency"),
+        building: convertBuildingToObject(building)
+    }
+}
+
 
 function convertBuildingToObject(building) {
     const classList = building.classList;
@@ -46,5 +53,35 @@ function getType(classList) {
 }
 
 function unSelectMarketBuilding() {
+    selectedMarket = null;
     document.querySelectorAll('.selectMarketBuilding').forEach(building => building.classList.remove("selectMarketBuilding"));
+}
+
+function grabBuilding() {
+    console.log(0);
+    getGameCurrentPlayer(gameId, token).then(player => {
+        if (player === playerName) {
+            if (coins.length !== 0) {
+                if (selectedMarket !== null) {
+                    if (selectedMarket.currency === coins[0].currency) {
+                        if (selectedMarket.building.cost<= totalCoins()) {
+                            buyBuilding(gameId, token, playerName, selectedMarket.currency, coins).then(()=>{
+                                setCoins();
+                                setMarket();
+                            });
+                        } else {//give error not enough coins are selected
+                            console.log(4);
+                        }
+                    } else {//give error for wrong currency
+
+                        console.log(3);
+                    }
+                } else { //give error that no building is selected
+                    console.log(2);
+                }
+            } else { //give error with no coins selected
+                console.log(1);
+            }
+        }
+    });
 }

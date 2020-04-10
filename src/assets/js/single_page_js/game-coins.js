@@ -48,3 +48,9 @@ function convertCoinToObject(coin) { //turns the html of a coin into an object w
         amount: parseInt(coin.innerHTML)
     };
 }
+
+function totalCoins() { //gives total amount of value of coins back
+    let sum = 0;
+    coins.forEach(coin => sum += coin.amount);
+    return sum;
+}
