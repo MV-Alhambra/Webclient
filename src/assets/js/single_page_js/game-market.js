@@ -1,6 +1,6 @@
 "use strict";
 
-let selectedMarket;
+let selectedMarket =null;
 
 function setMarket() { // loads the market in
     getGameProperty(gameId, token, 'market').then(markets => {
@@ -57,18 +57,18 @@ function unSelectMarketBuilding() {
     document.querySelectorAll('.selectMarketBuilding').forEach(building => building.classList.remove("selectMarketBuilding"));
 }
 
-function grabBuilding() {
+function grabBuilding(e) {
     getGameCurrentPlayer(gameId, token).then(player => {
+        console.log(selectedMarket);
         if (player === playerName) {
-
             if (coins.length === 0) { //give error with no coins selected
-                console.log(1);
-            } else if (selectedMarket === null) { //give error that no market is selected
-                console.log(2);
+               showError("No coins are selected!",e);
+            } else if (selectedMarket ===null) { //give error that no market is selected
+                showError("No market is selected!",e);
             } else if (selectedMarket.currency !== coins[0].currency) { //give error for wrong currency
-                console.log(3);
+                showError("Wrong currency is given!",e);
             } else if (selectedMarket.building.cost > totalCoins()) { //give error not enough coins are selected
-                console.log(4);
+                showError("Not enough coins are selected!",e);
             } else {
                 buyBuilding(gameId, token, playerName, selectedMarket.currency, coins).then(() => {
                     setCoins();
