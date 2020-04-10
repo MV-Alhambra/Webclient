@@ -83,8 +83,6 @@ function zoomOut(e) {
 function showPossibleLocations(building) {
     getCityLocations(gameId, playerName, building.walls).then(locations => {
         locations.forEach(location => {
-            console.log(location);
-            console.log("loc " +convertToIndex(location));
             document.querySelectorAll("#map div p")[convertToIndex(location)].classList.add("blink");
         });
     });
@@ -92,10 +90,13 @@ function showPossibleLocations(building) {
 
 function convertToIndex(location) {
     location = convertDynamicToStaticLocation(location);
-    return location.row* mapSize +location.row;
+    return (location.row * mapSize) + location.col ;
 }
 
 function convertDynamicToStaticLocation(location) {
-
+    return {
+        row: location.row + (mapSize - 1) / 2,
+        col: location.col + (mapSize - 1) / 2
+    }
 }
 
