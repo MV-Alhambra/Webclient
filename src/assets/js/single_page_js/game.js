@@ -66,6 +66,10 @@ function setReserve() {
     });
 }
 
+function placeBuildingInReserve() {
+
+}
+
 function showpointsystem() {
     document.querySelector('.pointsystem').style.display = 'flex';
 }

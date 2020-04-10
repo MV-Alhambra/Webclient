@@ -85,3 +85,4 @@ function grabBuilding(e) {
         }
     });
 }
+

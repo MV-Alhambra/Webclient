@@ -10,8 +10,8 @@ function setMap() { // loads in the map
             row.forEach(cell => {
                 mapWrapper.innerHTML += createBuilding(cell);
             });
-            showHand();//temp or is it?
         });
+        showHand();//temp or is it?
     });
 }
 
@@ -84,14 +84,18 @@ function zoomOut(e) {
 function showPossibleLocations(building) {
     getCityLocations(gameId, playerName, building.walls).then(locations => {
         locations.forEach(location => {
-            document.querySelectorAll("#map div p")[convertToIndex(location)].classList.add("blink");
+            const tile = document.querySelectorAll("#map div p")[convertToIndex(location)];
+            tile.classList.add("blink");
+            tile.setAttribute("data-row", location.row);
+            tile.setAttribute("data-col", location.col);
+            tile.addEventListener("click", e => placeBuildingOnMap(e,building));
         });
     });
 }
 
 function convertToIndex(location) {
     location = convertDynamicToStatic(location);
-    return (location.row * mapSize) + location.col ;
+    return (location.row * mapSize) + location.col;
 }
 
 function convertDynamicToStatic(location) {
@@ -99,5 +103,13 @@ function convertDynamicToStatic(location) {
         row: location.row + (mapSize - 1) / 2,
         col: location.col + (mapSize - 1) / 2
     }
+}
+
+function placeBuildingOnMap(e, building) {
+    const row = e.target.getAttribute("data-row");
+    const col = e.target.getAttribute("data-col");
+     placeBuilding(gameId,token,playerName,building,{row:row,col:col}).then(()=>{
+        setMap();
+     });
 }
 
