@@ -67,8 +67,13 @@ function setReserve() {
     });
 }
 
-function placeBuildingInReserve() {
-
+function placeBuildingInReserve(e, building) {
+    placeBuilding(gameId, token, playerName, building, null).then(() => {
+        setReserve();
+        setTurn();
+        setMap();
+        setMarket();
+    });
 }
 
 function showpointsystem() {
