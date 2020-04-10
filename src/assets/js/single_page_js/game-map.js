@@ -79,3 +79,12 @@ function zoomOut(e) {
         setMap();
     }
 }
+
+function showPossibleLocations(building) {
+    getCityLocations(gameId,playerName,building.walls).then(locations=>{
+       locations.forEach(location=>{
+
+       });
+    });
+}
+
