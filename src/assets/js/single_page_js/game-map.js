@@ -61,7 +61,7 @@ function zoomIn(e) {
             document.querySelector("#zoom_out").classList.remove("inactive");
         }
         mapSize -= 2;
-        localStorage.setItem("mapsize",mapSize);
+        localStorage.setItem("mapsize", mapSize);
         if (mapSize === 3) {
             e.target.classList.add("inactive");
         }
@@ -75,7 +75,7 @@ function zoomOut(e) {
             document.querySelector("#zoom_in").classList.remove("inactive");
         }
         mapSize += 2;
-        localStorage.setItem("mapsize",mapSize);
+        localStorage.setItem("mapsize", mapSize);
         if (mapSize === 9) {
             e.target.classList.add("inactive");
         }
@@ -86,11 +86,14 @@ function zoomOut(e) {
 function showPossibleLocations(building) {
     getCityLocations(gameId, playerName, building.walls).then(locations => {
         locations.forEach(location => {
-            const tile = document.querySelectorAll("#map div p")[convertToIndex(location)];
-            tile.classList.add("blink");
-            tile.setAttribute("data-row", location.row);
-            tile.setAttribute("data-col", location.col);
-            tile.addEventListener("click", e => placeBuildingOnMap(e, building));
+            const index = convertToIndex(location);
+            if (index >= 0 && index <= mapSize * mapSize) { //only show what tiles are visible
+                const tile = document.querySelectorAll("#map div p")[index];
+                tile.classList.add("blink");
+                tile.setAttribute("data-row", location.row);
+                tile.setAttribute("data-col", location.col);
+                tile.addEventListener("click", e => placeBuildingOnMap(e, building));
+            }
         });
     });
 }
