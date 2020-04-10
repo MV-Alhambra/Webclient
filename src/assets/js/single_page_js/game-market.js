@@ -1,6 +1,6 @@
 "use strict";
 
-let selectedMarket =null;
+let selectedMarket = null;
 
 function setMarket() { // loads the market in
     getGameProperty(gameId, token, 'market').then(markets => {
@@ -59,20 +59,26 @@ function unSelectMarketBuilding() {
 
 function grabBuilding(e) {
     getGameCurrentPlayer(gameId, token).then(player => {
-        console.log(selectedMarket);
         if (player === playerName) {
             if (coins.length === 0) { //give error with no coins selected
-               showError("No coins are selected!",e);
-            } else if (selectedMarket ===null) { //give error that no market is selected
-                showError("No market is selected!",e);
+                showError("No coins are selected!", e);
+            } else if (selectedMarket === null) { //give error that no market is selected
+                showError("No market is selected!", e);
             } else if (selectedMarket.currency !== coins[0].currency) { //give error for wrong currency
-                showError("Wrong currency is given!",e);
+                showError("Wrong currency is given!", e);
             } else if (selectedMarket.building.cost > totalCoins()) { //give error not enough coins are selected
-                showError("Not enough coins are selected!",e);
+                showError("Not enough coins are selected!", e);
             } else {
-                buyBuilding(gameId, token, playerName, selectedMarket.currency, coins).then(() => {
-                    setCoins();
-                    setMarket();
+                buyBuilding(gameId, token, playerName, selectedMarket.currency, coins).then(response => {
+                    if (response.ok) {
+                        setCoins();
+                        setMarket();
+                    } else {
+                        response.json().then(error => {
+                            console.clear();//removes the error from the console
+                            showError(error.cause, e); //shows the custom error by the by the server
+                        });
+                    }
                 });
             }
         }
