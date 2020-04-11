@@ -21,8 +21,8 @@ function init() {
     getCurrencies().then(currencies => colors = currencies);// not really needed anymore but why not
     updateMapSize();
     window.addEventListener('resize', updateMapSize);
-    document.querySelector('#pspopup').addEventListener('click', showpointsystem);
-    document.querySelector('.close').addEventListener('click', closepointsystem);
+    document.querySelector('#pspopup').addEventListener('click', showPointsystem);
+    document.querySelector('.close').addEventListener('click', closePointsystem);
     document.querySelector("#zoom_in").addEventListener('click', zoomIn);
     document.querySelector("#zoom_out").addEventListener('click', zoomOut);
     document.querySelector("#take_money").addEventListener("click", grabCoins);
@@ -43,16 +43,14 @@ function setScoreboard() { // loads the scoreboard in
 }
 
 function setTurn() { // loads the current persons turn in
-    getGameCurrentPlayer(gameId, token).then(currentPlayer => {
-        if (playerName === currentPlayer) {
-            title.innerHTML = `It's your turn!`;
-        } else {
-            title.innerHTML = `It's the turn of ${currentPlayer}.`;
-        }
-    });
+    if (playerName === turnPlayer) {
+        title.innerHTML = `It's your turn!`;
+    } else {
+        title.innerHTML = `It's the turn of ${turnPlayer}.`;
+    }
 }
 
-function setReserve() {
+function setReserve() { // loads in the reserve
     getGamePlayerProperty(gameId, token, playerName, "reserve").then(reserve => {
         let reserveBuildings = '';
         reserve.forEach(building => {
@@ -62,11 +60,11 @@ function setReserve() {
     });
 }
 
-function placeBuildingInReserve(e, building) {
+function placeBuildingInReserve(e, building) { //places the building that's in the hand into the reserve
     placeBuilding(gameId, token, playerName, building, null).then(response => responseHandler(response, e));
 }
 
-function showpointsystem() {
+function showPointsystem() { //makes the point system visible
     document.querySelector('.pointsystem').style.display = 'flex';
 }
 
@@ -75,23 +73,23 @@ function updateMapSize() { //Makes the map square, so far only works when height
     mapWrapper.style.width = height + "px";
 }
 
-function closepointsystem() {
+function closePointsystem() { //hides the point system
     document.querySelector('.pointsystem').style.display = 'none';
 }
 
-function confirmLeaving(e) {
+function confirmLeaving(e) { //opens the confirm leaving dialog
     e.preventDefault();
     const popup = document.querySelector('.hidden');
     popup.style.display = "inline";
 }
 
-function closePopup(e) {
+function closePopup(e) { //closes the confirm leaving dialog
     e.preventDefault();
     const popup = document.querySelector('.hidden');
     popup.style.display = "none";
 }
 
-function refresh() { //instant refresh no wait for polling
+function refresh() { //loads everything in
     setTurn();
     setReserve();
     setMap();
@@ -101,7 +99,7 @@ function refresh() { //instant refresh no wait for polling
     setScoreboard();
 }
 
-function responseHandler(response, event) {
+function responseHandler(response, event) { // this function handles all the response of the actions of the player
     if (response.ok) {
         refresh();
     } else {
@@ -112,13 +110,13 @@ function responseHandler(response, event) {
     }
 }
 
-async function polling() {
+async function polling() { //this function updates all the fields if they change
     if (await getGameProperty(gameId, token, "ended")) {
         window.location.replace('./end_game.html');
     } else {
-        console.log("polling");
-        if (!turnPlayer || turnPlayer !== await getGameCurrentPlayer(gameId, token)) {
-            turnPlayer = await getGameCurrentPlayer(gameId, token);
+        const currentPlayer = await getGameCurrentPlayer(gameId, token);
+        if (!turnPlayer || turnPlayer !== currentPlayer) {//only update everything when the turn is over else you lose the selected items
+            turnPlayer = currentPlayer;
             refresh();
         }
         setTimeout(() => polling(), 2000);

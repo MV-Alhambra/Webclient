@@ -16,9 +16,9 @@ function setMap() { // loads in the map
 }
 
 function convertCityToMap(city) { //converts the city into the size of the map
-    const map = [...Array(mapSize)].map(() => Array(mapSize).fill(null)); //creates an empty 2 dimensional array
-    const cityCenter = (city.length + 1) / 2;//3
-    const mapCenter = (mapSize + 1) / 2;//2
+    const map = [...Array(mapSize)].map(() => Array(mapSize).fill(null)); //creates an empty/null 2 dimensional array
+    const cityCenter = (city.length + 1) / 2;
+    const mapCenter = (mapSize + 1) / 2;
     const diffCenter = Math.abs(cityCenter - mapCenter);
     if (cityCenter > mapCenter) {
         for (let row = 0; row < mapSize; row++) {
@@ -55,7 +55,7 @@ function createBuilding(building) { //receives an building object and turns it i
     }
 }
 
-function zoomIn(e) {
+function zoomIn(e) { // changes the mapSize and holds logic for the buttons
     if (mapSize !== 3) {
         if (mapSize === 9) {
             document.querySelector("#zoom_out").classList.remove("inactive");
@@ -69,7 +69,7 @@ function zoomIn(e) {
     }
 }
 
-function zoomOut(e) {
+function zoomOut(e) {  // changes the mapSize and holds logic for the buttons
     if (mapSize !== 9) {
         if (mapSize === 3) {
             document.querySelector("#zoom_in").classList.remove("inactive");
@@ -83,7 +83,7 @@ function zoomOut(e) {
     }
 }
 
-function showPossibleLocations(building) {
+function showPossibleLocations(building) { //lights up all the possible locations the on the map
     getCityLocations(gameId, playerName, building.walls).then(locations => {
         locations.forEach(location => {
             const index = convertToIndex(convertDynamicToStatic(location));
@@ -99,11 +99,11 @@ function showPossibleLocations(building) {
     });
 }
 
-function convertToIndex(staticLocation) {
+function convertToIndex(staticLocation) { //turns the static location into the correct index for the tile on the map
     return (staticLocation.row * mapSize) + staticLocation.col;
 }
 
-function convertDynamicToStatic(location) {
+function convertDynamicToStatic(location) { //turns the dynamic location/location based around fountain into location based on top left
     const mapRadius = (mapSize - 1) / 2;
     return {
         row: location.row + mapRadius,
@@ -111,13 +111,13 @@ function convertDynamicToStatic(location) {
     };
 }
 
-function placeBuildingOnMap(e, building) {
+function placeBuildingOnMap(e, building) { //places the building on the map
     const row = e.target.getAttribute("data-row");
     const col = e.target.getAttribute("data-col");
     placeBuilding(gameId, token, playerName, building, {row: row, col: col}).then(response => responseHandler(response, e));
 }
 
-function initLSMapSize() {
+function initLSMapSize() { //handles the LS for mapSize so that when pages refresh the map still has the same size
     if (!localStorage.getItem("mapsize")) {
         localStorage.setItem("mapsize", mapSize.toString());
     } else {
