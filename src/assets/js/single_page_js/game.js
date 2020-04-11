@@ -101,7 +101,7 @@ function refresh() { //loads everything in
 
 function responseHandler(response, event) { // this function handles all the response of the actions of the player
     if (response.ok) {
-        refresh();
+        dynamicUpdater().then();
     } else {
         response.json().then(error => {
             console.clear();//removes the error from the console
@@ -110,17 +110,20 @@ function responseHandler(response, event) { // this function handles all the res
     }
 }
 
-async function polling() { //this function updates all the fields if they change
+async function polling() { //recursion function that stops when the game is over
     if (await getGameProperty(gameId, token, "ended")) {
         window.location.replace('./end_game.html');
     } else {
-        const currentPlayer = await getGameCurrentPlayer(gameId, token);
-        if (!turnPlayer || turnPlayer !== currentPlayer) {//only update everything when the turn is over else you lose the selected items
-            turnPlayer = currentPlayer;
-            refresh();
-        }
+        await dynamicUpdater();
         setTimeout(() => polling(), 2000);
     }
 }
 
+async function dynamicUpdater() { //this function updates all the fields if they change
+    const currentPlayer = await getGameCurrentPlayer(gameId, token);
+    if (!turnPlayer || turnPlayer !== currentPlayer) {//only update everything when the turn is over else you lose the selected items
+        turnPlayer = currentPlayer;
+        refresh();
+    }
+}
 
