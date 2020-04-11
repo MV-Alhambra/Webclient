@@ -65,7 +65,26 @@ function getGamePlayerProperty(gameId, token, playerName, property) {
 }
 
 function takeCoins(gameId, token, playerName, coins) {
-    return fetchJSON(`${config.root}games/${gameId}/players/${playerName}/money`, "POST", token, coins);
+    return fetchRaw(`${config.root}games/${gameId}/players/${playerName}/money`, "POST", token, coins);
 }
 
+function buyBuilding(gameId, token, playerName, currency, coins) {
+    return fetchRaw(`${config.root}games/${gameId}/players/${playerName}/buildings-in-hand`, "POST", token, {currency: currency, coins: coins});
+}
+
+function placeBuilding(gameId, token, playerName, building, location) {
+    return fetchRaw(`${config.root}games/${gameId}/players/${playerName}/city`, "POST", token, {building: building, location: location});
+}
+
+function getBuildingTypes() {
+    return fetchJSON(`${config.root}buildings/types`, "GET");
+}
+
+function getCurrencies() {
+    return fetchJSON(`${config.root}currencies`, "GET");
+}
+
+function getCityLocations(gameId, playerName, walls) {
+    return fetchJSON(`${config.root}games/${gameId}/players/${playerName}/city/locations?north=${walls.north}&east=${walls.east}&south=${walls.south}&west=${walls.west}`,"GET");
+}
 

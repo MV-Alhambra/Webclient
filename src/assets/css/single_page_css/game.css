@@ -58,6 +58,7 @@ main {
 #map {
     border: gray solid 2px;
     grid-area: 1 / 5 / 9 /11;
+    position: relative;
 }
 
 #map div {
@@ -127,12 +128,16 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    user-select: none;
+    height: 100%;
+    box-sizing: border-box;
     /*border: 10px solid white;*/ /*#todo: make borders look like in rules and when no borders look normal? */
 }
 
 #map aside {
-    float: right;
-    padding: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 #map aside p {
@@ -140,6 +145,7 @@ main {
     font-size: 35px;
     display: inline-block;
     padding: 5px;
+    user-select: none;
 }
 
 #map aside p:hover {
@@ -147,7 +153,24 @@ main {
 }
 
 #map aside p.inactive {
-    display: none;
+   color: transparent;
+}
+
+@keyframes fade {
+    from {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
+
+.blink {
+    animation: fade 3000ms infinite;
+    background: cornflowerblue; /*make it nice*/
 }
 
 /* ---end map---*/
@@ -170,6 +193,7 @@ main {
     grid-gap: 10px;
     grid-auto-flow: column;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-rows: 1fr;
     box-sizing: border-box;
     height: 75%;
     white-space: nowrap;
@@ -202,6 +226,7 @@ main {
     align-items: center;
     justify-content: center;
     border-radius: 100%;
+    user-select: none;
 }
 
 /*---end_turn_options---*/
@@ -245,8 +270,8 @@ dd {
     height: 30%;
 }
 
-#containerBank p.selectBankCoin{
-    border: blue dashed thick;
+#containerBank p.selectBankCoin {
+    outline: blue dashed thick;
 }
 
 #containerBank p {
@@ -258,6 +283,7 @@ dd {
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
 }
 
 .blue {
@@ -284,7 +310,8 @@ dd {
     padding: 2vh;
     box-sizing: border-box;
 }
-#market h1{
+
+#market h1 {
     height: 15%;
 }
 
@@ -299,7 +326,11 @@ dd {
 }
 
 #marketGrid p {
-    height: 90%;
+    height: 90%; /* somehow if i dont do this the buildings gets malformed in the market but this is just arbitrary value*/
+}
+
+#marketGrid p.selectMarketBuilding {
+    outline: blue dashed thick;
 }
 
 #market footer {
@@ -367,8 +398,12 @@ img {
     float: left;
     border-radius: 100%;
     margin: 2px;
-    height: 15px;
-    width: 15px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
 }
 
 #blueMoneyPlayer li {
@@ -385,6 +420,10 @@ img {
 
 #orangeMoneyPlayer li {
     background-color: orange;
+}
+
+#money .selectCoin {
+    outline: black dashed medium;
 }
 
 /*---end_money---*/
@@ -539,4 +578,26 @@ a#pspopup:hover {
 }
 
 /*--end_pointsystem--*/
+#mouseError {
+    padding: 2px;
+    background: red;
+    border: darkred solid medium;
+    border-radius: 10px;
+    color: white;
+    position: absolute;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+    left: 0;
+    top: 0;
+}
+
+#hand {
+    position: absolute;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+}
 

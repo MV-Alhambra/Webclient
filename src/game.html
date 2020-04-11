@@ -27,12 +27,12 @@
 			<h1>Market</h1>
 			<div id="marketGrid">
 				<img alt="Blue coin" src="assets/media/blue.png">
-				<div></div>
+				<div data-currency="blue"></div>
 				<img alt="Green coin" src="assets/media/green.png">
-				<div></div>
-				<div></div>
+				<div data-currency="green"></div>
+				<div data-currency="orange"></div>
 				<img alt="Orange coin" src="assets/media/orange.png">
-				<div></div>
+				<div data-currency="yellow"></div>
 				<img alt="Yellow coin" src="assets/media/yellow.png">
 			</div>
 			<footer>
@@ -50,7 +50,7 @@
 			<h1>Your coins</h1>
 			<div id="moneyPlayer">
 				<section id="blueMoneyPlayer">
-					<h4>Blue</h4>
+					<h4>Blue</h4> <!-- if you change the innerHTML of this please let me know so that i can fix a potential issue in js -->
 					<ul>
 					</ul>
 				</section>
@@ -90,8 +90,10 @@
 			<a href="#" id="buy_building">Buy building</a>
 			<a href="#" id="redesign_town">Redesign town</a>
 			<a href="#" id="take_money">Take money</a>
-			<a href="#" id="end_turn">End turn</a>
+			<a href="#" id="end_turn"></a>
 		</div>
+		<div class="hidden" id="hand"></div>
+		<p class="hidden" id="mouseError"></p>
 		<div class="pointsystem">
 			<div class="pointsystemcontent">
 				<div class="close">+</div>
@@ -186,8 +188,12 @@
 	<script src="assets/js/communication.js"></script>
 	<script src="assets/js/API_list.js"></script>
 	<script src="assets/js/config.js"></script>
-	<script src="assets/js/single_page_js/game-leave.js"></script>
+	<script src="assets/js/single_page_js/game-hand.js"></script>
+	<script src="assets/js/single_page_js/game-error.js"></script>
 	<script src="assets/js/single_page_js/game-coins.js"></script>
+	<script src="assets/js/single_page_js/game-map.js"></script>
+	<script src="assets/js/single_page_js/game-bank.js"></script>
+	<script src="assets/js/single_page_js/game-market.js"></script>
 	<script src="assets/js/single_page_js/game.js"></script>
 </body>
 </html>
