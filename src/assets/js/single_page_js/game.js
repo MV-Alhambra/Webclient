@@ -13,19 +13,13 @@ const mapWrapper = document.querySelector("#map div");
 const reserveWrapper = document.querySelector("#reserve div");
 let colors = ["blue", "green", "orange", "yellow"];
 let types = ["pavilion", "seraglio", "arcades", "chambers", "garden", "tower"];
+let turnPlayer = null;
 
 function init() {
     initLSMapSize();
     getBuildingTypes().then(typeList => types = typeList);// not really needed anymore but why not
     getCurrencies().then(currencies => colors = currencies);// not really needed anymore but why not
-    setScoreboard();
-    setTurn();
-    setBank();
-    setCoins();
-    setMarket();
     updateMapSize();
-    setMap();
-    setReserve();
     window.addEventListener('resize', updateMapSize);
     document.querySelector('#pspopup').addEventListener('click', showpointsystem);
     document.querySelector('.close').addEventListener('click', closepointsystem);
@@ -35,6 +29,7 @@ function init() {
     document.querySelector("#buy_building").addEventListener("click", grabBuilding);
     document.querySelector('.leavePopup').addEventListener('click', confirmLeaving);
     document.querySelector('#returnToGame').addEventListener('click', closePopup);
+    polling().then();
 }
 
 function setScoreboard() { // loads the scoreboard in
@@ -103,6 +98,7 @@ function refresh() { //instant refresh no wait for polling
     setBank();
     setCoins();
     setMarket();
+    setScoreboard();
 }
 
 function responseHandler(response, event) {
@@ -113,6 +109,19 @@ function responseHandler(response, event) {
             console.clear();//removes the error from the console
             showError(error.cause, event); //shows the custom error from the server
         });
+    }
+}
+
+async function polling() {
+    if (await getGameProperty(gameId, token, "ended")) {
+        window.location.replace('./end_game.html');
+    } else {
+        console.log("polling");
+        if (!turnPlayer || turnPlayer !== await getGameCurrentPlayer(gameId, token)) {
+            turnPlayer = await getGameCurrentPlayer(gameId, token);
+            refresh();
+        }
+        setTimeout(() => polling(), 2000);
     }
 }
 
