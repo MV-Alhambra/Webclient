@@ -1,9 +1,12 @@
 "use strict";
 
 let mapSize = 5;
+const btnZoomIn = document.querySelector("#zoom_in");
+const btnZoomOut = document.querySelector("#zoom_out");
 
 function setMap() { // loads in the map
     getGamePlayerProperty(gameId, token, playerName, "city").then(city => {
+        zoomButtonHider();
         mapWrapper.className = 'map' + mapSize;//set the size of the map
         mapWrapper.innerHTML = '';
         convertCityToMap(city).forEach(row => {
@@ -55,31 +58,33 @@ function createBuilding(building) { //receives an building object and turns it i
     }
 }
 
-function zoomIn(e) { // changes the mapSize and holds logic for the buttons
+function zoomIn() { // changes the mapSize and holds logic for the buttons
     if (mapSize !== 3) {
         if (mapSize === 9) {
-            document.querySelector("#zoom_out").classList.remove("inactive");
+            btnZoomOut.classList.remove("inactive");
         }
         mapSize -= 2;
         localStorage.setItem("mapsize", mapSize);
-        if (mapSize === 3) {
-            e.target.classList.add("inactive");
-        }
         setMap();
     }
 }
 
-function zoomOut(e) {  // changes the mapSize and holds logic for the buttons
+function zoomOut() {  // changes the mapSize and holds logic for the buttons
     if (mapSize !== 9) {
         if (mapSize === 3) {
-            document.querySelector("#zoom_in").classList.remove("inactive");
+            btnZoomIn.classList.remove("inactive");
         }
         mapSize += 2;
         localStorage.setItem("mapsize", mapSize);
-        if (mapSize === 9) {
-            e.target.classList.add("inactive");
-        }
         setMap();
+    }
+}
+
+function zoomButtonHider() { //logic for making the buttons invisible
+    if (mapSize === 9) {
+        btnZoomOut.classList.add("inactive");
+    } else if (mapSize === 3) {
+        btnZoomIn.classList.add("inactive");
     }
 }
 
