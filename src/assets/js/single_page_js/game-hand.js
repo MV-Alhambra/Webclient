@@ -4,7 +4,7 @@ const hand = document.querySelector("#hand");
 let handEvent;
 let reserveEvent = null;
 
-function showHand() {
+function showHand() { //makes the hand visible if there are buildings in it
     getGamePlayerProperty(gameId, token, playerName, "buildings-in-hand").then(buildings => {
         if (buildings.length > 0) {
             hand.innerHTML = createBuilding(buildings[0]);
@@ -18,12 +18,12 @@ function showHand() {
     });
 }
 
-function moveHand(e) {
+function moveHand(e) { //makes the hand follow the cursor
     hand.style.top = (e.clientY) + "px";
     hand.style.left = (e.clientX) + "px";
 }
 
-function hideHand() {
+function hideHand() { //hides the hand
     document.removeEventListener("mousemove", handEvent);
     hand.classList.add("hidden");
     if (reserveEvent !== null) {

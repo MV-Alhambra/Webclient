@@ -9,20 +9,18 @@ function setCoins() { // loads the coins in
             const coinHolder = document.querySelector(`#${coin.currency}MoneyPlayer ul`);
             coinHolder.innerHTML += `<li>${coin.amount}</li>`;
         });
-        getGameCurrentPlayer(gameId, token).then(currentPlayer => {
-            if (currentPlayer === playerName) {
-                document.querySelectorAll("#moneyPlayer li").forEach(coin => coin.addEventListener("click", selectCoin));
-            }
-        });
+        if (turnPlayer === playerName) {
+            document.querySelectorAll("#moneyPlayer li").forEach(coin => coin.addEventListener("click", selectCoin));
+        }
     });
 }
 
-function compareCoins(coin1, coin2) {
+function compareCoins(coin1, coin2) { //comparison for the sorter
     return coin1.amount - coin2.amount;
 }
 
-function selectCoin(e) {
-    unSelectBankCoins();
+function selectCoin(e) { // hold the logic for selecting coins
+    deselectBankCoins();
     const classList = e.target.classList;
     const coin = convertCoinToObject(e.target);
     if (classList.contains("selectCoin")) {
@@ -32,13 +30,13 @@ function selectCoin(e) {
         classList.add("selectCoin");
         coins.push(coin);
     } else {
-        unSelectCoins();
+        deselectCoins();
         classList.add("selectCoin");
         coins.push(coin);
     }
 }
 
-function unSelectCoins() { //deselect all coins
+function deselectCoins() { //deselect all coins
     coins = [];
     document.querySelectorAll('.selectCoin').forEach(coin => coin.classList.remove("selectCoin"));
 }
