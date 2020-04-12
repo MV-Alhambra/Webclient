@@ -3,31 +3,44 @@
 /*------------------------*/
 
 body {
-    font-family: Orbitron, sans-serif;
-    height: 100vh;
+    height: 80vh;
+    margin: 3rem;
+    font-family: sans-serif;
+    background-image: url("../../../images/background.png");
+    background-size: cover;
 }
+
 
 h1 {
     font-size: 5rem;
+    color: white;
+    font-family: 'Berkshire Swash', cursive, sans-serif;
 }
 
-header {
-    padding: 15px;
 
+
+header a {
+    color: white;
+    font-family: 'Berkshire Swash', cursive, sans-serif;
+    font-size: 1.5rem;
+  
 }
 
-header h2 {
-    text-align: center;
-}
 
 aside {
-    border: 1px black solid;
+    font-family: 'Questrial', sans-serif;
+    color: white;
+    background-color: rgba(42, 42, 42, 0.5);
     margin-top: 10%;
     padding: 10px 10px 10px 15px;
     font-size: 1.5rem;
     flex-basis: 17%;
     margin-right: 40px;
     height: min-content;
+}
+
+dt{
+    color: #e7c509;
 }
 
 main {
@@ -37,8 +50,18 @@ main {
     margin-top: 10%;
 }
 
+main h1{
+    margin: 30px;
+}
+
+main h1 + h2{
+    margin-bottom: 45px;
+}
+
 main h1, main h2 {
-    margin: 20px
+    font-family: 'Berkshire Swash', cursive, sans-serif;
+    color: white;
+    letter-spacing: 2px;
 }
 
 
@@ -51,17 +74,18 @@ main h1, main h2 {
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
 
+
 .button {
+    font-family: 'Questrial', sans-serif;
+    font-weight: bold;
     text-decoration: none;
-    color: black;
+    letter-spacing: 2px;
+    color: white;
     font-size: 2rem;
-    border: 1px black solid;
-    padding: 5px;
 }
 
 .button:hover {
-    color: white;
-    background: black;
+
 }
 
 aside dl{
@@ -91,6 +115,8 @@ footer {
     width: 45%;
     text-align: center;
     font-size: 1.5em;
+    color: white;
+    font-family: 'Questrial', sans-serif;
 }
 
 footer ul {
@@ -107,14 +133,34 @@ footer li {
 }
 
 #inviteURL {
-    border: 1px black solid;
+    border: 1px white solid;
+    color: white;
     padding: 5px;
+    background-color: rgba(42, 42, 42, 0.5);
 
 }
 
 #ready {
-    width: 150px;
-    margin: auto;
+    width: 100%;
+    border: 1px white solid;
+    background-color: rgba(9, 231, 103, 0.8);
+    box-shadow:  0 0 10px 5px rgba(255, 255, 255, 0.4) inset;
+    padding: 5px 30px;
+}
+
+#unready {
+    border: 1px white solid;
+    background-color: rgba(231, 9, 9, 0.8);
+    box-shadow:  0 0 10px 5px rgba(255, 255, 255, 0.4) inset;
+    padding: 5px 38px;
+}
+
+.shadow{
+    box-shadow:  0 0 10px 5px rgba(9, 231, 103, 0.8);
+    padding: 6px 0;
+    width: 216px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #copy:hover {

@@ -11,6 +11,9 @@ const header = document.querySelector('h1');
 const tempReady = document.querySelector('main>h2');
 const waiting = document.querySelectorAll("main h2")[1];
 const readyButton = document.querySelector('main a');
+const waitingAnimation = document.querySelector('span');
+const shadowButton = document.querySelector('.shadow');
+
 
 function init() {
     checkLS();
@@ -18,6 +21,7 @@ function init() {
     document.querySelector('#copy').addEventListener('click', copy);
     readyButton.addEventListener('click', changePlayerStatus);
     polling();
+    waitingTimer();
 }
 
 function checkLS() {
@@ -88,16 +92,20 @@ function setScoreboard() { // loads the scoreboard
 
 function changePlayerStatus(e) { //sets the player to ready/unready
     e.preventDefault();
-    if (e.target.innerText === 'ready') {
+    if (e.target.innerText === 'Ready up') {
         setPlayerReady(gameId, token, playerName).then(response => {
             if (response) {
-                e.target.innerText = 'unready';
+                e.target.innerText = 'Unready';
+                e.target.id = 'unready';
+                shadowButton.style.boxShadow = '0 0 10px 5px rgba(231, 9, 9, 0.8)';
             }
         });
     } else {
         setPlayerUnready(gameId, token, playerName).then(response => {
             if (response) {
-                e.target.innerText = 'ready';
+                e.target.innerText = 'Ready up';
+                e.target.id = 'ready';
+                shadowButton.style.boxShadow = '0 0 10px 5px rgba(9, 231, 103, 0.8)';
             }
         });
     }
@@ -112,6 +120,21 @@ function timer() { // timer for starting game
             window.location.replace('./game.html');
         }
         counter--;
+    }, 1000);
+}
+
+
+function waitingTimer() {  //de animation for the dots
+    let i = 3;
+    setInterval(function () {
+        if (i > 0){
+            waitingAnimation.innerHTML += ".";
+            i--;
+        }
+        else {
+            waitingAnimation.innerHTML = "";
+            i = 3
+        }
     }, 1000);
 }
 
