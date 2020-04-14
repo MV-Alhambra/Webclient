@@ -37,6 +37,29 @@ header {
     text-align: center;
 }
 
+.toggle{
+    background: red;
+    padding: 7px;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family:Orbitron, sans-serif;
+    letter-spacing: 1px;
+    transition: all .4s ease;
+}
+
+.toggle-on span{
+    display: block;
+    transform: rotateX(-180deg);
+    transition: all .4s ease;
+}
+
+.toggle-on{
+    transform: rotateX(180deg);
+    background: green;
+}
+
+
 /*--- end header---*/
 main {
     height: calc(82vh - 2px); /* prevents scrollbar from appearing*/
@@ -600,4 +623,6 @@ a#pspopup:hover {
     width: 100px;
     height: 100px;
 }
+
+
 
