@@ -85,6 +85,16 @@ function getCurrencies() {
 }
 
 function getCityLocations(gameId, playerName, walls) {
-    return fetchJSON(`${config.root}games/${gameId}/players/${playerName}/city/locations?north=${walls.north}&east=${walls.east}&south=${walls.south}&west=${walls.west}`,"GET");
+    return fetchJSON(`${config.root}games/${gameId}/players/${playerName}/city/locations?north=${walls.north}&east=${walls.east}&south=${walls.south}&west=${walls.west}`, "GET");
 }
+
+function setCityBuildingToReserve(gameId, token, playerName, location) {
+    return fetchRaw(`${config.root}games/${gameId}/players/${playerName}/city`, "PATCH", token, {location: location});
+}
+
+function setReserveBuildingToCity(gameId, token, playerName, building, location) {
+    return fetchRaw(`${config.root}games/${gameId}/players/${playerName}/city`, "PATCH", token, {building: building, location: location});
+}
+
+
 

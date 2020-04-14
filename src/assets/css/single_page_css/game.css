@@ -37,28 +37,27 @@ header {
     text-align: center;
 }
 
-.toggle{
+.toggle {
     background: red;
     padding: 7px;
     color: white;
     cursor: pointer;
     text-transform: uppercase;
-    font-family:Orbitron, sans-serif;
+    font-family: Orbitron, sans-serif;
     letter-spacing: 1px;
     transition: all .4s ease;
 }
 
-.toggle-on span{
+.toggle-on span {
     display: block;
     transform: rotateX(-180deg);
     transition: all .4s ease;
 }
 
-.toggle-on{
+.toggle-on {
     transform: rotateX(180deg);
     background: green;
 }
-
 
 /*--- end header---*/
 main {
@@ -176,7 +175,7 @@ main {
 }
 
 #map aside p.inactive {
-   color: transparent;
+    color: transparent;
 }
 
 @keyframes fade {
