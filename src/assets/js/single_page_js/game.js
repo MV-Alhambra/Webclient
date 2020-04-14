@@ -99,9 +99,13 @@ function refresh() { //loads everything in
     setScoreboard();
 }
 
-function responseHandler(response, event) { // this function handles all the response of the actions of the player
+function responseHandler(response, event, dynamic = true) { // this function handles all the response of the actions of the player
     if (response.ok) {
-        dynamicUpdater().then();
+        if (dynamic) {
+            dynamicUpdater().then();
+        } else {
+            refresh();
+        }
     } else {
         response.json().then(error => {
             console.clear();//removes the error from the console
