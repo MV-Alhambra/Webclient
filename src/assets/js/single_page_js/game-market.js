@@ -41,7 +41,7 @@ function convertBuildingToObject(building) { //turns the html of a building into
             north: classList.contains("northWall"),
             east: classList.contains("eastWall"),
             south: classList.contains("southWall"),
-            west: classList.contains("eastWall")
+            west: classList.contains("westWall")
         }
     };
 }

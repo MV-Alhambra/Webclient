@@ -9,12 +9,14 @@ function setMap() { // loads in the map
         zoomButtonHider();
         mapWrapper.className = 'map' + mapSize;//set the size of the map
         mapWrapper.innerHTML = '';
+        let index = 0;
         convertCityToMap(city).forEach(row => {
             row.forEach(cell => {
-                mapWrapper.innerHTML += createBuilding(cell);
+                mapWrapper.innerHTML += createBuilding(cell, true, index++);
             });
         });
         showHand();//temp or is it?
+        addRedesignSelectors();
     });
 }
 
@@ -42,11 +44,11 @@ function convertCityToMap(city) { //converts the city into the size of the map
     return map;
 }
 
-function createBuilding(building) { //receives an building object and turns it into html for a building
+function createBuilding(building, useIndex = false, index = 0) { //receives an building object and turns it into html for a building
     if (building === null) {
         return `<p></p>`;
     } else if (building.cost === 0) {
-        return `<p class="fountain building"></p>`;
+        return `<p class="fountain"></p>`;
     } else {
         let walls = '';
         Object.keys(building.walls).forEach(wall => {
@@ -54,7 +56,11 @@ function createBuilding(building) { //receives an building object and turns it i
                 walls += wall + "Wall ";
             }
         });
-        return `<p class="building ${building.type} ${walls}">${building.cost}</p>`;
+        if (useIndex) {
+            return `<p class="building ${building.type} ${walls}" data-index="${index}" draggable="${redesignOn}">${building.cost}</p>`;
+        } else {
+            return `<p class="building ${building.type} ${walls}">${building.cost}</p>`;
+        }
     }
 }
 

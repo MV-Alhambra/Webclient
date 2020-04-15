@@ -37,28 +37,6 @@ header {
     text-align: center;
 }
 
-.toggle {
-    background: red;
-    padding: 7px;
-    color: white;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-family: Orbitron, sans-serif;
-    letter-spacing: 1px;
-    transition: all .4s ease;
-}
-
-.toggle-on span {
-    display: block;
-    transform: rotateX(-180deg);
-    transition: all .4s ease;
-}
-
-.toggle-on {
-    transform: rotateX(180deg);
-    background: green;
-}
-
 /*--- end header---*/
 main {
     height: calc(82vh - 2px); /* prevents scrollbar from appearing*/
@@ -113,6 +91,12 @@ main {
 
 .fountain {
     background-image: url("../../../images/fountain.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    user-select: none;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .arcades {
@@ -600,6 +584,40 @@ a#pspopup:hover {
 }
 
 /*--end_pointsystem--*/
+/*--start_redesign--*/
+.toggle {
+    background: red;
+    padding: 7px;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: Orbitron, sans-serif;
+    letter-spacing: 1px;
+    transition: all .4s ease;
+}
+
+.toggle-on span {
+    display: block;
+    transform: rotateX(-180deg);
+    transition: all .4s ease;
+}
+
+.toggle-on {
+    transform: rotateX(180deg);
+    background: green;
+}
+
+#buildingDrag {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+.draggedBuilding {
+    opacity: 0;
+}
+
+/*--end_redesign--*/
 #mouseError {
     padding: 2px;
     background: red;
