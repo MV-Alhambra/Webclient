@@ -23,7 +23,7 @@ function addRedesignSelectors() {
         document.querySelectorAll("#map .building").forEach(building => building.addEventListener("dragstart", dragBuildingStart));
         document.querySelectorAll("#map .building").forEach(building => building.addEventListener("dragend", dragBuildingEnd));
         reserveWrapper.parentElement.addEventListener("drop", dragBuildingDrop); // this triggers when an item gets dropped in it
-        reserveWrapper.parentElement.addEventListener("dragover", ev => ev.preventDefault());//this sets the location where i can drop the item
+        reserveWrapper.parentElement.addEventListener("dragover", e => e.preventDefault());//this sets the location where i can drop the item
         //reserve to city
         reserveWrapper.childNodes.forEach(building => building.addEventListener("dragstart", dragBuildingStart));
         reserveWrapper.childNodes.forEach(building => building.addEventListener("drag", dragBuilding));
@@ -39,7 +39,13 @@ function dragBuilding(e) {
 }
 
 function showLocations(e) {
-    showPossibleLocations(convertBuildingToObject(e.currentTarget),setReserveBuildingToCity);
+    showPossibleLocations(convertBuildingToObject(e.currentTarget), addEventListenersRelocateBuilding);
+    //console.log(e);
+}
+
+function addEventListenersRelocateBuilding(tile, building) {
+    tile.addEventListener("dragover", e => e.preventDefault()); //this sets the location where i can drop the item
+    tile.addEventListener("drop", e => dragBuildingDrop(e, building));
 }
 
 function dragBuildingStart(e) {
@@ -56,17 +62,16 @@ function dragBuildingEnd() {
     setReserve();
 }
 
-function dragBuildingDrop(e) {
+function dragBuildingDrop(e, building) { //second and third argument only gets used when called by showLocations
     if (e.target.closest("#reserve")) {
         console.log("reserve");
-        //  const index = parseInt(buildingDrag.firstElementChild.getAttribute("data-index"));
-        //setCityBuildingToReserve(gameId, token, playerName, convertIndexToLocation(index)).then(response => responseHandler(response, e));
-    } else if (e.target.closest("#map")){
-        console.log("map");
+        const index = parseInt(buildingDrag.firstElementChild.getAttribute("data-index"));
+        setCityBuildingToReserve(gameId, token, playerName, convertIndexToLocation(index)).then(response => responseHandler(response, e));
+    } else if (e.target.closest("#map")) {
+        placeBuildingOnMap(e, building, setReserveBuildingToCity);
     } else {
         console.log("else");
     }
-
 }
 
 function convertIndexToStaticLocation(index) {

@@ -95,7 +95,7 @@ function zoomButtonHider() { //logic for making the buttons invisible
     }
 }
 
-function showPossibleLocations(building, apiCall) { //lights up all the possible locations the on the map
+function showPossibleLocations(building,addEventListeners) { //lights up all the possible locations the on the map
     getCityLocations(gameId, playerName, building.walls).then(locations => {
         locations.forEach(location => {
             const index = convertToIndex(convertDynamicToStatic(location));
@@ -105,7 +105,7 @@ function showPossibleLocations(building, apiCall) { //lights up all the possible
                 tile.classList.add("blink");
                 tile.setAttribute("data-row", location.row);
                 tile.setAttribute("data-col", location.col);
-                tile.addEventListener("click", e => placeBuildingOnMap(e, building, apiCall));
+                addEventListeners(tile,building);
             }
         });
     });
