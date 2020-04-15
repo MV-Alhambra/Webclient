@@ -19,9 +19,10 @@ function toggle() {
 function addRedesignSelectors() {
     if (redesignOn) {
         //city to reserve
-        document.querySelectorAll("#map .building").forEach(building => building.addEventListener("drag", dragBuilding));
-        document.querySelectorAll("#map .building").forEach(building => building.addEventListener("dragstart", dragBuildingStart));
-        document.querySelectorAll("#map .building").forEach(building => building.addEventListener("dragend", dragBuildingEnd));
+        const buildings = document.querySelectorAll("#map .building");
+        buildings.forEach(building => building.addEventListener("drag", dragBuilding));
+        buildings.forEach(building => building.addEventListener("dragstart", dragBuildingStart));
+        buildings.forEach(building => building.addEventListener("dragend", dragBuildingEnd));
         reserveWrapper.parentElement.addEventListener("drop", dragBuildingDrop); // this triggers when an item gets dropped in it
         reserveWrapper.parentElement.addEventListener("dragover", e => e.preventDefault());//this sets the location where i can drop the item
         //reserve to city
@@ -40,7 +41,7 @@ function dragBuilding(e) {
 
 function showLocations(e) {
     showPossibleLocations(convertBuildingToObject(e.currentTarget), addEventListenersRelocateBuilding);
-    //console.log(e);
+    //con sole .log (e);
 }
 
 function addEventListenersRelocateBuilding(tile, building) {
@@ -78,7 +79,7 @@ function convertIndexToStaticLocation(index) {
     return {
         col: index % mapSize,
         row: parseInt(index / mapSize)
-    }
+    };
 }
 
 function convertStaticToDynamicLocation(staticLocation) {
@@ -86,7 +87,7 @@ function convertStaticToDynamicLocation(staticLocation) {
     return {
         row: staticLocation.row - mapRadius,
         col: staticLocation.col - mapRadius
-    }
+    };
 }
 
 function convertIndexToLocation(index) {
@@ -94,6 +95,6 @@ function convertIndexToLocation(index) {
     return {
         col: (index % mapSize) - mapRadius,
         row: (parseInt(index / mapSize)) - mapRadius
-    }
+    };
 }
 

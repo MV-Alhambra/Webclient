@@ -12,7 +12,8 @@ function setMap() { // loads in the map
         let index = 0;
         convertCityToMap(city).forEach(row => {
             row.forEach(cell => {
-                mapWrapper.innerHTML += createBuilding(cell, index++, redesignOn);
+                mapWrapper.innerHTML += createBuilding(cell, index, redesignOn);
+                index++;//fk u sonar
             });
         });
         showHand();//temp or is it?
