@@ -59,6 +59,7 @@ function setReserve() { // loads in the reserve
             reserveBuildings += createBuilding(building, -1, redesignOn);
         });
         reserveWrapper.innerHTML = reserveBuildings;
+        addRedesignSelectors();
     });
 }
 
