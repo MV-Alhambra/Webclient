@@ -11,7 +11,7 @@ const bankWrapper = document.querySelector('#containerBank');
 const marketBuildings = document.querySelectorAll('#marketGrid div');
 const mapWrapper = document.querySelector("#map div");
 const reserveWrapper = document.querySelector("#reserve div");
-const redesign =document.querySelector("#redesign_town");
+const redesign = document.querySelector("#redesign_town");
 let colors = ["blue", "green", "orange", "yellow"];
 let types = ["pavilion", "seraglio", "arcades", "chambers", "garden", "tower"];
 let turnPlayer = null;
@@ -30,7 +30,7 @@ function init() {
     document.querySelector("#buy_building").addEventListener("click", grabBuilding);
     document.querySelector('.leavePopup').addEventListener('click', confirmLeaving);
     document.querySelector('#returnToGame').addEventListener('click', closePopup);
-    redesign.addEventListener('click',toggle);
+    redesign.addEventListener('click', toggle);
     polling().then();
 }
 
@@ -56,7 +56,7 @@ function setReserve() { // loads in the reserve
     getGamePlayerProperty(gameId, token, playerName, "reserve").then(reserve => {
         let reserveBuildings = '';
         reserve.forEach(building => {
-            reserveBuildings += createBuilding(building);
+            reserveBuildings += createBuilding(building, -1, redesignOn);
         });
         reserveWrapper.innerHTML = reserveBuildings;
     });

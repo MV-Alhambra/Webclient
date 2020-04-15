@@ -12,7 +12,7 @@ function setMap() { // loads in the map
         let index = 0;
         convertCityToMap(city).forEach(row => {
             row.forEach(cell => {
-                mapWrapper.innerHTML += createBuilding(cell, true, index++);
+                mapWrapper.innerHTML += createBuilding(cell, index++, redesignOn);
             });
         });
         showHand();//temp or is it?
@@ -44,7 +44,7 @@ function convertCityToMap(city) { //converts the city into the size of the map
     return map;
 }
 
-function createBuilding(building, useIndex = false, index = 0) { //receives an building object and turns it into html for a building
+function createBuilding(building, index = -1, canBeDragged = false) { //receives an building object and turns it into html for a building
     if (building === null) {
         return `<p></p>`;
     } else if (building.cost === 0) {
@@ -56,10 +56,11 @@ function createBuilding(building, useIndex = false, index = 0) { //receives an b
                 walls += wall + "Wall ";
             }
         });
-        if (useIndex) {
-            return `<p class="building ${building.type} ${walls}" data-index="${index}" draggable="${redesignOn}">${building.cost}</p>`;
+        if (index === -1) {
+            return `<p class="building ${building.type} ${walls}" draggable="${canBeDragged}">${building.cost}</p>`;
         } else {
-            return `<p class="building ${building.type} ${walls}">${building.cost}</p>`;
+
+            return `<p class="building ${building.type} ${walls}" data-index="${index}" draggable="${canBeDragged}">${building.cost}</p>`;
         }
     }
 }
@@ -94,7 +95,7 @@ function zoomButtonHider() { //logic for making the buttons invisible
     }
 }
 
-function showPossibleLocations(building) { //lights up all the possible locations the on the map
+function showPossibleLocations(building, apiCall) { //lights up all the possible locations the on the map
     getCityLocations(gameId, playerName, building.walls).then(locations => {
         locations.forEach(location => {
             const index = convertToIndex(convertDynamicToStatic(location));
@@ -104,7 +105,7 @@ function showPossibleLocations(building) { //lights up all the possible location
                 tile.classList.add("blink");
                 tile.setAttribute("data-row", location.row);
                 tile.setAttribute("data-col", location.col);
-                tile.addEventListener("click", e => placeBuildingOnMap(e, building));
+                tile.addEventListener("click", e => placeBuildingOnMap(e, building, apiCall));
             }
         });
     });
@@ -122,10 +123,10 @@ function convertDynamicToStatic(location) { //turns the dynamic location/locatio
     };
 }
 
-function placeBuildingOnMap(e, building) { //places the building on the map
+function placeBuildingOnMap(e, building, apiCall) { //places the building on the map
     const row = e.target.getAttribute("data-row");
     const col = e.target.getAttribute("data-col");
-    placeBuilding(gameId, token, playerName, building, {row: row, col: col}).then(response => responseHandler(response, e));
+    apiCall(gameId, token, playerName, building, {row: row, col: col}).then(response => responseHandler(response, e));
 }
 
 function initLSMapSize() { //handles the LS for mapSize so that when pages refresh the map still has the same size
