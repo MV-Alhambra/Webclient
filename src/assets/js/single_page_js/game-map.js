@@ -17,7 +17,7 @@ function setMap() { // loads in the map
             });
         });
         showHand();//temp or is it?
-        addRedesignSelectors();
+        setRedesignSelectors();
     });
 }
 
