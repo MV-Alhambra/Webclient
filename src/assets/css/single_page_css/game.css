@@ -609,7 +609,7 @@ a#pspopup:hover {
 }
 
 .cha{
-    background-color: lightgrey;
+    background-color: white;
     padding-top: 0.2em;
     padding-bottom: 0.1em;
     border: solid grey 1px;
@@ -618,7 +618,7 @@ a#pspopup:hover {
     font-family: 'Questrial', sans-serif;
 }
 .cha-less{
-    background-color: lightgrey;
+    background-color: white;
     padding-top: 0.2em;
     padding-bottom: 0.1em;
     border: solid grey 1px;
