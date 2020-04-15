@@ -483,59 +483,184 @@ a#pspopup:hover {
     cursor: pointer;
 }
 
-.grid-points div ul li {
-    display: inline;
+.grid-points{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    text-align: center;
+    margin-top: 1em;
+    margin-right: 2em;
+    margin-left: 1em;
+}
+.a{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    border: solid black 2px;
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+    font-family: 'Questrial', sans-serif;
+}
+.b{
+    grid-column-start: 4;
+    grid-column-end: 6;
+    border: solid black 2px;
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+    font-family: 'Questrial', sans-serif;
+}
+.c{
+    grid-column-start: 6;
+    grid-column-end: 9;
+    border: solid black 2px;
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+    font-family: 'Questrial', sans-serif;
+}
+.r1p1{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+    text-align: center;
+    font-family: 'Questrial', sans-serif;
+}
+.r2p1{
+    text-align: center;
+    margin-right: 0.3em;
+    margin-bottom: 0.5em;
+    font-family: 'Questrial', sans-serif;
+}
+.r2p2{
+    text-align: center;
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+    font-family: 'Questrial', sans-serif;
+}
+.r3p1{
+    text-align: center;
+    margin-right: 0.3em;
+    margin-bottom: 0.5em;
+    font-family: 'Questrial', sans-serif;
+}
+.r3p2{
+    text-align: center;
+    margin-right: 0.3em;
+    margin-bottom: 0.5em;
+    font-family: 'Questrial', sans-serif;
+}
+.r3p3{
+    text-align: center;
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+    font-family: 'Questrial', sans-serif;
+}
+.pav{
+    background-color: lightblue;
+    padding-top: 0.2em;
+    padding-bottom: 0.1em;
+    border: solid lightskyblue 1px;
+    margin-right: 1em;
+    margin-bottom: 0.2em;
+    font-family: 'Questrial', sans-serif;
+}
+.pav-less{
+    background-color: lightblue;
+    padding-top: 0.2em;
+    padding-bottom: 0.1em;
+    border: solid lightskyblue 1px;
+    margin-right: 0.2em;
+    margin-bottom: 0.2em;
+    font-family: 'Questrial', sans-serif;
+}
+.ser{
+    background-color: orange;
+    padding-top: 0.2em;
+    padding-bottom: 0.1em;
+    border: solid darkorange 1px;
+    margin-right: 1em;
+    margin-bottom: 0.2em;
+    font-family: 'Questrial', sans-serif;
+}
+.ser-less{
+    background-color: orange;
+    padding-top: 0.2em;
+    padding-bottom: 0.1em;
+    border: solid darkorange 1px;
+    margin-right: 0.2em;
+    margin-bottom: 0.2em;
+    font-family: 'Questrial', sans-serif;
+}
+.arc{
+    background-color: rosybrown;
+    padding-top: 0.2em;
+    padding-bottom: 0.1em;
+    border: solid saddlebrown 1px;
+    margin-right: 1em;
+    margin-bottom: 0.2em;
+    font-family: 'Questrial', sans-serif;
+}
+.arc-less{
+    background-color: rosybrown;
+    padding-top: 0.2em;
+    padding-bottom: 0.1em;
+    border: solid saddlebrown 1px;
+    margin-right: 0.2em;
+    margin-bottom: 0.2em;
+    font-family: 'Questrial', sans-serif;
 }
 
-.grid-round ul {
-    text-align: right;
-    margin-right: 6em;
-    margin-top: 2em;
+.cha{
+    background-color: lightgrey;
+    padding-top: 0.2em;
+    padding-bottom: 0.1em;
+    border: solid grey 1px;
+    margin-right: 1em;
+    margin-bottom: 0.2em;
+    font-family: 'Questrial', sans-serif;
 }
-
-.grid-round ul li {
-    text-align: right;
-    padding-left: 4em;
+.cha-less{
+    background-color: lightgrey;
+    padding-top: 0.2em;
+    padding-bottom: 0.1em;
+    border: solid grey 1px;
+    margin-right: 0.2em;
+    margin-bottom: 0.2em;
+    font-family: 'Questrial', sans-serif;
 }
-
-.grid-content ul {
-    text-align: right;
-    margin-right: 4.8em;
-    margin-top: 0.7em;
+.gar{
+     background-color: lightgreen;
+     padding-top: 0.2em;
+     padding-bottom: 0.1em;
+     border: solid darkgreen 1px;
+     margin-right: 1em;
+     margin-bottom: 0.2em;
+     font-family: 'Questrial', sans-serif;
+ }
+.gar-less{
+    background-color: lightgreen;
+    padding-top: 0.2em;
+    padding-bottom: 0.1em;
+    border: solid darkgreen 1px;
+    margin-right: 0.2em;
+    margin-bottom: 0.2em;
+    font-family: 'Questrial', sans-serif;
 }
-
-.grid-content ul li {
-    padding-left: 0.5em;
+.tow{
+    background-color: mediumpurple;
+    padding-top: 0.2em;
+    padding-bottom: 0.1em;
+    border: solid rebeccapurple 1px;
+    margin-right: 1em;
+    margin-bottom: 0.2em;
+    font-family: 'Questrial', sans-serif;
 }
-
-.grid-content ul li.first-of-roundC {
-    padding-left: 1.6em;
-}
-
-.grid-content ul li.first-of-roundB {
-    padding-left: 3.5em;
-}
-
-.grid-content ul li.doubledigits {
-    padding-left: 0.1em;
-}
-
-.grid-players ul {
-    text-align: right;
-    margin-right: 4.8em;
-    margin-top: 0.7em;
-}
-
-.grid-players ul li {
-    padding-left: 0.5em;
-}
-
-.grid-players ul li.first-of-roundC {
-    padding-left: 2.1em;
-}
-
-.grid-players ul li.first-of-roundB {
-    padding-left: 3.5em;
+.tow-less{
+    background-color: mediumpurple;
+    padding-top: 0.2em;
+    padding-bottom: 0.1em;
+    border: solid rebeccapurple 1px;
+    margin-right: 0.2em;
+    margin-bottom: 0.2em;
+    font-family: 'Questrial', sans-serif;
 }
 
 /*--end_pointsystem--*/
