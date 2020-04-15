@@ -2,7 +2,6 @@
 
 let bankCoins = [];
 
-
 function setBank() { // loads the bank in
     getGameProperty(gameId, token, 'bank').then(bank => {
         let coins = '';

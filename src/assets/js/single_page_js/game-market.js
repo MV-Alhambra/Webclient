@@ -31,25 +31,6 @@ function convertToMarket(building) { //converts a building to a market only work
     };
 }
 
-
-function convertBuildingToObject(building) { //turns the html of a building into an object of an building
-    const classList = building.classList;
-    return {
-        type: getType(classList),
-        cost: parseInt(building.innerHTML),
-        walls: {
-            north: classList.contains("northWall"),
-            east: classList.contains("eastWall"),
-            south: classList.contains("southWall"),
-            west: classList.contains("westWall")
-        }
-    };
-}
-
-function getType(classList) {
-    return types.find(type => classList.contains(type));
-}
-
 function deselectMarket() { // deselect the market
     selectedMarket = null;
     document.querySelectorAll('.selectMarketBuilding').forEach(building => building.classList.remove("selectMarketBuilding"));

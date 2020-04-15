@@ -10,7 +10,7 @@ function showHand() { //makes the hand visible if there are buildings in it
             hand.innerHTML = createBuilding(buildings[0]);
             hand.classList.remove("hidden");
             handEvent = document.addEventListener("mousemove", moveHand);
-            showPossibleLocations(buildings[0],addEventListenersPlaceBulding);
+            showPossibleLocations(buildings[0],addEventListenersPlaceBuilding);
             reserveEvent = document.querySelector("#reserve").addEventListener("click", e => placeBuildingInReserve(e, buildings[0]));
         } else {
             hideHand();
@@ -18,7 +18,7 @@ function showHand() { //makes the hand visible if there are buildings in it
     });
 }
 
-function addEventListenersPlaceBulding(tile, building) {
+function addEventListenersPlaceBuilding(tile, building) {
     tile.addEventListener("click", e => placeBuildingOnMap(e, building, placeBuilding));
 }
 

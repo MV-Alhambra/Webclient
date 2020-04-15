@@ -79,7 +79,6 @@ function dragEndBuilding() { //makes buildingDrag invisible and removes the even
 
 function dropBuilding(e, building) { //second and third argument only gets used when called by showLocations
     if (e.target.closest("#reserve")) {
-        console.log("reserve");
         const index = parseInt(buildingDrag.firstElementChild.getAttribute("data-index"));
         setCityBuildingToReserve(gameId, token, playerName, convertIndexToLocation(index)).then(response => responseHandler(response, e));
     } else if (e.target.closest("#map")) {
@@ -90,27 +89,3 @@ function dropBuilding(e, building) { //second and third argument only gets used 
     }
     toggle(); //turn off the redesign button
 }
-
-function convertIndexToStaticLocation(index) { //converts an index into a static location
-    return {
-        col: index % mapSize,
-        row: parseInt(index / mapSize)
-    };
-}
-
-function convertStaticToDynamicLocation(staticLocation) { //converts a static location into a dynamic/normal location
-    const mapRadius = (mapSize - 1) / 2;
-    return {
-        row: staticLocation.row - mapRadius,
-        col: staticLocation.col - mapRadius
-    };
-}
-
-function convertIndexToLocation(index) { //converts an index into a dynamic/normal location
-    const mapRadius = (mapSize - 1) / 2;
-    return {
-        col: (index % mapSize) - mapRadius,
-        row: (parseInt(index / mapSize)) - mapRadius
-    };
-}
-
