@@ -469,7 +469,7 @@ a#pspopup:hover {
 .pointsystemcontent {
     width: 500px;
     height: 300px;
-    background-color: rgba(200, 200, 200, 0.95);
+    background-color: lightgrey;
     border-radius: 4px;
     position: relative;
 }
