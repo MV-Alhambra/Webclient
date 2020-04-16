@@ -4,7 +4,7 @@ let mapSize = 5;
 const btnZoomIn = document.querySelector("#zoom_in");
 const btnZoomOut = document.querySelector("#zoom_out");
 
-function setMap() { // loads in the map
+function setMap(addListeners = false) { // loads in the map
     getGamePlayerProperty(gameId, token, playerName, "city").then(city => {
         zoomButtonHider();
         mapWrapper.className = 'map' + mapSize;//set the size of the map
@@ -18,6 +18,10 @@ function setMap() { // loads in the map
         });
         showHand();//temp or is it?
         setRedesignSelectors();
+        if (addListeners) {
+            document.querySelectorAll("#map .building").forEach(building => building.addEventListener("click", swap));
+        }
+        console.log("map called");
     });
 }
 

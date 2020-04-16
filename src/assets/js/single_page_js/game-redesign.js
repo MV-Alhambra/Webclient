@@ -99,8 +99,10 @@ function selectReserve(e) { // holds the logic for selecting reserve buildings
     } else {
         deselectReserve();
         e.target.classList.add("selectReserve");
-        selectedMarket = convertBuildingToObject(e.target);
-        document.querySelectorAll("#map .building").forEach(building => building.addEventListener("click", swap));
+        buildingReserve = convertBuildingToObject(e.target);
+        setMap(true);
+        console.log("add listeners");
+
     }
 }
 
@@ -110,7 +112,10 @@ function deselectReserve() { //deselects the reserve building
     document.querySelectorAll('.selectReserve').forEach(building => building.classList.remove("selectReserve"));
 }
 
-function swap(e) {
-
+function swap(e) { //swaps the selected building with the selected tile on the map
+    if (buildingReserve !== null) { //extra check probably not needed
+        const index = e.target.getAttribute("data-index");
+        setReserveBuildingToCity(gameId, token, playerName, buildingReserve, convertIndexToLocation(index)).then(response => responseHandler(response, e));
+    }
 }
 
