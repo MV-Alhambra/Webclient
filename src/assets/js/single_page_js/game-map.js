@@ -1,17 +1,26 @@
 "use strict";
 
 let mapSize = 5;
+const btnZoomIn = document.querySelector("#zoom_in");
+const btnZoomOut = document.querySelector("#zoom_out");
 
-function setMap() { // loads in the map
+function setMap(addListeners = false) { // loads in the map
     getGamePlayerProperty(gameId, token, playerName, "city").then(city => {
+        zoomButtonHider();
         mapWrapper.className = 'map' + mapSize;//set the size of the map
         mapWrapper.innerHTML = '';
+        let index = 0;
         convertCityToMap(city).forEach(row => {
             row.forEach(cell => {
-                mapWrapper.innerHTML += createBuilding(cell);
+                mapWrapper.innerHTML += createBuilding(cell, index, playerName === turnPlayer);
+                index++;//fk u sonar, would ve been a one liner
             });
         });
         showHand();//temp or is it?
+        setRedesignSelectors();
+        if (addListeners) {
+            document.querySelectorAll("#map .building").forEach(building => building.addEventListener("click", swap));
+        }
     });
 }
 
@@ -39,89 +48,63 @@ function convertCityToMap(city) { //converts the city into the size of the map
     return map;
 }
 
-function createBuilding(building) { //receives an building object and turns it into html for a building
-    if (building === null) {
-        return `<p></p>`;
-    } else if (building.cost === 0) {
-        return `<p class="fountain building"></p>`;
-    } else {
-        let walls = '';
-        Object.keys(building.walls).forEach(wall => {
-            if (building.walls[wall]) {
-                walls += wall + "Wall ";
-            }
-        });
-        return `<p class="building ${building.type} ${walls}">${building.cost}</p>`;
-    }
-}
-
-function zoomIn(e) { // changes the mapSize and holds logic for the buttons
+function zoomIn() { // changes the mapSize and holds logic for the buttons
     if (mapSize !== 3) {
         if (mapSize === 9) {
-            document.querySelector("#zoom_out").classList.remove("inactive");
+            btnZoomOut.classList.remove("inactive");
         }
         mapSize -= 2;
         localStorage.setItem("mapsize", mapSize);
-        if (mapSize === 3) {
-            e.target.classList.add("inactive");
-        }
         setMap();
     }
 }
 
-function zoomOut(e) {  // changes the mapSize and holds logic for the buttons
+function zoomOut() {  // changes the mapSize and holds logic for the buttons
     if (mapSize !== 9) {
         if (mapSize === 3) {
-            document.querySelector("#zoom_in").classList.remove("inactive");
+            btnZoomIn.classList.remove("inactive");
         }
         mapSize += 2;
         localStorage.setItem("mapsize", mapSize);
-        if (mapSize === 9) {
-            e.target.classList.add("inactive");
-        }
         setMap();
     }
 }
 
-function showPossibleLocations(building) { //lights up all the possible locations the on the map
+function zoomButtonHider() { //logic for making the buttons invisible
+    if (mapSize === 9) {
+        btnZoomOut.classList.add("inactive");
+    } else if (mapSize === 3) {
+        btnZoomIn.classList.add("inactive");
+    }
+}
+
+function showPossibleLocations(building, addEventListeners) { //lights up all the possible locations the on the map
     getCityLocations(gameId, playerName, building.walls).then(locations => {
         locations.forEach(location => {
-            const index = convertToIndex(convertDynamicToStatic(location));
+            const index = convertStaticLocationToIndex(convertDynamicToStaticLocation(location));
             const mapRadius = (mapSize - 1) / 2;
             if (Math.abs(location.col) <= mapRadius && Math.abs(location.row) <= mapRadius) { //only show what tiles are visible on the current map
                 const tile = document.querySelectorAll("#map div p")[index];
                 tile.classList.add("blink");
                 tile.setAttribute("data-row", location.row);
                 tile.setAttribute("data-col", location.col);
-                tile.addEventListener("click", e => placeBuildingOnMap(e, building));
+                addEventListeners(tile, building);
             }
         });
     });
 }
 
-function convertToIndex(staticLocation) { //turns the static location into the correct index for the tile on the map
-    return (staticLocation.row * mapSize) + staticLocation.col;
-}
-
-function convertDynamicToStatic(location) { //turns the dynamic location/location based around fountain into location based on top left
-    const mapRadius = (mapSize - 1) / 2;
-    return {
-        row: location.row + mapRadius,
-        col: location.col + mapRadius
-    };
-}
-
-function placeBuildingOnMap(e, building) { //places the building on the map
+function placeBuildingOnMap(e, building, apiCall) { //places the building on the map works only a possible location tile
     const row = e.target.getAttribute("data-row");
     const col = e.target.getAttribute("data-col");
-    placeBuilding(gameId, token, playerName, building, {row: row, col: col}).then(response => responseHandler(response, e));
+    apiCall(gameId, token, playerName, building, {row: row, col: col}).then(response => responseHandler(response, e));
 }
 
 function initLSMapSize() { //handles the LS for mapSize so that when pages refresh the map still has the same size
-    if (!localStorage.getItem("mapsize")) {
-        localStorage.setItem("mapsize", mapSize.toString());
-    } else {
+    if (localStorage.getItem("mapsize")) {
         mapSize = parseInt(localStorage.getItem("mapsize"));
+    } else {
+        localStorage.setItem("mapsize", mapSize.toString());
     }
 }
 

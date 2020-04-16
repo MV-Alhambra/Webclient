@@ -2,7 +2,6 @@
 
 let bankCoins = [];
 
-
 function setBank() { // loads the bank in
     getGameProperty(gameId, token, 'bank').then(bank => {
         let coins = '';
@@ -26,6 +25,7 @@ function convertBankCoinToObject(e) { //turns the html of a coin into an object 
 function selectBankCoins(e) { //selector logic for the coins
     deselectCoins();
     deselectMarket();
+    deselectReserve();
     const classList = e.target.classList;
     if (classList.contains("selectBankCoin")) { //unselect selected coin
         classList.remove("selectBankCoin");
@@ -57,6 +57,10 @@ function deselectBankCoins() { //deselect all coins
 
 function grabCoins(e) { //send selected coins to the server
     if (playerName === turnPlayer) {
-        takeCoins(gameId, token, playerName, bankCoins).then(response => responseHandler(response, e));
+        if (bankCoins.length ===0){
+            showError("No coins selected!",e);
+        }else{
+            takeCoins(gameId, token, playerName, bankCoins).then(response => responseHandler(response, e));
+        }
     }
 }

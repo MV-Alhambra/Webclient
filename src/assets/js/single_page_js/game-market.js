@@ -15,6 +15,7 @@ function setMarket() { // loads the market in
 
 function selectMarket(e) { //logic for selecting the market
     deselectBankCoins();
+    deselectReserve();
     if (e.target.classList.contains("selectMarketBuilding")) {
         deselectMarket();
     } else {
@@ -29,25 +30,6 @@ function convertToMarket(building) { //converts a building to a market only work
         currency: building.parentElement.getAttribute("data-currency"),
         building: convertBuildingToObject(building)
     };
-}
-
-
-function convertBuildingToObject(building) { //turns the html of a building into an object of an building
-    const classList = building.classList;
-    return {
-        type: getType(classList),
-        cost: parseInt(building.innerHTML),
-        walls: {
-            north: classList.contains("northWall"),
-            east: classList.contains("eastWall"),
-            south: classList.contains("southWall"),
-            west: classList.contains("eastWall")
-        }
-    };
-}
-
-function getType(classList) {
-    return types.find(type => classList.contains(type));
 }
 
 function deselectMarket() { // deselect the market
@@ -66,7 +48,7 @@ function grabBuilding(e) { // buys the building, building is now in the hand
         } else if (selectedMarket.building.cost > totalCoins()) { //give error not enough coins are selected
             showError("Not enough coins are selected!", e);
         } else {
-            buyBuilding(gameId, token, playerName, selectedMarket.currency, coins).then(response => responseHandler(response, e));
+            buyBuilding(gameId, token, playerName, selectedMarket.currency, coins).then(response => responseHandler(response, e, false));
         }
     }
 }

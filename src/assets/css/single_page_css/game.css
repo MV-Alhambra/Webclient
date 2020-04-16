@@ -91,6 +91,12 @@ main {
 
 .fountain {
     background-image: url("../../../images/fountain.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    user-select: none;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .arcades {
@@ -153,7 +159,7 @@ main {
 }
 
 #map aside p.inactive {
-   color: transparent;
+    color: transparent;
 }
 
 @keyframes fade {
@@ -189,6 +195,7 @@ main {
 #reserve div {
     margin-top: 10px;
     overflow-x: auto;
+    padding: 10px;
     display: grid;
     grid-gap: 10px;
     grid-auto-flow: column;
@@ -199,6 +206,10 @@ main {
     white-space: nowrap;
     width: 100%;
     grid-auto-columns: minmax(120px, 1fr);
+}
+
+.selectReserve{
+    outline: blue dashed thick;
 }
 
 /*---end_reserve---*/
@@ -703,6 +714,41 @@ a#pspopup:hover {
 }
 
 /*--end_pointsystem--*/
+/*--start_redesign--*/
+.toggle {
+    background: red;
+    padding: 7px;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: Orbitron, sans-serif;
+    letter-spacing: 1px;
+    transition: all .4s ease;
+}
+
+.toggle-on span {
+    display: block;
+    transform: rotateX(-180deg);
+    transition: all .4s ease;
+}
+
+.toggle-on {
+    transform: rotateX(180deg);
+    background: green;
+}
+
+#buildingDrag {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+}
+
+.draggedBuilding {
+    opacity: 0;
+}
+
+/*--end_redesign--*/
 #mouseError {
     padding: 2px;
     background: red;
@@ -725,4 +771,6 @@ a#pspopup:hover {
     width: 100px;
     height: 100px;
 }
+
+
 
