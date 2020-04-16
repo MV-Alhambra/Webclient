@@ -1,7 +1,8 @@
 "use strict";
 
-let redesignOn = false;
 const buildingDrag = document.querySelector("#buildingDrag");
+let redesignOn = false;
+let buildingReserve = null;
 
 function toggle() { //toggles between on or off when clicking the redesign button
     if (!redesign.classList.contains("toggle-on") && playerName === turnPlayer) {
@@ -28,6 +29,8 @@ function setRedesignSelectors() { //adds the eventListeners to make redesign fun
         reserveWrapper.childNodes.forEach(building => building.addEventListener("drag", dragBuilding));
         reserveWrapper.childNodes.forEach(building => building.addEventListener("dragend", dragEndBuilding));
         reserveWrapper.childNodes.forEach(building => building.addEventListener("dragstart", showLocations));
+        //swap
+        reserveWrapper.childNodes.forEach(building => building.addEventListener("click", selectReserve));
     }
 }
 
@@ -83,6 +86,31 @@ function dropBuilding(e, building) { //second and third argument only gets used 
     } else if (e.target.closest("#map")) {
         placeBuildingOnMap(e, building, setReserveBuildingToCity);
     } else {
-        console.error("hmmm");
+        console.error("hmmm"); //shouldn't happen
     }
 }
+
+function selectReserve(e) { // holds the logic for selecting reserve buildings
+    deselectBankCoins();
+    deselectMarket();
+    deselectCoins();
+    if (e.target.classList.contains("selectReserve")) {
+        deselectReserve();
+    } else {
+        deselectReserve();
+        e.target.classList.add("selectReserve");
+        selectedMarket = convertBuildingToObject(e.target);
+        document.querySelectorAll("#map .building").forEach(building => building.addEventListener("click", swap));
+    }
+}
+
+function deselectReserve() { //deselects the reserve building
+    setMap();//remove eventListeners for swap building
+    buildingReserve = null;
+    document.querySelectorAll('.selectReserve').forEach(building => building.classList.remove("selectReserve"));
+}
+
+function swap(e) {
+
+}
+

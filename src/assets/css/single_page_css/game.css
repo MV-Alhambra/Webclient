@@ -195,6 +195,7 @@ main {
 #reserve div {
     margin-top: 10px;
     overflow-x: auto;
+    padding: 10px;
     display: grid;
     grid-gap: 10px;
     grid-auto-flow: column;
@@ -205,6 +206,10 @@ main {
     white-space: nowrap;
     width: 100%;
     grid-auto-columns: minmax(120px, 1fr);
+}
+
+.selectReserve{
+    outline: blue dashed thick;
 }
 
 /*---end_reserve---*/

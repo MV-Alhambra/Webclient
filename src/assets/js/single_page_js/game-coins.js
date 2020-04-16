@@ -21,6 +21,7 @@ function compareCoins(coin1, coin2) { //comparison for the sorter
 
 function selectCoin(e) { // hold the logic for selecting coins
     deselectBankCoins();
+    deselectReserve();
     const classList = e.target.classList;
     const coin = convertCoinToObject(e.target);
     if (classList.contains("selectCoin")) {

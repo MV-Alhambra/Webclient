@@ -15,6 +15,7 @@ function setMarket() { // loads the market in
 
 function selectMarket(e) { //logic for selecting the market
     deselectBankCoins();
+    deselectReserve();
     if (e.target.classList.contains("selectMarketBuilding")) {
         deselectMarket();
     } else {
