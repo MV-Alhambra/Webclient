@@ -12,8 +12,8 @@ function setMap(addListeners = false) { // loads in the map
         let index = 0;
         convertCityToMap(city).forEach(row => {
             row.forEach(cell => {
-                mapWrapper.innerHTML += createBuilding(cell, index, redesignOn);
-                index++;//fk u sonar
+                mapWrapper.innerHTML += createBuilding(cell, index, playerName === turnPlayer);
+                index++;//fk u sonar, would ve been a one liner
             });
         });
         showHand();//temp or is it?
@@ -21,7 +21,6 @@ function setMap(addListeners = false) { // loads in the map
         if (addListeners) {
             document.querySelectorAll("#map .building").forEach(building => building.addEventListener("click", swap));
         }
-        console.log("map called");
     });
 }
 
@@ -102,10 +101,10 @@ function placeBuildingOnMap(e, building, apiCall) { //places the building on the
 }
 
 function initLSMapSize() { //handles the LS for mapSize so that when pages refresh the map still has the same size
-    if (!localStorage.getItem("mapsize")) {
-        localStorage.setItem("mapsize", mapSize.toString());
-    } else {
+    if (localStorage.getItem("mapsize")) {
         mapSize = parseInt(localStorage.getItem("mapsize"));
+    } else {
+        localStorage.setItem("mapsize", mapSize.toString());
     }
 }
 

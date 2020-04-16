@@ -1,7 +1,6 @@
 "use strict";
 
 const buildingDrag = document.querySelector("#buildingDrag");
-let redesignOn = false;
 let buildingReserve = null;
 
 function toggle() { //toggles between on or off when clicking the redesign button
@@ -15,9 +14,7 @@ function toggle() { //toggles between on or off when clicking the redesign butto
 }
 
 function setRedesignSelectors() { //adds the eventListeners to make redesign functionality possible
-    redesignOn = false;
     if (playerName === turnPlayer) {
-        redesignOn = true;
         //city to reserve
         const buildings = document.querySelectorAll("#map .building");
         buildings.forEach(building => building.addEventListener("drag", dragBuilding));
@@ -101,8 +98,6 @@ function selectReserve(e) { // holds the logic for selecting reserve buildings
         e.target.classList.add("selectReserve");
         buildingReserve = convertBuildingToObject(e.target);
         setMap(true);
-        console.log("add listeners");
-
     }
 }
 
