@@ -7,17 +7,16 @@ function toggle() { //toggles between on or off when clicking the redesign butto
     if (!redesign.classList.contains("toggle-on") && playerName === turnPlayer) {
         redesign.classList.add("toggle-on");
         redesign.innerHTML = "<span>redesign on</span>";
-        redesignOn = true;
     } else {
         redesign.classList.remove("toggle-on");
         redesign.innerHTML = "<span>redesign off</span>";
-        redesignOn = false;
     }
-    refresh();//remove or add addEventListeners for redesign
 }
 
 function setRedesignSelectors() { //adds the eventListeners to make redesign functionality possible
-    if (redesignOn) {
+    redesignOn = false;
+    if (playerName === turnPlayer) {
+        redesignOn = true;
         //city to reserve
         const buildings = document.querySelectorAll("#map .building");
         buildings.forEach(building => building.addEventListener("drag", dragBuilding));
@@ -84,8 +83,6 @@ function dropBuilding(e, building) { //second and third argument only gets used 
     } else if (e.target.closest("#map")) {
         placeBuildingOnMap(e, building, setReserveBuildingToCity);
     } else {
-        toggle();//in case something goes wrong it will keep the toggle the same
         console.error("hmmm");
     }
-    toggle(); //turn off the redesign button
 }
