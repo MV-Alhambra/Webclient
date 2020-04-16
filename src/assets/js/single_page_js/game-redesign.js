@@ -79,9 +79,9 @@ function dragEndBuilding() { //makes buildingDrag invisible and removes the even
 function dropBuilding(e, building) { //second and third argument only gets used when called by showLocations
     if (e.target.closest("#reserve")) {
         const index = parseInt(buildingDrag.firstElementChild.getAttribute("data-index"));
-        setCityBuildingToReserve(gameId, token, playerName, convertIndexToLocation(index)).then(response => responseHandler(response, e));
+        redesignCityToReserve(gameId, token, playerName, convertIndexToLocation(index)).then(response => responseHandler(response, e));
     } else if (e.target.closest("#map")) {
-        placeBuildingOnMap(e, building, setReserveBuildingToCity);
+        placeBuildingOnMap(e, building, redesignReserveToCity);
     } else {
         console.error("hmmm"); //shouldn't happen
     }
@@ -110,7 +110,7 @@ function deselectReserve() { //deselects the reserve building
 function swap(e) { //swaps the selected building with the selected tile on the map
     if (buildingReserve !== null) { //extra check probably not needed
         const index = e.target.getAttribute("data-index");
-        setReserveBuildingToCity(gameId, token, playerName, buildingReserve, convertIndexToLocation(index)).then(response => responseHandler(response, e));
+        redesignReserveToCity(gameId, token, playerName, buildingReserve, convertIndexToLocation(index)).then(response => responseHandler(response, e));
     }
 }
 
