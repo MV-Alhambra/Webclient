@@ -277,22 +277,24 @@ dd {
 /*--end_scoreboard--*/
 /*---bank---*/
 #bank {
-    grid-area: 1 / 1 / 6 /5;
+    grid-area: 1 / 1 / 5 /5;
 }
 
 #containerBank {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    height: 70%;
+    height: 130px;
 }
 
-#bank h2 {
+#bank h1 {
+    font-family: 'Berkshire Swash', cursive, sans-serif;
+    color: white;
+    font-weight: lighter;
     box-sizing: border-box;
     text-align: center;
     padding: 5px;
     font-size: 2rem;
-    height: 30%;
 }
 
 #containerBank p.selectBankCoin {
@@ -300,37 +302,44 @@ dd {
 }
 
 #containerBank p {
-    border: solid 1px black;
+    color: white;
+    text-shadow: 1px 1px 6px rgb(0, 0, 0);
     width: 25%;
     margin: 5px;
-    font-size: 3rem;
-    font-family: 'Lobster', cursive;
+    font-size: 2.5rem;
+    font-family: 'Berkshire Swash', cursive, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     user-select: none;
 }
 
+.blue, .green, .orange, .yellow{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 9px 17px ;
+}
+
 .blue {
-    background-color: royalblue;
+    background-image: url("../../media/blue.png");
 }
 
 .green {
-    background-color: green;
+    background-image: url("../../media/green.png");
 }
 
 .orange {
-    background-color: orange;
+    background-image: url("../../media/orange.png");
 }
 
 .yellow {
-    background-color: yellow;
+    background-image: url("../../media/yellow.png");
 }
 
 /*---bank_end---*/
 /*---market---*/
 #market {
-    grid-area: 6 / 1 / 13 /5;
+    grid-area: 5 / 1 / 13 /5;
     padding: 2vh;
     box-sizing: border-box;
 }
