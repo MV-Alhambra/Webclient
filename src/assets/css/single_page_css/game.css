@@ -368,7 +368,7 @@ dd {
     font-family: 'PT Serif', serif;
     font-weight: bold;
     text-shadow: 0 0 5px black;
-    box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.65);
 }
 
 #marketGrid p.selectMarketBuilding {
