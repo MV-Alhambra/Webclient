@@ -213,8 +213,9 @@ main {
     white-space: nowrap;
     width: 100%;
     grid-auto-columns: minmax(120px, 1fr);
-    box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.65);
 }
+
+
 
 /*---end_reserve---*/
 /*---turn_options---*/
