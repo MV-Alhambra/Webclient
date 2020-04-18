@@ -94,12 +94,62 @@ main {
     font-size: 1.7rem;
 }
 
+.map5 .westWall {
+    border-left: black 8px solid;
+}
+
+.map5 .southWall {
+    border-bottom: black 8px solid;
+}
+
+.map5 .northWall {
+    border-top: black 8px solid;
+}
+
+.map5 .eastWall {
+    border-right: black 8px solid;
+}
+
 .map7 .building {
     font-size: 1.4rem;
+    border: 6px;
+}
+
+.map7 .westWall {
+    border-left: black 6px solid;
+}
+
+.map7 .southWall {
+    border-bottom: black 6px solid;
+}
+
+.map7 .northWall {
+    border-top: black 6px solid;
+}
+
+.map7 .eastWall {
+    border-right: black 6px solid;
 }
 
 .map9 .building {
     font-size: 1.1rem;
+    border: 4px;
+}
+
+.map9 .westWall {
+    border-left: black 4px solid;
+}
+
+.map9 .southWall {
+    border-bottom: black 4px solid;
+}
+
+.map9 .northWall {
+    border-top: black 4px solid;
+}
+
+.map9 .eastWall {
+    border-right: black 4px solid;
 }
 
 .fountain {
