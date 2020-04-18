@@ -86,6 +86,22 @@ main {
     grid-template-rows: repeat(9, 1fr);
 }
 
+.map3 .building {
+    font-size: 2rem;
+}
+
+.map5 .building {
+    font-size: 1.7rem;
+}
+
+.map7 .building {
+    font-size: 1.4rem;
+}
+
+.map9 .building {
+    font-size: 1.1rem;
+}
+
 .fountain {
     background-image: url("../../../images/fountain.jpg");
     background-repeat: no-repeat;
@@ -186,8 +202,7 @@ aside p.inactive {
     padding: 10px;
 }
 
-#reserve div {
-    margin-top: 10px;
+#reserve div, #cityReserve div {
     overflow-x: auto;
     padding: 10px;
     display: grid;

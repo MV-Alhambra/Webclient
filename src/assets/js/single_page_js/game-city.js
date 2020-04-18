@@ -31,6 +31,11 @@ function setCity() { // loads in the map
         cityZoomOut.addEventListener('click', zoomOutCity);
         zoomButtonCityHider();
     });
+    getGamePlayerProperty(gameId, token, name, "reserve").then(reserve => {
+        let reserveBuildings = '';
+        reserve.forEach(building => reserveBuildings += createBuilding(building));
+        cityReserveWrapper.innerHTML = reserveBuildings;
+    });
 }
 
 function zoomInCity() { // changes the mapSize and holds logic for the buttons
