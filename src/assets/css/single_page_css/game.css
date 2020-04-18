@@ -139,8 +139,9 @@ main {
 
 aside {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 0;
+    right: 5px;
+    user-select: none;
 }
 
 aside p {
@@ -149,6 +150,7 @@ aside p {
     display: inline-block;
     user-select: none;
     padding-left: 5px;
+    line-height: 25px;
 }
 
 aside p:hover {
@@ -804,17 +806,21 @@ a#pspopup:hover {
 }
 
 .contentCity {
-    width: 80%;
-    height: 80%;
+    width: 85%;
+    height: 85%;
     position: relative;
     background-color: white;
     box-sizing: border-box;
+    border-radius: 10px;
 }
 
 #cityMap {
     height: 70%;
     width: 100%;
     box-sizing: border-box;
+}
+
+#city section {
     display: flex;
     flex-direction: column;
 }
@@ -825,22 +831,18 @@ a#pspopup:hover {
     box-sizing: border-box;
     align-content: stretch;
 }
-#cityMap div{
+
+#city section div {
     width: 100%;
     flex: 1 1 auto;
+    position: relative;
 }
 
 #cityMap div div {
     height: 100%;
     display: grid;
     margin: 0 auto;
+    position: relative;
 }
-#city aside{
-    top: 25px;
-    right: 25px;
-    user-select: none;
-}
-
-
 
 /* -- end popup town/city-- */

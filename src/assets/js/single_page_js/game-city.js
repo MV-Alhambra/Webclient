@@ -5,8 +5,8 @@ const cityMapTitle = document.querySelector("#cityMap h1");
 const cityMapWrapper = document.querySelector("#cityMap div div");
 const cityReserveTitle = document.querySelector("#cityReserve h1");
 const cityReserveWrapper = document.querySelector("#cityReserve div");
-const cityZoomOut = document.querySelector("#zoom_out_city");
-const cityZoomIn = document.querySelector("#zoom_in_city");
+let cityZoomOut = null
+let cityZoomIn = null
 let name = null;
 
 function showCity(e) {
@@ -20,14 +20,16 @@ function showCity(e) {
 
 function setCity() { // loads in the map
     getGamePlayerProperty(gameId, token, name, "city").then(city => {
-        setMap();
+        setMap();//make the map stay sync
         updateMapSize();
-        zoomButtonCityHider();
         cityMapWrapper.className = 'map' + mapSize;//set the size of the map
-        cityMapWrapper.innerHTML = "";
-        convertCityToMap(city).forEach(row => {
-            row.forEach(cell => cityMapWrapper.innerHTML += createBuilding(cell));
-        });
+        cityMapWrapper.innerHTML = `<aside><p id="zoom_in_city">+</p><p id="zoom_out_city">-</p></aside>`;
+        convertCityToMap(city).forEach(row => row.forEach(cell => cityMapWrapper.innerHTML += createBuilding(cell)));
+        cityZoomIn = document.querySelector("#zoom_in_city");
+        cityZoomOut = document.querySelector("#zoom_out_city")
+        cityZoomIn.addEventListener('click', zoomInCity);
+        cityZoomOut.addEventListener('click', zoomOutCity);
+        zoomButtonCityHider();
     });
 }
 
