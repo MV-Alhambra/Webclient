@@ -49,7 +49,7 @@ function setScoreboard() { // loads the scoreboard in
             listScoreboard += `<dt>${player.name}</dt><dd>${player.score}</dd>`;
         });
         scoreboard.innerHTML = listScoreboard;
-        document.querySelectorAll("#scoreboard dl").forEach(player => player.addEventListener("click", showCity));
+        document.querySelectorAll("#scoreboard dt").forEach(player => player.addEventListener("click", showCity));
     });
 }
 
@@ -67,6 +67,7 @@ function showPointSystem() { //makes the point system visible
 
 function updateMapSize() { //Makes the map square, so far only works when height is bigger than width
     mapWrapper.style.width = mapWrapper.clientHeight + "px";
+    cityMapWrapper.style.width =  cityMapWrapper.clientHeight + "px";
 }
 
 function closePointSystem() { //hides the point system

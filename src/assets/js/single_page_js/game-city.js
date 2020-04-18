@@ -1,16 +1,16 @@
 "use strict";
 
 const city = document.querySelector("#city");
-const cityMapTitle = document.querySelector("#cityMap h2");
+const cityMapTitle = document.querySelector("#cityMap h1");
 const cityMapWrapper = document.querySelector("#cityMap div div");
-const cityReserveTitle = document.querySelector("#cityReserve h2");
+const cityReserveTitle = document.querySelector("#cityReserve h1");
 const cityReserveWrapper = document.querySelector("#cityReserve div");
 const cityZoomOut = document.querySelector("#zoom_out_city");
 const cityZoomIn = document.querySelector("#zoom_in_city");
 let name = null;
 
 function showCity(e) {
-    name = e.target.innerHTML;
+    name = e.currentTarget.innerHTML;
     city.classList.add("flex");
     cityMapTitle.innerHTML = "The town of " + name;
     setCity(name);
@@ -20,9 +20,11 @@ function showCity(e) {
 
 function setCity() { // loads in the map
     getGamePlayerProperty(gameId, token, name, "city").then(city => {
+        setMap();
+        updateMapSize();
         zoomButtonCityHider();
         cityMapWrapper.className = 'map' + mapSize;//set the size of the map
-        cityMapWrapper.innerHTML = '';
+        cityMapWrapper.innerHTML = "";
         convertCityToMap(city).forEach(row => {
             row.forEach(cell => cityMapWrapper.innerHTML += createBuilding(cell));
         });
