@@ -421,6 +421,10 @@ img {
 /*---money---*/
 #money h1 {
     height: 20%;
+    font-family: 'Berkshire Swash', cursive, sans-serif;
+    color: white;
+    font-weight: lighter;
+    margin-bottom: 15px;
 }
 
 #moneyPlayer {
@@ -434,38 +438,50 @@ img {
 
 #money h4 {
     text-align: center;
+    color: white;
+    font-family: 'Questrial', sans-serif;
 }
 
 #money section {
     width: 50%;
 }
 
-#money ul li {
+#money li {
+    font-family: 'PT Serif', serif;
+    font-weight: bold;
+    color: white;
+    font-size: 1.3rem;
     float: left;
     border-radius: 100%;
     margin: 2px;
-    height: 30px;
-    width: 30px;
+    height: 34px;
+    width: 34px;
     display: flex;
     align-items: center;
     justify-content: center;
     user-select: none;
-}
+    box-shadow: 0 0 4px 1px white inset;
+ }
 
 #blueMoneyPlayer li {
-    background-color: royalblue;
+    background-image: url("../../media/blue_ns.png");
+    background-size: contain;
 }
 
 #greenMoneyPlayer li {
-    background-color: green;
+    background-image: url("../../media/green_ns.png");
+    background-size: contain;
 }
 
 #yellowMoneyPlayer li {
-    background-color: yellow;
+    background-image: url("../../media/yellow_ns.png");
+    background-size: contain;
+    color: black;
 }
 
 #orangeMoneyPlayer li {
-    background-color: orange;
+    background-image: url("../../media/orange_ns.png");
+    background-size: contain;
 }
 
 #money .selectCoin {
