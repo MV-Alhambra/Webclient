@@ -3,7 +3,7 @@
 @import url("reset.css");  /*this file imports the css into this so that you have to manually each time import reset.css too, BUT you have to have this file as first css linked else ur reset will override your custom css*/
 
 @import url('https://fonts.googleapis.com/css?family=Neuton:700|Orbitron:900&display=swap'); /*Imports the fonts*/
-@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Questrial+PT+Serif:wght@700&display=swap&display=swap');
 
 /*------------------------*/
 /*    GENERAL ELEMENTS    */

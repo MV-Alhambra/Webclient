@@ -281,6 +281,7 @@ dd {
 }
 
 #containerBank {
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -305,9 +306,9 @@ dd {
     color: white;
     text-shadow: 1px 1px 6px rgb(0, 0, 0);
     width: 25%;
-    margin: 5px;
     font-size: 2.5rem;
-    font-family: 'Berkshire Swash', cursive, sans-serif;
+    font-family: 'PT Serif', serif;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -317,23 +318,23 @@ dd {
 .blue, .green, .orange, .yellow{
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: 9px 17px ;
+    background-position: center center;
 }
 
 .blue {
-    background-image: url("../../media/blue.png");
+    background-image: url("../../media/blue_ns.png");
 }
 
 .green {
-    background-image: url("../../media/green.png");
+    background-image: url("../../media/green_ns.png");
 }
 
 .orange {
-    background-image: url("../../media/orange.png");
+    background-image: url("../../media/orange_ns.png");
 }
 
 .yellow {
-    background-image: url("../../media/yellow.png");
+    background-image: url("../../media/yellow_ns.png");
 }
 
 /*---bank_end---*/
