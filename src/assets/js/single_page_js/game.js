@@ -55,7 +55,7 @@ function setTurn() { // loads the current persons turn in
     if (playerName === turnPlayer) {
         title.innerHTML = `It's your turn!`;
     } else {
-        title.innerHTML = `It's the turn of ${turnPlayer}.`;
+        title.innerHTML = `Now playing : <span>${turnPlayer}</span>`;
     }
 }
 
