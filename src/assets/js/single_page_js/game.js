@@ -53,7 +53,7 @@ function setTurn() { // loads the current persons turn in
 }
 
 function showPointSystem() { //makes the point system visible
-    document.querySelector('.pointsystem').style.display = 'flex';
+    document.querySelector('#pointsystem').classList.add("flex");
 }
 
 function updateMapSize() { //Makes the map square, so far only works when height is bigger than width
@@ -61,7 +61,7 @@ function updateMapSize() { //Makes the map square, so far only works when height
 }
 
 function closePointSystem() { //hides the point system
-    document.querySelector('.pointsystem').style.display = 'none';
+    document.querySelector('#pointsystem').classList.remove("flex");
 }
 
 function confirmLeaving(e) { //opens the confirm leaving dialog
