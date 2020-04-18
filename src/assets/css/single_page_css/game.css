@@ -43,7 +43,6 @@ header {
 main {
     height: calc(82vh - 2px); /* prevents scrollbar from appearing*/
     padding: 4vh;
-    border: black solid 1px;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
