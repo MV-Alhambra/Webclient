@@ -28,8 +28,8 @@ function init() {
     window.addEventListener('resize', updateMapSize);
     document.querySelector('#pspopup').addEventListener('click', showPointSystem);
     document.querySelector('#pointsystem .close').addEventListener('click', closePointSystem);
-    document.querySelector("#zoom_in").addEventListener('click', zoomIn);
-    document.querySelector("#zoom_out").addEventListener('click', zoomOut);
+    document.querySelector("#zoom_in").addEventListener('click', () => zoomIn(mapZoomOut, setMap));
+    document.querySelector("#zoom_out").addEventListener('click', () => zoomOut(mapZoomIn, setMap));
     document.querySelector("#take_money").addEventListener("click", grabCoins);
     document.querySelector("#buy_building").addEventListener("click", grabBuilding);
     document.querySelector('.leavePopup').addEventListener('click', confirmLeaving);
@@ -66,7 +66,6 @@ function showPointSystem() { //makes the point system visible
 function updateMapSize() { //Makes the map square, so far only works when height is bigger than width
     mapWrapper.style.width = mapWrapper.clientHeight + "px";
     cityMapWrapper.style.width = cityMapWrapper.clientHeight + "px";
-    //cityAside.style.right = (cityMapWrapper.clientWidth - cityMapWrapper.clientHeight) + "px";
 }
 
 function closePointSystem() { //hides the point system

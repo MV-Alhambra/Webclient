@@ -1,7 +1,6 @@
 /*------------------------*/
 /*    GENERAL ELEMENTS    */
 /*------------------------*/
-
 body {
     height: 80vh;
     margin: 3rem;
@@ -10,22 +9,17 @@ body {
     background-size: cover;
 }
 
-
 h1 {
     font-size: 5rem;
     color: white;
     font-family: 'Berkshire Swash', cursive, sans-serif;
 }
 
-
-
 header a {
     color: white;
     font-family: 'Berkshire Swash', cursive, sans-serif;
     font-size: 1.5rem;
-  
 }
-
 
 aside {
     font-family: 'Questrial', sans-serif;
@@ -39,7 +33,7 @@ aside {
     height: min-content;
 }
 
-dt{
+dt {
     color: #e7c509;
 }
 
@@ -50,11 +44,11 @@ main {
     margin-top: 10%;
 }
 
-main h1{
+main h1 {
     margin: 30px;
 }
 
-main h1 + h2{
+main h1 + h2 {
     margin-bottom: 45px;
 }
 
@@ -64,17 +58,12 @@ main h1, main h2 {
     letter-spacing: 2px;
 }
 
-
 /*---------------------*/
 /* CONTAINING ELEMENTS */
 /*---------------------*/
-
-
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
-
-
 .button {
     font-family: 'Questrial', sans-serif;
     font-weight: bold;
@@ -84,11 +73,7 @@ main h1, main h2 {
     font-size: 2rem;
 }
 
-.button:hover {
-
-}
-
-aside dl{
+aside dl {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -107,7 +92,6 @@ aside h2 {
     justify-content: space-between;
     align-self: center;
     height: 80%;
-
 }
 
 footer {
@@ -124,7 +108,6 @@ footer ul {
     display: flex;
     flex-direction: row;
     align-items: center;
-
 }
 
 footer li {
@@ -137,26 +120,25 @@ footer li {
     color: white;
     padding: 5px;
     background-color: rgba(42, 42, 42, 0.5);
-
 }
 
 #ready {
     width: 100%;
     border: 1px white solid;
     background-color: rgba(9, 231, 103, 0.8);
-    box-shadow:  0 0 10px 5px rgba(255, 255, 255, 0.4) inset;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.4) inset;
     padding: 5px 30px;
 }
 
 #unready {
     border: 1px white solid;
     background-color: rgba(231, 9, 9, 0.8);
-    box-shadow:  0 0 10px 5px rgba(255, 255, 255, 0.4) inset;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.4) inset;
     padding: 5px 38px;
 }
 
-.shadow{
-    box-shadow:  0 0 10px 5px rgba(9, 231, 103, 0.8);
+.shadow {
+    box-shadow: 0 0 10px 5px rgba(9, 231, 103, 0.8);
     padding: 6px 0;
     width: 216px;
     margin-left: auto;
@@ -166,9 +148,11 @@ footer li {
 #copy:hover {
     text-decoration: underline;
 }
-.white{
+
+.white {
     color: white;
 }
-.hide{
+
+.hide {
     display: none;
 }
