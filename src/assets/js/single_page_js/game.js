@@ -76,6 +76,7 @@ function closePopup(e) { //closes the confirm leaving dialog
     popup.style.display = "none";
 }
 
+
 function refresh() { //loads everything in
     setTurn();
     setReserve();

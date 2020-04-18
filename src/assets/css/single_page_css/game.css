@@ -772,10 +772,17 @@ a#pspopup:hover {
     height: 100px;
 }
 
-/* --popup town -- */
+/* -- start popup town/city-- */
 
 .flex{
     display: flex;
 }
 
+.contentCity{
+    width: 70%;
+    height: 70%;
+    position: relative;
+}
 
+
+/* -- end popup town/city-- */
