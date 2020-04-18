@@ -12,6 +12,8 @@ const marketBuildings = document.querySelectorAll('#marketGrid div');
 const mapWrapper = document.querySelector("#map div");
 const reserveWrapper = document.querySelector("#reserve div");
 const redesign = document.querySelector("#redesign_town");
+const popupLeave = document.querySelector('#popup.hidden');
+const city = document.querySelector("#city");
 let colors = ["blue", "green", "orange", "yellow"];
 let types = ["pavilion", "seraglio", "arcades", "chambers", "garden", "tower"];
 let turnPlayer = null;
@@ -21,15 +23,18 @@ function init() {
     getBuildingTypes().then(typeList => types = typeList);// not really needed anymore but why not
     getCurrencies().then(currencies => colors = currencies);// not really needed anymore but why not
     updateMapSize();
+
     window.addEventListener('resize', updateMapSize);
     document.querySelector('#pspopup').addEventListener('click', showPointSystem);
-    document.querySelector('.close').addEventListener('click', closePointSystem);
+    document.querySelector('#pointsystem .close').addEventListener('click', closePointSystem);
     document.querySelector("#zoom_in").addEventListener('click', zoomIn);
     document.querySelector("#zoom_out").addEventListener('click', zoomOut);
     document.querySelector("#take_money").addEventListener("click", grabCoins);
     document.querySelector("#buy_building").addEventListener("click", grabBuilding);
     document.querySelector('.leavePopup').addEventListener('click', confirmLeaving);
-    document.querySelector('#returnToGame').addEventListener('click', closePopup);
+    document.querySelector('#returnToGame').addEventListener('click', closeLeave);
+    document.querySelector("#city .close").addEventListener("click", closeCity);
+
     redesign.addEventListener('click', toggle);
     polling().then();
 }
@@ -41,7 +46,12 @@ function setScoreboard() { // loads the scoreboard in
             listScoreboard += `<dt>${player.name}</dt><dd>${player.score}</dd>`;
         });
         scoreboard.innerHTML = listScoreboard;
+        document.querySelectorAll("#scoreboard dl").forEach(player => player.addEventListener("click", showCity));
     });
+}
+
+function showCity(e) {
+    city.classList.add("flex");
 }
 
 function setTurn() { // loads the current persons turn in
@@ -66,14 +76,16 @@ function closePointSystem() { //hides the point system
 
 function confirmLeaving(e) { //opens the confirm leaving dialog
     e.preventDefault();
-    const popup = document.querySelector('.hidden');
-    popup.style.display = "inline";
+    popupLeave.classList.remove("hidden");
 }
 
-function closePopup(e) { //closes the confirm leaving dialog
+function closeLeave(e) { //closes the confirm leaving dialog
     e.preventDefault();
-    const popup = document.querySelector('.hidden');
-    popup.style.display = "none";
+    popupLeave.classList.add("hidden");
+}
+
+function closeCity() {
+    city.classList.remove("flex");
 }
 
 
