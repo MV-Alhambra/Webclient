@@ -133,7 +133,7 @@ function waitingTimer() {  //de animation for the dots
         }
         else {
             waitingAnimation.innerHTML = "";
-            i = 3
+            i = 3;
         }
     }, 1000);
 }

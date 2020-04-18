@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', init);
 const gameId = localStorage.getItem('gameId');
 const token = localStorage.getItem('playerToken');
 const playerName = localStorage.getItem('playerName');
+
 const scoreboard = document.querySelector('#scoreboard dl');
 const title = document.querySelector('header h2');
 const bankWrapper = document.querySelector('#containerBank');
@@ -12,6 +13,8 @@ const marketBuildings = document.querySelectorAll('#marketGrid div');
 const mapWrapper = document.querySelector("#map div");
 const reserveWrapper = document.querySelector("#reserve div");
 const redesign = document.querySelector("#redesign_town");
+const popupLeave = document.querySelector('#popup.hidden');
+
 let colors = ["blue", "green", "orange", "yellow"];
 let types = ["pavilion", "seraglio", "arcades", "chambers", "garden", "tower"];
 let turnPlayer = null;
@@ -21,15 +24,18 @@ function init() {
     getBuildingTypes().then(typeList => types = typeList);// not really needed anymore but why not
     getCurrencies().then(currencies => colors = currencies);// not really needed anymore but why not
     updateMapSize();
+
     window.addEventListener('resize', updateMapSize);
     document.querySelector('#pspopup').addEventListener('click', showPointSystem);
-    document.querySelector('.close').addEventListener('click', closePointSystem);
-    document.querySelector("#zoom_in").addEventListener('click', zoomIn);
-    document.querySelector("#zoom_out").addEventListener('click', zoomOut);
+    document.querySelector('#pointsystem .close').addEventListener('click', closePointSystem);
+    document.querySelector("#zoom_in").addEventListener('click', () => zoomIn(mapZoomOut, setMap));
+    document.querySelector("#zoom_out").addEventListener('click', () => zoomOut(mapZoomIn, setMap));
     document.querySelector("#take_money").addEventListener("click", grabCoins);
     document.querySelector("#buy_building").addEventListener("click", grabBuilding);
     document.querySelector('.leavePopup').addEventListener('click', confirmLeaving);
-    document.querySelector('#returnToGame').addEventListener('click', closePopup);
+    document.querySelector('#returnToGame').addEventListener('click', closeLeave);
+    document.querySelector("#city .close").addEventListener("click", closeCity);
+
     redesign.addEventListener('click', toggle);
     polling().then();
 }
@@ -41,6 +47,7 @@ function setScoreboard() { // loads the scoreboard in
             listScoreboard += `<dt>${player.name}</dt><dd>${player.score}</dd>`;
         });
         scoreboard.innerHTML = listScoreboard;
+        document.querySelectorAll("#scoreboard dt").forEach(player => player.addEventListener("click", showCity));
     });
 }
 
@@ -53,28 +60,32 @@ function setTurn() { // loads the current persons turn in
 }
 
 function showPointSystem() { //makes the point system visible
-    document.querySelector('.pointsystem').style.display = 'flex';
+    document.querySelector('#pointsystem').classList.add("flex");
 }
 
 function updateMapSize() { //Makes the map square, so far only works when height is bigger than width
     mapWrapper.style.width = mapWrapper.clientHeight + "px";
+    cityMapWrapper.style.width = cityMapWrapper.clientHeight + "px";
 }
 
 function closePointSystem() { //hides the point system
-    document.querySelector('.pointsystem').style.display = 'none';
+    document.querySelector('#pointsystem').classList.remove("flex");
 }
 
 function confirmLeaving(e) { //opens the confirm leaving dialog
     e.preventDefault();
-    const popup = document.querySelector('.hidden');
-    popup.style.display = "inline";
+    popupLeave.classList.remove("hidden");
 }
 
-function closePopup(e) { //closes the confirm leaving dialog
+function closeLeave(e) { //closes the confirm leaving dialog
     e.preventDefault();
-    const popup = document.querySelector('.hidden');
-    popup.style.display = "none";
+    popupLeave.classList.add("hidden");
 }
+
+function closeCity() {
+    city.classList.remove("flex");
+}
+
 
 function refresh() { //loads everything in
     setTurn();

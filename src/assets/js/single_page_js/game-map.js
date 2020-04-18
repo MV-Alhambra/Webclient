@@ -1,12 +1,12 @@
 "use strict";
 
 let mapSize = 5;
-const btnZoomIn = document.querySelector("#zoom_in");
-const btnZoomOut = document.querySelector("#zoom_out");
+const mapZoomIn = document.querySelector("#zoom_in");
+const mapZoomOut = document.querySelector("#zoom_out");
 
 function setMap(addListeners = false) { // loads in the map
     getGamePlayerProperty(gameId, token, playerName, "city").then(city => {
-        zoomButtonHider();
+        zoomButtonHider(mapZoomIn, mapZoomOut);
         mapWrapper.className = 'map' + mapSize;//set the size of the map
         mapWrapper.innerHTML = '';
         let index = 0;
@@ -48,29 +48,29 @@ function convertCityToMap(city) { //converts the city into the size of the map
     return map;
 }
 
-function zoomIn() { // changes the mapSize and holds logic for the buttons
+function zoomIn(btnZoomOut, setFunction) { // changes the mapSize and holds logic for the buttons
     if (mapSize !== 3) {
         if (mapSize === 9) {
             btnZoomOut.classList.remove("inactive");
         }
         mapSize -= 2;
         localStorage.setItem("mapsize", mapSize);
-        setMap();
+        setFunction();
     }
 }
 
-function zoomOut() {  // changes the mapSize and holds logic for the buttons
+function zoomOut(btnZoomIn, setFunction) {  // changes the mapSize and holds logic for the buttons
     if (mapSize !== 9) {
         if (mapSize === 3) {
             btnZoomIn.classList.remove("inactive");
         }
         mapSize += 2;
         localStorage.setItem("mapsize", mapSize);
-        setMap();
+        setFunction();
     }
 }
 
-function zoomButtonHider() { //logic for making the buttons invisible
+function zoomButtonHider(btnZoomIn, btnZoomOut) { //logic for making the buttons invisible
     if (mapSize === 9) {
         btnZoomOut.classList.add("inactive");
     } else if (mapSize === 3) {
