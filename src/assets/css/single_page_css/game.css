@@ -436,8 +436,11 @@ img {
 
 header a {
     margin: 20px;
-    text-decoration: none;
     display: inline-block;
+    color: white;
+    font-family: 'Berkshire Swash', cursive, sans-serif;
+    font-size: 1.5rem;
+    text-decoration: underline;
 }
 
 header h2, header span{
@@ -451,12 +454,6 @@ header span{
     text-shadow:  0 0 8px rgb(255, 244, 9);
 }
 
-.leavePopup {
-    color: white;
-    font-family: 'Berkshire Swash', cursive, sans-serif;
-    font-size: 1.5rem;
-    text-decoration: underline;
-}
 
 #popup h5 {
     margin-bottom: 30px;
@@ -492,19 +489,6 @@ header span{
 
 /*---end_leave_button---*/
 /*---pointsystem---*/
-a#pspopup {
-    text-align: center;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    border: 2px solid black;
-    padding: 0.5em;
-    border-radius: 100%;
-}
-
-a#pspopup:hover {
-    background-color: floralwhite;
-}
 
 .pointsystem {
     width: 100%;
