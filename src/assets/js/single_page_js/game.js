@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', init);
 const gameId = localStorage.getItem('gameId');
 const token = localStorage.getItem('playerToken');
 const playerName = localStorage.getItem('playerName');
+
 const scoreboard = document.querySelector('#scoreboard dl');
 const title = document.querySelector('header h2');
 const bankWrapper = document.querySelector('#containerBank');
@@ -13,7 +14,7 @@ const mapWrapper = document.querySelector("#map div");
 const reserveWrapper = document.querySelector("#reserve div");
 const redesign = document.querySelector("#redesign_town");
 const popupLeave = document.querySelector('#popup.hidden');
-const city = document.querySelector("#city");
+
 let colors = ["blue", "green", "orange", "yellow"];
 let types = ["pavilion", "seraglio", "arcades", "chambers", "garden", "tower"];
 let turnPlayer = null;
@@ -29,6 +30,8 @@ function init() {
     document.querySelector('#pointsystem .close').addEventListener('click', closePointSystem);
     document.querySelector("#zoom_in").addEventListener('click', zoomIn);
     document.querySelector("#zoom_out").addEventListener('click', zoomOut);
+    document.querySelector("#zoom_in_city").addEventListener('click', zoomInCity);
+    document.querySelector("#zoom_out_city").addEventListener('click', zoomOutCity);
     document.querySelector("#take_money").addEventListener("click", grabCoins);
     document.querySelector("#buy_building").addEventListener("click", grabBuilding);
     document.querySelector('.leavePopup').addEventListener('click', confirmLeaving);
@@ -48,10 +51,6 @@ function setScoreboard() { // loads the scoreboard in
         scoreboard.innerHTML = listScoreboard;
         document.querySelectorAll("#scoreboard dl").forEach(player => player.addEventListener("click", showCity));
     });
-}
-
-function showCity(e) {
-    city.classList.add("flex");
 }
 
 function setTurn() { // loads the current persons turn in
