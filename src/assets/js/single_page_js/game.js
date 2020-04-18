@@ -12,7 +12,6 @@ const bankWrapper = document.querySelector('#containerBank');
 const marketBuildings = document.querySelectorAll('#marketGrid div');
 const mapWrapper = document.querySelector("#map div");
 const reserveWrapper = document.querySelector("#reserve div");
-const redesign = document.querySelector("#redesign_town");
 const popupLeave = document.querySelector('#popup.hidden');
 
 let colors = ["blue", "green", "orange", "yellow"];
@@ -36,7 +35,6 @@ function init() {
     document.querySelector('#returnToGame').addEventListener('click', closeLeave);
     document.querySelector("#city .close").addEventListener("click", closeCity);
 
-    redesign.addEventListener('click', toggle);
     polling().then();
 }
 
