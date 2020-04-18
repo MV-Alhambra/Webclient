@@ -51,14 +51,21 @@ main {
     grid-column-gap: 20px;
 }
 
+#money, #bank, #market, #reserve, #scoreboard{
+    background-color: rgba(42, 42, 42, 0.5);
+    border: rgba(255, 255, 255, 0.5) 1px solid;
+    box-shadow:  0 0 10px 3px rgba(255, 255, 255, 0.4);
+}
+
 #money {
-    border: green solid 2px;
     grid-area: 9 / 5 / 13 / 9;
 }
 
 /* ---start map---*/
 #map {
-    border: gray solid 2px;
+    border: rgb(255, 255, 255) 1px solid;
+    box-shadow:  0 0 10px 3px rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.2);
     grid-area: 1 / 5 / 9 /11;
     position: relative;
 }
@@ -177,13 +184,12 @@ main {
 
 /* ---end map---*/
 #scoreboard {
-    border: pink solid 2px;
     grid-area: 1 / 11 / 5 /13;
 }
 
 /*---start_reserve---*/
 #reserve {
-    border: red solid 2px;
+
     grid-area: 9 / 9 / 13 /13;
     padding: 10px;
 }
@@ -253,7 +259,6 @@ dd {
 /*--end_scoreboard--*/
 /*---bank---*/
 #bank {
-    border: gold solid 2px;
     grid-area: 1 / 1 / 6 /5;
 }
 
@@ -307,7 +312,6 @@ dd {
 /*---bank_end---*/
 /*---market---*/
 #market {
-    border: brown solid 2px;
     grid-area: 6 / 1 / 13 /5;
     padding: 2vh;
     box-sizing: border-box;
