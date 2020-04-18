@@ -429,7 +429,7 @@ img {
 }
 
 /*---end_money---*/
-/*---leave_button---*/
+/*---header styling---*/
 .hidden {
     display: none;
 }
@@ -451,9 +451,30 @@ header h2, header span{
 }
 
 header span{
-    text-shadow:  0 0 8px rgb(255, 244, 9);
+    animation: glow 1s ease-in-out infinite alternate;
 }
 
+header a:hover{
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+
+/*animatie glow effect*/
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509;
+    }
+    to {
+        text-shadow: 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509, 0 0 7px #e7c509, 0 0 8px #e7c509, 0 0 10px #e7c509;
+    }
+}
+
+/*end animatie glow effect*/
+
+/*---end_leave_button---*/
+
+/*---leave popup---*/
 
 #popup h5 {
     margin-bottom: 30px;
@@ -486,8 +507,8 @@ header span{
     padding: 20px;
     text-align: center;
 }
+/*---end of leave pop up---*/
 
-/*---end_leave_button---*/
 /*---pointsystem---*/
 
 .pointsystem {
