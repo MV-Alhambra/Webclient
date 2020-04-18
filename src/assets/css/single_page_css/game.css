@@ -347,6 +347,10 @@ dd {
 
 #market h1 {
     height: 15%;
+    font-family: 'Berkshire Swash', cursive, sans-serif;
+    color: white;
+    font-weight: lighter;
+
 }
 
 #marketGrid {
@@ -360,7 +364,11 @@ dd {
 }
 
 #marketGrid p {
-    height: 90%; /* somehow if i dont do this the buildings gets malformed in the market but this is just arbitrary value*/
+    height: 85%;
+    font-family: 'PT Serif', serif;
+    font-weight: bold;
+    text-shadow: 0 0 5px black;
+    box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.2);
 }
 
 #marketGrid p.selectMarketBuilding {
@@ -374,15 +382,19 @@ dd {
 }
 
 #market footer h3 {
+    font-family: 'Questrial', sans-serif;
     font-size: 0.9rem;
     text-align: center;
+    color: white;
 }
 
 #market footer p {
     margin-top: 10px;
     font-size: 1.1rem;
-    font-weight: bold;
     text-align: center;
+    font-family: 'Berkshire Swash', cursive, sans-serif;
+    color: white;
+    font-weight: lighter;
 }
 
 .westWall {
