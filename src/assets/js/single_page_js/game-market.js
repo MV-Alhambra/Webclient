@@ -48,8 +48,27 @@ function grabBuilding(e) { // buys the building, building is now in the hand
         } else if (selectedMarket.building.cost > totalCoins()) { //give error not enough coins are selected
             showError("Not enough coins are selected!", e);
         } else {
-            buyBuilding(gameId, token, playerName, selectedMarket.currency, coins).then(response => responseHandler(response, e, false, true));
+            buyBuilding(gameId, token, playerName, selectedMarket.currency, coins).then(response => responseHandler(response, e, false));
         }
     }
+}
+
+function setCounters() { // sets the counters for the market
+    getGame(gameId, token).then(response => {
+        document.querySelector("#remaining").innerHTML = (54 - calcTotalBuildings(response.players)).toString();
+    });
+}
+
+function calcTotalBuildings(players) { // calculates how many buildings have been bought
+    let sum = 0;
+    players.forEach(player => {
+        sum += player.reserve.length;
+        player.city.forEach(row => row.forEach(tile => {
+            if (tile !== null && tile.type !== null) {
+                sum++;
+            }
+        }));
+    })
+    return sum;
 }
 
