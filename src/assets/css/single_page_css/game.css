@@ -952,13 +952,23 @@ header a:hover{
     display: flex;
 }
 
+h5{
+    font-family: 'Berkshire Swash', cursive, sans-serif;
+    font-weight: lighter;
+    color: white;
+}
+
 .contentCity {
-    width: 85%;
-    height: 85%;
+    width: 80%;
+    height: 80%;
     position: relative;
     background-color: white;
     box-sizing: border-box;
     border-radius: 10px;
+    background-image: url("../../../images/background.png");
+    background-size: cover;
+    box-shadow:  0 0 10px 3px rgba(255, 255, 255, 0.4);
+    border: rgba(255, 255, 255, 0.5) 1px solid;
 }
 
 #cityMap {
