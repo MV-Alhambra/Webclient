@@ -28,9 +28,11 @@ function moveHand(e) { //makes the hand follow the cursor
 }
 
 function hideHand() { //hides the hand
+    console.log("hide hand called");
     document.removeEventListener("mousemove", handEvent);
     hand.classList.add("hidden");
     if (reserveEvent !== null) {
+        console.log("removed event");
         document.querySelector("#reserve").removeEventListener("click", reserveEvent);
         reserveEvent = null;
     }
