@@ -5,6 +5,12 @@
     font-family: sans-serif; /* because serif is ugly */
 }
 
+body {
+    box-sizing: border-box;
+    background-image: url("../../../images/background.png");
+    background-size: cover;
+}
+
 h1, h5 {
     box-sizing: border-box;
     text-align: center;
@@ -22,11 +28,6 @@ ul {
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
-body {
-    box-sizing: border-box;
-    background-image: url("../../../images/background.png");
-    background-size: cover;
-}
 
 /*---start header---*/
 header {
@@ -375,7 +376,6 @@ dd {
 
 #containerBank p {
     color: white;
-    text-shadow: 1px 1px 6px rgb(0, 0, 0);
     width: 25%;
     font-size: 2.5rem;
     font-family: 'PT Serif', serif;
@@ -384,6 +384,10 @@ dd {
     justify-content: center;
     align-items: center;
     user-select: none;
+    text-shadow: 2px 0 0 #000,
+    0 -2px 0 #000,
+    0 2px 0 #000,
+    -2px 0 0 #000;
 }
 
 .blue, .green, .orange, .yellow {
@@ -544,10 +548,10 @@ img {
     justify-content: center;
     user-select: none;
     box-shadow: 0 0 4px 1px white inset;
-    text-shadow: 1px 0 0 #000,
-    0 -1px 0 #000,
-    0 1px 0 #000,
-    -1px 0 0 #000;
+    text-shadow: 2px 0 0 #000,
+    0 -2px 0 #000,
+    0 2px 0 #000,
+    -2px 0 0 #000;
 }
 
 #blueMoneyPlayer li {
