@@ -12,10 +12,5 @@ function setReserve() { // loads in the reserve
 }
 
 function placeBuildingInReserve(e, building) { //places the building that's in the hand into the reserve
-    console.log("reserve placer called");
-    hideHand();
-    placeBuilding(gameId, token, playerName, building, null).then(response => {
-        responseHandler(response, e);
-        console.log(response);
-    });
+    placeBuilding(gameId, token, playerName, building, null).then(response => responseHandler(response, e));
 }
