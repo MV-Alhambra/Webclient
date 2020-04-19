@@ -38,7 +38,7 @@ function selectCoin(e) { // hold the logic for selecting coins
 }
 
 function deselectCoins() { //deselect all coins
-    coins = [];
+    emptyCoins();
     document.querySelectorAll('.selectCoin').forEach(coin => coin.classList.remove("selectCoin"));
 }
 
@@ -53,4 +53,8 @@ function totalCoins() { //gives total amount of value of coins back
     let sum = 0;
     coins.forEach(coin => sum += coin.amount);
     return sum;
+}
+
+function emptyCoins() { //bc of sonar
+    coins = [];
 }
