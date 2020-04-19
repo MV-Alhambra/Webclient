@@ -117,6 +117,7 @@ function timer() { // timer for starting game
         header.innerHTML = `The game is starting in ${counter.toString()}s`;
         if (counter === 0) { //stop interval
             clearInterval(interval);
+            localStorage.setItem("sinceScoreboard","0"); // for counters
             window.location.replace('./game.html');
         }
         counter--;
