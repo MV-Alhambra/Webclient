@@ -683,10 +683,11 @@ header a:hover{
     font-size: 1.8em;
     transform: rotate(45deg);
     cursor: pointer;
+    color: white;
 }
 
 .close:hover {
-    color: red;
+    animation: glow 1s ease-in-out alternate infinite;
 }
 
 .grid-points {
@@ -975,7 +976,7 @@ h5{
 }
 
 #cityMap {
-    height: 70%;
+    height: 60%;
     width: 100%;
     box-sizing: border-box;
 }
@@ -1002,9 +1003,24 @@ h5{
 
 #cityReserve {
     height: 30%;
-    width: 100%;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 25px;
     box-sizing: border-box;
     align-content: stretch;
+    box-shadow:  0 0 10px 3px rgba(255, 255, 255, 0.4);
+    border: rgba(255, 255, 255, 0.5) 1px solid;
+    background-color: rgba(41, 41, 41, 0.5);
+}
+
+#cityReserve h5{
+    font-size: 1.5rem;
+}
+
+#cityReserve p{
+    width: 80%;
+    height: 100%;
 }
 
 #city section div {
