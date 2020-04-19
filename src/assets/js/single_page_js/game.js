@@ -95,12 +95,15 @@ function refresh() { //loads everything in
     setScoreboard();
 }
 
-function responseHandler(response, event, dynamic = true) { // this function handles all the responses of the actions of the player
+function responseHandler(response, event, dynamic = true, updateCounter = false) { // this function handles all the responses of the actions of the player
     if (response.ok) {
         if (dynamic) {
             dynamicUpdater().then();
         } else {
             refresh();
+        }
+        if (updateCounter) {
+            localStorage.setItem("buildings", (parseInt(localStorage.getItem("buildings")) - 1).toString());//removes one of the remaining buildings
         }
     } else {
         response.json().then(error => {
