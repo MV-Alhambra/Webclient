@@ -12,7 +12,7 @@ let name = null;
 function showCity(e) {
     name = e.currentTarget.innerHTML;
     city.classList.add("flex");
-    cityMapTitle.innerHTML = "The town of " + name;
+    cityMapTitle.innerHTML = `The town of <span>${name}</span>`;
     setCity();
     cityReserveTitle.innerHTML = "Reserve buildings of " + name;
 }
