@@ -48,8 +48,38 @@ function grabBuilding(e) { // buys the building, building is now in the hand
         } else if (selectedMarket.building.cost > totalCoins()) { //give error not enough coins are selected
             showError("Not enough coins are selected!", e);
         } else {
-            buyBuilding(gameId, token, playerName, selectedMarket.currency, coins).then(response => responseHandler(response, e, false));
+            buyBuilding(gameId, token, playerName, selectedMarket.currency, coins).then(response => {
+                responseHandler(response, e, false);
+                if (response.ok) { //empty the coins
+                    emptyCoins();
+                }
+            });
         }
     }
+}
+
+function setCounters() { // sets the counters for the market
+    getGame(gameId, token).then(response => {
+        document.querySelector("#remaining").innerHTML = (54 - calcTotalBuildings(response.players)).toString();
+        const player = response.players.find(player1 => player1.name === playerName);
+        if (0 === player["virtual-score"] && player.score !== 0) { //still can fail if ppl put all their buildings in reserve and never on map
+            localStorage.setItem("sinceScoreboard", calcTotalBuildings(response.players).toString());
+        }
+        const subTotal = parseInt(localStorage.getItem("sinceScoreboard"));
+        document.querySelector("#sinceScoreboard").innerHTML = (calcTotalBuildings(response.players) - subTotal).toString();
+    });
+}
+
+function calcTotalBuildings(players) { // calculates how many buildings have been bought
+    let sum = 0;
+    players.forEach(player => {
+        sum += player.reserve.length;
+        player.city.forEach(row => row.forEach(tile => {
+            if (tile !== null && tile.type !== null) {
+                sum++;
+            }
+        }));
+    });
+    return sum;
 }
 

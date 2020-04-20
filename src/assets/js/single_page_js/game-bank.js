@@ -57,10 +57,15 @@ function deselectBankCoins() { //deselect all coins
 
 function grabCoins(e) { //send selected coins to the server
     if (playerName === turnPlayer) {
-        if (bankCoins.length ===0){
-            showError("No coins selected!",e);
-        }else{
-            takeCoins(gameId, token, playerName, bankCoins).then(response => responseHandler(response, e));
+        if (bankCoins.length === 0) {
+            showError("No coins selected!", e);
+        } else {
+            takeCoins(gameId, token, playerName, bankCoins).then(response => {
+                responseHandler(response, e);
+                if (response.ok) { //empty the bankCoins when transaction is completed
+                    bankCoins = [];
+                }
+            });
         }
     }
 }

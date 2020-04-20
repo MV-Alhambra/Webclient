@@ -3,16 +3,6 @@
 const buildingDrag = document.querySelector("#buildingDrag");
 let buildingReserve = null;
 
-function toggle() { //toggles between on or off when clicking the redesign button
-    if (!redesign.classList.contains("toggle-on") && playerName === turnPlayer) {
-        redesign.classList.add("toggle-on");
-        redesign.innerHTML = "<span>redesign on</span>";
-    } else {
-        redesign.classList.remove("toggle-on");
-        redesign.innerHTML = "<span>redesign off</span>";
-    }
-}
-
 function setRedesignSelectors() { //adds the eventListeners to make redesign functionality possible
     if (playerName === turnPlayer) {
         //city to reserve

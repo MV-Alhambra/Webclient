@@ -5,6 +5,13 @@
     font-family: sans-serif; /* because serif is ugly */
 }
 
+body {
+    box-sizing: border-box;
+    background-image: url("../../../images/background.png");
+    background-size: cover;
+    overflow: hidden;
+}
+
 h1, h5 {
     box-sizing: border-box;
     text-align: center;
@@ -22,26 +29,20 @@ ul {
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
-/*---grid---*/
-body {
-    box-sizing: border-box;
-    background-image: url("../../../images/background.png");
-    background-size: cover;
-}
 
 /*---start header---*/
 header {
     height: 10vh;
     display: grid;
-    grid-template-columns: 1fr 1fr 5fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 4fr 1fr 1fr;
     align-items: center;
     text-align: center;
 }
 
 /*--- end header---*/
 main {
-    height: calc(82vh - 2px); /* prevents scrollbar from appearing*/
-    padding: 4vh;
+    height: calc(85vh - 2px); /* prevents scrollbar from appearing*/
+    padding: 1vh 4vh 4vh 4vh;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
@@ -49,20 +50,16 @@ main {
     grid-column-gap: 20px;
 }
 
-#money, #bank, #market, #reserve, #scoreboard{
+#money, #bank, #market, #reserve, #scoreboard {
     background-color: rgba(42, 42, 42, 0.5);
     border: rgba(255, 255, 255, 0.5) 1px solid;
-    box-shadow:  0 0 10px 3px rgba(255, 255, 255, 0.4);
-}
-
-#money {
-    grid-area: 9 / 5 / 13 / 9;
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.4);
 }
 
 /* ---start map---*/
 #map {
     border: rgb(255, 255, 255) 1px solid;
-    box-shadow:  0 0 10px 3px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.4);
     background-color: rgba(255, 255, 255, 0.2);
     grid-area: 1 / 5 / 9 /11;
     position: relative;
@@ -259,7 +256,7 @@ aside p.inactive {
     padding: 10px;
 }
 
-#reserve h1{
+#reserve h1 {
     font-family: 'Berkshire Swash', cursive, sans-serif;
     color: white;
     font-weight: lighter;
@@ -313,15 +310,12 @@ aside p.inactive {
 }
 
 /*---end_turn_options---*/
-/*---end_grid---*/
 /*--scoreboard--*/
-
 #scoreboard {
-    border: pink solid 2px;
     grid-area: 1 / 11 / 5 /13;
 }
 
-#scoreboard h1{
+#scoreboard h1 {
     color: white;
     font-family: 'Berkshire Swash', cursive, sans-serif;
     text-align: center;
@@ -330,12 +324,12 @@ aside p.inactive {
     letter-spacing: 1px;
 }
 
-dt{
+dt {
     color: #e7c509;
+    cursor: pointer;
 }
 
 dl {
-
     width: 100%;
     height: 100%;
     display: grid;
@@ -347,10 +341,6 @@ dl {
     font-size: 1.2rem;
     font-family: 'Questrial', sans-serif;
     color: white;
-}
-
-dt {
-    cursor: pointer;
 }
 
 dd {
@@ -387,7 +377,6 @@ dd {
 
 #containerBank p {
     color: white;
-    text-shadow: 1px 1px 6px rgb(0, 0, 0);
     width: 25%;
     font-size: 2.5rem;
     font-family: 'PT Serif', serif;
@@ -396,9 +385,13 @@ dd {
     justify-content: center;
     align-items: center;
     user-select: none;
+    text-shadow: 2px 0 0 #000,
+    0 -2px 0 #000,
+    0 2px 0 #000,
+    -2px 0 0 #000;
 }
 
-.blue, .green, .orange, .yellow{
+.blue, .green, .orange, .yellow {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
@@ -433,7 +426,6 @@ dd {
     font-family: 'Berkshire Swash', cursive, sans-serif;
     color: white;
     font-weight: lighter;
-
 }
 
 #marketGrid {
@@ -443,7 +435,6 @@ dd {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
-    margin-bottom: 15px;
 }
 
 #marketGrid p {
@@ -502,6 +493,11 @@ img {
 
 /*---end_market---*/
 /*---money---*/
+#money {
+    grid-area: 9 / 5 / 13 / 9;
+    box-sizing: border-box;
+}
+
 #money h1 {
     height: 20%;
     font-family: 'Berkshire Swash', cursive, sans-serif;
@@ -513,10 +509,16 @@ img {
 #moneyPlayer {
     display: flex;
     justify-content: space-evenly;
+    overflow: hidden;
+    height: calc(80% - 15px);
+    box-sizing: border-box;
 }
 
 #money ul {
     padding: 5px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    flex: 1 1 auto;
 }
 
 #money h4 {
@@ -527,13 +529,16 @@ img {
 
 #money section {
     width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 #money li {
     font-family: 'PT Serif', serif;
     font-weight: bold;
     color: white;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     float: left;
     border-radius: 100%;
     margin: 2px;
@@ -544,7 +549,11 @@ img {
     justify-content: center;
     user-select: none;
     box-shadow: 0 0 4px 1px white inset;
- }
+    text-shadow: 2px 0 0 #000,
+    0 -2px 0 #000,
+    0 2px 0 #000,
+    -2px 0 0 #000;
+}
 
 #blueMoneyPlayer li {
     background-image: url("../../media/blue_ns.png");
@@ -559,7 +568,6 @@ img {
 #yellowMoneyPlayer li {
     background-image: url("../../media/yellow_ns.png");
     background-size: contain;
-    color: black;
 }
 
 #orangeMoneyPlayer li {
@@ -578,7 +586,6 @@ img {
 }
 
 header a {
-    margin: 20px;
     display: inline-block;
     color: white;
     font-family: 'Berkshire Swash', cursive, sans-serif;
@@ -586,39 +593,44 @@ header a {
     text-decoration: underline;
 }
 
-header h2, header span{
+header h2, header span {
     font-family: 'Berkshire Swash', cursive, sans-serif;
     font-size: 2.5rem;
     color: white;
     font-weight: lighter;
 }
 
-header span{
+header span {
     animation: glow 1s ease-in-out infinite alternate;
 }
 
-header a:hover{
+header a:hover {
     animation: glow 1s ease-in-out infinite alternate;
 }
-
 
 /*animatie glow effect*/
-
 @keyframes glow {
     from {
-        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509;
+        text-shadow: 0 0 1px #fff,
+        0 0 2px #fff,
+        0 0 3px #e7c509,
+        0 0 5px #e7c509,
+        0 0 6px #e7c509;
     }
     to {
-        text-shadow: 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509, 0 0 7px #e7c509, 0 0 8px #e7c509, 0 0 10px #e7c509;
+        text-shadow: 0 0 2px #fff,
+        0 0 3px #e7c509,
+        0 0 5px #e7c509,
+        0 0 6px #e7c509,
+        0 0 7px #e7c509,
+        0 0 8px #e7c509,
+        0 0 10px #e7c509;
     }
 }
 
 /*end animatie glow effect*/
-
 /*---end_leave_button---*/
-
 /*---leave popup---*/
-
 #popup h5 {
     margin-bottom: 30px;
 }
@@ -651,10 +663,9 @@ header a:hover{
     text-align: center;
     z-index: 5;
 }
+
 /*---end of leave pop up---*/
-
 /*---pointsystem---*/
-
 .popup {
     width: 100%;
     height: 100%;
@@ -890,28 +901,6 @@ header a:hover{
 
 /*--end_pointsystem--*/
 /*--start_redesign--*/
-.toggle {
-    background: red;
-    padding: 7px;
-    color: white;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-family: Orbitron, sans-serif;
-    letter-spacing: 1px;
-    transition: all .4s ease;
-}
-
-.toggle-on span {
-    display: block;
-    transform: rotateX(-180deg);
-    transition: all .4s ease;
-}
-
-.toggle-on {
-    transform: rotateX(180deg);
-    background: green;
-}
-
 #buildingDrag {
     position: absolute;
     width: 100px;

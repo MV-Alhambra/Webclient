@@ -4,7 +4,7 @@ function setReserve() { // loads in the reserve
     getGamePlayerProperty(gameId, token, playerName, "reserve").then(reserve => {
         let reserveBuildings = '';
         reserve.forEach(building => {
-            reserveBuildings += createBuilding(building, -1, playerName===turnPlayer);
+            reserveBuildings += createBuilding(building, -1, playerName === turnPlayer);
         });
         reserveWrapper.innerHTML = reserveBuildings;
         setRedesignSelectors();
