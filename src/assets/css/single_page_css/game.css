@@ -257,6 +257,12 @@ aside p.inactive {
     padding: 10px;
 }
 
+#reserve p {
+    box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.65);
+    width: 85%;
+    height: 100%;
+}
+
 #reserve h1 {
     font-family: 'Berkshire Swash', cursive, sans-serif;
     color: white;
@@ -276,6 +282,7 @@ aside p.inactive {
     white-space: nowrap;
     width: 100%;
     grid-auto-columns: minmax(120px, 1fr);
+
 }
 
 .selectReserve {
@@ -1011,6 +1018,7 @@ h5{
 #cityReserve p{
     width: 80%;
     height: 100%;
+    box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.65);
 }
 
 #city section div {
