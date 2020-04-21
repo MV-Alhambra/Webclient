@@ -380,7 +380,7 @@ dd {
 }
 
 #containerBank p.selectBankCoin {
-    outline: blue dashed thick;
+    animation: glow2 1s ease-in-out infinite alternate;
 }
 
 #containerBank p {
@@ -393,6 +393,7 @@ dd {
     justify-content: center;
     align-items: center;
     user-select: none;
+    border-radius: 100%;
     text-shadow: 2px 0 0 #000,
     0 -2px 0 #000,
     0 2px 0 #000,
@@ -400,7 +401,7 @@ dd {
 }
 
 .blue, .green, .orange, .yellow {
-    background-size: contain;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center center;
 }
@@ -455,7 +456,7 @@ dd {
 }
 
 #marketGrid p.selectMarketBuilding {
-    outline: blue dashed thick;
+    animation: glow2 1s ease-in-out infinite alternate;
 }
 
 #market footer {
@@ -585,7 +586,7 @@ img {
 }
 
 #money .selectCoin {
-    outline: black dashed medium;
+    animation: glow2 1s ease-in-out infinite alternate;
 }
 
 /*---end_money---*/
@@ -628,6 +629,25 @@ header a:hover {
     }
     to {
         text-shadow: 0 0 2px #fff,
+        0 0 3px #e7c509,
+        0 0 5px #e7c509,
+        0 0 6px #e7c509,
+        0 0 7px #e7c509,
+        0 0 8px #e7c509,
+        0 0 10px #e7c509;
+    }
+}
+
+@keyframes glow2 {
+    from {
+        box-shadow: 0 0 1px #fff,
+        0 0 2px #fff,
+        0 0 3px #e7c509,
+        0 0 5px #e7c509,
+        0 0 6px #e7c509;
+    }
+    to {
+        box-shadow: 0 0 2px #fff,
         0 0 3px #e7c509,
         0 0 5px #e7c509,
         0 0 6px #e7c509,
