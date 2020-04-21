@@ -386,7 +386,7 @@ dd {
 #containerBank p {
     color: white;
     width: 25%;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-family: 'PT Serif', serif;
     font-weight: bold;
     display: flex;
@@ -448,6 +448,7 @@ dd {
 #marketGrid p {
     height: 85%;
     font-family: 'PT Serif', serif;
+    font-size: 3.5rem;
     font-weight: bold;
     text-shadow: 0 0 5px black;
     box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.65);
