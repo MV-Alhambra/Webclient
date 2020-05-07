@@ -19,7 +19,7 @@ function getGame(gameId, token) { // Get the state of a game
 }
 
 function startGame(gameId, token) { // Get the state of a game
-    return fetchJSON(`${root}games/${gameId}`, 'POST', token);
+    return fetchRaw(`${root}games/${gameId}`, 'POST', token);
 }
 
 function setPlayerReady(gameId, token, playerName) {
@@ -46,10 +46,6 @@ function getPlayerCount(gameId, token) {
 
 function getPlayerReady(gameId, token) {
     return getGameProperty(gameId, token, 'readyCount');
-}
-
-function getGameStarted(gameId, token) {
-    return getGameProperty(gameId, token, 'started');
 }
 
 function getGamePlayers(gameId, token) {

@@ -45,6 +45,7 @@ function addLocalPlayer(e, name) {
         localStorage.setItem('playerToken', playerToken);
         localStorage.setItem('gameName', gameName);
         localStorage.setItem('playerName', playerName);
+        localStorage.setItem("button", "ready")
         window.location.replace('./game_lobby.html');
     }).catch(() => error.innerHTML = 'Something went wrong...');
 }

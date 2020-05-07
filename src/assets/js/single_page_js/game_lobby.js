@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', init);
 const gameId = localStorage.getItem('gameId');
 const token = localStorage.getItem('playerToken');
 const playerName = localStorage.getItem('playerName');
+let timerId = null;
 
 const scoreboard = document.querySelector('aside dl');
 const header = document.querySelector('h1');
@@ -17,6 +18,7 @@ const shadowButton = document.querySelector('.shadow');
 
 function init() {
     checkLS();
+    setLSReadyButton();
     document.querySelector('header a').addEventListener('click', leaveGamePlayer);
     document.querySelector('#copy').addEventListener('click', copy);
     readyButton.addEventListener('click', changePlayerStatus);
@@ -29,6 +31,16 @@ function checkLS() {
         window.location.replace('./index.html');
     }
 }
+
+function setLSReadyButton() {
+    document.querySelector(".button").id = localStorage.getItem("button");
+    if (localStorage.getItem("button") === "ready") {
+        shadowButton.style.boxShadow = '0 0 10px 5px rgba(9, 231, 103, 0.8)';
+    } else {
+        shadowButton.style.boxShadow = '0 0 10px 5px rgba(231, 9, 9, 0.8)';
+    }
+}
+
 
 function copy() { // makes the copy button work
     const copyText = document.querySelector("#inviteURL");
@@ -55,15 +67,23 @@ function leaveGamePlayer(e) { //leaves the game
     leaveGame(gameId, token, playerName).then(response => response ? window.location.replace('./index.html') : null);
 }
 
+async function getGameStarted(gameId, token) {
+    const game = await getGame(gameId, token);
+    return game.readyCount === game.playerCount && parseInt(game.readyCount) > 1;
+}
+
 async function polling() { //updates everything each second
     if (await getGameStarted(gameId, token)) { //checks if the game is started
         waiting.classList.add("white");
-        readyButton.classList.add("hide");
         timer();
     } else {
+        waiting.classList.remove("white");
+        if (timerId !== null) { //removes the timer
+            clearInterval(timerId);
+            timerId = null;
+        }
         setScoreboard();
         setPlayersJoined();
-        setPlayersReady();
         setTimeout(() => polling(), 1000);
     }
 }
@@ -74,17 +94,12 @@ function setPlayersJoined() { //set the amount of players joined
     });
 }
 
-function setPlayersReady() { // set the amount of players ready
-    getPlayerReady(gameId, token).then(resp => {
-        tempReady.innerText = tempReady.innerText.replace(tempReady.innerText.charAt(0), resp);
-    });
-}
-
 function setScoreboard() { // loads the scoreboard
     getGamePlayers(gameId, token).then(players => {
         let listScoreboard = '';
-        players.forEach(player => {
-            listScoreboard += `<dt>${player}</dt><dd>status</dd>`;
+
+        Object.keys(players).forEach(player => {
+            listScoreboard += `<dt>${player}</dt><dd>${players[player] ? "ready" : "not ready"}</dd>`;
         });
         scoreboard.innerHTML = listScoreboard;
     });
@@ -95,6 +110,7 @@ function changePlayerStatus(e) { //sets the player to ready/unready
     if (e.target.innerText === 'Ready up') {
         setPlayerReady(gameId, token, playerName).then(response => {
             if (response) {
+                localStorage.setItem("button", "unready")
                 e.target.innerText = 'Unready';
                 e.target.id = 'unready';
                 shadowButton.style.boxShadow = '0 0 10px 5px rgba(231, 9, 9, 0.8)';
@@ -103,6 +119,7 @@ function changePlayerStatus(e) { //sets the player to ready/unready
     } else {
         setPlayerUnready(gameId, token, playerName).then(response => {
             if (response) {
+                localStorage.setItem("button", "ready")
                 e.target.innerText = 'Ready up';
                 e.target.id = 'ready';
                 shadowButton.style.boxShadow = '0 0 10px 5px rgba(9, 231, 103, 0.8)';
@@ -113,12 +130,15 @@ function changePlayerStatus(e) { //sets the player to ready/unready
 
 function timer() { // timer for starting game
     let counter = 5;
-    const interval = setInterval(function () {
+    return setInterval(function () {
         header.innerHTML = `The game is starting in ${counter.toString()}s`;
         if (counter === 0) { //stop interval
-            clearInterval(interval);
-            localStorage.setItem("sinceScoreboard","0"); // for counters
-            window.location.replace('./game.html');
+            startGame(gameId, token).then(response => {
+                if (response.ok) {
+                    localStorage.setItem("sinceScoreboard", "0"); // for counters
+                    window.location.replace('./game.html');
+                }
+            });
         }
         counter--;
     }, 1000);
@@ -128,11 +148,10 @@ function timer() { // timer for starting game
 function waitingTimer() {  //de animation for the dots
     let i = 3;
     setInterval(function () {
-        if (i > 0){
+        if (i > 0) {
             waitingAnimation.innerHTML += ".";
             i--;
-        }
-        else {
+        } else {
             waitingAnimation.innerHTML = "";
             i = 3;
         }
