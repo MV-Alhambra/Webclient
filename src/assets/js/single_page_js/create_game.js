@@ -21,8 +21,9 @@ function createGame(e) {
     if (!validate(playerName)){ return;} // prevents code from further executing if it doesnt validate
 
     //the reason i do it like this else it would make a new lobby each time the name is incorrect
-    if (!gameId) { // checks if game has already been made then makes the game and adds player
+    if (gameId === undefined) { // checks if game has already been made then makes the game and adds player or only adds player to already created game
         addGame().then(id => {
+            console.log(id);
             gameId = id;
             addLocalPlayer(e, playerName);
         });
@@ -44,6 +45,7 @@ function addLocalPlayer(e, name) {
         localStorage.setItem('playerToken', playerToken);
         localStorage.setItem('gameName', gameName);
         localStorage.setItem('playerName', playerName);
+        localStorage.setItem("button", "ready")
         window.location.replace('./game_lobby.html');
     }).catch(() => error.innerHTML = 'Something went wrong...');
 }

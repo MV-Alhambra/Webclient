@@ -140,7 +140,7 @@ footer li {
 .shadow {
     box-shadow: 0 0 10px 5px rgba(9, 231, 103, 0.8);
     padding: 6px 0;
-    width: 216px;
+    width: max-content;
     margin-left: auto;
     margin-right: auto;
 }
@@ -150,7 +150,7 @@ footer li {
 }
 
 .white {
-    color: white;
+    color: transparent;
 }
 
 .hide {
