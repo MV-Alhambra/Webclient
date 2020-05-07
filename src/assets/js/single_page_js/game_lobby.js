@@ -33,10 +33,10 @@ function checkLS() {
 }
 
 function setLSReadyButton() {
-    document.querySelector(".button").id = localStorage.getItem("button");
-    if (localStorage.getItem("button") === "ready") {
-        shadowButton.style.boxShadow = '0 0 10px 5px rgba(9, 231, 103, 0.8)';
-    } else {
+    const button = document.querySelector(".button")
+    button.id = localStorage.getItem("button");
+    if (localStorage.getItem("button") === "unready") {
+        button.innerHTML = "Unready";
         shadowButton.style.boxShadow = '0 0 10px 5px rgba(231, 9, 9, 0.8)';
     }
 }
@@ -72,10 +72,13 @@ async function getGameStarted(gameId, token) {
     return game.readyCount === game.playerCount && parseInt(game.readyCount) > 1;
 }
 
-async function polling() { //updates everything each second
-    if (await getGameStarted(gameId, token)) { //checks if the game is started
+async function polling() { //updates everything each half a second
+    const started = await getGameStarted(gameId, token);
+    if (started) { //checks if the game is started
         waiting.classList.add("white");
-        timer();
+        if (timerId === null) {
+            timerId = timer();
+        }
     } else {
         waiting.classList.remove("white");
         if (timerId !== null) { //removes the timer
@@ -84,13 +87,13 @@ async function polling() { //updates everything each second
         }
         setScoreboard();
         setPlayersJoined();
-        setTimeout(() => polling(), 1000);
     }
+    setTimeout(() => polling(), 500);
 }
 
 function setPlayersJoined() { //set the amount of players joined
-    getPlayerCount(gameId, token).then(resp => {
-        header.innerText = header.innerText.replace(header.innerText.charAt(0), resp);
+    getPlayerCount(gameId, token).then(count => {
+        header.innerText = count + "/6 players joined";
     });
 }
 
@@ -133,11 +136,9 @@ function timer() { // timer for starting game
     return setInterval(function () {
         header.innerHTML = `The game is starting in ${counter.toString()}s`;
         if (counter === 0) { //stop interval
-            startGame(gameId, token).then(response => {
-                if (response.ok) {
-                    localStorage.setItem("sinceScoreboard", "0"); // for counters
-                    window.location.replace('./game.html');
-                }
+            startGame(gameId, token).then(() => {
+                localStorage.setItem("sinceScoreboard", "0"); // for counters
+                window.location.replace('./game.html');
             });
         }
         counter--;
