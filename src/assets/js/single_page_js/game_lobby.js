@@ -85,9 +85,9 @@ async function polling() { //updates everything each half a second
             clearInterval(timerId);
             timerId = null;
         }
-        setScoreboard();
         setPlayersJoined();
     }
+    setScoreboard();
     setTimeout(() => polling(), 500);
 }
 
