@@ -22,6 +22,11 @@ function startGame(gameId, token) { // Get the state of a game
     return fetchRaw(`${root}games/${gameId}`, 'POST', token);
 }
 
+async function getGameStarted(gameId, token) {
+    const game = await getGame(gameId, token);
+    return game.readyCount === game.playerCount && parseInt(game.readyCount) > 1;
+}
+
 function setPlayerReady(gameId, token, playerName) {
     return fetchJSON(`${root}games/${gameId}/players/${playerName}/ready`, "PUT", token);
 }

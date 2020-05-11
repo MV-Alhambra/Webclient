@@ -20,7 +20,7 @@ function createGame(e) {
     gameName = document.querySelector('#Game_Name').value;
     const playerCap = parseInt(document.querySelector("#Number_of_players").value);
 
-    if (!validate(playerName)) return;  // prevents code from further executing if it doesnt validate
+    if (!validate(playerName)) {return;}  // prevents code from further executing if it doesnt validate
 
     //the reason i do it like this else it would make a new lobby each time the name is incorrect
     if (gameId === undefined) { // checks if game has already been made then makes the game and adds player or only adds player to already created game
