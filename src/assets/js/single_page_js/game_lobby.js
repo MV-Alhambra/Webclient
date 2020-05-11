@@ -93,9 +93,9 @@ async function polling() { //updates everything each half a second
             clearInterval(timerId);
             timerId = null;
         }
-        setScoreboard();
         setPlayersJoined();
     }
+    setScoreboard();
     setTimeout(() => polling(), 500);
 }
 
@@ -109,8 +109,8 @@ function setScoreboard() { // loads the scoreboard
     getGamePlayers(gameId, token).then(players => {
         let listScoreboard = '';
 
-        Object.keys(players).forEach(player => {
-            listScoreboard += `<dt>${player}</dt><dd>${players[player] ? "ready" : "not ready"}</dd>`;
+       players.forEach(player => {
+            listScoreboard += `<dt>${player.name}</dt><dd>${player.status ? "ready" : "not ready"}</dd>`;
         });
         scoreboard.innerHTML = listScoreboard;
     });

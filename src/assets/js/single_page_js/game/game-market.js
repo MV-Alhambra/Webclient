@@ -4,7 +4,7 @@ let selectedMarket = null;
 
 function setMarket() { // loads the market in
     getGameProperty(gameId, token, 'market').then(markets => {
-        Object.keys(markets).forEach((market, index) => { //object.keys turns an objects its keys into an array with index holding the original order
+        Object.keys(markets).sort().forEach((market, index) => { //object.keys turns an objects its keys into an array with index holding the original order
             marketBuildings[index].innerHTML = createBuilding(markets[market]);
             if (turnPlayer === playerName) {
                 document.querySelectorAll("#market .building").forEach(building => building.addEventListener("click", selectMarket));
