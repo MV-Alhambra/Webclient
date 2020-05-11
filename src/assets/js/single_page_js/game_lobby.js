@@ -95,8 +95,8 @@ async function polling() { //updates everything each half a second
 }
 
 function setPlayersJoined() { //set the amount of players joined
-    getPlayerCount(gameId, token).then(count => {
-        header.innerText = count + "/6 players joined";
+    getGame(gameId, token).then(game => {
+        header.innerText = game.playerCount + `/${game.maxNumberOfPlayers} players joined`;
     });
 }
 

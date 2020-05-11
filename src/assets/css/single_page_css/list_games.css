@@ -97,7 +97,6 @@ main a:hover{
     box-shadow:  0 0 5px 3px white inset;
 }
 
-
 main ul {
     margin-top: 2%;
     background-color: rgba(42, 42, 42, 0.5);
@@ -112,7 +111,6 @@ main ul li {
     color: white;
     font-family: 'Questrial', sans-serif;
     background-color: rgb(231, 197, 9);
-    z-index: 76;
     display: flex;
     box-shadow:  0 0 4px 5px rgb(255, 244, 9) inset;
     width: 80vw;
