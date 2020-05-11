@@ -10,8 +10,7 @@ let timerId = null;
 const customName = document.querySelector('#lobbyName');
 const scoreboard = document.querySelector('aside dl');
 const header = document.querySelector('h1');
-const tempReady = document.querySelector('main>h2');
-const waiting = document.querySelectorAll("main h2")[1];
+const waiting = document.querySelectorAll("main h2")[0];
 const readyButton = document.querySelector('main a');
 const waitingAnimation = document.querySelector('span');
 const shadowButton = document.querySelector('.shadow');
@@ -122,7 +121,7 @@ function changePlayerStatus(e) { //sets the player to ready/unready
     if (e.target.innerText === 'Ready up') {
         setPlayerReady(gameId, token, playerName).then(response => {
             if (response) {
-                localStorage.setItem("button", "unready")
+                localStorage.setItem("button", "unready");
                 e.target.innerText = 'Unready';
                 e.target.id = 'unready';
                 shadowButton.style.boxShadow = '0 0 10px 5px rgba(231, 9, 9, 0.8)';
@@ -131,7 +130,7 @@ function changePlayerStatus(e) { //sets the player to ready/unready
     } else {
         setPlayerUnready(gameId, token, playerName).then(response => {
             if (response) {
-                localStorage.setItem("button", "ready")
+                localStorage.setItem("button", "ready");
                 e.target.innerText = 'Ready up';
                 e.target.id = 'ready';
                 shadowButton.style.boxShadow = '0 0 10px 5px rgba(9, 231, 103, 0.8)';

@@ -41,8 +41,32 @@ main {
     text-align: center;
     flex-basis: 83%;
     height: 50%;
-    margin-top: 10%;
+    margin-top: 50px;
 }
+
+#lobbyName{
+    margin-top: 40px;
+    color: white;
+    font-family: 'Berkshire Swash', cursive, sans-serif;
+    font-size: 4rem;
+    text-align: center;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+
+/*animatie glow effect*/
+
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509;
+    }
+    to {
+        text-shadow: 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509, 0 0 7px #e7c509, 0 0 8px #e7c509, 0 0 10px #e7c509;
+    }
+}
+
+/*end animatie glow effect*/
+
 
 main h1 {
     margin: 30px;
@@ -95,7 +119,9 @@ aside h2 {
 }
 
 footer {
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -80px;
     width: 45%;
     text-align: center;
     font-size: 1.5em;
