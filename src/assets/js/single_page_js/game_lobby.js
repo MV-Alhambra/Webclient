@@ -7,6 +7,7 @@ const token = localStorage.getItem('playerToken');
 const playerName = localStorage.getItem('playerName');
 let timerId = null;
 
+const customName = document.querySelector('#lobbyName');
 const scoreboard = document.querySelector('aside dl');
 const header = document.querySelector('h1');
 const tempReady = document.querySelector('main>h2');
@@ -19,11 +20,19 @@ const shadowButton = document.querySelector('.shadow');
 function init() {
     checkLS();
     setLSReadyButton();
+    setCustomLobbyName();
     document.querySelector('header a').addEventListener('click', leaveGamePlayer);
     document.querySelector('#copy').addEventListener('click', copy);
     readyButton.addEventListener('click', changePlayerStatus);
     polling();
     waitingTimer();
+}
+
+
+function setCustomLobbyName() {
+    getLobbyName(gameId, token).then(customNameLobby => {
+        header.innerText = customNameLobby;
+    });
 }
 
 function checkLS() {
@@ -33,7 +42,7 @@ function checkLS() {
 }
 
 function setLSReadyButton() {
-    const button = document.querySelector(".button")
+    const button = document.querySelector(".button");
     button.id = localStorage.getItem("button");
     if (localStorage.getItem("button") === "unready") {
         button.innerHTML = "Unready";
