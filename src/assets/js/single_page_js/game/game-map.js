@@ -97,7 +97,7 @@ function showPossibleLocations(building, addEventListeners) { //lights up all th
 function placeBuildingOnMap(e, building, apiCall) { //places the building on the map works only a possible location tile
     const row = e.target.getAttribute("data-row");
     const col = e.target.getAttribute("data-col");
-    apiCall(gameId, token, playerName, building, {row: row, col: col}).then(response => responseHandler(response, e));
+    apiCall(gameId, token, playerName, building, {row: row, col: col}).then(response => responseHandler(response, e, false));
 }
 
 function initLSMapSize() { //handles the LS for mapSize so that when pages refresh the map still has the same size

@@ -1,6 +1,7 @@
 "use strict";
 
 const hand = document.querySelector("#hand");
+let selectedBuilding = null;
 
 function showHand() { //makes the hand visible if there are buildings in it
     getGamePlayerProperty(gameId, token, playerName, "buildings-in-hand").then(buildings => {
@@ -9,7 +10,8 @@ function showHand() { //makes the hand visible if there are buildings in it
             hand.classList.remove("hidden");
             document.addEventListener("mousemove", moveHand);
             showPossibleLocations(buildings[0], addEventListenersPlaceBuilding);
-            document.querySelector("#reserve").addEventListener("click", e => placeBuildingInReserve(e, buildings[0]), {once: true});
+            selectedBuilding = buildings[0];
+            document.querySelector("#reserve").addEventListener("click", placeBuildingInReserve, {once: true});
         } else {
             hand.classList.add("hidden");
         }
