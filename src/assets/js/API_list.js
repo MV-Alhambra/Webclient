@@ -45,7 +45,7 @@ function getPlayerCount(gameId, token) {
 }
 
 function getLobbyName(gameId, token) {
-    return getGameProperty(gameId, token, 'customGameName');
+    return getGameProperty(gameId, token, 'customNameLobby');
 }
 
 function getPlayerReady(gameId, token) {

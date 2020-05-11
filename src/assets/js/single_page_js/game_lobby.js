@@ -31,7 +31,7 @@ function init() {
 
 function setCustomLobbyName() {
     getLobbyName(gameId, token).then(customNameLobby => {
-        header.innerText = customNameLobby;
+        customName.innerText = customNameLobby;
     });
 }
 
