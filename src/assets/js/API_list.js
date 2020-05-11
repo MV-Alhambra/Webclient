@@ -6,8 +6,8 @@ function returnGames() {   // Show all games from your group lobby
     return fetchJSON(`${root}games`, 'GET');
 }
 
-function addGame(customGameName) {   // Add a new game in your lobby
-    return fetchJSON(`${root}games`, 'POST', "" , {customGameName: customGameName} );
+function addGame(customGameName, cap) {   // Add a new game in your lobby
+    return fetchJSON(`${root}games`, 'POST', "", {customGameName: customGameName, maxNumberOfPlayers: cap});
 }
 
 function addPlayer(gameId, playerName) { //add player to your lobby, player name needs to be lowercase

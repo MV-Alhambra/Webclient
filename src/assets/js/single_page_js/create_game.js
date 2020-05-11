@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', init);
 
-const error =document.querySelector('.error');
+const error = document.querySelector('.error');
 let gameId;
 let playerToken;
 let gameName;
@@ -18,13 +18,13 @@ function createGame(e) {
 
     playerName = document.querySelector('#Player_Name').value.toLowerCase();
     gameName = document.querySelector('#Game_Name').value;
+    const playerCap = parseInt(document.querySelector("#Number_of_players").value);
 
-    if (!validate(playerName)){ return;} // prevents code from further executing if it doesnt validate
+    if (!validate(playerName)) return;  // prevents code from further executing if it doesnt validate
 
     //the reason i do it like this else it would make a new lobby each time the name is incorrect
     if (gameId === undefined) { // checks if game has already been made then makes the game and adds player or only adds player to already created game
-        addGame(gameName).then(id => {
-            console.log(id);
+        addGame(gameName,playerCap).then(id => {
             gameId = id;
             addLocalPlayer(e, playerName);
         });
@@ -53,8 +53,8 @@ function addLocalPlayer(e, name) {
 
 function validate(name) {
     if (!/^[0-9a-z]+$/.test(name)) { //using regex to check if the name is allowed
-       error.innerHTML = "The name can only contain numbers and letters from the alphabet, no spaces are allowed!";
-       return false;
+        error.innerHTML = "The name can only contain numbers and letters from the alphabet, no spaces are allowed!";
+        return false;
     }
     return true;
 }

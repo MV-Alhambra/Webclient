@@ -15,23 +15,23 @@
 		<ul>
 			<li>
 				<label for="Game_Name">Game name :</label>
-				<div class="shadow"><input autofocus id="Game_Name" name="Game_Name" required type="text"></div>
+				<div class="shadow"><input autofocus id="Game_Name" required type="text" maxlength="100"></div>
 			</li>
 			<li>
 				<label for="Number_of_players">Number of players :</label>
 				<div class="shadowSmall">
-					<select id="Number_of_players">
+					<select id="Number_of_players" required>
 						<option value="2">2</option>
 						<option value="3">3</option>
 						<option value="4">4</option>
 						<option value="5">5</option>
-						<option value="6">6</option>
+						<option value="6" selected>6</option>
 					</select>
 				</div>
 			</li>
 			<li>
 				<label for="Player_Name">Your player name :</label>
-				<div class="shadow"><input id="Player_Name" name="Player_Name" required type="text"></div>
+				<div class="shadow"><input id="Player_Name" name="Player_Name" required type="text" maxlength="50"></div>
 			</li>
 		</ul>
 		<div class="shadowButton"><input id="send" name="send" type="submit" value="Create Game"></div>
