@@ -6,8 +6,8 @@ function returnGames() {   // Show all games from your group lobby
     return fetchJSON(`${root}games`, 'GET');
 }
 
-function addGame() {   // Add a new game in your lobby
-    return fetchJSON(`${root}games`, 'POST');
+function addGame(customGameName) {   // Add a new game in your lobby
+    return fetchJSON(`${root}games`, 'POST', "" , {customGameName: customGameName} );
 }
 
 function addPlayer(gameId, playerName) { //add player to your lobby, player name needs to be lowercase
@@ -42,6 +42,10 @@ function getGameProperty(gameId, token, property) {
 
 function getPlayerCount(gameId, token) {
     return getGameProperty(gameId, token, 'playerCount');
+}
+
+function getLobbyName(gameId, token) {
+    return getGameProperty(gameId, token, 'customNameLobby');
 }
 
 function getPlayerReady(gameId, token) {
