@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', init);
 function init() {
     getPlayersAndScore().then(response => {
         loadInScore(response);
-        checkWin(response);
+        checkWin();
     });
 
 }
