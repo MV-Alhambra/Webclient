@@ -4,6 +4,7 @@ const gameId = localStorage.getItem('gameId');
 const playerName = localStorage.getItem('playerName');
 
 const scoreBoard = document.querySelector('#players');
+const winOrLose = document.querySelector('h1');
 
 const scoreBoardTest = [
     { name: 'jan', score: 200 },
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     loadInScore(getPlayersAndScore());
+    checkWin(getPlayersAndScore());
 }
 
 function loadInScore(playersScore) {
@@ -47,5 +49,15 @@ function orderByScore(scoreboard) {
         return  b.score - a.score;
     });
     return scoreboard;
+}
+
+function checkWin() {
+    let score = getPlayersAndScore();
+    if (score[0] === playerName){
+        winOrLose.innerText = "Victory"
+    }
+    else {
+        winOrLose.innerText = "Beter luck next time ..."
+    }
 }
 
