@@ -3,6 +3,8 @@
 /*------------------------*/
 body
 {
+    background-image: url("../../../images/background.png");
+    background-size: cover;
     margin-top: 3rem;
     margin-left: 4rem;
     margin-right: 4rem;
