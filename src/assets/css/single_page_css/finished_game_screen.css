@@ -1,8 +1,12 @@
 /*------------------------*/
 /*    GENERAL ELEMENTS    */
 /*------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
 body
 {
+    background-image: url("../../../images/background.png");
+    background-size: cover;
     margin-top: 3rem;
     margin-left: 4rem;
     margin-right: 4rem;
@@ -10,10 +14,30 @@ body
 }
 h1
 {
+    font-weight: lighter;
+    color: white;
     text-align: center;
     margin-bottom: 5rem;
     font-size: 5rem;
+    animation: glow 1s ease-in-out infinite alternate;
+    font-family: 'Berkshire Swash', cursive, sans-serif;
 }
+
+
+/*animatie glow effect*/
+
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509;
+    }
+    to {
+        text-shadow: 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509, 0 0 7px #e7c509, 0 0 8px #e7c509, 0 0 10px #e7c509;
+    }
+}
+
+/*end animatie glow effect*/
+
+
 
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
@@ -22,26 +46,45 @@ div#players
 {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 17rem;
+    margin-bottom: 75px;
 }
 section
 {
+    font-family: 'Questrial', sans-serif;
+    color: white;
     padding: 5px;
-    border: 5px black solid;
+    background-color: rgba(42, 42, 42, 0.5);
+    border: rgba(255, 255, 255, 0.5) 1px solid;
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.4);
     text-align: center;
     width: 13%;
 }
 section:first-child
 {
-    border: 5px gold solid;
+    background-color: rgba(231, 213, 0, 0.5);
+    border: rgba(255, 255, 255, 0.5) 1px solid;
+    box-shadow: 0 0 10px 3px rgba(255, 244, 9, 0.4),
+                inset 0 0 10px 3px rgba(255, 244, 9, 0.4);
 }
+
+section:first-child div{
+    box-shadow: 0 0 10px 3px rgba(255, 244, 9, 0.4) inset;
+    box-sizing: border-box;
+}
+
 section:nth-child(2)
 {
-    border: 5px silver solid;
+    background-color: rgba(192, 192, 192, 0.4);
+    border: rgba(255, 255, 255, 0.5) 1px solid;
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.4),
+                inset 0 0 10px 3px rgba(255, 255, 255, 0.4);
 }
 section:nth-child(3)
 {
-    border: 5px #A57164 solid;
+    background-color: rgba(165, 113, 100, 0.4);
+    border: rgba(255, 255, 255, 0.3) 1px solid;
+    box-shadow: 0 0 10px 3px rgba(165, 113, 100, 0.5),
+                inset 0 0 10px 3px rgba(165, 113, 100, 0.5);
 }
 h2
 {
@@ -50,6 +93,7 @@ h2
 }
 h3
 {
+    color: white;
     margin-top: 2rem;
     font-size: 2rem;
 
@@ -67,28 +111,28 @@ h5
 h6
 {
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 50px;
     font-size: 1rem;
 }
-button
-{
-    background-color: white;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 15px;
-    color: black;
-    border: 3px black solid;
-    margin-top: 2rem;
-    width: 80%;
-}
+
 a
 {
-    font-weight: bold;
-    padding: 15px;
-    text-decoration: none;
-    color: black;
-    border: 3px black solid;
+    color: white;
+    font-family: 'Berkshire Swash', cursive, sans-serif;
+    font-size: 1.5rem;
 }
+
+a:hover{
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+section a{
+    font-family: 'Questrial', sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1px;
+}
+
 div#links
 {
     display: flex;
