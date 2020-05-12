@@ -34,6 +34,7 @@ function init() {
     document.querySelector('.leavePopup').addEventListener('click', confirmLeaving);
     document.querySelector('#returnToGame').addEventListener('click', closeLeave);
     document.querySelector("#city .close").addEventListener("click", closeCity);
+    document.querySelector("header .Yes").addEventListener("click",leaveGamePlayer)
 
     polling().then();
 }
@@ -147,6 +148,11 @@ function createBuilding(building, index = -1, canBeDragged = false) { //receives
             return `<p class="building ${building.type} ${walls}" data-index="${index}" draggable="${canBeDragged}">${building.cost}</p>`;
         }
     }
+}
+
+function leaveGamePlayer(e) { //leaves the game
+    e.preventDefault();
+    leaveGame(gameId, token, playerName).then(response => response ? window.location.replace('./index.html') : null);
 }
 
 function convertBuildingToObject(building) { //turns the html of a building into an object of an building
