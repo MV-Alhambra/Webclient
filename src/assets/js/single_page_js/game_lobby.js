@@ -75,11 +75,6 @@ function leaveGamePlayer(e) { //leaves the game
     leaveGame(gameId, token, playerName).then(response => response ? window.location.replace('./index.html') : null);
 }
 
-async function getGameStarted(gameId, token) {
-    const game = await getGame(gameId, token);
-    return game.readyCount === game.playerCount && parseInt(game.readyCount) > 1;
-}
-
 async function polling() { //updates everything each half a second
     const started = await getGameStarted(gameId, token);
     if (started) { //checks if the game is started
@@ -100,8 +95,8 @@ async function polling() { //updates everything each half a second
 }
 
 function setPlayersJoined() { //set the amount of players joined
-    getPlayerCount(gameId, token).then(count => {
-        header.innerText = count + "/6 players joined";
+    getGame(gameId, token).then(game => {
+        header.innerText = game.playerCount + `/${game.maxNumberOfPlayers} players joined`;
     });
 }
 

@@ -8,28 +8,35 @@
 </head>
 <body>
 	<header>
-	<a href="list_games.html">Join a game</a>
-	<h1>Create a game</h1>
+		<a href="list_games.html">Join a game</a>
+		<h1>Create a game</h1>
 	</header>
 	<form method="post">
 		<ul>
 			<li>
 				<label for="Game_Name">Game name :</label>
-				<div class="shadow"> <input id="Game_Name" name="Game_Name" required type="text" autofocus> </div>
+				<div class="shadow"><input autofocus id="Game_Name" required type="text" maxlength="100"></div>
 			</li>
 			<li>
 				<label for="Number_of_players">Number of players :</label>
-				<div class="shadowSmall"> <input id="Number_of_players" max="6" min="2" name="Number_of_players" required type="number" value="4"></div>
+				<div class="shadowSmall">
+					<select id="Number_of_players">
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6" selected>6</option>
+					</select>
+				</div>
 			</li>
 			<li>
 				<label for="Player_Name">Your player name :</label>
-				<div class="shadow"><input id="Player_Name" name="Player_Name" required type="text"></div>
+				<div class="shadow"><input id="Player_Name" name="Player_Name" required type="text" maxlength="50"></div>
 			</li>
 		</ul>
-			<div class="shadowButton"> <input type="submit" id="send" name="send" value="Create Game"> </div>
+		<div class="shadowButton"><input id="send" name="send" type="submit" value="Create Game"></div>
 	</form>
 	<p class="error"></p>
-	<script src="assets/js/config.js"></script>
 	<script src="assets/js/communication.js"></script>
 	<script src="assets/js/API_list.js"></script>
 	<script src="assets/js/single_page_js/create_game.js"></script>

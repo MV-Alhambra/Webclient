@@ -32,7 +32,7 @@ function joinGame(e) {
             throw Error;
         }
     }).then(jsonToken => {
-        localStorage.setItem("button", "ready")
+        localStorage.setItem("button", "ready");
         localStorage.setItem('playerToken', jsonToken);
         localStorage.setItem('playerName', name);
         window.location.replace('./game_lobby.html');

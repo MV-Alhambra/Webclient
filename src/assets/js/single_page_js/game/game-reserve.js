@@ -11,6 +11,6 @@ function setReserve() { // loads in the reserve
     });
 }
 
-function placeBuildingInReserve(e, building) { //places the building that's in the hand into the reserve
-    placeBuilding(gameId, token, playerName, building, null).then(response => responseHandler(response, e));
+function placeBuildingInReserve(e) { //places the building that's in the hand into the reserve
+    placeBuilding(gameId, token, playerName, selectedBuilding, null).then(response => responseHandler(response, e,false));
 }
