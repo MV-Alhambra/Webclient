@@ -2,6 +2,7 @@
 
 const gameId = localStorage.getItem('gameId');
 const playerName = localStorage.getItem('playerName');
+const token = localStorage.getItem('playerToken');
 
 const scoreBoard = document.querySelector('#players');
 const winOrLose = document.querySelector('h1');
@@ -28,15 +29,14 @@ function loadInScore(playersScore) {
         <h5>Title:</h5>
         <h6>Description</h6>
         <a href="#">Show village</a>
-    </section>`
-    )
+    </section>`);
 }
 
 function getPlayersAndScore() { // loads the scoreboard in
-    return getGamePlayers(gameId).then(players => { //todo add token later
-        let scoreboard = [];
+    return getGamePlayers(gameId, token).then(players => {
+        const scoreboard = [];
         players.forEach(player => {
-            scoreboard.push({name: player.name, score: player.score})
+            scoreboard.push({name: player.name, score: player.score});
         });
         return orderByScore(scoreboard);
     });
@@ -50,11 +50,11 @@ function orderByScore(scoreboard) {
 }
 
 function checkWin() {
-    let score = getPlayersAndScore();
+    const score = getPlayersAndScore();
     if (score[0] === playerName) {
-        winOrLose.innerText = "Victory"
+        winOrLose.innerText = "Victory";
     } else {
-        winOrLose.innerText = "Beter luck next time ..."
+        winOrLose.innerText = "Beter luck next time ...";
     }
 }
 

@@ -6,7 +6,7 @@ function setBank() { // loads the bank in
     getGameProperty(gameId, token, 'bank').then(bank => {
         let coins = '';
         bank.forEach(coin => {
-            if (coin !==null) coins += `<p class="${coin.currency}">${coin.amount}</p>`;
+            if (coin !==null) {coins += `<p class="${coin.currency}">${coin.amount}</p>`;}
         });
         bankWrapper.innerHTML = coins;
         if (turnPlayer === playerName) {
