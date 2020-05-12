@@ -6,23 +6,21 @@ const playerName = localStorage.getItem('playerName');
 const scoreBoard = document.querySelector('#players');
 const winOrLose = document.querySelector('h1');
 
-const scoreBoardTest = [
-    { name: 'jan', score: 200 },
-    { name: 'maxim', score: 400 },
-    { name: 'Joe', score: 300 },
-]; // just for testing so i dont have to make a game over and over again
 
 document.addEventListener('DOMContentLoaded', init);
 
 
 function init() {
-    loadInScore(getPlayersAndScore());
-    checkWin(getPlayersAndScore());
+    getPlayersAndScore().then(response => {
+        loadInScore(response);
+        checkWin(response);
+    });
+
 }
 
 function loadInScore(playersScore) {
     scoreBoard.innerHTML = "";
-    playersScore.forEach( (player, index) =>
+    playersScore.forEach((player, index) =>
         scoreBoard.innerHTML += `<section>
         <h2>${index + 1}</h2>
         <h3>${player.name}</h3>
@@ -35,10 +33,10 @@ function loadInScore(playersScore) {
 }
 
 function getPlayersAndScore() { // loads the scoreboard in
-    getGamePlayers(gameId).then(players => { //todo add token later
+    return getGamePlayers(gameId).then(players => { //todo add token later
         let scoreboard = [];
         players.forEach(player => {
-            scoreboard.push({name : player.name , score : player.score})
+            scoreboard.push({name: player.name, score: player.score})
         });
         return orderByScore(scoreboard);
     });
@@ -46,17 +44,16 @@ function getPlayersAndScore() { // loads the scoreboard in
 
 function orderByScore(scoreboard) {
     scoreboard.sort(function (a, b) {
-        return  b.score - a.score;
+        return b.score - a.score;
     });
     return scoreboard;
 }
 
 function checkWin() {
     let score = getPlayersAndScore();
-    if (score[0] === playerName){
+    if (score[0] === playerName) {
         winOrLose.innerText = "Victory"
-    }
-    else {
+    } else {
         winOrLose.innerText = "Beter luck next time ..."
     }
 }
