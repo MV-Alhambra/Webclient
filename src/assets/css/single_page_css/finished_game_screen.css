@@ -1,7 +1,7 @@
 /*------------------------*/
 /*    GENERAL ELEMENTS    */
 /*------------------------*/
-
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
 body
 {
@@ -50,7 +50,7 @@ div#players
 }
 section
 {
-    font-family: 'PT Serif', sans-serif;
+    font-family: 'Questrial', sans-serif;
     color: white;
     padding: 5px;
     background-color: rgba(42, 42, 42, 0.5);
@@ -111,20 +111,10 @@ h5
 h6
 {
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 50px;
     font-size: 1rem;
 }
-button
-{
-    background-color: white;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 15px;
-    color: black;
-    border: 3px black solid;
-    margin-top: 2rem;
-    width: 80%;
-}
+
 a
 {
     color: white;
@@ -134,6 +124,13 @@ a
 
 a:hover{
     animation: glow 1s ease-in-out infinite alternate;
+}
+
+section a{
+    font-family: 'Questrial', sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1px;
 }
 
 div#links
