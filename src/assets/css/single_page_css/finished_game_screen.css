@@ -10,10 +10,27 @@ body
 }
 h1
 {
+    color: white;
     text-align: center;
     margin-bottom: 5rem;
     font-size: 5rem;
+    animation: glow 1s ease-in-out infinite alternate;
+    font-family: 'Berkshire Swash', cursive, sans-serif;
 }
+
+
+/*animatie glow effect*/
+
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509;
+    }
+    to {
+        text-shadow: 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509, 0 0 7px #e7c509, 0 0 8px #e7c509, 0 0 10px #e7c509;
+    }
+}
+
+/*end animatie glow effect*/
 
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
