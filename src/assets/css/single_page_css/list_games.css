@@ -132,7 +132,7 @@ main ul li a {
     font-family: 'Questrial', sans-serif;
 }
 
-/*---scrolbar---*/
+/*---scrollbar---*/
 
 /* width */
 ::-webkit-scrollbar {
@@ -153,3 +153,41 @@ main ul li a {
     border-radius: 20px;
 }
 
+/*Back to index button */
+a#index{
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    display: block;
+    margin-right: 1em;
+    margin-left: 58em;
+    margin-top: 1em;
+    border: 2px white solid;
+    border-radius: 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.2em 0.3em 0.2em 0.2em;
+}
+.glow {
+    font-size: 100px;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 2s ease-in-out infinite alternate;
+    -moz-animation: glow 2s ease-in-out infinite alternate;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509;
+    }
+    to {
+        text-shadow: 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509, 0 0 7px #e7c509, 0 0 8px #e7c509, 0 0 10px #e7c509;
+    }
+}
+nav a:hover, a#index:hover{
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
