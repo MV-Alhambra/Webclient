@@ -46,24 +46,24 @@ function selectBankCoins(e) { //selector logic for the coins
     } else if (totalBankCoins() + parseInt(e.target.innerHTML) < 6 || bankCoins.length === 0) { //add more coins if total coins under 6
         classList.add("selectBankCoin");
         bankCoins.push(convertBankCoinToObject(e));
-        document.querySelector(".selectBankCoin").addEventListener("dragstart", dragstart_handler);
+        document.querySelector(".selectBankCoin").addEventListener("dragstart", dragstartHandler);
     } else { //select new coin
         deselectBankCoins();
         classList.add("selectBankCoin");
         bankCoins.push(convertBankCoinToObject(e));
-        document.querySelector(".selectBankCoin").addEventListener("dragstart", dragstart_handler);
+        document.querySelector(".selectBankCoin").addEventListener("dragstart", dragstartHandler);
     }
 }
 
-function dragstart_handler(e) {
+function dragstartHandler(e) {
     e.dataTransfer.setData("text/html", e.target.innerText);
 }
 
-function dragover_handler(ev) {
+function dragoverHandler(ev) {
     ev.preventDefault();
 }
 
-function drop_handler(ev) {
+function dropHandler(ev) {
     ev.preventDefault();
     grabCoins();
 
