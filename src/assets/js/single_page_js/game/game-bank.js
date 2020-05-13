@@ -8,11 +8,7 @@ function setBank() { // loads the bank in
 
     getGameProperty(gameId, token, 'bank').then(bank => {
         let coins = '';
-        bank.forEach(coin => {
-            if (coin !== null) {
-                coins += `<p class="${coin.currency}">${coin.amount}</p>`;
-            }
-        });
+        bank.filter(coin => coin !== null).forEach(coin => coins += `<p class="${coin.currency}">${coin.amount}</p>`);
         bankWrapper.innerHTML = coins;
         if (turnPlayer === playerName) {
             document.querySelectorAll("#containerBank p").forEach(coin => coin.addEventListener("click", selectBankCoins));
@@ -99,7 +95,7 @@ function dragStartBankCoin(e) {
     bankCoinDrag.style.left = (e.clientX) + "px";
     bankCoinDrag.innerHTML = e.target.outerHTML;
     document.querySelectorAll("#bank .selectBankCoin").forEach(coin => coin.classList.add("dragged"));
-    e.dataTransfer.setData("bankCoin", null);
+    e.dataTransfer.setData("bankcoin", null);
     bankCoinDrag.classList.remove("hidden");
 }
 

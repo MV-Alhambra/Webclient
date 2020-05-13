@@ -26,7 +26,7 @@ function selectCoin(e) { // hold the logic for selecting coins
     const coin = convertCoinToObject(e.target);
     if (classList.contains("selectCoin")) {
         classList.remove("selectCoin");
-        coins.splice(coins.findIndex(coinsCoin => coinsCoin === coin), 1);
+        coins.splice(coins.findIndex(coinsCoin => coinsCoin.amount === coin.amount), 1);
     } else if (coins.length === 0 || coins[0].currency === coin.currency) {
         classList.add("selectCoin");
         coins.push(coin);
@@ -35,6 +35,7 @@ function selectCoin(e) { // hold the logic for selecting coins
         classList.add("selectCoin");
         coins.push(coin);
     }
+    console.log(coins);
 }
 
 function deselectCoins() { //deselect all coins
