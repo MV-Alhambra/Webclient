@@ -14,6 +14,7 @@ const mapWrapper = document.querySelector("#map div");
 const reserveWrapper = document.querySelector("#reserve div");
 const popupLeave = document.querySelector('#popup.hidden');
 
+
 let colors = ["blue", "green", "orange", "yellow"];
 let types = ["pavilion", "seraglio", "arcades", "chambers", "garden", "tower"];
 let turnPlayer = null;
@@ -34,10 +35,12 @@ function init() {
     document.querySelector('.leavePopup').addEventListener('click', confirmLeaving);
     document.querySelector('#returnToGame').addEventListener('click', closeLeave);
     document.querySelector("#city .close").addEventListener("click", closeCity);
-    document.querySelector("header .Yes").addEventListener("click",leaveGamePlayer)
+    document.querySelector("header .Yes").addEventListener("click",leaveGamePlayer);
 
     polling().then();
 }
+
+
 
 function setScoreboard() { // loads the scoreboard in
     getGamePlayers(gameId, token).then(players => {

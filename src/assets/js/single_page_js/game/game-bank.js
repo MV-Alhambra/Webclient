@@ -2,11 +2,14 @@
 
 let bankCoins = [];
 
+
+
 function setBank() { // loads the bank in
+
     getGameProperty(gameId, token, 'bank').then(bank => {
         let coins = '';
         bank.forEach(coin => {
-            if (coin !==null) {coins += `<p class="${coin.currency}">${coin.amount}</p>`;}
+            if (coin !==null) {coins += `<p class="${coin.currency}" draggable="true">${coin.amount}</p>`;}
         });
         bankWrapper.innerHTML = coins;
         if (turnPlayer === playerName) {
@@ -15,12 +18,22 @@ function setBank() { // loads the bank in
     });
 }
 
+
+
+
 function convertBankCoinToObject(e) { //turns the html of a coin into an object we can use
     return {
         currency: getColor(e.target.classList),
         amount: parseInt(e.target.innerHTML)
     };
 }
+
+// function dragstart_handler(ev) {
+//     console.log("oke")
+// }
+//
+//
+// document.querySelectorAll("#containerBank p").forEach(coin => coin.addEventListener("dragstart", dragstart_handler)
 
 function selectBankCoins(e) { //selector logic for the coins
     deselectCoins();
@@ -33,12 +46,29 @@ function selectBankCoins(e) { //selector logic for the coins
     } else if (totalBankCoins() + parseInt(e.target.innerHTML) < 6 || bankCoins.length === 0) { //add more coins if total coins under 6
         classList.add("selectBankCoin");
         bankCoins.push(convertBankCoinToObject(e));
+        document.querySelector(".selectBankCoin").addEventListener("dragstart", dragstart_handler);
     } else { //select new coin
         deselectBankCoins();
         classList.add("selectBankCoin");
         bankCoins.push(convertBankCoinToObject(e));
+        document.querySelector(".selectBankCoin").addEventListener("dragstart", dragstart_handler);
     }
 }
+
+function dragstart_handler(e) {
+    e.dataTransfer.setData("text/html", e.target.innerText);
+}
+
+function dragover_handler(ev) {
+    ev.preventDefault();
+}
+
+function drop_handler(ev) {
+    ev.preventDefault();
+    grabCoins();
+
+}
+
 
 function getColor(classList) { // returns the color of the class list of that coin
     return colors.find(color => classList.contains(color));
@@ -69,3 +99,6 @@ function grabCoins(e) { //send selected coins to the server
         }
     }
 }
+
+
+
