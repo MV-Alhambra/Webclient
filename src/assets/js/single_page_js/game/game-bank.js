@@ -22,7 +22,7 @@ function setBank() { // loads the bank in
 }
 
 function setListenersDragBankCoin() {
-    const selectBankCoin = document.querySelectorAll("#bank .selectBankCoin");
+    const selectBankCoin = document.querySelectorAll("#bank p");
     selectBankCoin.forEach(coin => coin.addEventListener("drag", dragBankCoin));
     selectBankCoin.forEach(coin => coin.addEventListener("dragstart", dragStartBankCoin));
     selectBankCoin.forEach(coin => coin.addEventListener("dragend", dragEndBankCoin));
@@ -43,17 +43,18 @@ function selectBankCoins(e) { //selector logic for the coins
     deselectReserve();
     const classList = e.target.classList;
     if (classList.contains("selectBankCoin")) { //unselect selected coin
+        e.target.setAttribute("draggable", "false");
         classList.remove("selectBankCoin");
         bankCoins.splice(bankCoins.findIndex(coin => coin === convertBankCoinToObject(e)), 1);
     } else if (totalBankCoins() + parseInt(e.target.innerHTML) < 6 || bankCoins.length === 0) { //add more coins if total coins under 6
+        e.target.setAttribute("draggable", "true");
         classList.add("selectBankCoin");
         bankCoins.push(convertBankCoinToObject(e));
-        document.querySelector(".selectBankCoin").addEventListener("dragstart", dragstartHandler);
     } else { //select new coin
         deselectBankCoins();
         classList.add("selectBankCoin");
+        e.target.setAttribute("draggable", "true");
         bankCoins.push(convertBankCoinToObject(e));
-        document.querySelector(".selectBankCoin").addEventListener("dragstart", dragstartHandler);
     }
 }
 
@@ -69,6 +70,7 @@ function totalBankCoins() { //gives total amount of value of coins back
 
 function deselectBankCoins() { //deselect all coins
     bankCoins = [];
+    document.querySelectorAll("#bank .selectBankCoin").forEach(coin => coin.setAttribute("draggable", "false"));
     document.querySelectorAll('#containerBank p').forEach(coin => coin.classList.remove("selectBankCoin"));
 }
 
@@ -92,20 +94,28 @@ function dragBankCoin(e) {//makes the coin stay near the cursor
     bankCoinDrag.style.left = (e.clientX) + "px";
 }
 
-function dragStartBankCoin() {
-
+function dragStartBankCoin(e) {
+    bankCoinDrag.style.top = (e.clientY) + "px";
+    bankCoinDrag.style.left = (e.clientX) + "px";
+    bankCoinDrag.innerHTML = e.target.outerHTML;
+    document.querySelectorAll("#bank .selectBankCoin").forEach(coin => coin.classList.add("dragged"));
+    e.dataTransfer.setData("bankCoin", null);
+    bankCoinDrag.classList.remove("hidden");
 }
 
 function dragEndBankCoin() {
-
+    bankCoinDrag.classList.add("hidden");
+    setBank();//remove opacity of coins
 }
 
-function dropBankCoin() {
-
+function dropBankCoin(e) {
+    grabCoins(e);
 }
 
-function allowDropBankCoin() {
-
+function allowDropBankCoin(e) {
+    if (e.dataTransfer.types.includes("bankcoin")) { //only allows custom drag to drop
+        e.preventDefault();
+    }
 }
 
 

@@ -383,7 +383,7 @@ dd {
     animation: glow2 1s ease-in-out infinite alternate;
 }
 
-#containerBank p {
+#containerBank p,#bankCoinDrag p {
     color: white;
     width: 25%;
     font-size: 3rem;
@@ -944,6 +944,13 @@ header a:hover {
 .followCursor {
     position: absolute;
     pointer-events: none;
+    width: 100px;
+    height: 100px;
+}
+
+#bankCoinDrag.followCursor p{
+    height: 100%;
+    width: 100%;
 }
 
 #buildingDrag {
@@ -951,7 +958,7 @@ header a:hover {
     height: 100px;
 }
 
-.draggedBuilding {
+.dragged {
     opacity: 0;
 }
 
@@ -1108,4 +1115,5 @@ h5 {
     margin-left: 2em;
     text-shadow: 2px 2px black;
 }
+
 /*end manual*/
