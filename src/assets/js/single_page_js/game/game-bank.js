@@ -3,23 +3,31 @@
 let bankCoins = [];
 
 
-
 function setBank() { // loads the bank in
 
     getGameProperty(gameId, token, 'bank').then(bank => {
         let coins = '';
         bank.forEach(coin => {
-            if (coin !==null) {coins += `<p class="${coin.currency}" draggable="true">${coin.amount}</p>`;}
+            if (coin !== null) {
+                coins += `<p class="${coin.currency}">${coin.amount}</p>`;
+            }
         });
         bankWrapper.innerHTML = coins;
         if (turnPlayer === playerName) {
             document.querySelectorAll("#containerBank p").forEach(coin => coin.addEventListener("click", selectBankCoins));
+            setListenersDragBankCoin();
         }
     });
 }
 
-
-
+function setListenersDragBankCoin() {
+    const selectBankCoin = document.querySelectorAll("#bank .selectBankCoin");
+    selectBankCoin.forEach(coin => coin.addEventListener("drag", dragBankCoin));
+    selectBankCoin.forEach(coin => coin.addEventListener("dragstart", dragStartBankCoin));
+    selectBankCoin.forEach(coin => coin.addEventListener("dragend", dragEndBankCoin));
+    document.querySelector("#money").addEventListener("drop", dropBankCoin); // this triggers when an item gets dropped in it
+    document.querySelector("#money").addEventListener("dragover", allowDropBankCoin);//this sets the location where i can drop the items
+}
 
 function convertBankCoinToObject(e) { //turns the html of a coin into an object we can use
     return {
@@ -27,13 +35,6 @@ function convertBankCoinToObject(e) { //turns the html of a coin into an object 
         amount: parseInt(e.target.innerHTML)
     };
 }
-
-// function dragstart_handler(ev) {
-//     console.log("oke")
-// }
-//
-//
-// document.querySelectorAll("#containerBank p").forEach(coin => coin.addEventListener("dragstart", dragstart_handler)
 
 function selectBankCoins(e) { //selector logic for the coins
     deselectCoins();
@@ -54,21 +55,6 @@ function selectBankCoins(e) { //selector logic for the coins
         document.querySelector(".selectBankCoin").addEventListener("dragstart", dragstartHandler);
     }
 }
-
-function dragstartHandler(e) {
-    e.dataTransfer.setData("text/html", e.target.innerText);
-}
-
-function dragoverHandler(ev) {
-    ev.preventDefault();
-}
-
-function dropHandler(ev) {
-    ev.preventDefault();
-    grabCoins();
-
-}
-
 
 function getColor(classList) { // returns the color of the class list of that coin
     return colors.find(color => classList.contains(color));
@@ -98,6 +84,26 @@ function grabCoins(e) { //send selected coins to the server
             });
         }
     }
+}
+
+function dragBankCoin() {
+
+}
+
+function dragStartBankCoin() {
+
+}
+
+function dragEndBankCoin() {
+
+}
+
+function dropBankCoin() {
+
+}
+
+function allowDropBankCoin() {
+
 }
 
 
