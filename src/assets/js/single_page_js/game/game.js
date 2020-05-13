@@ -36,7 +36,7 @@ function init() {
     document.querySelector("#city .close").addEventListener("click", closeCity);
     document.querySelector("header .Yes").addEventListener("click",leaveGamePlayer);
     document.querySelector("#manual").addEventListener("click",showManual);
-    document.querySelector('.manualpopup .close').addEventListener('click', closeManual);
+    document.querySelector(".manualpopup .close").addEventListener('click', closeManual);
 
     polling().then();
 }
