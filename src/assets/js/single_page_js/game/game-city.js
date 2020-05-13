@@ -37,3 +37,13 @@ function setCity() { // loads in the map
         cityReserveWrapper.innerHTML = reserveBuildings;
     });
 }
+
+function zoomButtonHider(btnZoomIn, btnZoomOut) { //logic for making the buttons invisible
+    if (mapSize === 9) {
+        btnZoomOut.classList.add("inactive");
+        btnZoomIn.classList.remove("inactive");
+    } else if (mapSize === 3) {
+        btnZoomIn.classList.add("inactive");
+        btnZoomOut.classList.remove("inactive");
+    }
+}

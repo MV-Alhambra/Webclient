@@ -35,7 +35,6 @@ function selectCoin(e) { // hold the logic for selecting coins
         classList.add("selectCoin");
         coins.push(coin);
     }
-    console.log(coins);
 }
 
 function deselectCoins() { //deselect all coins
