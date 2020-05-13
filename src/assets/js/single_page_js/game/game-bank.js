@@ -2,6 +2,7 @@
 
 let bankCoins = [];
 
+const bankCoinDrag = document.querySelector("#bankCoinDrag");
 
 function setBank() { // loads the bank in
 
@@ -86,8 +87,9 @@ function grabCoins(e) { //send selected coins to the server
     }
 }
 
-function dragBankCoin() {
-
+function dragBankCoin(e) {//makes the coin stay near the cursor
+    bankCoinDrag.style.top = (e.clientY) + "px";
+    bankCoinDrag.style.left = (e.clientX) + "px";
 }
 
 function dragStartBankCoin() {

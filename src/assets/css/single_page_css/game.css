@@ -29,7 +29,6 @@ ul {
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
-
 /*---start header---*/
 header {
     height: 10vh;
@@ -282,7 +281,6 @@ aside p.inactive {
     white-space: nowrap;
     width: 100%;
     grid-auto-columns: minmax(120px, 1fr);
-
 }
 
 .selectReserve {
@@ -292,7 +290,7 @@ aside p.inactive {
 /*---end_reserve---*/
 /*---turn_options---*/
 #button_card {
-    box-shadow:  0 0 10px 3px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.4);
     border: rgba(255, 255, 255, 0.5) 1px solid;
     grid-area: 5 / 11 / 9 /13;
     display: grid;
@@ -310,7 +308,7 @@ aside p.inactive {
     font-weight: bold;
     text-decoration: none;
     color: white;
-    box-shadow:  0 0 10px 3px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.4);
     border: rgba(255, 255, 255, 0.5) 1px solid;
     display: flex;
     align-items: center;
@@ -674,11 +672,11 @@ header a:hover {
 }
 
 .No {
-    background-color: rgb(153,0,0);
+    background-color: rgb(153, 0, 0);
 }
 
 .Yes {
-    background-color: rgb(0,102,0);
+    background-color: rgb(0, 102, 0);
     margin-right: 20%;
 }
 
@@ -689,7 +687,7 @@ header a:hover {
     transform: translateX(-50%) translateY(-50%);
     width: 35%;
     background-image: url("../../../images/background.png");
-    box-shadow:  0 0 10px 3px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.4);
     border: rgba(255, 255, 255, 0.5) 1px solid;
     padding: 20px;
     text-align: center;
@@ -821,7 +819,6 @@ header a:hover {
     color: white;
 }
 
-
 .pav {
     background-color: lightblue;
     padding-top: 0.2em;
@@ -944,11 +941,14 @@ header a:hover {
 
 /*--end_pointsystem--*/
 /*--start_redesign--*/
-#buildingDrag {
+.followCursor {
     position: absolute;
+    pointer-events: none;
+}
+
+#buildingDrag {
     width: 100px;
     height: 100px;
-    pointer-events: none;
 }
 
 .draggedBuilding {
@@ -963,18 +963,11 @@ header a:hover {
     border-radius: 10px;
     color: white;
     position: absolute;
-    pointer-events: none;
     transition: opacity 0.2s ease-in-out;
-    left: 0;
-    top: 0;
 }
 
 #hand {
-    position: absolute;
-    pointer-events: none;
     transition: opacity 0.2s ease-in-out;
-    left: 0;
-    top: 0;
     width: 100px;
     height: 100px;
 }
@@ -984,7 +977,7 @@ header a:hover {
     display: flex;
 }
 
-h5{
+h5 {
     font-family: 'Berkshire Swash', cursive, sans-serif;
     font-weight: lighter;
     color: white;
@@ -1002,7 +995,7 @@ h5{
     border-radius: 10px;
     background-image: url("../../../images/background.png");
     background-size: cover;
-    box-shadow:  0 0 10px 3px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.4);
     border: rgba(255, 255, 255, 0.5) 1px solid;
 }
 
@@ -1012,14 +1005,14 @@ h5{
     box-sizing: border-box;
 }
 
-#cityMap > div > div{
-    box-shadow:  0 0 10px 3px rgba(255, 255, 255, 0.4);
+#cityMap > div > div {
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.4);
     border: rgba(255, 255, 255, 0.5) 1px solid;
     background-color: rgba(41, 41, 41, 0.5);
     padding: 0 25%;
 }
 
-#cityMap span{
+#cityMap span {
     font-family: 'Berkshire Swash', cursive, sans-serif;
     font-weight: lighter;
     color: white;
@@ -1040,16 +1033,16 @@ h5{
     margin-top: 25px;
     box-sizing: border-box;
     align-content: stretch;
-    box-shadow:  0 0 10px 3px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.4);
     border: rgba(255, 255, 255, 0.5) 1px solid;
     background-color: rgba(41, 41, 41, 0.5);
 }
 
-#cityReserve h5{
+#cityReserve h5 {
     font-size: 1.5rem;
 }
 
-#cityReserve p{
+#cityReserve p {
     width: 80%;
     height: 100%;
     box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.65);
@@ -1070,11 +1063,12 @@ h5{
 
 /* -- end popup town/city-- */
 /* -- begin manual --*/
-#manual{
+#manual {
     grid-column-start: 5;
     grid-column-end: 6;
 }
-.manualpopup{
+
+.manualpopup {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
@@ -1085,7 +1079,8 @@ h5{
     align-items: center;
     display: none;
 }
-.manualcontent{
+
+.manualcontent {
     width: 1000px;
     height: 350px;
     background-image: url("../../../images/background.png");
@@ -1094,7 +1089,8 @@ h5{
     position: relative;
     text-align: left;
 }
-#manualtext h1{
+
+#manualtext h1 {
     height: 20%;
     font-family: 'Berkshire Swash', cursive, sans-serif;
     color: white;
@@ -1103,15 +1099,13 @@ h5{
     margin-bottom: 30px;
     font-size: 3em;
 }
-#manualtext p{
+
+#manualtext p {
     color: white;
     font-weight: lighter;
     margin-top: 10px;
     margin-bottom: 15px;
     margin-left: 2em;
     text-shadow: 2px 2px black;
-}
-#manualtext p strong{
-
 }
 /*end manual*/
