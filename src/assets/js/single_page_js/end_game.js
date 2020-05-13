@@ -50,8 +50,9 @@ function orderByScore(scoreboard) {
 }
 
 function checkWin(response) {
-    if (response[0] === playerName) {
-        winOrLose.innerText = "Victory";
+    console.log(response);
+    if (response[0].name === playerName) {
+        winOrLose.innerText = "Victory!";
     } else {
         winOrLose.innerText = "Better luck next time ...";
     }

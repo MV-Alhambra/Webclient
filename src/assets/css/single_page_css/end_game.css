@@ -45,14 +45,14 @@ h1
 div#players
 {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-bottom: 75px;
 }
 section
 {
     font-family: 'Questrial', sans-serif;
     color: white;
-    padding: 5px;
+    padding: 7px;
     background-color: rgba(42, 42, 42, 0.5);
     border: rgba(255, 255, 255, 0.5) 1px solid;
     box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.4);
@@ -130,7 +130,7 @@ section a{
     font-family: 'Questrial', sans-serif;
     text-decoration: none;
     font-weight: bold;
-    padding: 1px;
+
 }
 
 div#links
@@ -138,6 +138,7 @@ div#links
     display: flex;
     justify-content: space-between;
 }
+
 /*---------------------*/
 /* CONTAINING ELEMENTS */
 /*---------------------*/
