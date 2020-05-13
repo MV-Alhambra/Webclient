@@ -36,6 +36,8 @@ function init() {
     document.querySelector('#returnToGame').addEventListener('click', closeLeave);
     document.querySelector("#city .close").addEventListener("click", closeCity);
     document.querySelector("header .Yes").addEventListener("click",leaveGamePlayer);
+    document.querySelector("#manual").addEventListener("click",showManual);
+    document.querySelector(".manualpopup .close").addEventListener('click', closeManual);
 
     polling().then();
 }
@@ -213,4 +215,11 @@ function convertIndexToLocation(index) { //converts an index into a dynamic/norm
         col: (index % mapSize) - mapRadius,
         row: (parseInt(index / mapSize)) - mapRadius
     };
+}
+
+function showManual(){
+    document.querySelector('.manualpopup').style.display = 'flex';
+}
+function closeManual() { //hides the manual
+    document.querySelector('.manualpopup').style.display = 'none';
 }

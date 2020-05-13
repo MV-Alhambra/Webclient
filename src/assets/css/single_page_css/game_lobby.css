@@ -38,6 +38,7 @@ dt {
 }
 
 main {
+    margin-left: 16%;
     text-align: center;
     flex-basis: 83%;
     height: 50%;
