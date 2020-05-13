@@ -14,6 +14,7 @@ const mapWrapper = document.querySelector("#map div");
 const reserveWrapper = document.querySelector("#reserve div");
 const popupLeave = document.querySelector('#popup.hidden');
 
+
 let colors = ["blue", "green", "orange", "yellow"];
 let types = ["pavilion", "seraglio", "arcades", "chambers", "garden", "tower"];
 let turnPlayer = null;
@@ -40,6 +41,8 @@ function init() {
 
     polling().then();
 }
+
+
 
 function setScoreboard() { // loads the scoreboard in
     getGamePlayers(gameId, token).then(players => {
