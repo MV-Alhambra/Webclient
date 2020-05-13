@@ -292,7 +292,8 @@ aside p.inactive {
 /*---end_reserve---*/
 /*---turn_options---*/
 #button_card {
-    border: blue solid 2px;
+    box-shadow:  0 0 10px 3px rgba(255, 255, 255, 0.4);
+    border: rgba(255, 255, 255, 0.5) 1px solid;
     grid-area: 5 / 11 / 9 /13;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -308,8 +309,9 @@ aside p.inactive {
     font-size: 1rem;
     font-weight: bold;
     text-decoration: none;
-    color: black;
-    border: 2px black solid;
+    color: white;
+    box-shadow:  0 0 10px 3px rgba(255, 255, 255, 0.4);
+    border: rgba(255, 255, 255, 0.5) 1px solid;
     display: flex;
     align-items: center;
     justify-content: center;
