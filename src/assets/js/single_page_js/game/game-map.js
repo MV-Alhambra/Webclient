@@ -70,14 +70,6 @@ function zoomOut(btnZoomIn, setFunction) {  // changes the mapSize and holds log
     }
 }
 
-function zoomButtonHider(btnZoomIn, btnZoomOut) { //logic for making the buttons invisible
-    if (mapSize === 9) {
-        btnZoomOut.classList.add("inactive");
-    } else if (mapSize === 3) {
-        btnZoomIn.classList.add("inactive");
-    }
-}
-
 function showPossibleLocations(building, addEventListeners) { //lights up all the possible locations the on the map
     getCityLocations(gameId, playerName, building.walls).then(locations => {
         locations.forEach(location => {

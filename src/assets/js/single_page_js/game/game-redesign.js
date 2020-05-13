@@ -54,7 +54,7 @@ function dragStartBuilding(e) { //makes buildingDrag visible and correct and set
     e.dataTransfer.setData("building", "map");
     e.dataTransfer.setData("building/map", null);//because js only allows me to see the content at drop but then i dont need it any more ¯\_( ͡❛ ͜ʖ ͡❛)_/¯
     buildingDrag.innerHTML = e.target.outerHTML;
-    e.target.classList.add("draggedBuilding");
+    e.target.classList.add("dragged");
     buildingDrag.style.top = (e.clientY) + "px";
     buildingDrag.style.left = (e.clientX) + "px";
     buildingDrag.classList.remove("hidden");

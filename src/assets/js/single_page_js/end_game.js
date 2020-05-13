@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', init);
 function init() {
     getPlayersAndScore().then(response => {
         loadInScore(response);
-        checkWin();
+        checkWin(response);
     });
 
 }
@@ -49,12 +49,12 @@ function orderByScore(scoreboard) {
     return scoreboard;
 }
 
-function checkWin() {
-    const score = getPlayersAndScore();
-    if (score[0] === playerName) {
-        winOrLose.innerText = "Victory";
+function checkWin(response) {
+    console.log(response);
+    if (response[0].name === playerName) {
+        winOrLose.innerText = "Victory!";
     } else {
-        winOrLose.innerText = "Beter luck next time ...";
+        winOrLose.innerText = "Better luck next time ...";
     }
 }
 
