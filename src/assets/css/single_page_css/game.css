@@ -944,8 +944,6 @@ header a:hover {
 .followCursor {
     position: absolute;
     pointer-events: none;
-    width: 100px;
-    height: 100px;
 }
 
 #bankCoinDrag.followCursor p{
