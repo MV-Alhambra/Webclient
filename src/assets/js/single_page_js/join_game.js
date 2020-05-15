@@ -3,11 +3,13 @@
 document.addEventListener('DOMContentLoaded', init);
 
 const error =document.querySelector('.error');
+const gameName =document.querySelector('h1');
 let gameId;
 
 function init() {
     checkLS();
     document.querySelector('form').addEventListener('submit', joinGame);
+    setCustomLobbyName();
 }
 
 function checkLS() {
@@ -17,6 +19,14 @@ function checkLS() {
         gameId = localStorage.getItem('gameId');
     }
 }
+
+
+function setCustomLobbyName() {
+    returnLobby(gameId).then(customNameLobby => {
+        gameName.innerText = customNameLobby.customNameLobby;
+    });
+}
+
 
 function joinGame(e) {
     e.preventDefault();
