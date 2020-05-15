@@ -1,9 +1,13 @@
 'use strict';
 
-const root = "http://172.21.22.52:48201/alhambra-21/api/";
+const root =  "http://172.21.22.52:48201/alhambra-21/api/";
 
 function returnGames() {   // Show all games from your group lobby
     return fetchJSON(`${root}games`, 'GET');
+}
+
+function returnLobby(gameId) {
+    return returnGames().then(response => response.find(lobby => lobby.id === gameId));
 }
 
 function addGame(customGameName, cap) {   // Add a new game in your lobby
