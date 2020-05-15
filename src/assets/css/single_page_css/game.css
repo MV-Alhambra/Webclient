@@ -284,8 +284,19 @@ aside p.inactive {
 }
 
 .selectReserve {
-    outline: blue dashed thick;
+   animation: glow2 1s ease-in-out infinite alternate;
 }
+
+
+@-webkit-keyframes glow2 {
+    from {
+        box-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509;
+    }
+    to {
+        box-shadow: 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509, 0 0 7px #e7c509, 0 0 8px #e7c509, 0 0 10px #e7c509;
+    }
+}
+
 
 /*---end_reserve---*/
 /*---turn_options---*/
