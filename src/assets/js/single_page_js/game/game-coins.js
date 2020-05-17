@@ -30,7 +30,7 @@ function selectCoin(e) { // hold the logic for selecting coins
         e.target.setAttribute("draggable", "false");
         classList.remove("selectCoin");
         coins.splice(coins.findIndex(coinsCoin => coinsCoin.amount === coin.amount), 1); //remove one coin at that index
-    } else if (coins.length === 0 || coins[0].currency === coin.currency) { // the first sets the which currency is selected and the second then makes it so that only those currencies coins can be selected
+    } else if (coins.length === 0 || coins[0].currency === coin.currency) { // only allow the same currency to be selected or when no coin is selected select coin
         e.target.setAttribute("draggable", "true");
         classList.add("selectCoin");
         coins.push(coin);
