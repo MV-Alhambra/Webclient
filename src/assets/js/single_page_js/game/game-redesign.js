@@ -28,9 +28,9 @@ function dragBuilding(e) { //makes the building stay near the cursor
 
 function showLocations(e) { //shows the locations of were the new building can be placed
     showPossibleLocations(convertBuildingToObject(e.currentTarget), addEventListenersReserveBuilding);
-    dragStartBuilding(e);
     e.dataTransfer.setData("building", "reserve");
     e.dataTransfer.setData("building/reserve", null);//because js only allows me to see the content at drop
+    dragStartBuilding(e);
 }
 
 function allowDropMap(e) { //only allow drop for our custom drags not the random default ones like select text
@@ -58,9 +58,14 @@ function dragStartBuilding(e) { //makes buildingDrag visible and correct and set
     buildingDrag.style.top = (e.clientY) + "px";
     buildingDrag.style.left = (e.clientX) + "px";
     buildingDrag.classList.remove("hidden");
+
+    if (!e.dataTransfer.types.includes("building/reserve") && e.dataTransfer.types.includes("building/map")) { //only do it for city=>reserve
+        document.querySelector("#reserve").classList.add("visualCue");
+    }
 }
 
 function dragEndBuilding() { //makes buildingDrag invisible and removes the eventListeners
+    document.querySelector("#reserve").classList.remove("visualCue");
     buildingDrag.classList.add("hidden");
     setReserve();
     setMap();
