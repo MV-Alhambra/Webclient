@@ -87,11 +87,11 @@ function grabCoins(e) { //send selected coins to the server
 
 function dragBankCoin(e) {//makes the coin stay near the cursor
     bankCoinDrag.style.top = (e.clientY) + "px";
-    bankCoinDrag.style.left = (e.clientX) + "px";
+    bankCoinDrag.style.left = (e.clientX- 100) + "px";
 }
 
 function dragStartBankCoin(e) {
-    bankCoinDrag.style.top = (e.clientY) + "px";
+    bankCoinDrag.style.top = (e.clientY ) + "px";
     bankCoinDrag.style.left = (e.clientX) + "px";
     document.querySelectorAll("#bank .selectBankCoin").forEach(coin => coin.classList.add("dragged"));
     e.dataTransfer.setData("bankcoin", null);
