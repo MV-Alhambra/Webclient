@@ -1,6 +1,7 @@
 "use strict";
 
 let coins = [];
+const coinsDrag = document.querySelector("#coinsDrag");
 
 function setCoins() { // loads the coins in
     getGamePlayer(gameId, token, playerName).then(player => {
@@ -11,6 +12,7 @@ function setCoins() { // loads the coins in
         });
         if (turnPlayer === playerName) {
             document.querySelectorAll("#moneyPlayer li").forEach(coin => coin.addEventListener("click", selectCoin));
+            setListenersDragCoins();
         }
     });
 }
@@ -26,8 +28,8 @@ function selectCoin(e) { // hold the logic for selecting coins
     const coin = convertCoinToObject(e.target);
     if (classList.contains("selectCoin")) {
         classList.remove("selectCoin");
-        coins.splice(coins.findIndex(coinsCoin => coinsCoin.amount === coin.amount), 1);
-    } else if (coins.length === 0 || coins[0].currency === coin.currency) {
+        coins.splice(coins.findIndex(coinsCoin => coinsCoin.amount === coin.amount), 1); //remove one coin at that index
+    } else if (coins.length === 0 || coins[0].currency === coin.currency) { // the first sets the which currency is selected and the second then makes it so that only those currencies coins can be selected
         classList.add("selectCoin");
         coins.push(coin);
     } else {
@@ -58,3 +60,35 @@ function totalCoins() { //gives total amount of value of coins back
 function emptyCoins() { //bc of sonar
     coins = [];
 }
+
+function setListenersDragCoins() {
+    const selectCoins = document.querySelectorAll("#money li");
+    selectCoins.forEach(coin => coin.addEventListener("drag", dragCoins));
+    selectCoins.forEach(coin => coin.addEventListener("dragstart", dragStartCoins));
+    selectCoins.forEach(coin => coin.addEventListener("dragend", dragEndCoins));
+
+
+    /*
+    document.querySelector("#money").addEventListener("drop", dropBankCoin); // this triggers when an item gets dropped in it
+    document.querySelector("#money").addEventListener("dragover", allowDropBankCoin);//this sets the location where i can drop the items
+     */
+}
+
+function dragCoins(e) {
+    coinsDrag.style.top = (e.clientY) + "px";
+    coinsDrag.style.left = (e.clientX - 100) + "px";
+}
+
+function dragStartCoins(e) {
+    coinsDrag.style.top = (e.clientY) + "px";
+    coinsDrag.style.left = (e.clientX) + "px";
+    document.querySelectorAll("#money .selectCoin").forEach(coin => coin.classList.add("dragged")); //hides the selected coins
+    e.dataTransfer.setData("coins/" + coins[0].currency, null); //set the drop location bc i filter on allowDrop on that name
+    coinsDrag.classList.remove("hidden");
+}
+
+function dragEndCoins() {
+   coinsDrag.classList.add("hidden");
+    setCoins();//remove opacity of coins
+}
+
