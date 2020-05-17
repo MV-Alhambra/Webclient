@@ -51,17 +51,15 @@ function calcTotalBuildings(players) { // calculates how many buildings have bee
     let sum = 0;
     players.forEach(player => {
         sum += player.reserve.length;
-        player.city.forEach(row => row.forEach(tile => { //#todo turn it into Highorder functinon
-            if (tile !== null && tile.type !== null) {
-                sum++;
-            }
-        }));
+        player.city.flatMap(row => row)
+            .filter(tile => tile !== null && tile.type !== null)
+            .forEach(() => sum++);
     });
     return sum;
 }
 
 function setListenersDragMarket() {
-    const markets =   document.querySelectorAll("#marketGrid div");
+    const markets = document.querySelectorAll("#marketGrid div");
     markets.forEach(currency => currency.addEventListener("drop", dropCoins)); // this triggers when an item gets dropped in it
     markets[0].addEventListener("dragover", allowDropCoinsBlue);//this sets the location where i can drop the items
     markets[1].addEventListener("dragover", allowDropCoinsGreen);//this sets the location where i can drop the items
