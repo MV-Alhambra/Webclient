@@ -962,7 +962,7 @@ header a:hover {
     width: 100%;
 }
 
-#buildingDrag {
+#buildingDrag, #bankCoinDrag{
     width: 100px;
     height: 100px;
 }
