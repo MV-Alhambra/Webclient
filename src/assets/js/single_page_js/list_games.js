@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
     fillLobbyList();
-    document.querySelector('a').addEventListener('click', fillLobbyList);
+    document.querySelector('#refresh').addEventListener('click', fillLobbyList);
 }
 
 function fillLobbyList() {
