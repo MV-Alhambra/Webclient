@@ -88,12 +88,14 @@ function dragBankCoin(e) {//makes the coin bag stay near the cursor
 function dragStartBankCoin(e) {
     bankCoinDrag.style.top = (e.clientY) + "px";
     bankCoinDrag.style.left = (e.clientX) + "px";
+    document.querySelector("#money").classList.add("visualCue");
     document.querySelectorAll("#bank .selectBankCoin").forEach(coin => coin.classList.add("dragged"));
     e.dataTransfer.setData("bankcoin", null);
     bankCoinDrag.classList.remove("hidden");
 }
 
 function dragEndBankCoin() {
+    document.querySelector("#money").classList.remove("visualCue");
     bankCoinDrag.classList.add("hidden");
     setBank();//remove opacity of coins
 }
