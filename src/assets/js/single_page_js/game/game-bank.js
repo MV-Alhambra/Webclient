@@ -35,7 +35,6 @@ function convertBankCoinToObject(e) { //turns the html of a coin into an object 
 
 function selectBankCoins(e) { //selector logic for the coins
     deselectCoins();
-    deselectMarket();
     deselectReserve();
     const classList = e.target.classList;
     if (classList.contains("selectBankCoin")) { //unselect selected coin
@@ -72,16 +71,12 @@ function deselectBankCoins() { //deselect all coins
 
 function grabCoins(e) { //send selected coins to the server
     if (playerName === turnPlayer) {
-        if (bankCoins.length === 0) {
-            showError("No coins selected!", e);
-        } else {
-            takeCoins(gameId, token, playerName, bankCoins).then(response => {
-                responseHandler(response, e);
-                if (response.ok) { //empty the bankCoins when transaction is completed
-                    bankCoins = [];
-                }
-            });
-        }
+        takeCoins(gameId, token, playerName, bankCoins).then(response => {
+            responseHandler(response, e);
+            if (response.ok) { //empty the bankCoins when transaction is completed
+                bankCoins = [];
+            }
+        });
     }
 }
 

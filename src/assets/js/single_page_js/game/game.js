@@ -30,8 +30,6 @@ function init() {
     document.querySelector('#pointsystem .close').addEventListener('click', closePointSystem);
     document.querySelector("#zoom_in").addEventListener('click', () => zoomIn(mapZoomOut, setMap));
     document.querySelector("#zoom_out").addEventListener('click', () => zoomOut(mapZoomIn, setMap));
-    document.querySelector("#take_money").addEventListener("click", grabCoins);
-    document.querySelector("#buy_building").addEventListener("click", grabBuilding);
     document.querySelector('.leavePopup').addEventListener('click', confirmLeaving);
     document.querySelector('#returnToGame').addEventListener('click', closeLeave);
     document.querySelector("#city .close").addEventListener("click", closeCity);
