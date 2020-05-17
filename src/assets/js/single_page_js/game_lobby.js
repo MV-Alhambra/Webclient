@@ -104,7 +104,7 @@ function setScoreboard() { // loads the scoreboard
     getGamePlayers(gameId, token).then(players => {
         let listScoreboard = '';
 
-       players.forEach(player => {
+        players.forEach(player => {
             listScoreboard += `<dt>${player.name}</dt><dd>${player.status ? "ready" : "not ready"}</dd>`;
         });
         scoreboard.innerHTML = listScoreboard;
@@ -136,13 +136,12 @@ function changePlayerStatus(e) { //sets the player to ready/unready
 
 function timer() { // timer for starting game
     let counter = 5;
-    return setInterval(function () {
+    return setInterval(async () => {
         header.innerHTML = `The game is starting in ${counter.toString()}s`;
         if (counter === 0) { //stop interval
-            startGame(gameId, token).then(() => {
-                localStorage.setItem("sinceScoreboard", "0"); // for counters
-                window.location.replace('./game.html');
-            });
+            localStorage.setItem("sinceScoreboard", "0"); // for counters
+            await startGame(gameId, token); // make wait for response so that it actually starts before moving the person
+            window.location.replace('./game.html'); //replace bc i dont want ppl pressing previous to go back to this lobby it would 100% give errors since lobby wouldn't exist anymore
         }
         counter--;
     }, 1000);

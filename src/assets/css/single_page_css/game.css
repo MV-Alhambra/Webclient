@@ -957,12 +957,16 @@ header a:hover {
     pointer-events: none;
 }
 
-#bankCoinDrag.followCursor p{
-    height: 100%;
-    width: 100%;
+#bankCoinDrag{
+    background-image: url("../../media/bafofCoinsHDEdited.png");
+    background-size: 100% 100%;
+    background-position: center center;
+    width: 200px;
+    height: 200px;
+
 }
 
-#buildingDrag {
+#buildingDrag{
     width: 100px;
     height: 100px;
 }
