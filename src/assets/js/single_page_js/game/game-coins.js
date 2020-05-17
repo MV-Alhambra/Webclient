@@ -83,10 +83,15 @@ function dragStartCoins(e) {
     document.querySelectorAll("#money .selectCoin").forEach(coin => coin.classList.add("dragged")); //hides the selected coins
     e.dataTransfer.setData("coins/" + coins[0].currency, null); //set the drop location bc i filter on allowDrop on that name
     coinsDrag.classList.remove("hidden");
+
+    [...document.querySelectorAll("#marketGrid div p")]
+        .filter(building => building.innerHTML.length !== 0 && building.parentElement.getAttribute("data-currency") === coins[0].currency)
+        .forEach(market => market.classList.add("visualCue"));
 }
 
 function dragEndCoins() {
-   coinsDrag.classList.add("hidden");
+    document.querySelectorAll("#marketGrid div p.visualCue").forEach(market=>market.classList.remove("visualCue")); //for each bc then i dont get an error when it doesnt exist
+    coinsDrag.classList.add("hidden");
     setCoins();//remove opacity of coins
 }
 

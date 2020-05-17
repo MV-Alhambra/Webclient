@@ -245,8 +245,8 @@ aside p.inactive {
 }
 
 .blink {
-    animation: fade 3000ms infinite;
-    background: cornflowerblue; /*make it nice*/
+    animation:  fade 3000ms infinite;
+    background: #e7c509; /*make it nice*/
 }
 
 /* ---end map---*/

@@ -79,7 +79,6 @@ function dropBuilding(e, building) { //second and third argument only gets used 
 
 function selectReserve(e) { // holds the logic for selecting reserve buildings
     deselectBankCoins();
-    deselectMarket();
     deselectCoins();
     if (e.target.classList.contains("selectReserve")) {
         deselectReserve();

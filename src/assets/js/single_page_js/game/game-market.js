@@ -71,8 +71,6 @@ function setListenersDragMarket() {
         .forEach(market => market.addEventListener("dragover", allowDropCoinsOrange));
     [...markets].filter(building => building.innerHTML.length !== 0 && building.parentElement.getAttribute("data-currency") === "yellow")
         .forEach(market => market.addEventListener("dragover", allowDropCoinsYellow));
-
-
 }
 
 function dropCoins(e) {
