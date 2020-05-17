@@ -8,6 +8,7 @@ function setMarket() { // loads the market in
             marketBuildings[index].innerHTML = createBuilding(markets[market]);
             if (turnPlayer === playerName) {
                 document.querySelectorAll("#market .building").forEach(building => building.addEventListener("click", selectMarket));
+                setListenersDragMarket();
             }
         });
     });
@@ -74,12 +75,48 @@ function calcTotalBuildings(players) { // calculates how many buildings have bee
     let sum = 0;
     players.forEach(player => {
         sum += player.reserve.length;
-        player.city.forEach(row => row.forEach(tile => {
+        player.city.forEach(row => row.forEach(tile => { //#todo turn it into Highorder functinon
             if (tile !== null && tile.type !== null) {
                 sum++;
             }
         }));
     });
     return sum;
+}
+
+function setListenersDragMarket() {
+    document.querySelectorAll("#marketGrid img").forEach(currency => currency.addEventListener("drop", dropCoins)); // this triggers when an item gets dropped in it
+    document.querySelectorAll("#marketGrid img")[0].addEventListener("dragover", allowDropCoinsBlue);//this sets the location where i can drop the items
+    document.querySelectorAll("#marketGrid img")[1].addEventListener("dragover", allowDropCoinsGreen);//this sets the location where i can drop the items
+    document.querySelectorAll("#marketGrid img")[2].addEventListener("dragover", allowDropCoinsOrange);//this sets the location where i can drop the items
+    document.querySelectorAll("#marketGrid img")[3].addEventListener("dragover", allowDropCoinsYellow);//this sets the location where i can drop the items
+}
+
+function dropCoins(e) {
+    grabBuilding(e);
+}
+
+function allowDropCoinsBlue(e) {
+    if (e.dataTransfer.types.includes("coins/blue")) { //only allows custom drag to drop
+        e.preventDefault();
+    }
+}
+
+function allowDropCoinsGreen(e) {
+    if (e.dataTransfer.types.includes("coins/green")) { //only allows custom drag to drop
+        e.preventDefault();
+    }
+}
+
+function allowDropCoinsOrange(e) {
+    if (e.dataTransfer.types.includes("coins/orange")) { //only allows custom drag to drop
+        e.preventDefault();
+    }
+}
+
+function allowDropCoinsYellow(e) {
+    if (e.dataTransfer.types.includes("coins/yellow")) { //only allows custom drag to drop
+        e.preventDefault();
+    }
 }
 

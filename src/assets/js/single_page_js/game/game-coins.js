@@ -66,12 +66,6 @@ function setListenersDragCoins() {
     selectCoins.forEach(coin => coin.addEventListener("drag", dragCoins));
     selectCoins.forEach(coin => coin.addEventListener("dragstart", dragStartCoins));
     selectCoins.forEach(coin => coin.addEventListener("dragend", dragEndCoins));
-
-
-    /*
-    document.querySelector("#money").addEventListener("drop", dropBankCoin); // this triggers when an item gets dropped in it
-    document.querySelector("#money").addEventListener("dragover", allowDropBankCoin);//this sets the location where i can drop the items
-     */
 }
 
 function dragCoins(e) {
