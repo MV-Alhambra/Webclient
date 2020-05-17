@@ -85,14 +85,15 @@ function calcTotalBuildings(players) { // calculates how many buildings have bee
 }
 
 function setListenersDragMarket() {
-    document.querySelectorAll("#marketGrid img").forEach(currency => currency.addEventListener("drop", dropCoins)); // this triggers when an item gets dropped in it
-    document.querySelectorAll("#marketGrid img")[0].addEventListener("dragover", allowDropCoinsBlue);//this sets the location where i can drop the items
-    document.querySelectorAll("#marketGrid img")[1].addEventListener("dragover", allowDropCoinsGreen);//this sets the location where i can drop the items
-    document.querySelectorAll("#marketGrid img")[2].addEventListener("dragover", allowDropCoinsOrange);//this sets the location where i can drop the items
-    document.querySelectorAll("#marketGrid img")[3].addEventListener("dragover", allowDropCoinsYellow);//this sets the location where i can drop the items
+    document.querySelectorAll("#marketGrid div").forEach(currency => currency.addEventListener("drop", dropCoins)); // this triggers when an item gets dropped in it
+    document.querySelectorAll("#marketGrid div")[0].addEventListener("dragover", allowDropCoinsBlue);//this sets the location where i can drop the items
+    document.querySelectorAll("#marketGrid div")[1].addEventListener("dragover", allowDropCoinsGreen);//this sets the location where i can drop the items
+    document.querySelectorAll("#marketGrid div")[2].addEventListener("dragover", allowDropCoinsOrange);//this sets the location where i can drop the items
+    document.querySelectorAll("#marketGrid div")[3].addEventListener("dragover", allowDropCoinsYellow);//this sets the location where i can drop the items
 }
 
 function dropCoins(e) {
+    selectedMarket = convertToMarket(e.target);
     grabBuilding(e);
 }
 

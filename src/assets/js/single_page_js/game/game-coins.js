@@ -27,12 +27,15 @@ function selectCoin(e) { // hold the logic for selecting coins
     const classList = e.target.classList;
     const coin = convertCoinToObject(e.target);
     if (classList.contains("selectCoin")) {
+        e.target.setAttribute("draggable", "false");
         classList.remove("selectCoin");
         coins.splice(coins.findIndex(coinsCoin => coinsCoin.amount === coin.amount), 1); //remove one coin at that index
     } else if (coins.length === 0 || coins[0].currency === coin.currency) { // the first sets the which currency is selected and the second then makes it so that only those currencies coins can be selected
+        e.target.setAttribute("draggable", "true");
         classList.add("selectCoin");
         coins.push(coin);
     } else {
+        e.target.setAttribute("draggable", "true");
         deselectCoins();
         classList.add("selectCoin");
         coins.push(coin);
@@ -41,6 +44,7 @@ function selectCoin(e) { // hold the logic for selecting coins
 
 function deselectCoins() { //deselect all coins
     emptyCoins();
+    document.querySelectorAll(".selectCoin").forEach(coin => coin.setAttribute("draggable", "false"));
     document.querySelectorAll('.selectCoin').forEach(coin => coin.classList.remove("selectCoin"));
 }
 
