@@ -79,6 +79,7 @@ main {
 
 main li p{
     margin-left: 10px;
+    width: 20%;
 }
 
 main a {
@@ -118,10 +119,6 @@ main ul li {
     margin-top: 15px;
     padding: 5px;
     align-items: center;
-}
-
-.shadow{
-    box-shadow:  0 0 10px rgba(255, 244, 9, 0.6);
     box-sizing: border-box;
 }
 

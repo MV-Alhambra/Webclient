@@ -12,10 +12,9 @@ function fillLobbyList() {
     list.innerHTML = '';
     returnGames().then(result => {
         result.forEach(lobby => {
-            if (lobby.playerCount > 0 && lobby.playerCount < 6) {
-                const sonar = `<a href="#" data-id='${lobby.id}'>Join game</a></li></div>`; // i had to split the string bc of sonar
-                list.innerHTML += `<div class="shadow"><li><p>${lobby.customNameLobby}</p><em>${lobby.playerCount}/${lobby.maxNumberOfPlayers} players</em>` + sonar;
-
+            if (lobby.playerCount > 0 && lobby.playerCount < lobby.maxNumberOfPlayers) {
+                const sonar = `<a href="#" data-id='${lobby.id}'>Join game</a></li>`; // i had to split the string bc of sonar
+                list.innerHTML += `<li><p>${lobby.customNameLobby}</p><em>${lobby.playerCount}/${lobby.maxNumberOfPlayers} players</em>` + sonar;
             }
         });
         document.querySelectorAll('main ul li a').forEach(a => a.addEventListener('click', activateJoin));
