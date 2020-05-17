@@ -48,7 +48,7 @@ function calcTotalBuildings(players) { // calculates how many buildings have bee
         sum += player.reserve.length;
         player.city.flatMap(row => row)
             .filter(tile => tile !== null && tile.type !== null)
-            .forEach(() => sum++);
+            .forEach(() => sum += 1); //sonar wont allow me to use sum++ for some reason ಥ_ಥ
     });
     return sum;
 }
@@ -57,15 +57,14 @@ function setListenersDragMarket() {
     const markets = document.querySelectorAll("#marketGrid div p");
     markets.forEach(currency => currency.addEventListener("drop", dropCoins)); // this triggers when an item gets dropped in it
     //each currency has it own drop location, ... is a spread syntax, it gets each item of the nodeList and puts it in an actual array where i can filter on
-    //it filters out buildings that are gone and buildings that dont match the currency
-    [...markets].filter(building => building.innerHTML.length !== 0 && building.parentElement.getAttribute("data-currency") === "green")
-        .forEach(market => market.addEventListener("dragover", allowDropCoinsGreen));
-    [...markets].filter(building => building.innerHTML.length !== 0 && building.parentElement.getAttribute("data-currency") === "blue")
-        .forEach(market => market.addEventListener("dragover", allowDropCoinsBlue));
-    [...markets].filter(building => building.innerHTML.length !== 0 && building.parentElement.getAttribute("data-currency") === "orange")
-        .forEach(market => market.addEventListener("dragover", allowDropCoinsOrange));
-    [...markets].filter(building => building.innerHTML.length !== 0 && building.parentElement.getAttribute("data-currency") === "yellow")
-        .forEach(market => market.addEventListener("dragover", allowDropCoinsYellow));
+    [...markets].filter(market => filterMarket(market, "green")).forEach(market => market.addEventListener("dragover", allowDropCoinsGreen));
+    [...markets].filter(market => filterMarket(market, "blue")).forEach(market => market.addEventListener("dragover", allowDropCoinsBlue));
+    [...markets].filter(market => filterMarket(market, "orange")).forEach(market => market.addEventListener("dragover", allowDropCoinsOrange));
+    [...markets].filter(market => filterMarket(market, "yellow")).forEach(market => market.addEventListener("dragover", allowDropCoinsYellow));
+}
+
+function filterMarket(building, currency) {  //it filters out buildings that are gone and buildings that dont match the currency
+    return building.innerHTML.length !== 0 && building.parentElement.getAttribute("data-currency") === currency;
 }
 
 function dropCoins(e) {

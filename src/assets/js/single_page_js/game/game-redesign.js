@@ -40,7 +40,7 @@ function allowDropMap(e) { //only allow drop for our custom drags not the random
 }
 
 function allowDropReserve(e) { //only allow drop for our custom drags not the random default ones like select text and drag it and drag from reserve to map
-    if (!e.dataTransfer.types.includes("building/reserve") && e.dataTransfer.types.includes("building/map")) { //prevents dropping reserve buildings on itself
+    if ((checkCityToReserve(e))) { //prevents dropping reserve buildings on itself
         e.preventDefault();
     }
 }
@@ -59,9 +59,13 @@ function dragStartBuilding(e) { //makes buildingDrag visible and correct and set
     buildingDrag.style.left = (e.clientX) + "px";
     buildingDrag.classList.remove("hidden");
 
-    if (!e.dataTransfer.types.includes("building/reserve") && e.dataTransfer.types.includes("building/map")) { //only do it for city=>reserve
+    if (checkCityToReserve(e)) {
         document.querySelector("#reserve").classList.add("visualCue");
     }
+}
+
+function checkCityToReserve(e) {
+    return !e.dataTransfer.types.includes("building/reserve") && e.dataTransfer.types.includes("building/map");
 }
 
 function dragEndBuilding() { //makes buildingDrag invisible and removes the eventListeners
