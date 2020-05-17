@@ -60,7 +60,7 @@ function grabBuilding(e) { // buys the building, building is now in the hand
 
 function setCounters() { // sets the counters for the market
     getGame(gameId, token).then(response => {
-        document.querySelector("#remaining").innerHTML = (54 - calcTotalBuildings(response.players)).toString();
+        document.querySelector("#remaining").innerHTML = (50 - calcTotalBuildings(response.players)).toString();
         const player = response.players.find(player1 => player1.name === playerName);
         if (0 === player["virtual-score"] && player.score !== 0) { //still can fail if ppl put all their buildings in reserve and never on map
             localStorage.setItem("sinceScoreboard", calcTotalBuildings(response.players).toString());
