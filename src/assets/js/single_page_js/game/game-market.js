@@ -25,12 +25,7 @@ function grabBuilding(e) { // buys the building, building is now in the hand
         if (selectedMarket.building.cost > totalCoins()) { //give error not enough coins are selected
             showError("Not enough coins are selected!", e);
         } else {
-            buyBuilding(gameId, token, playerName, selectedMarket.currency, coins).then(response => {
-                responseHandler(response, e, false);
-                if (response.ok) { //empty the coins
-                    emptyCoins();
-                }
-            });
+            buyBuilding(gameId, token, playerName, selectedMarket.currency, coins).then(response => responseHandler(response, e, false));
         }
     }
 }

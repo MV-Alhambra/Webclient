@@ -90,7 +90,8 @@ function dragStartCoins(e) {
 }
 
 function dragEndCoins() {
-    document.querySelectorAll("#marketGrid div p.visualCue").forEach(market=>market.classList.remove("visualCue")); //for each bc then i dont get an error when it doesnt exist
+    document.querySelectorAll("#marketGrid div p.visualCue").forEach(market => market.classList.remove("visualCue")); //for each bc then i dont get an error when it doesnt exist
+    emptyCoins(); //bc the coins are now deselected, have to stay in sync
     coinsDrag.classList.add("hidden");
     setCoins();//remove opacity of coins
 }

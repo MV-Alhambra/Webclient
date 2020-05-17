@@ -96,6 +96,7 @@ function dragStartBankCoin(e) {
 
 function dragEndBankCoin() {
     document.querySelector("#money").classList.remove("visualCue");
+    bankCoins = []; //bc the coins are now deselected, have to stay in sync
     bankCoinDrag.classList.add("hidden");
     setBank();//remove opacity of coins
 }
