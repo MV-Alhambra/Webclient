@@ -33,20 +33,19 @@ function init() {
     document.querySelector('.leavePopup').addEventListener('click', confirmLeaving);
     document.querySelector('#returnToGame').addEventListener('click', closeLeave);
     document.querySelector("#city .close").addEventListener("click", closeCity);
-    document.querySelector("header .Yes").addEventListener("click",leaveGamePlayer);
-    document.querySelector("#manual").addEventListener("click",showManual);
+    document.querySelector("header .Yes").addEventListener("click", leaveGamePlayer);
+    document.querySelector("#manual").addEventListener("click", showManual);
     document.querySelector(".manualpopup .close").addEventListener('click', closeManual);
 
     polling().then();
 }
 
 
-
 function setScoreboard() { // loads the scoreboard in
     getGamePlayers(gameId, token).then(players => {
         let listScoreboard = '';
         players.forEach(player => {
-            listScoreboard += `<dt>${player.name}</dt><dd>${player.score}</dd>`;
+            listScoreboard += `<dt>${player.name === turnPlayer ? "☼ " + player.name : player.name}</dt><dd>${player.score}</dd>`;
         });
         scoreboard.innerHTML = listScoreboard;
         document.querySelectorAll("#scoreboard dt").forEach(player => player.addEventListener("click", showCity));
@@ -215,9 +214,10 @@ function convertIndexToLocation(index) { //converts an index into a dynamic/norm
     };
 }
 
-function showManual(){
+function showManual() {
     document.querySelector('.manualpopup').style.display = 'flex';
 }
+
 function closeManual() { //hides the manual
     document.querySelector('.manualpopup').style.display = 'none';
 }
