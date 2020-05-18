@@ -28,6 +28,10 @@ function startGame(gameId, token) { // Get the state of a game
 
 async function getGameStarted(gameId, token) {
     const game = await getGame(gameId, token);
+    if(game.hasOwnProperty("ended")){
+        localStorage.setItem("sinceScoreboard", "0"); // for counters
+        window.location.replace('./game.html'); //replace bc i dont want ppl pressing previous to go back to this lobby
+    }
     return game.readyCount === game.playerCount && parseInt(game.readyCount) > 1;
 }
 
