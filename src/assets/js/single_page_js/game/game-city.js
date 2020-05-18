@@ -10,7 +10,7 @@ let cityZoomIn = null;
 let name = null;
 
 function showCity(e) {
-    name = e.currentTarget.innerHTML;
+    name = e.currentTarget.getAttribute("data-name");
     city.classList.add("flex");
     cityMapTitle.innerHTML = `The town of <span> ${name}</span>`;
     setCity();

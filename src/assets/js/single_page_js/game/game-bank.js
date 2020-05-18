@@ -35,7 +35,6 @@ function convertBankCoinToObject(e) { //turns the html of a coin into an object 
 
 function selectBankCoins(e) { //selector logic for the coins
     deselectCoins();
-    deselectMarket();
     deselectReserve();
     const classList = e.target.classList;
     if (classList.contains("selectBankCoin")) { //unselect selected coin
@@ -72,33 +71,32 @@ function deselectBankCoins() { //deselect all coins
 
 function grabCoins(e) { //send selected coins to the server
     if (playerName === turnPlayer) {
-        if (bankCoins.length === 0) {
-            showError("No coins selected!", e);
-        } else {
-            takeCoins(gameId, token, playerName, bankCoins).then(response => {
-                responseHandler(response, e);
-                if (response.ok) { //empty the bankCoins when transaction is completed
-                    bankCoins = [];
-                }
-            });
-        }
+        takeCoins(gameId, token, playerName, bankCoins).then(response => {
+            responseHandler(response, e);
+            if (response.ok) { //empty the bankCoins when transaction is completed
+                bankCoins = [];
+            }
+        });
     }
 }
 
-function dragBankCoin(e) {//makes the coin stay near the cursor
+function dragBankCoin(e) {//makes the coin bag stay near the cursor
     bankCoinDrag.style.top = (e.clientY) + "px";
-    bankCoinDrag.style.left = (e.clientX- 100) + "px";
+    bankCoinDrag.style.left = (e.clientX - 100) + "px";
 }
 
 function dragStartBankCoin(e) {
-    bankCoinDrag.style.top = (e.clientY ) + "px";
+    bankCoinDrag.style.top = (e.clientY) + "px";
     bankCoinDrag.style.left = (e.clientX) + "px";
+    document.querySelector("#money").classList.add("visualCue");
     document.querySelectorAll("#bank .selectBankCoin").forEach(coin => coin.classList.add("dragged"));
     e.dataTransfer.setData("bankcoin", null);
     bankCoinDrag.classList.remove("hidden");
 }
 
 function dragEndBankCoin() {
+    document.querySelector("#money").classList.remove("visualCue");
+    bankCoins = []; //bc the coins are now deselected, have to stay in sync
     bankCoinDrag.classList.add("hidden");
     setBank();//remove opacity of coins
 }

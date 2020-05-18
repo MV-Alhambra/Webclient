@@ -141,7 +141,7 @@ function timer() { // timer for starting game
         if (counter === 0) { //stop interval
             localStorage.setItem("sinceScoreboard", "0"); // for counters
             await startGame(gameId, token); // make wait for response so that it actually starts before moving the person
-            window.location.replace('./game.html'); //replace bc i dont want ppl pressing previous to go back to this lobby it would 100% give errors since lobby wouldn't exist anymore
+            window.location.replace('./game.html'); //replace bc i dont want ppl pressing previous to go back to this lobby
         }
         counter--;
     }, 1000);

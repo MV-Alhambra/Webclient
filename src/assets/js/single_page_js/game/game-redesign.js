@@ -28,9 +28,9 @@ function dragBuilding(e) { //makes the building stay near the cursor
 
 function showLocations(e) { //shows the locations of were the new building can be placed
     showPossibleLocations(convertBuildingToObject(e.currentTarget), addEventListenersReserveBuilding);
-    dragStartBuilding(e);
     e.dataTransfer.setData("building", "reserve");
     e.dataTransfer.setData("building/reserve", null);//because js only allows me to see the content at drop
+    dragStartBuilding(e);
 }
 
 function allowDropMap(e) { //only allow drop for our custom drags not the random default ones like select text
@@ -40,7 +40,7 @@ function allowDropMap(e) { //only allow drop for our custom drags not the random
 }
 
 function allowDropReserve(e) { //only allow drop for our custom drags not the random default ones like select text and drag it and drag from reserve to map
-    if (!e.dataTransfer.types.includes("building/reserve") && e.dataTransfer.types.includes("building/map")) { //prevents dropping reserve buildings on itself
+    if ((checkCityToReserve(e))) { //prevents dropping reserve buildings on itself
         e.preventDefault();
     }
 }
@@ -58,9 +58,18 @@ function dragStartBuilding(e) { //makes buildingDrag visible and correct and set
     buildingDrag.style.top = (e.clientY) + "px";
     buildingDrag.style.left = (e.clientX) + "px";
     buildingDrag.classList.remove("hidden");
+
+    if (checkCityToReserve(e)) {
+        document.querySelector("#reserve").classList.add("visualCue");
+    }
+}
+
+function checkCityToReserve(e) {
+    return !e.dataTransfer.types.includes("building/reserve") && e.dataTransfer.types.includes("building/map");
 }
 
 function dragEndBuilding() { //makes buildingDrag invisible and removes the eventListeners
+    document.querySelector("#reserve").classList.remove("visualCue");
     buildingDrag.classList.add("hidden");
     setReserve();
     setMap();
@@ -79,7 +88,6 @@ function dropBuilding(e, building) { //second and third argument only gets used 
 
 function selectReserve(e) { // holds the logic for selecting reserve buildings
     deselectBankCoins();
-    deselectMarket();
     deselectCoins();
     if (e.target.classList.contains("selectReserve")) {
         deselectReserve();

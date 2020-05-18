@@ -245,8 +245,8 @@ aside p.inactive {
 }
 
 .blink {
-    animation: fade 3000ms infinite;
-    background: cornflowerblue; /*make it nice*/
+    animation:  fade 3000ms infinite;
+    background: #e7c509; /*make it nice*/
 }
 
 /* ---end map---*/
@@ -284,9 +284,8 @@ aside p.inactive {
 }
 
 .selectReserve {
-   animation: glow2 1s ease-in-out infinite alternate;
+    animation: glow2 1s ease-in-out infinite alternate;
 }
-
 
 @-webkit-keyframes glow2 {
     from {
@@ -296,7 +295,6 @@ aside p.inactive {
         box-shadow: 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509, 0 0 7px #e7c509, 0 0 8px #e7c509, 0 0 10px #e7c509;
     }
 }
-
 
 /*---end_reserve---*/
 /*---turn_options---*/
@@ -390,11 +388,11 @@ dd {
     font-size: 2rem;
 }
 
-#containerBank p.selectBankCoin {
+#containerBank .selectBankCoin {
     animation: glow2 1s ease-in-out infinite alternate;
 }
 
-#containerBank p,#bankCoinDrag p {
+#containerBank p, #bankCoinDrag p {
     color: white;
     width: 25%;
     font-size: 3rem;
@@ -466,7 +464,7 @@ dd {
     box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.65);
 }
 
-#marketGrid p.selectMarketBuilding {
+.visualCue {
     animation: glow2 1s ease-in-out infinite alternate;
 }
 
@@ -957,16 +955,15 @@ header a:hover {
     pointer-events: none;
 }
 
-#bankCoinDrag{
+#bankCoinDrag, #coinsDrag {
     background-image: url("../../media/bafofCoinsHDEdited.png");
     background-size: 100% 100%;
     background-position: center center;
     width: 200px;
     height: 200px;
-
 }
 
-#buildingDrag{
+#buildingDrag {
     width: 100px;
     height: 100px;
 }
