@@ -2,14 +2,23 @@
 
 document.addEventListener('DOMContentLoaded', init);
 
-const error =document.querySelector('.error');
-const gameName =document.querySelector('h1');
+const error = document.querySelector('.error');
+const gameName = document.querySelector('h1');
 let gameId;
 
 function init() {
+    checkUrl();
     checkLS();
     document.querySelector('form').addEventListener('submit', joinGame);
     setCustomLobbyName();
+}
+
+
+function checkUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has("id")) {
+        localStorage.setItem("gameId", urlParams.get("id"));
+    }
 }
 
 function checkLS() {
@@ -33,7 +42,9 @@ function joinGame(e) {
 
     const name = document.querySelector('#userid').value.toLowerCase();
 
-    if (!validate(name)){ return;} // prevents code from further executing if it doesnt validate
+    if (!validate(name)) {
+        return;
+    } // prevents code from further executing if it doesnt validate
 
     addPlayer(gameId, name).then(response => {
         if (response.ok) {
@@ -46,7 +57,7 @@ function joinGame(e) {
         localStorage.setItem('playerToken', jsonToken);
         localStorage.setItem('playerName', name);
         window.location.replace('./game_lobby.html');
-    }).catch(()=> error.innerHTML = 'That player name is already used!');
+    }).catch(() => error.innerHTML = 'That player name is already used!');
 }
 
 function validate(name) {
