@@ -20,6 +20,7 @@ function init() {
     checkLS();
     setLSReadyButton();
     setCustomLobbyName();
+    setInviteURL();
     document.querySelector('header a').addEventListener('click', leaveGamePlayer);
     document.querySelector('#copy').addEventListener('click', copy);
     readyButton.addEventListener('click', changePlayerStatus);
@@ -27,6 +28,9 @@ function init() {
     waitingTimer();
 }
 
+function setInviteURL() {
+    document.querySelector("#inviteURL").innerHTML = window.location.href.replace("game_lobby.html", "join_game.html?id=" + gameId);
+}
 
 function setCustomLobbyName() {
     getLobbyName(gameId, token).then(customNameLobby => {
