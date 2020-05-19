@@ -129,7 +129,6 @@ function closeCity() {
     city.classList.remove("flex");
 }
 
-
 function refresh() { //loads everything in
     setTurn();
     setReserve();
