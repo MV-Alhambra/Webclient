@@ -20,6 +20,7 @@ function init() {
     checkLS();
     setLSReadyButton();
     setCustomLobbyName();
+    setInviteURL();
     document.querySelector('header a').addEventListener('click', leaveGamePlayer);
     document.querySelector('#copy').addEventListener('click', copy);
     readyButton.addEventListener('click', changePlayerStatus);
@@ -27,6 +28,9 @@ function init() {
     waitingTimer();
 }
 
+function setInviteURL() {
+    document.querySelector("#inviteURL").innerHTML = window.location.href.replace("game_lobby.html", "join_game.html?id=" + gameId);
+}
 
 function setCustomLobbyName() {
     getLobbyName(gameId, token).then(customNameLobby => {
@@ -76,8 +80,7 @@ function leaveGamePlayer(e) { //leaves the game
 }
 
 async function polling() { //updates everything each half a second
-    const started = await getGameStarted(gameId, token);
-    if (started) { //checks if the game is started
+    if (await getGameStarted(gameId, token)) { //checks if the game is started
         waiting.classList.add("white");
         if (timerId === null) {
             timerId = timer();
@@ -139,9 +142,7 @@ function timer() { // timer for starting game
     return setInterval(async () => {
         header.innerHTML = `The game is starting in ${counter.toString()}s`;
         if (counter === 0) { //stop interval
-            localStorage.setItem("sinceScoreboard", "0"); // for counters
             await startGame(gameId, token); // make wait for response so that it actually starts before moving the person
-            window.location.replace('./game.html'); //replace bc i dont want ppl pressing previous to go back to this lobby
         }
         counter--;
     }, 1000);

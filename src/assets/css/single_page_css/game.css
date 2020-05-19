@@ -90,6 +90,16 @@ main {
     grid-template-rows: repeat(9, 1fr);
 }
 
+.map11 {
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: repeat(11, 1fr);
+}
+
+.map13 {
+    grid-template-columns: repeat(13, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+}
+
 .map3 .building {
     font-size: 2rem;
 }
@@ -154,6 +164,48 @@ main {
 
 .map9 .eastWall {
     border-right: black 4px solid;
+}
+
+.map11 .building {
+    font-size: 0.9rem;
+    border: 2px;
+}
+
+.map11 .westWall {
+    border-left: black 3px solid;
+}
+
+.map11 .southWall {
+    border-bottom: black 3px solid;
+}
+
+.map11 .northWall {
+    border-top: black 3px solid;
+}
+
+.map11 .eastWall {
+    border-right: black 3px solid;
+}
+
+.map13 .building {
+    font-size: 0.7rem;
+    border: 1px;
+}
+
+.map13 .westWall {
+    border-left: black 2px solid;
+}
+
+.map13 .southWall {
+    border-bottom: black 2px solid;
+}
+
+.map13 .northWall {
+    border-top: black 2px solid;
+}
+
+.map13 .eastWall {
+    border-right: black 2px solid;
 }
 
 .fountain {
@@ -245,7 +297,7 @@ aside p.inactive {
 }
 
 .blink {
-    animation:  fade 3000ms infinite;
+    animation: fade 3000ms infinite;
     background: #e7c509; /*make it nice*/
 }
 
@@ -959,8 +1011,8 @@ header a:hover {
     background-image: url("../../media/bafofCoinsHDEdited.png");
     background-size: 100% 100%;
     background-position: center center;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 
 #buildingDrag {
@@ -1079,6 +1131,7 @@ h5 {
     display: grid;
     margin: 0 auto;
     position: relative;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* -- end popup town/city-- */

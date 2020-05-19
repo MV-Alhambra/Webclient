@@ -1,10 +1,5 @@
 "use strict";
 
-const city = document.querySelector("#city");
-const cityMapTitle = document.querySelector("#cityMap h5");
-const cityMapWrapper = document.querySelector("#cityMap div div");
-const cityReserveTitle = document.querySelector("#cityReserve h5");
-const cityReserveWrapper = document.querySelector("#cityReserve div");
 let cityZoomOut = null;
 let cityZoomIn = null;
 let name = null;
@@ -39,11 +34,12 @@ function setCity() { // loads in the map
 }
 
 function zoomButtonHider(btnZoomIn, btnZoomOut) { //logic for making the buttons invisible
-    if (mapSize === 9) {
+    if (mapSize === maxMapSize) {
         btnZoomOut.classList.add("inactive");
-        btnZoomIn.classList.remove("inactive");
     } else if (mapSize === 3) {
         btnZoomIn.classList.add("inactive");
+    }else{
         btnZoomOut.classList.remove("inactive");
+        btnZoomIn.classList.remove("inactive");
     }
 }
