@@ -10,30 +10,24 @@ const winOrLose = document.querySelector('h1');
 const city = document.querySelector("#city");
 const cityMapTitle = document.querySelector("#cityMap h5");
 const cityMapWrapper = document.querySelector("#cityMap div div");
-const cityReserveTitle = document.querySelector("#cityReserve h5");
-const cityReserveWrapper = document.querySelector("#cityReserve div");
 let cityZoomOut = null;
 let cityZoomIn = null;
 const reserveWrapper = document.querySelector("#reserve div");
 let mapSize = 3;
 let maxMapSize = 13;
-
-
+let nameOfCity = null;
 
 document.addEventListener('DOMContentLoaded', init);
 
 
 function init() {
+    updateMapSize();
+    window.addEventListener('resize', updateMapSize);
+    document.querySelector("#city .close").addEventListener("click", closeCity);
     getPlayersAndScore().then(response => {
-        console.log(response);
         loadInScore(response);
         checkWin(response);
-        document.querySelectorAll('section').forEach((a) => {
-            a.addEventListener('click', showCity);
-        });
-        updateMapSize();
-        window.addEventListener('resize', updateMapSize);
-        document.querySelector("#city .close").addEventListener("click", closeCity);
+        document.querySelectorAll('#players section a').forEach(a => a.addEventListener('click', showCity));
     });
 
 }
@@ -80,16 +74,14 @@ function checkWin(response) {
 }
 
 function showCity(e) {
-    let nameOfCity = e.target.getAttribute("data-name");
-    console.log(nameOfCity);
+   nameOfCity = e.target.getAttribute("data-name");
     document.querySelector('.popup').classList.add('flex');
     cityMapTitle.innerHTML = `The town of <span> ${nameOfCity}</span>`;
-    setCity(nameOfCity);
+    setCity();
 }
 
 
-function setCity(nameOfCity) { // loads in the map
-    console.log(name);
+function setCity(y) { // loads in the map
     getGamePlayerProperty(gameId, token, nameOfCity, "city").then(cityMap => {
         updateMapSize();
         cityMapWrapper.className = 'map' + mapSize;//set the size of the map
@@ -112,7 +104,7 @@ function zoomButtonHider(btnZoomIn, btnZoomOut) { //logic for making the buttons
         btnZoomOut.classList.add("inactive");
     } else if (mapSize === 3) {
         btnZoomIn.classList.add("inactive");
-    }else{
+    } else {
         btnZoomOut.classList.remove("inactive");
         btnZoomIn.classList.remove("inactive");
     }
