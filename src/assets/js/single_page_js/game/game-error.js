@@ -2,7 +2,6 @@
 
 let errorEvent = null;
 let timeoutError;
-const mouseError = document.querySelector("#mouseError");
 
 function showError(text, e) { // displays the error, automatically removes it after 5s
     if (errorEvent !== null) {

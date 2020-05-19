@@ -1,10 +1,5 @@
 "use strict";
 
-const city = document.querySelector("#city");
-const cityMapTitle = document.querySelector("#cityMap h5");
-const cityMapWrapper = document.querySelector("#cityMap div div");
-const cityReserveTitle = document.querySelector("#cityReserve h5");
-const cityReserveWrapper = document.querySelector("#cityReserve div");
 let cityZoomOut = null;
 let cityZoomIn = null;
 let name = null;

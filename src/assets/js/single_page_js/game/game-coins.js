@@ -1,7 +1,6 @@
 "use strict";
 
 let coins = [];
-const coinsDrag = document.querySelector("#coinsDrag");
 
 function setCoins() { // loads the coins in
     getGamePlayer(gameId, token, playerName).then(player => {

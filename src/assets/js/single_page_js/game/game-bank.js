@@ -2,8 +2,6 @@
 
 let bankCoins = [];
 
-const bankCoinDrag = document.querySelector("#bankCoinDrag");
-
 function setBank() { // loads the bank in
 
     getGameProperty(gameId, token, 'bank').then(bank => {

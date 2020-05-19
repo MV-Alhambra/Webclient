@@ -1,6 +1,5 @@
 "use strict";
 
-const hand = document.querySelector("#hand");
 let selectedBuilding = null;
 
 function showHand() { //makes the hand visible if there are buildings in it

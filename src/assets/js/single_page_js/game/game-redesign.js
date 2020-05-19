@@ -1,6 +1,5 @@
 "use strict";
 
-const buildingDrag = document.querySelector("#buildingDrag");
 let buildingReserve = null;
 
 function setRedesignSelectors() { //adds the eventListeners to make redesign functionality possible

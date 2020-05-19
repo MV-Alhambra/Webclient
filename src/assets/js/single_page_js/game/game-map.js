@@ -1,8 +1,6 @@
 "use strict";
 
 let mapSize = 5;
-const mapZoomIn = document.querySelector("#zoom_in");
-const mapZoomOut = document.querySelector("#zoom_out");
 
 function setMap(addListeners = false) { // loads in the map
     getGamePlayerProperty(gameId, token, playerName, "city").then(city => {

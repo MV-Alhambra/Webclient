@@ -6,20 +6,59 @@ const gameId = localStorage.getItem('gameId');
 const token = localStorage.getItem('playerToken');
 const playerName = localStorage.getItem('playerName');
 
-const scoreboard = document.querySelector('#scoreboard dl');
-const title = document.querySelector('header h2');
-const bankWrapper = document.querySelector('#containerBank');
-const marketBuildings = document.querySelectorAll('#marketGrid div');
-const mapWrapper = document.querySelector("#map div");
-const reserveWrapper = document.querySelector("#reserve div");
-const popupLeave = document.querySelector('#popup.hidden');
-
+let scoreboard;
+let title;
+let bankWrapper;
+let marketBuildings;
+let mapWrapper;
+let reserveWrapper;
+let popupLeave;
+let bankCoinDrag;
+let city;
+let cityMapTitle;
+let cityMapWrapper;
+let cityReserveTitle;
+let cityReserveWrapper;
+let coinsDrag;
+let mouseError;
+let hand;
+let mapZoomIn;
+let mapZoomOut;
+let buildingDrag;
 
 let colors = ["blue", "green", "orange", "yellow"];
 let types = ["pavilion", "seraglio", "arcades", "chambers", "garden", "tower"];
 let turnPlayer = null;
 
 function init() {
+    //game
+    scoreboard = document.querySelector('#scoreboard dl');
+    title = document.querySelector('header h2');
+    bankWrapper = document.querySelector('#containerBank');
+    marketBuildings = document.querySelectorAll('#marketGrid div');
+    mapWrapper = document.querySelector("#map div");
+    reserveWrapper = document.querySelector("#reserve div");
+    popupLeave = document.querySelector('#popup.hidden');
+    //game-bank
+    bankCoinDrag = document.querySelector("#bankCoinDrag");
+    //game-city
+    city = document.querySelector("#city");
+    cityMapTitle = document.querySelector("#cityMap h5");
+    cityMapWrapper = document.querySelector("#cityMap div div");
+    cityReserveTitle = document.querySelector("#cityReserve h5");
+    cityReserveWrapper = document.querySelector("#cityReserve div");
+    //game-coins
+    coinsDrag = document.querySelector("#coinsDrag");
+    //game-error
+    mouseError = document.querySelector("#mouseError");
+    //game-hand
+    hand = document.querySelector("#hand");
+    //game-map
+    mapZoomIn = document.querySelector("#zoom_in");
+    mapZoomOut = document.querySelector("#zoom_out");
+    //game-redesign
+    buildingDrag = document.querySelector("#buildingDrag");
+
     initLSMapSize();
     getBuildingTypes().then(typeList => types = typeList);// not really needed anymore but why not
     getCurrencies().then(currencies => colors = currencies);// not really needed anymore but why not
