@@ -157,12 +157,6 @@ div#links
     display: none;
 }
 
-
-
-.flex {
-    display: flex;
-}
-
 h5 {
     font-family: 'Berkshire Swash', cursive, sans-serif;
     font-weight: lighter;
@@ -243,7 +237,274 @@ h5 {
 
 #cityMap div div {
     height: 100%;
+    width: 100%;
     display: grid;
     margin: 0 auto;
     position: relative;
+}
+
+/* ---start map---*/
+#map {
+    border: rgb(255, 255, 255) 1px solid;
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.2);
+    grid-area: 1 / 5 / 9 /11;
+    position: relative;
+}
+
+#map div {
+    height: 100%;
+    display: grid;
+    margin: 0 auto;
+}
+
+.map3 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.map5 {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+
+.map7 {
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+}
+
+.map9 {
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+}
+
+.map11 {
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: repeat(11, 1fr);
+}
+
+.map13 {
+    grid-template-columns: repeat(13, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+}
+
+.map3 .building {
+    font-size: 2rem;
+}
+
+.map5 .building {
+    font-size: 1.7rem;
+}
+
+.map5 .westWall {
+    border-left: black 8px solid;
+}
+
+.map5 .southWall {
+    border-bottom: black 8px solid;
+}
+
+.map5 .northWall {
+    border-top: black 8px solid;
+}
+
+.map5 .eastWall {
+    border-right: black 8px solid;
+}
+
+.map7 .building {
+    font-size: 1.4rem;
+    border: 6px;
+}
+
+.map7 .westWall {
+    border-left: black 6px solid;
+}
+
+.map7 .southWall {
+    border-bottom: black 6px solid;
+}
+
+.map7 .northWall {
+    border-top: black 6px solid;
+}
+
+.map7 .eastWall {
+    border-right: black 6px solid;
+}
+
+.map9 .building {
+    font-size: 1.1rem;
+    border: 4px;
+}
+
+.map9 .westWall {
+    border-left: black 4px solid;
+}
+
+.map9 .southWall {
+    border-bottom: black 4px solid;
+}
+
+.map9 .northWall {
+    border-top: black 4px solid;
+}
+
+.map9 .eastWall {
+    border-right: black 4px solid;
+}
+
+.map11 .building {
+    font-size: 0.9rem;
+    border: 2px;
+}
+
+.map11 .westWall {
+    border-left: black 3px solid;
+}
+
+.map11 .southWall {
+    border-bottom: black 3px solid;
+}
+
+.map11 .northWall {
+    border-top: black 3px solid;
+}
+
+.map11 .eastWall {
+    border-right: black 3px solid;
+}
+
+.map13 .building {
+    font-size: 0.7rem;
+    border: 1px;
+}
+
+.map13 .westWall {
+    border-left: black 2px solid;
+}
+
+.map13 .southWall {
+    border-bottom: black 2px solid;
+}
+
+.map13 .northWall {
+    border-top: black 2px solid;
+}
+
+.map13 .eastWall {
+    border-right: black 2px solid;
+}
+
+.fountain {
+    background-image: url("../../../images/fountain.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    user-select: none;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.arcades {
+    background-image: url("../../../images/arcades.jpg");
+}
+
+.chambers {
+    background-image: url("../../../images/chambers.jpg");
+}
+
+.garden {
+    background-image: url("../../../images/garden.jpg");
+}
+
+.pavilion {
+    background-image: url("../../../images/pavilion.jpg");
+}
+
+.seraglio {
+    background-image: url("../../../images/seraglio.jpg");
+}
+
+.tower {
+    background-image: url("../../../images/tower.jpg");
+}
+
+.building {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-family: Orbitron, cursive;
+    color: white;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    user-select: none;
+    height: 100%;
+    box-sizing: border-box;
+    /*border: 10px solid white;*/ /*#todo: make borders look like in rules and when no borders look normal? */
+}
+
+aside {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    user-select: none;
+}
+
+aside p {
+    font-family: Lobster, cursive;
+    font-size: 35px;
+    display: inline-block;
+    user-select: none;
+    padding-left: 5px;
+    line-height: 25px;
+    color: white;
+}
+
+aside p:not(.inactive):hover {
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+aside p.inactive {
+    color: transparent;
+}
+
+@keyframes fade {
+    from {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
+
+.blink {
+    animation: fade 3000ms infinite;
+    background: #e7c509; /*make it nice*/
+}
+
+/* ---end map---*/
+
+.close {
+    position: absolute;
+    top: 0.1em;
+    right: 0.3em;
+    font-size: 2em;
+    transform: rotate(45deg);
+    cursor: pointer;
+    color: white;
+}
+
+.close:hover {
+    animation: glow 1s ease-in-out alternate infinite;
+}
+
+.flex {
+    display: flex;
 }

@@ -28,8 +28,12 @@ function init() {
         console.log(response);
         loadInScore(response);
         checkWin(response);
-        document.querySelector('section a').addEventListener('click', showCity)
+        document.querySelector('section a').addEventListener('click', showCity);
+        updateMapSize();
+        window.addEventListener('resize', updateMapSize);
+        document.querySelector("#city .close").addEventListener("click", closeCity);
     });
+
 }
 
 
@@ -77,15 +81,16 @@ function showCity(e) {
     let nameOfCity;
     nameOfCity = e.currentTarget.getAttribute("data-name");
     console.log(nameOfCity);
+    document.querySelector('.popup').classList.add('flex');
     cityMapTitle.innerHTML = `The town of <span> ${name}</span>`;
     setCity(nameOfCity);
-    cityReserveTitle.innerHTML = "Reserve buildings of " + name;
 }
 
 
 function setCity(nameOfCity) { // loads in the map
     console.log(name);
     getGamePlayerProperty(gameId, token, nameOfCity, "city").then(cityMap => {
+        updateMapSize();
         cityMapWrapper.className = 'map' + mapSize;//set the size of the map
         cityMapWrapper.innerHTML = `<aside><p id="zoom_in_city">+</p><p id="zoom_out_city">-</p></aside>`;
         convertCityToMap(cityMap).forEach(row => row.forEach(cell => cityMapWrapper.innerHTML += createBuilding(cell)));
@@ -95,11 +100,10 @@ function setCity(nameOfCity) { // loads in the map
         cityZoomOut.addEventListener('click', () => zoomOut(cityZoomIn, setCity));
         zoomButtonHider(cityZoomIn, cityZoomOut);
     });
-    getGamePlayerProperty(gameId, token, name, "reserve").then(reserve => {
-        let reserveBuildings = '';
-        reserve.forEach(building => reserveBuildings += createBuilding(building));
-        cityReserveWrapper.innerHTML = reserveBuildings;
-    });
+}
+
+function updateMapSize() { //Makes the map square, so far only works when height is bigger than width
+    cityMapWrapper.style.width = cityMapWrapper.clientHeight + "px";
 }
 
 function zoomButtonHider(btnZoomIn, btnZoomOut) { //logic for making the buttons invisible
@@ -160,5 +164,29 @@ function zoomOut(btnZoomIn, setFunction) {  // changes the mapSize and holds log
     }
 }
 
+function createBuilding(building, index = -1, canBeDragged = false) { //receives an building object and turns it into html for a building
+    if (building === null) {
+        return `<p></p>`;
+    } else if (building.cost === 0) {
+        return `<p class="fountain"></p>`;
+    } else {
+        let walls = '';
+        Object.keys(building.walls).forEach(wall => {
+            if (building.walls[wall]) {
+                walls += wall + "Wall ";
+            }
+        });
+        if (index === -1) {
+            return `<p class="building ${building.type} ${walls}" draggable="${canBeDragged}">${building.cost}</p>`;
+        } else {
+
+            return `<p class="building ${building.type} ${walls}" data-index="${index}" draggable="${canBeDragged}">${building.cost}</p>`;
+        }
+    }
+}
+
+function closeCity() {
+    city.classList.remove("flex");
+}
 
 
