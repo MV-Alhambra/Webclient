@@ -8,8 +8,8 @@ function setMap(addListeners = false) { // loads in the map
         mapWrapper.className = 'map' + mapSize;//set the size of the map
         mapWrapper.innerHTML = '';
         convertCityToMap(city)
-            .flatMap(row=>row)
-            .forEach((cell,index) => mapWrapper.innerHTML += createBuilding(cell, index, playerName === turnPlayer));
+            .flatMap(row => row)
+            .forEach((cell, index) => mapWrapper.innerHTML += createBuilding(cell, index, playerName === turnPlayer));
         showHand();
         setRedesignSelectors();
         if (addListeners) {
@@ -44,7 +44,7 @@ function convertCityToMap(city) { //converts the city into the size of the map
 
 function zoomIn(btnZoomOut, setFunction) { // changes the mapSize and holds logic for the buttons
     if (mapSize !== 3) {
-        if (mapSize === 9) {
+        if (mapSize === maxMapSize) {
             btnZoomOut.classList.remove("inactive");
         }
         mapSize -= 2;
@@ -54,7 +54,7 @@ function zoomIn(btnZoomOut, setFunction) { // changes the mapSize and holds logi
 }
 
 function zoomOut(btnZoomIn, setFunction) {  // changes the mapSize and holds logic for the buttons
-    if (mapSize !== 9) {
+    if (mapSize !== maxMapSize) {
         if (mapSize === 3) {
             btnZoomIn.classList.remove("inactive");
         }
@@ -71,7 +71,7 @@ function showPossibleLocations(building, addEventListeners) { //lights up all th
             const mapRadius = (mapSize - 1) / 2;
             if (Math.abs(location.col) <= mapRadius && Math.abs(location.row) <= mapRadius) { //only show what tiles are visible on the current map
                 const tile = document.querySelectorAll("#map div p")[index];
-                if (!tile.classList.contains("blink")){ //prevents having two listeners on the same tile
+                if (!tile.classList.contains("blink")) { //prevents having two listeners on the same tile
                     addEventListeners(tile, building);
                 }
                 tile.classList.add("blink");

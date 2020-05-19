@@ -34,7 +34,7 @@ function setCity() { // loads in the map
 }
 
 function zoomButtonHider(btnZoomIn, btnZoomOut) { //logic for making the buttons invisible
-    if (mapSize === 9) {
+    if (mapSize === maxMapSize) {
         btnZoomOut.classList.add("inactive");
         btnZoomIn.classList.remove("inactive");
     } else if (mapSize === 3) {

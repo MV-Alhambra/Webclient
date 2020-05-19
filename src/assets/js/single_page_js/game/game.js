@@ -30,6 +30,7 @@ let reserve;
 let colors = ["blue", "green", "orange", "yellow"];
 let types = ["pavilion", "seraglio", "arcades", "chambers", "garden", "tower"];
 let turnPlayer = null;
+const maxMapSize = 13; //1px walls aren't visible enough
 
 function init() {
     //game
