@@ -73,7 +73,7 @@ function setListenersDragCoins() {
 
 function dragCoins(e) {
     coinsDrag.style.top = (e.clientY) + "px";
-    coinsDrag.style.left = (e.clientX - 100) + "px";
+    coinsDrag.style.left = (e.clientX - 75) + "px";
 }
 
 function dragStartCoins(e) {

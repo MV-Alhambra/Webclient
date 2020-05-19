@@ -7,14 +7,10 @@ function setMap(addListeners = false) { // loads in the map
         zoomButtonHider(mapZoomIn, mapZoomOut);
         mapWrapper.className = 'map' + mapSize;//set the size of the map
         mapWrapper.innerHTML = '';
-        let index = 0;
-        convertCityToMap(city).forEach(row => {
-            row.forEach(cell => {
-                mapWrapper.innerHTML += createBuilding(cell, index, playerName === turnPlayer);
-                index++;//fk u sonar, would ve been a one liner
-            });
-        });
-        showHand();//temp or is it?
+        convertCityToMap(city)
+            .flatMap(row=>row)
+            .forEach((cell,index) => mapWrapper.innerHTML += createBuilding(cell, index, playerName === turnPlayer));
+        showHand();
         setRedesignSelectors();
         if (addListeners) {
             document.querySelectorAll("#map .building").forEach(building => building.addEventListener("click", swap));

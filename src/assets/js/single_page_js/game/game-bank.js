@@ -80,7 +80,7 @@ function grabCoins(e) { //send selected coins to the server
 
 function dragBankCoin(e) {//makes the coin bag stay near the cursor
     bankCoinDrag.style.top = (e.clientY) + "px";
-    bankCoinDrag.style.left = (e.clientX - 100) + "px";
+    bankCoinDrag.style.left = (e.clientX - 75) + "px";
 }
 
 function dragStartBankCoin(e) {
