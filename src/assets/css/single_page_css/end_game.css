@@ -3,8 +3,7 @@
 /*------------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
-body
-{
+body {
     background-image: url("../../../images/background.png");
     background-size: cover;
     margin-top: 3rem;
@@ -12,8 +11,8 @@ body
     margin-right: 4rem;
     font-family: sans-serif;
 }
-h1
-{
+
+h1 {
     font-weight: lighter;
     color: white;
     text-align: center;
@@ -23,9 +22,7 @@ h1
     font-family: 'Berkshire Swash', cursive, sans-serif;
 }
 
-
 /*animatie glow effect*/
-
 @-webkit-keyframes glow {
     from {
         text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509;
@@ -36,20 +33,16 @@ h1
 }
 
 /*end animatie glow effect*/
-
-
-
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
-div#players
-{
+div#players {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 75px;
 }
-section
-{
+
+#players section {
     font-family: 'Questrial', sans-serif;
     color: white;
     padding: 7px;
@@ -59,82 +52,77 @@ section
     text-align: center;
     width: 13%;
 }
-section:first-child
-{
+
+#players section:first-child {
     background-color: rgba(231, 213, 0, 0.5);
     border: rgba(255, 255, 255, 0.5) 1px solid;
     box-shadow: 0 0 10px 3px rgba(255, 244, 9, 0.4),
-                inset 0 0 10px 3px rgba(255, 244, 9, 0.4);
+    inset 0 0 10px 3px rgba(255, 244, 9, 0.4);
 }
 
-section:first-child div{
+#players section:first-child div {
     box-shadow: 0 0 10px 3px rgba(255, 244, 9, 0.4) inset;
     box-sizing: border-box;
 }
 
-section:nth-child(2)
-{
+#players section:nth-child(2) {
     background-color: rgba(192, 192, 192, 0.4);
     border: rgba(255, 255, 255, 0.5) 1px solid;
     box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.4),
-                inset 0 0 10px 3px rgba(255, 255, 255, 0.4);
+    inset 0 0 10px 3px rgba(255, 255, 255, 0.4);
 }
-section:nth-child(3)
-{
+
+#players section:nth-child(3) {
     background-color: rgba(80, 50, 20, 0.4);
     border: rgba(80, 50, 20, 0.5) 1px solid;
     box-shadow: 0 0 10px 3px rgba(165, 113, 100, 0.5),
-                inset 0 0 10px 3px rgba(165, 113, 100, 0.5);
+    inset 0 0 10px 3px rgba(165, 113, 100, 0.5);
 }
-h2
-{
+
+h2 {
     margin-top: 2rem;
     font-size: 4rem;
 }
-h3
-{
+
+h3 {
     color: white;
     margin-top: 2rem;
     font-size: 2rem;
+}
 
-}
-h4
-{
+h4 {
     margin-top: 2rem;
     font-size: 1.5rem;
 }
-h5
-{
+
+h5 {
     margin-top: 2rem;
     font-size: 1.5rem;
 }
-h6
-{
+
+h6 {
     margin-top: 1rem;
     margin-bottom: 50px;
     font-size: 1rem;
 }
 
-a
-{
+a {
     color: white;
     font-family: 'Berkshire Swash', cursive, sans-serif;
     font-size: 1.5rem;
 }
 
-a:hover{
+a:hover {
     animation: glow 1s ease-in-out infinite alternate;
 }
 
-section a{
+section a {
     font-family: 'Questrial', sans-serif;
     text-decoration: none;
     font-weight: bold;
-
 }
 
-div#links
-{
+div#links {
     display: flex;
     justify-content: space-between;
 }
@@ -142,10 +130,7 @@ div#links
 /*---------------------*/
 /* CONTAINING ELEMENTS */
 /*---------------------*/
-
-
 /*---popup---*/
-
 .popup {
     width: 100%;
     height: 100%;
@@ -157,16 +142,20 @@ div#links
     display: none;
 }
 
-h5 {
+.popup h5 {
     font-family: 'Berkshire Swash', cursive, sans-serif;
     font-weight: lighter;
     color: white;
     margin-top: 10px;
     margin-bottom: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 5px;
+    font-size: 2rem;
 }
 
 .contentCity {
-    width: 80%;
+    width: 75%;
     height: 85%;
     padding: 0 15%;
     position: relative;
@@ -180,8 +169,7 @@ h5 {
 }
 
 #cityMap {
-    margin-top: 10%;
-    height: 70%;
+    height:85%;
     width: 100%;
     box-sizing: border-box;
 }
@@ -190,7 +178,7 @@ h5 {
     box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.4);
     border: rgba(255, 255, 255, 0.5) 1px solid;
     background-color: rgba(41, 41, 41, 0.5);
-    padding: 0 25%;
+    padding: 0 5%;
 }
 
 #cityMap span {
@@ -242,21 +230,24 @@ h5 {
     display: grid;
     margin: 0 auto;
     position: relative;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* ---start map---*/
-#map {
-    border: rgb(255, 255, 255) 1px solid;
-    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.4);
-    background-color: rgba(255, 255, 255, 0.2);
-    grid-area: 1 / 5 / 9 /11;
-    position: relative;
+.westWall {
+    border-left: black 10px solid;
 }
 
-#map div {
-    height: 100%;
-    display: grid;
-    margin: 0 auto;
+.northWall {
+    border-top: black 10px solid;
+}
+
+.southWall {
+    border-bottom: black 10px solid;
+}
+
+.eastWall {
+    border-right: black 10px solid;
 }
 
 .map3 {
@@ -491,7 +482,6 @@ aside p.inactive {
 }
 
 /* ---end map---*/
-
 .close {
     position: absolute;
     top: 0.1em;
