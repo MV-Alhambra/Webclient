@@ -126,9 +126,8 @@ function closeLeave(e) { //closes the confirm leaving dialog
 }
 
 function closeCity() {
-    cityMap.classList.remove("flex");
+    city.classList.remove("flex");
 }
-
 
 function refresh() { //loads everything in
     setTurn();
