@@ -1,6 +1,5 @@
 "use strict";
 
-const hand = document.querySelector("#hand");
 let selectedBuilding = null;
 
 function showHand() { //makes the hand visible if there are buildings in it
@@ -11,10 +10,11 @@ function showHand() { //makes the hand visible if there are buildings in it
             document.addEventListener("mousemove", moveHand);
             showPossibleLocations(buildings[0], addEventListenersPlaceBuilding);
             selectedBuilding = buildings[0];
-            document.querySelector("#reserve").addEventListener("click", placeBuildingInReserve, {once: true});
-            document.querySelector("#reserve").classList.add("visualCue");
+            reserve.addEventListener("click", placeBuildingInReserve, {once: true});
+            reserve.classList.add("visualCue");
         } else {
-            document.querySelector("#reserve").classList.remove("visualCue");
+            reserve.removeEventListener("click", placeBuildingInReserve, {once: true});
+            reserve.classList.remove("visualCue");
             hand.classList.add("hidden");
         }
     });

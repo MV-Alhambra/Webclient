@@ -1,22 +1,16 @@
 "use strict";
 
 let mapSize = 5;
-const mapZoomIn = document.querySelector("#zoom_in");
-const mapZoomOut = document.querySelector("#zoom_out");
 
 function setMap(addListeners = false) { // loads in the map
     getGamePlayerProperty(gameId, token, playerName, "city").then(city => {
         zoomButtonHider(mapZoomIn, mapZoomOut);
         mapWrapper.className = 'map' + mapSize;//set the size of the map
         mapWrapper.innerHTML = '';
-        let index = 0;
-        convertCityToMap(city).forEach(row => {
-            row.forEach(cell => {
-                mapWrapper.innerHTML += createBuilding(cell, index, playerName === turnPlayer);
-                index++;//fk u sonar, would ve been a one liner
-            });
-        });
-        showHand();//temp or is it?
+        convertCityToMap(city)
+            .flatMap(row => row)
+            .forEach((cell, index) => mapWrapper.innerHTML += createBuilding(cell, index, playerName === turnPlayer));
+        showHand();
         setRedesignSelectors();
         if (addListeners) {
             document.querySelectorAll("#map .building").forEach(building => building.addEventListener("click", swap));
@@ -50,7 +44,7 @@ function convertCityToMap(city) { //converts the city into the size of the map
 
 function zoomIn(btnZoomOut, setFunction) { // changes the mapSize and holds logic for the buttons
     if (mapSize !== 3) {
-        if (mapSize === 9) {
+        if (mapSize === maxMapSize) {
             btnZoomOut.classList.remove("inactive");
         }
         mapSize -= 2;
@@ -60,7 +54,7 @@ function zoomIn(btnZoomOut, setFunction) { // changes the mapSize and holds logi
 }
 
 function zoomOut(btnZoomIn, setFunction) {  // changes the mapSize and holds logic for the buttons
-    if (mapSize !== 9) {
+    if (mapSize !== maxMapSize) {
         if (mapSize === 3) {
             btnZoomIn.classList.remove("inactive");
         }
@@ -77,10 +71,12 @@ function showPossibleLocations(building, addEventListeners) { //lights up all th
             const mapRadius = (mapSize - 1) / 2;
             if (Math.abs(location.col) <= mapRadius && Math.abs(location.row) <= mapRadius) { //only show what tiles are visible on the current map
                 const tile = document.querySelectorAll("#map div p")[index];
+                if (!tile.classList.contains("blink")) { //prevents having two listeners on the same tile
+                    addEventListeners(tile, building);
+                }
                 tile.classList.add("blink");
                 tile.setAttribute("data-row", location.row);
                 tile.setAttribute("data-col", location.col);
-                addEventListeners(tile, building);
             }
         });
     });
