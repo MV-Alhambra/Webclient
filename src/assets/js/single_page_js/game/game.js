@@ -25,6 +25,7 @@ let hand;
 let mapZoomIn;
 let mapZoomOut;
 let buildingDrag;
+let reserve;
 
 let colors = ["blue", "green", "orange", "yellow"];
 let types = ["pavilion", "seraglio", "arcades", "chambers", "garden", "tower"];
@@ -53,6 +54,7 @@ function init() {
     mouseError = document.querySelector("#mouseError");
     //game-hand
     hand = document.querySelector("#hand");
+    reserve = document.querySelector("#reserve");
     //game-map
     mapZoomIn = document.querySelector("#zoom_in");
     mapZoomOut = document.querySelector("#zoom_out");
@@ -147,7 +149,7 @@ function responseHandler(response, event, dynamic = true) { // this function han
         }
     } else {
         response.json().then(error => {
-            console.clear();//removes the error from the console
+            // console.clear();//removes the error from the console
             showError(error.cause, event); //shows the custom error from the server
         });
     }

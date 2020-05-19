@@ -71,10 +71,12 @@ function showPossibleLocations(building, addEventListeners) { //lights up all th
             const mapRadius = (mapSize - 1) / 2;
             if (Math.abs(location.col) <= mapRadius && Math.abs(location.row) <= mapRadius) { //only show what tiles are visible on the current map
                 const tile = document.querySelectorAll("#map div p")[index];
+                if (!tile.classList.contains("blink")){ //prevents having two listeners on the same tile
+                    addEventListeners(tile, building);
+                }
                 tile.classList.add("blink");
                 tile.setAttribute("data-row", location.row);
                 tile.setAttribute("data-col", location.col);
-                addEventListeners(tile, building);
             }
         });
     });
