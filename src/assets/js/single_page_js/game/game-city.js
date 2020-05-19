@@ -11,7 +11,7 @@ let name = null;
 
 function showCity(e) {
     name = e.currentTarget.getAttribute("data-name");
-    city.classList.add("flex");
+    console.log(e.currentTarget);
     cityMapTitle.innerHTML = `The town of <span> ${name}</span>`;
     setCity();
     cityReserveTitle.innerHTML = "Reserve buildings of " + name;

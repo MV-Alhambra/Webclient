@@ -115,7 +115,7 @@ function responseHandler(response, event, dynamic = true) { // this function han
 }
 
 async function polling() { //recursion function that stops when the game is over
-    if (await getGameProperty(gameId, token, "ended")) {
+    if (await getGameProperty(gameId, token, "ended")|| true) {
         window.location.replace('./end_game.html');
     } else {
         await dynamicUpdater();
