@@ -28,7 +28,9 @@ function init() {
         console.log(response);
         loadInScore(response);
         checkWin(response);
-        document.querySelector('section a').addEventListener('click', showCity);
+        document.querySelectorAll('section').forEach((a) => {
+            a.addEventListener('click', showCity);
+        });
         updateMapSize();
         window.addEventListener('resize', updateMapSize);
         document.querySelector("#city .close").addEventListener("click", closeCity);
@@ -78,7 +80,8 @@ function checkWin(response) {
 }
 
 function showCity(e) {
-    let nameOfCity = e.currentTarget.getAttribute("data-name");
+    let nameOfCity = e.target.getAttribute("data-name");
+    console.log(nameOfCity);
     document.querySelector('.popup').classList.add('flex');
     cityMapTitle.innerHTML = `The town of <span> ${nameOfCity}</span>`;
     setCity(nameOfCity);
