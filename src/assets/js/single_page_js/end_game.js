@@ -78,11 +78,9 @@ function checkWin(response) {
 }
 
 function showCity(e) {
-    let nameOfCity;
-    nameOfCity = e.currentTarget.getAttribute("data-name");
-    console.log(nameOfCity);
+    let nameOfCity = e.currentTarget.getAttribute("data-name");
     document.querySelector('.popup').classList.add('flex');
-    cityMapTitle.innerHTML = `The town of <span> ${name}</span>`;
+    cityMapTitle.innerHTML = `The town of <span> ${nameOfCity}</span>`;
     setCity(nameOfCity);
 }
 

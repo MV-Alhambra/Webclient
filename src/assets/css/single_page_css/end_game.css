@@ -180,6 +180,7 @@ h5 {
 }
 
 #cityMap {
+    margin-top: 10%;
     height: 70%;
     width: 100%;
     box-sizing: border-box;
