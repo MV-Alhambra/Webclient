@@ -49,11 +49,39 @@ main {
     grid-column-gap: 20px;
 }
 
-#money, #bank, #market, #reserve, #scoreboard {
+#money, #bank, #market, #reserve, #scoreboard, #dirk, #unavailable {
     background-color: rgba(42, 42, 42, 0.5);
     border: rgba(255, 255, 255, 0.5) 1px solid;
     box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.4);
 }
+
+/* ---start dirk---*/
+#dirk{
+    grid-area: 5 / 11 / 9 /13;
+}
+
+#dirk h1{
+    font-family: 'Berkshire Swash', cursive, sans-serif;
+    color: white;
+    font-weight: lighter;
+}
+
+#unavailable{
+    grid-area: 5 / 11 / 9 /13;
+    opacity: 0.5;
+    display: none;
+}
+
+#unavailable h1{
+    font-size: 1rem;
+    font-family: 'Berkshire Swash', cursive, sans-serif;
+    color: white;
+    font-weight: lighter;
+    margin-top: 70px;
+}
+
+/* ---end dirk---*/
+
 
 /* ---start map---*/
 #map {
