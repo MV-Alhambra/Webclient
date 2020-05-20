@@ -68,7 +68,6 @@ function init() {
     getBuildingTypes().then(typeList => types = typeList);// not really needed anymore but why not
     getCurrencies().then(currencies => colors = currencies);// not really needed anymore but why not
     updateMapSize();
-    setDirk();
 
     window.addEventListener('resize', updateMapSize);
     document.querySelector('#pspopup').addEventListener('click', showPointSystem);
@@ -141,6 +140,7 @@ function refresh() { //loads everything in
     setMarket();
     setScoreboard();
     setCounters();
+    setDirk();
 }
 
 function responseHandler(response, event, dynamic = true) { // this function handles all the responses of the actions of the player
