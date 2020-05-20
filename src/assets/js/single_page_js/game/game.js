@@ -26,6 +26,7 @@ let mapZoomIn;
 let mapZoomOut;
 let buildingDrag;
 let reserve;
+let dirk;
 
 let colors = ["blue", "green", "orange", "yellow"];
 let types = ["pavilion", "seraglio", "arcades", "chambers", "garden", "tower"];
@@ -56,6 +57,7 @@ function init() {
     //game-hand
     hand = document.querySelector("#hand");
     reserve = document.querySelector("#reserve");
+    dirk = document.querySelector("#dirk");
     //game-map
     mapZoomIn = document.querySelector("#zoom_in");
     mapZoomOut = document.querySelector("#zoom_out");
@@ -66,6 +68,7 @@ function init() {
     getBuildingTypes().then(typeList => types = typeList);// not really needed anymore but why not
     getCurrencies().then(currencies => colors = currencies);// not really needed anymore but why not
     updateMapSize();
+    setDirk();
 
     window.addEventListener('resize', updateMapSize);
     document.querySelector('#pspopup').addEventListener('click', showPointSystem);

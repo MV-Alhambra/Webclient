@@ -56,33 +56,34 @@ main {
 }
 
 /* ---start dirk---*/
-#dirk{
+#dirk {
     grid-area: 5 / 11 / 9 /13;
 }
 
-#dirk h1{
+#dirk h1 {
     font-family: 'Berkshire Swash', cursive, sans-serif;
     color: white;
     font-weight: lighter;
 }
 
-#unavailable{
+#unavailable {
     grid-area: 5 / 11 / 9 /13;
     opacity: 0.5;
-    display: none;
 }
 
-#unavailable h1{
+#unavailable h1 {
     font-size: 1rem;
     font-family: 'Berkshire Swash', cursive, sans-serif;
     color: white;
     font-weight: lighter;
-    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 /* ---end dirk---*/
-
-
 /* ---start map---*/
 #map {
     border: rgb(255, 255, 255) 1px solid;
@@ -1151,8 +1152,6 @@ h5 {
     flex: 1 1 auto;
     position: relative;
 }
-
-
 
 #cityMap div div {
     height: 100%;
