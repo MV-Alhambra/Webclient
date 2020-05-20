@@ -1,6 +1,6 @@
 'use strict';
 
-const root =  "http://localhost:8080/"; // http://localhost:8080/;
+const root =  "http://172.21.22.52:48201/alhambra-21/api/"; // http://localhost:8080/;
 
 function returnGames() {   // Show all games from your group lobby
     return fetchJSON(`${root}games`, 'GET');
