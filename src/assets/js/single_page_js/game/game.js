@@ -149,7 +149,7 @@ function responseHandler(response, event, dynamic = true) { // this function han
         }
     } else {
         response.json().then(error => {
-            // console.clear();//removes the error from the console
+            console.clear();//removes the error from the console
             showError(error.cause, event); //shows the custom error from the server
         });
     }
