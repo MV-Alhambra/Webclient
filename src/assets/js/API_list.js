@@ -66,7 +66,13 @@ function getPlayerReady(gameId, token) {
 }
 
 function getGamePlayers(gameId, token) {
-    return getGameProperty(gameId, token, 'players');
+   return  getGame(gameId,token).then(game =>{
+        const players = game.players;
+        if (game.hasOwnProperty("dirk") && game.dirk !== null){ // emulates dirk as a player so that i dont have to modify any other code to add dirk
+            players.push(game.dirk);
+        }
+        return players
+    });
 }
 
 function getGameCurrentPlayer(gameId, token) {

@@ -52,7 +52,6 @@ function loadInScore(playersScore) {
 
 function getPlayersAndScore() { // loads the scoreboard in
     return getGamePlayers(gameId, token).then(players => {
-        console.log(players);
         const scoreboard = [];
         players.forEach(player => {
             scoreboard.push({name: player.name, score: player.score});
