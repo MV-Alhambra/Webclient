@@ -71,7 +71,7 @@ function getGamePlayers(gameId, token) {
         if (game.hasOwnProperty("dirk") && game.dirk !== null){ // emulates dirk as a player so that i dont have to modify any other code to add dirk
             players.push(game.dirk);
         }
-        return players
+        return players;
     });
 }
 

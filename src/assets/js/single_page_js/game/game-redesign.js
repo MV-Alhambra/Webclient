@@ -1,6 +1,7 @@
 "use strict";
 
 let buildingReserve = null;
+let firefoxFlagBuilding = false;
 
 function setRedesignSelectors() { //adds the eventListeners to make redesign functionality possible
     if (playerName === turnPlayer) {
@@ -21,8 +22,10 @@ function setRedesignSelectors() { //adds the eventListeners to make redesign fun
 }
 
 function dragBuilding(e) { //makes the building stay near the cursor
-    buildingDrag.style.top = (e.clientY) + "px";
-    buildingDrag.style.left = (e.clientX) + "px";
+    if (typeof InstallTrigger === 'undefined'){ // detects firefox, firefox -> false
+        buildingDrag.style.top = (e.clientY) + "px";
+        buildingDrag.style.left = (e.clientX) + "px";
+    }
 }
 
 function showLocations(e) { //shows the locations of were the new building can be placed
@@ -50,6 +53,7 @@ function addEventListenersReserveBuilding(tile, building) { // adds the eventLis
 }
 
 function dragStartBuilding(e) { //makes buildingDrag visible and correct and setup the filter
+    firefoxFlagBuilding = true;
     e.dataTransfer.setData("building", "map");
     e.dataTransfer.setData("building/map", null);//because js only allows me to see the content at drop but then i dont need it any more ¯\_( ͡❛ ͜ʖ ͡❛)_/¯
     buildingDrag.innerHTML = e.target.outerHTML;
@@ -68,6 +72,7 @@ function checkCityToReserve(e) {
 }
 
 function dragEndBuilding() { //makes buildingDrag invisible and removes the eventListeners
+    firefoxFlagBuilding = false;
     document.querySelector("#reserve").classList.remove("visualCue");
     buildingDrag.classList.add("hidden");
     setReserve();

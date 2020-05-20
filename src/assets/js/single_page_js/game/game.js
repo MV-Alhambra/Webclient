@@ -82,8 +82,24 @@ function init() {
     document.querySelector(".manualpopup .close").addEventListener('click', closeManual);
 
     polling().then();
+    if (typeof InstallTrigger !== 'undefined') { //  this detects if it's firefox
+        document.querySelector("body").addEventListener("dragover", moveDragFirefox);
+    }
+
 }
 
+function moveDragFirefox(e) { //this is a replacement since firefox wont give mouse coordinates in drag other browsers like chrome IE, opera, edge do ┗|｀O′|┛ -> https://bugzilla.mozilla.org/show_bug.cgi?id=590355
+    if (firefoxFlagCoins) {
+        coinsDrag.style.top = (e.clientY) + "px";
+        coinsDrag.style.left = (e.clientX - 75) + "px";
+    } else if (firefoxFlagBankCoin) {
+        bankCoinDrag.style.top = (e.clientY) + "px";
+        bankCoinDrag.style.left = (e.clientX - 75) + "px";
+    } else if (firefoxFlagBuilding) {
+        buildingDrag.style.top = (e.clientY) + "px";
+        buildingDrag.style.left = (e.clientX) + "px";
+    }
+}
 
 function setScoreboard() { // loads the scoreboard in
     getGamePlayers(gameId, token).then(players => {
