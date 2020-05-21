@@ -11,10 +11,14 @@ function showHand() { //makes the hand visible if there are buildings in it
             showPossibleLocations(buildings[0], addEventListenersPlaceBuilding);
             selectedBuilding = buildings[0];
             reserve.addEventListener("click", placeBuildingInReserve, {once: true});
+            dirk.addEventListener("click", giveBuildingToDirk, {once: true});
             reserve.classList.add("visualCue");
+            dirk.classList.add("visualCue");
         } else {
+            dirk.removeEventListener("click", giveBuildingToDirk, {once: true});
             reserve.removeEventListener("click", placeBuildingInReserve, {once: true});
             reserve.classList.remove("visualCue");
+            dirk.classList.remove("visualCue");
             hand.classList.add("hidden");
         }
     });

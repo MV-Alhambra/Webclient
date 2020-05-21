@@ -1,6 +1,7 @@
 "use strict";
 
 let bankCoins = [];
+let firefoxFlagBankCoin = false;
 
 function setBank() { // loads the bank in
 
@@ -79,8 +80,10 @@ function grabCoins(e) { //send selected coins to the server
 }
 
 function dragBankCoin(e) {//makes the coin bag stay near the cursor
-    bankCoinDrag.style.top = (e.clientY) + "px";
-    bankCoinDrag.style.left = (e.clientX - 75) + "px";
+    if (typeof InstallTrigger === 'undefined') { // firefox doesnt give mouse coordinates in drag chrome opera and all others do ╰（‵□′）╯, this detects if it's not firefox
+        bankCoinDrag.style.top = (e.clientY) + "px";
+        bankCoinDrag.style.left = (e.clientX - 75) + "px";
+    }
 }
 
 function dragStartBankCoin(e) {
@@ -90,9 +93,11 @@ function dragStartBankCoin(e) {
     document.querySelectorAll("#bank .selectBankCoin").forEach(coin => coin.classList.add("dragged"));
     e.dataTransfer.setData("bankcoin", null);
     bankCoinDrag.classList.remove("hidden");
+    firefoxFlagBankCoin = true;
 }
 
 function dragEndBankCoin() {
+    firefoxFlagBankCoin = false;
     document.querySelector("#money").classList.remove("visualCue");
     bankCoins = []; //bc the coins are now deselected, have to stay in sync
     bankCoinDrag.classList.add("hidden");

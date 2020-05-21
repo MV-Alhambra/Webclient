@@ -66,7 +66,13 @@ function getPlayerReady(gameId, token) {
 }
 
 function getGamePlayers(gameId, token) {
-    return getGameProperty(gameId, token, 'players');
+   return  getGame(gameId,token).then(game =>{
+        const players = game.players;
+        if (game.hasOwnProperty("dirk") && game.dirk !== null){ // emulates dirk as a player so that i dont have to modify any other code to add dirk
+            players.push(game.dirk);
+        }
+        return players;
+    });
 }
 
 function getGameCurrentPlayer(gameId, token) {
@@ -93,6 +99,10 @@ function buyBuilding(gameId, token, playerName, currency, coins) {
 
 function placeBuilding(gameId, token, playerName, building, location) {
     return fetchRaw(`${root}games/${gameId}/players/${playerName}/city`, "POST", token, {building: building, location: location});
+}
+
+function giveDirk(gameId, token, playerName, building) {
+    return fetchRaw(`${root}games/${gameId}/players/${playerName}/dirk`, "POST", token, {building: building});
 }
 
 function getBuildingTypes() {

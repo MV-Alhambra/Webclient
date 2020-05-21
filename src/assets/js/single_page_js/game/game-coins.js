@@ -1,6 +1,7 @@
 "use strict";
 
 let coins = [];
+let firefoxFlagCoins = false;
 
 function setCoins() { // loads the coins in
     getGamePlayer(gameId, token, playerName).then(player => {
@@ -72,8 +73,11 @@ function setListenersDragCoins() {
 }
 
 function dragCoins(e) {
-    coinsDrag.style.top = (e.clientY) + "px";
-    coinsDrag.style.left = (e.clientX - 75) + "px";
+    if (typeof InstallTrigger === 'undefined'){ // this detects if it's not firefox
+        coinsDrag.style.top = (e.clientY) + "px";
+        coinsDrag.style.left = (e.clientX - 75) + "px";
+    }
+
 }
 
 function dragStartCoins(e) {
@@ -86,9 +90,11 @@ function dragStartCoins(e) {
     [...document.querySelectorAll("#marketGrid div p")]
         .filter(building => building.innerHTML.length !== 0 && building.parentElement.getAttribute("data-currency") === coins[0].currency)
         .forEach(market => market.classList.add("visualCue"));
+    firefoxFlagCoins =true;
 }
 
 function dragEndCoins() {
+    firefoxFlagCoins =false;
     document.querySelectorAll("#marketGrid div p.visualCue").forEach(market => market.classList.remove("visualCue")); //for each bc then i dont get an error when it doesnt exist
     emptyCoins(); //bc the coins are now deselected, have to stay in sync
     coinsDrag.classList.add("hidden");
