@@ -32,7 +32,7 @@ function setCity() { // loads in the map
         cityReserveWrapper.innerHTML = reserveBuildings;
     });
     if(name !== playerName){
-        viewTown(gameId,token,name);
+        viewTown(gameId,token,name).then();
     }
 
 }

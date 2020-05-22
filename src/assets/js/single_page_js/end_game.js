@@ -29,7 +29,7 @@ function init() {
     reserveWrapper = document.querySelector("#reserve div");
 
     updateMapSize();
-    getPlayersAndScore().then(response => {
+    getSortedPlayers().then(response => {
         loadInScore(response);
         checkWin(response);
         document.querySelectorAll('#players section a').forEach(a => a.addEventListener('click', showCity));
@@ -42,33 +42,22 @@ function loadInScore(playersScore) {
     playersScore.forEach((player, index) =>
         scoreBoard.innerHTML += `<section>
         <h2>${index + 1}</h2>
-        <h3>${player.name}</h3>
-        <h4>${player.score}</h4>
-        <h5>Title:</h5>
-        <h6>Description</h6>
+        <h3>${player.name}</h3> 
+        <h4>${player.score} points</h4>
+        <h5>${player.title !== null ? player.title.role : "\n" }</h5>
+        <h6>${player.title !== null ? player.title.description : "\n\n"}</h6>
+        <h6>${player.title !== null && player.title.value.charAt(0) !== "0" ? player.title.value : "\n"}</h6>
         <a href="#" data-name="${player.name}">Show village</a>
     </section>`);
 }
 
-function getPlayersAndScore() { // loads the scoreboard in
+function getSortedPlayers() { // sorts the players
     return getGamePlayers(gameId, token).then(players => {
-        const scoreboard = [];
-        players.forEach(player => {
-            scoreboard.push({name: player.name, score: player.score});
-        });
-        return orderByScore(scoreboard);
+        return players.sort( (a,b) => b.score - a.score);
     });
-}
-
-function orderByScore(scoreboard) {
-    scoreboard.sort(function (a, b) {
-        return b.score - a.score;
-    });
-    return scoreboard;
 }
 
 function checkWin(response) {
-    console.log(response);
     if (response[0].name === playerName) {
         winOrLose.innerText = "Victory!";
     } else {
