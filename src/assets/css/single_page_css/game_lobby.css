@@ -2,11 +2,12 @@
 /*    GENERAL ELEMENTS    */
 /*------------------------*/
 body {
-    height: 80vh;
-    margin: 3rem;
+    height: 93vh;
+    margin: 7vh  7vh  0 7vh;
     font-family: sans-serif;
     background-image: url("../../../images/background.png");
     background-size: cover;
+    position: relative;
 }
 
 h1 {
@@ -15,34 +16,14 @@ h1 {
     font-family: 'Berkshire Swash', cursive, sans-serif;
 }
 
+header a:hover{
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
 header a {
     color: white;
     font-family: 'Berkshire Swash', cursive, sans-serif;
     font-size: 1.5rem;
-}
-
-aside {
-    font-family: 'Questrial', sans-serif;
-    color: white;
-    background-color: rgba(42, 42, 42, 0.5);
-    margin-top: 10%;
-    padding: 10px 10px 10px 15px;
-    font-size: 1.5rem;
-    flex-basis: 17%;
-    margin-right: 40px;
-    height: min-content;
-}
-
-dt {
-    color: #e7c509;
-}
-
-main {
-    margin-left: 16%;
-    text-align: center;
-    flex-basis: 83%;
-    height: 50%;
-    margin-top: 50px;
 }
 
 #lobbyName{
@@ -69,18 +50,19 @@ main {
 /*end animatie glow effect*/
 
 
-main h1 {
+#content h1 {
     margin: 30px;
 }
 
-main h1 + h2 {
+#content h1 + h2 {
     margin-bottom: 45px;
 }
 
-main h1, main h2 {
+#content h1, #content h2 {
     font-family: 'Berkshire Swash', cursive, sans-serif;
     color: white;
     letter-spacing: 2px;
+    text-align: center;
 }
 
 /*---------------------*/
@@ -96,6 +78,21 @@ main h1, main h2 {
     letter-spacing: 2px;
     color: white;
     font-size: 2rem;
+}
+aside {
+    font-family: 'Questrial', sans-serif;
+    color: white;
+    background-color: rgba(42, 42, 42, 0.5);
+    padding: 10px 10px 10px 15px;
+    font-size: 1.5rem;
+    height: min-content;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+dt {
+    color: #e7c509;
 }
 
 aside dl {
@@ -113,21 +110,25 @@ aside h2 {
 
 #content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-self: center;
-    height: 80%;
+    height: 50%;
+    position: relative;
+
 }
 
 footer {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -80px;
-    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     text-align: center;
     font-size: 1.5em;
     color: white;
     font-family: 'Questrial', sans-serif;
+    position: absolute;
+    bottom: 10px;
 }
 
 footer ul {
@@ -172,8 +173,13 @@ footer li {
     margin-right: auto;
 }
 
+#copy{
+    cursor: grab;
+}
+
 #copy:hover {
     text-decoration: underline;
+    animation: glow 2s ease-in-out infinite alternate;
 }
 
 .white {

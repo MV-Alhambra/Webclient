@@ -10,8 +10,8 @@ let timerId = null;
 const customName = document.querySelector('#lobbyName');
 const scoreboard = document.querySelector('aside dl');
 const header = document.querySelector('h1');
-const waiting = document.querySelectorAll("main h2")[0];
-const readyButton = document.querySelector('main a');
+const waiting = document.querySelectorAll("#content h2")[0];
+const readyButton = document.querySelector('#content a');
 const waitingAnimation = document.querySelector('span');
 const shadowButton = document.querySelector('.shadow');
 
