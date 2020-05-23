@@ -36,20 +36,6 @@ header a {
     animation: glow 2s ease-in-out infinite alternate;
 }
 
-
-/*animatie glow effect*/
-
-@-webkit-keyframes glow {
-    from {
-        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509;
-    }
-    to {
-        text-shadow: 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509, 0 0 7px #e7c509, 0 0 8px #e7c509, 0 0 10px #e7c509;
-    }
-}
-
-/*end animatie glow effect*/
-
  body>div h2 {
     margin-bottom: 45px;
 }

@@ -23,11 +23,14 @@ a {
     font-size: 1.5rem;
     padding: 15px;
 }
-header{
+
+header {
     margin-bottom: 40px;
 }
 
-
+header a:hover {
+    animation: glow 2s ease-in-out infinite alternate;
+}
 
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
@@ -54,7 +57,7 @@ li label {
     letter-spacing: 2px;
 }
 
-input[type="text"], input[type="number"],select{
+input[type="text"], input[type="number"], select {
     padding: 10px;
     font-size: 1.3rem;
     background-color: rgba(42, 42, 42, 0.5);
@@ -63,33 +66,31 @@ input[type="text"], input[type="number"],select{
     /* field heeft automatisch border, dit verwijderd die border*/
 }
 
-.shadow{
+.shadow {
     width: 30%;
 }
 
-.shadowSmall, .shadow{
-    box-shadow:  0 0 10px rgba(255, 244, 9, 0.6);
+.shadowSmall, .shadow {
+    box-shadow: 0 0 10px rgba(255, 244, 9, 0.6);
 }
 
-select{
+select {
     color: white;
 }
 
-input[type="text"]{
+input[type="text"] {
     width: 100%;
     box-sizing: border-box;
     color: white;
 }
 
-
-input[type="text"]:focus, select:focus{
+input[type="text"]:focus, select:focus {
     background-color: rgb(231, 197, 9);
-    box-shadow:  0 0 4px 5px rgb(255, 244, 9) inset;
+    box-shadow: 0 0 4px 5px rgb(255, 244, 9) inset;
     box-sizing: border-box;
     border: white;
     color: black;
 }
-
 
 input[type="submit"] {
     font-family: 'Questrial', sans-serif;
@@ -100,7 +101,7 @@ input[type="submit"] {
     letter-spacing: 3px;
     color: white;
     background-color: rgb(231, 197, 9);
-    box-shadow:  0 0 4px 5px rgb(255, 244, 9) inset;
+    box-shadow: 0 0 4px 5px rgb(255, 244, 9) inset;
     border: white 1px solid;
     text-decoration: none;
     margin-right: auto;
@@ -109,39 +110,13 @@ input[type="submit"] {
     width: 100%;
 }
 
-
-input[type="submit"]:hover{
-    box-shadow:  0 0 5px 3px white inset;
+input[type="submit"]:hover {
+    box-shadow: 0 0 5px 3px white inset;
 }
 
-
-.shadowButton{
-    box-shadow:  0 0 10px rgba(255, 244, 9, 0.6);
+.shadowButton {
+    box-shadow: 0 0 10px rgba(255, 244, 9, 0.6);
     width: 30%;
     margin-left: auto;
     margin-right: auto;
 }
-
-
-/*end glow elements*/
-
-/*animatie glow effect*/
-
-@-webkit-keyframes glow {
-    from {
-        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509;
-    }
-    to {
-        text-shadow: 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509, 0 0 7px #e7c509, 0 0 8px #e7c509, 0 0 10px #e7c509;
-    }
-}
-
-/*end animatie glow effect*/
-
-
-
-
-/*---------------------*/
-/* CONTAINING ELEMENTS */
-/*---------------------*/
-

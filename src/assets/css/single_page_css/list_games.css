@@ -56,18 +56,6 @@ nav a:hover{
     animation: glow 1s ease-in-out infinite alternate;
 }
 
-@-webkit-keyframes glow {
-    from {
-        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509;
-    }
-    to {
-        text-shadow: 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509, 0 0 7px #e7c509, 0 0 8px #e7c509, 0 0 10px #e7c509;
-    }
-}
-
-/*end animatie glow effect*/
-
-
 main {
     padding: 0 7vw;
     display: flex;
@@ -171,18 +159,9 @@ a#index{
     font-size: 100px;
     color: #fff;
     text-align: center;
-    -webkit-animation: glow 2s ease-in-out infinite alternate;
-    -moz-animation: glow 2s ease-in-out infinite alternate;
     animation: glow 2s ease-in-out infinite alternate;
 }
-@-webkit-keyframes glow {
-    from {
-        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509;
-    }
-    to {
-        text-shadow: 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509, 0 0 7px #e7c509, 0 0 8px #e7c509, 0 0 10px #e7c509;
-    }
-}
+
 nav a:hover, a#index:hover{
     -webkit-animation: glow 1s ease-in-out infinite alternate;
     -moz-animation: glow 1s ease-in-out infinite alternate;
