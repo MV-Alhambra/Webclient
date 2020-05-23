@@ -21,25 +21,12 @@ h1 {
     animation: glow 1s ease-in-out infinite alternate;
     font-family: 'Berkshire Swash', cursive, sans-serif;
 }
-
-/*animatie glow effect*/
-@-webkit-keyframes glow {
-    from {
-        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509;
-    }
-    to {
-        text-shadow: 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509, 0 0 7px #e7c509, 0 0 8px #e7c509, 0 0 10px #e7c509;
-    }
-}
-
-/*end animatie glow effect*/
 /*------------------------*/
 /* PAGE SPECIFIC ELEMENTS */
 /*------------------------*/
 div#players {
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: 75px;
 }
 
 #players section {
@@ -51,6 +38,9 @@ div#players {
     box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.4);
     text-align: center;
     width: 13%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #players section:first-child {
@@ -80,36 +70,42 @@ div#players {
 }
 
 h2 {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     font-size: 4rem;
+}
+
+#players section h5 +h6{
+    font-style: italic;
 }
 
 h3 {
     color: white;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     font-size: 2rem;
 }
 
 h4 {
-    margin-top: 2rem;
-    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 1.3rem;
 }
 
 h5 {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     font-size: 1.5rem;
+    font-weight: 900;
 }
 
 h6 {
     margin-top: 1rem;
-    margin-bottom: 50px;
     font-size: 1rem;
+    margin-bottom: 1rem;
 }
 
 a {
     color: white;
     font-family: 'Berkshire Swash', cursive, sans-serif;
     font-size: 1.5rem;
+
 }
 
 a:hover {
@@ -118,11 +114,13 @@ a:hover {
 
 section a {
     font-family: 'Questrial', sans-serif;
-    text-decoration: none;
     font-weight: bold;
+    margin-top: fill;
+    display: inline-block;
+    text-decoration: underline;
 }
 
-div#links {
+#links {
     display: flex;
     justify-content: space-between;
 }
@@ -169,7 +167,7 @@ div#links {
 }
 
 #cityMap {
-    height:85%;
+    height: 85%;
     width: 100%;
     box-sizing: border-box;
 }
@@ -436,7 +434,6 @@ div#links {
     user-select: none;
     height: 100%;
     box-sizing: border-box;
-    /*border: 10px solid white;*/ /*#todo: make borders look like in rules and when no borders look normal? */
 }
 
 aside {

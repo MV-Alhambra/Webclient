@@ -31,6 +31,10 @@ function setCity() { // loads in the map
         reserve.forEach(building => reserveBuildings += createBuilding(building));
         cityReserveWrapper.innerHTML = reserveBuildings;
     });
+    if(name !== playerName && name !== "dirk\u2122"){
+        viewTown(gameId,token,name).then();
+    }
+
 }
 
 function zoomButtonHider(btnZoomIn, btnZoomOut) { //logic for making the buttons invisible

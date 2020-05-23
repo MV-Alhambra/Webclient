@@ -46,6 +46,7 @@ function calcTotalBuildings(players) { // calculates how many buildings have bee
     let sum = 0;
     players.forEach(player => {
         sum += player.reserve.length;
+        sum += player["buildings-in-hand"].length;
         player.city.flatMap(row => row)
             .filter(tile => tile !== null && tile.type !== null)
             .forEach(() => sum += 1); //sonar wont allow me to use sum++ for some reason ಥ_ಥ

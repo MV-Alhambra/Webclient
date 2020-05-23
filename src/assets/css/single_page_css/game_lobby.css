@@ -2,47 +2,29 @@
 /*    GENERAL ELEMENTS    */
 /*------------------------*/
 body {
-    height: 80vh;
-    margin: 3rem;
+    height: 93vh;
+    margin: 7vh  7vh  0 7vh;
     font-family: sans-serif;
     background-image: url("../../../images/background.png");
     background-size: cover;
+    position: relative;
 }
 
 h1 {
     font-size: 5rem;
     color: white;
     font-family: 'Berkshire Swash', cursive, sans-serif;
+    margin: 30px;
+}
+
+header a:hover{
+    animation: glow 2s ease-in-out infinite alternate;
 }
 
 header a {
     color: white;
     font-family: 'Berkshire Swash', cursive, sans-serif;
     font-size: 1.5rem;
-}
-
-aside {
-    font-family: 'Questrial', sans-serif;
-    color: white;
-    background-color: rgba(42, 42, 42, 0.5);
-    margin-top: 10%;
-    padding: 10px 10px 10px 15px;
-    font-size: 1.5rem;
-    flex-basis: 17%;
-    margin-right: 40px;
-    height: min-content;
-}
-
-dt {
-    color: #e7c509;
-}
-
-main {
-    margin-left: 16%;
-    text-align: center;
-    flex-basis: 83%;
-    height: 50%;
-    margin-top: 50px;
 }
 
 #lobbyName{
@@ -54,33 +36,15 @@ main {
     animation: glow 2s ease-in-out infinite alternate;
 }
 
-
-/*animatie glow effect*/
-
-@-webkit-keyframes glow {
-    from {
-        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509;
-    }
-    to {
-        text-shadow: 0 0 2px #fff, 0 0 3px #e7c509, 0 0 5px #e7c509, 0 0 6px #e7c509, 0 0 7px #e7c509, 0 0 8px #e7c509, 0 0 10px #e7c509;
-    }
-}
-
-/*end animatie glow effect*/
-
-
-main h1 {
-    margin: 30px;
-}
-
-main h1 + h2 {
+ body>div h2 {
     margin-bottom: 45px;
 }
 
-main h1, main h2 {
+ h1, body>div  h2 {
     font-family: 'Berkshire Swash', cursive, sans-serif;
     color: white;
     letter-spacing: 2px;
+    text-align: center;
 }
 
 /*---------------------*/
@@ -97,10 +61,25 @@ main h1, main h2 {
     color: white;
     font-size: 2rem;
 }
+aside {
+    font-family: 'Questrial', sans-serif;
+    color: white;
+    background-color: rgba(42, 42, 42, 0.5);
+    padding: 10px 10px 10px 15px;
+    font-size: 1.5rem;
+    height: min-content;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+dt {
+    color: #e7c509;
+}
 
 aside dl {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 2fr;
 }
 
 aside dt, aside dd {
@@ -113,21 +92,24 @@ aside h2 {
 
 #content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-self: center;
-    height: 80%;
+    position: relative;
+
 }
 
 footer {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -80px;
-    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     text-align: center;
     font-size: 1.5em;
     color: white;
     font-family: 'Questrial', sans-serif;
+    position: absolute;
+    bottom: 10px;
 }
 
 footer ul {
@@ -172,11 +154,16 @@ footer li {
     margin-right: auto;
 }
 
-#copy:hover {
-    text-decoration: underline;
+#copy{
+    cursor: grab;
 }
 
-.white {
+#copy:hover {
+    text-decoration: underline;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+#content .white {
     color: transparent;
 }
 

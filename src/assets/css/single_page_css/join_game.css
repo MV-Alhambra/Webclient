@@ -21,6 +21,10 @@ a{
     line-height: 1.8;
     flex-grow: 1;
 }
+
+a:first-child:hover{
+    animation: glow 2s ease-in-out infinite alternate;
+}
 /*---------------------*/
 /* CONTAINING ELEMENTS */
 /*---------------------*/

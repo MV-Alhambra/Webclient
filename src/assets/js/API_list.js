@@ -101,6 +101,11 @@ function placeBuilding(gameId, token, playerName, building, location) {
     return fetchRaw(`${root}games/${gameId}/players/${playerName}/city`, "POST", token, {building: building, location: location});
 }
 
+function viewTown(gameId,token,playerName) {
+    return fetchJSON(`${root}games/${gameId}/players/${playerName}/city`, "GET", token);
+
+}
+
 function giveDirk(gameId, token, playerName, building) {
     return fetchRaw(`${root}games/${gameId}/players/${playerName}/dirk`, "POST", token, {building: building});
 }

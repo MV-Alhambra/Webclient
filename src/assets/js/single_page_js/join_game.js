@@ -48,16 +48,16 @@ function joinGame(e) {
 
     addPlayer(gameId, name).then(response => {
         if (response.ok) {
-            return response.json();
+            response.json().then(jsonToken => {
+                localStorage.setItem("button", "ready");
+                localStorage.setItem('playerToken', jsonToken);
+                localStorage.setItem('playerName', name);
+                window.location.replace('./game_lobby.html');
+            });
         } else {
-            throw Error;
+            response.json().then(response=> error.innerHTML = response.cause);
         }
-    }).then(jsonToken => {
-        localStorage.setItem("button", "ready");
-        localStorage.setItem('playerToken', jsonToken);
-        localStorage.setItem('playerName', name);
-        window.location.replace('./game_lobby.html');
-    }).catch(() => error.innerHTML = 'That player name is already used!');
+    });
 }
 
 function validate(name) {
