@@ -31,7 +31,7 @@ function setCity() { // loads in the map
         reserve.forEach(building => reserveBuildings += createBuilding(building));
         cityReserveWrapper.innerHTML = reserveBuildings;
     });
-    if(name !== playerName){
+    if(name !== playerName && name !== "dirk\u2122"){
         viewTown(gameId,token,name).then();
     }
 
