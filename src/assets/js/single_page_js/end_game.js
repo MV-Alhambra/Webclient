@@ -42,7 +42,7 @@ function loadInScore(playersScore) {
     playersScore.forEach((player, index) =>
         scoreBoard.innerHTML += `<section>
         <h2>${index + 1}</h2>
-        <h3>${player.name}</h3> 
+        <h3>${player.name}</h3>
         <h4>${player.score} points</h4>
         <h5>${player.title !== null ? player.title.role : "\n" }</h5>
         <h6>${player.title !== null ? player.title.description : "\n\n"}</h6>
