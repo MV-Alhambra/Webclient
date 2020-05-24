@@ -88,7 +88,8 @@ function init() {
 
 }
 
-function moveDragFirefox(e) { //this is a replacement since firefox wont give mouse coordinates in drag other browsers like chrome IE, opera, edge do ┗|｀O′|┛ -> https://bugzilla.mozilla.org/show_bug.cgi?id=590355
+//this is a replacement since firefox wont give mouse coordinates in drag other browsers like chrome IE, opera, edge ┗|｀O′|┛ -> https://bugzilla.mozilla.org/show_bug.cgi?id=590355
+function moveDragFirefox(e) {
     if (firefoxFlagCoins) {
         coinsDrag.style.top = (e.clientY) + "px";
         coinsDrag.style.left = (e.clientX - 75) + "px";

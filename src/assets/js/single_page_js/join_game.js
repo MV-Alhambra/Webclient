@@ -55,7 +55,7 @@ function joinGame(e) {
                 window.location.replace('./game_lobby.html');
             });
         } else {
-            response.json().then(response=> error.innerHTML = response.cause);
+            response.json().then(responseError=> error.innerHTML = responseError.cause);
         }
     });
 }
